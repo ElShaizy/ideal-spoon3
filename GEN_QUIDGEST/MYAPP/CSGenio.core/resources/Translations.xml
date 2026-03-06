@@ -39,6 +39,9 @@
   <msg id="Created by" code="CREATED_BY12292">
     <ENUS>Created by</ENUS>
   </msg>
+  <msg id="Birthdate" code="BIRTHDATE22743">
+    <ENUS>Birthdate</ENUS>
+  </msg>
   <msg id="Salt" code="SALT05277">
     <ENUS>Salt</ENUS>
   </msg>
@@ -47,6 +50,9 @@
   </msg>
   <msg id="Host" code="HOST49573">
     <ENUS>Host</ENUS>
+  </msg>
+  <msg id="Gravar" code="GRAVAR45301">
+    <ENUS>Gravar</ENUS>
   </msg>
   <msg id="Cc" code="CC35482">
     <ENUS>Cc</ENUS>
@@ -123,6 +129,9 @@
   <msg id="Estado do processo" code="ESTADO_DO_PROCESSO07540">
     <ENUS>Estado do processo</ENUS>
   </msg>
+  <msg id="Photo" code="PHOTO51874">
+    <ENUS>Photo</ENUS>
+  </msg>
   <msg id="Sends attachment?" code="SENDS_ATTACHMENT_64661">
     <ENUS>Sends attachment?</ENUS>
   </msg>
@@ -189,6 +198,9 @@
   <msg id="Text after signature" code="TEXT_AFTER_SIGNATURE11837">
     <ENUS>Text after signature</ENUS>
   </msg>
+  <msg id="Cancelar" code="CANCELAR49513">
+    <ENUS>Cancelar</ENUS>
+  </msg>
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>
   </msg>
@@ -245,6 +257,9 @@
   </msg>
   <msg id="Created on" code="CREATED_ON00051">
     <ENUS>Created on</ENUS>
+  </msg>
+  <msg id="Agent" code="AGENT00994">
+    <ENUS>Agent</ENUS>
   </msg>
   <msg id="Modo de processamento" code="MODO_DE_PROCESSAMENT14469">
     <ENUS>Modo de processamento</ENUS>
@@ -327,6 +342,9 @@
   <msg id="Modos de processamento" code="MODOS_DE_PROCESSAMEN07602">
     <ENUS>Modos de processamento</ENUS>
   </msg>
+  <msg id="Agents" code="AGENTS29376">
+    <ENUS>Agents</ENUS>
+  </msg>
   <msg id="a:" code="A_47238">
     <ENUS>to:</ENUS>
   </msg>
@@ -353,9 +371,6 @@
   </msg>
   <msg id="Campo Vazio/Alterado" code="CAMPO_VAZIO_ALTERADO56548">
     <ENUS>Empty/Changed Field</ENUS>
-  </msg>
-  <msg id="Cancelar" code="CANCELAR49513">
-    <ENUS>Cancel</ENUS>
   </msg>
   <msg id="consulta" code="CONSULTA23186">
     <ENUS>Query</ENUS>
@@ -398,9 +413,6 @@
   </msg>
   <msg id="Form" code="FORM54242">
     <ENUS>Form</ENUS>
-  </msg>
-  <msg id="Gravar" code="GRAVAR45301">
-    <ENUS>Save</ENUS>
   </msg>
   <msg id="Grupo" code="GRUPO22663">
     <ENUS>Group</ENUS>
@@ -4876,7 +4888,7 @@
     <ENUS>Select</ENUS>
   </msg>
   <msg id="&amp;Cancelar" code="_CANCELAR09516">
-    <ENUS>Cancel</ENUS>
+    <ENUS>&amp;Cancelar</ENUS>
   </msg>
   <msg id="&amp;Alterar" code="_ALTERAR63438">
     <ENUS>Change</ENUS>
@@ -5080,7 +5092,7 @@
     <ENUS>&amp;Queue</ENUS>
   </msg>
   <msg id="&amp;Gravar" code="_GRAVAR27930">
-    <ENUS>Save</ENUS>
+    <ENUS>&amp;Gravar</ENUS>
   </msg>
   <msg id="&amp;Tabela" code="_TABELA23959">
     <ENUS>Table</ENUS>
@@ -5158,7 +5170,7 @@
     <ENUS>Sum</ENUS>
   </msg>
   <msg id="Gra&amp;var" code="GRA_VAR31620">
-    <ENUS>Save</ENUS>
+    <ENUS>Gra&amp;var</ENUS>
   </msg>
   <msg id="Utilizad&amp;or:" code="UTILIZAD_OR_18947">
     <ENUS>Username:</ENUS>

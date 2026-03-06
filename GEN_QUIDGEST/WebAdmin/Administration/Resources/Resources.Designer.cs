@@ -178,6 +178,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Birthdate"
+        /// </summary>
+        public static string BIRTHDATE22743 {
+            get {
+                return ResourceManager.GetString("BIRTHDATE22743", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Salt"
         /// </summary>
         public static string SALT05277 {
@@ -201,6 +210,15 @@ namespace Administration.Resources {
         public static string HOST49573 {
             get {
                 return ResourceManager.GetString("HOST49573", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Gravar"
+        /// </summary>
+        public static string GRAVAR45301 {
+            get {
+                return ResourceManager.GetString("GRAVAR45301", resourceCulture);
             }
         }
 
@@ -430,6 +448,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Photo"
+        /// </summary>
+        public static string PHOTO51874 {
+            get {
+                return ResourceManager.GetString("PHOTO51874", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Sends attachment?"
         /// </summary>
         public static string SENDS_ATTACHMENT_64661 {
@@ -628,6 +655,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Cancelar"
+        /// </summary>
+        public static string CANCELAR49513 {
+            get {
+                return ResourceManager.GetString("CANCELAR49513", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Password type"
         /// </summary>
         public static string PASSWORD_TYPE03035 {
@@ -795,6 +831,15 @@ namespace Administration.Resources {
         public static string CREATED_ON00051 {
             get {
                 return ResourceManager.GetString("CREATED_ON00051", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Agent"
+        /// </summary>
+        public static string AGENT00994 {
+            get {
+                return ResourceManager.GetString("AGENT00994", resourceCulture);
             }
         }
 
@@ -1042,6 +1087,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Agents"
+        /// </summary>
+        public static string AGENTS29376 {
+            get {
+                return ResourceManager.GetString("AGENTS29376", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "a:"
         /// </summary>
         public static string A_47238 {
@@ -1119,15 +1173,6 @@ namespace Administration.Resources {
         public static string CAMPO_VAZIO_ALTERADO56548 {
             get {
                 return ResourceManager.GetString("CAMPO_VAZIO_ALTERADO56548", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Cancelar"
-        /// </summary>
-        public static string CANCELAR49513 {
-            get {
-                return ResourceManager.GetString("CANCELAR49513", resourceCulture);
             }
         }
 
@@ -1254,15 +1299,6 @@ namespace Administration.Resources {
         public static string FORM54242 {
             get {
                 return ResourceManager.GetString("FORM54242", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Gravar"
-        /// </summary>
-        public static string GRAVAR45301 {
-            get {
-                return ResourceManager.GetString("GRAVAR45301", resourceCulture);
             }
         }
 

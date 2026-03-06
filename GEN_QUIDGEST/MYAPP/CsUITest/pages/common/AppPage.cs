@@ -103,6 +103,7 @@ public class AppPage: PageObject
 
 		module = "TRA";
 		res.AddModule(module);
+		res.AddMenu(module, "1", null);
         return res;
     }
 }

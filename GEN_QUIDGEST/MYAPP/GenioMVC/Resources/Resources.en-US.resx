@@ -156,6 +156,9 @@
 	<data name="CREATED_BY12292" xml:space="preserve">
 		<value>Created by</value>
 	</data>
+	<data name="BIRTHDATE22743" xml:space="preserve">
+		<value>Birthdate</value>
+	</data>
 	<data name="SALT05277" xml:space="preserve">
 		<value>Salt</value>
 	</data>
@@ -164,6 +167,9 @@
 	</data>
 	<data name="HOST49573" xml:space="preserve">
 		<value>Host</value>
+	</data>
+	<data name="GRAVAR45301" xml:space="preserve">
+		<value>Gravar</value>
 	</data>
 	<data name="CC35482" xml:space="preserve">
 		<value>Cc</value>
@@ -240,6 +246,9 @@
 	<data name="ESTADO_DO_PROCESSO07540" xml:space="preserve">
 		<value>Estado do processo</value>
 	</data>
+	<data name="PHOTO51874" xml:space="preserve">
+		<value>Photo</value>
+	</data>
 	<data name="SENDS_ATTACHMENT_64661" xml:space="preserve">
 		<value>Sends attachment?</value>
 	</data>
@@ -306,6 +315,9 @@
 	<data name="TEXT_AFTER_SIGNATURE11837" xml:space="preserve">
 		<value>Text after signature</value>
 	</data>
+	<data name="CANCELAR49513" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
 	<data name="PASSWORD_TYPE03035" xml:space="preserve">
 		<value>Password type</value>
 	</data>
@@ -362,6 +374,9 @@
 	</data>
 	<data name="CREATED_ON00051" xml:space="preserve">
 		<value>Created on</value>
+	</data>
+	<data name="AGENT00994" xml:space="preserve">
+		<value>Agent</value>
 	</data>
 	<data name="MODO_DE_PROCESSAMENT14469" xml:space="preserve">
 		<value>Modo de processamento</value>
@@ -444,6 +459,9 @@
 	<data name="MODOS_DE_PROCESSAMEN07602" xml:space="preserve">
 		<value>Modos de processamento</value>
 	</data>
+	<data name="AGENTS29376" xml:space="preserve">
+		<value>Agents</value>
+	</data>
 	<data name="A_47238" xml:space="preserve">
 		<value>to:</value>
 	</data>
@@ -470,9 +488,6 @@
 	</data>
 	<data name="CAMPO_VAZIO_ALTERADO56548" xml:space="preserve">
 		<value>Empty/Changed Field</value>
-	</data>
-	<data name="CANCELAR49513" xml:space="preserve">
-		<value>Cancel</value>
 	</data>
 	<data name="CONSULTA23186" xml:space="preserve">
 		<value>Query</value>
@@ -515,9 +530,6 @@
 	</data>
 	<data name="FORM54242" xml:space="preserve">
 		<value>Form</value>
-	</data>
-	<data name="GRAVAR45301" xml:space="preserve">
-		<value>Save</value>
 	</data>
 	<data name="GRUPO22663" xml:space="preserve">
 		<value>Group</value>
@@ -4993,7 +5005,7 @@
 		<value>Select</value>
 	</data>
 	<data name="_CANCELAR09516" xml:space="preserve">
-		<value>Cancel</value>
+		<value>&amp;Cancelar</value>
 	</data>
 	<data name="_ALTERAR63438" xml:space="preserve">
 		<value>Change</value>
@@ -5197,7 +5209,7 @@
 		<value>&amp;Queue</value>
 	</data>
 	<data name="_GRAVAR27930" xml:space="preserve">
-		<value>Save</value>
+		<value>&amp;Gravar</value>
 	</data>
 	<data name="_TABELA23959" xml:space="preserve">
 		<value>Table</value>
@@ -5275,7 +5287,7 @@
 		<value>Sum</value>
 	</data>
 	<data name="GRA_VAR31620" xml:space="preserve">
-		<value>Save</value>
+		<value>Gra&amp;var</value>
 	</data>
 	<data name="UTILIZAD_OR_18947" xml:space="preserve">
 		<value>Username:</value>
