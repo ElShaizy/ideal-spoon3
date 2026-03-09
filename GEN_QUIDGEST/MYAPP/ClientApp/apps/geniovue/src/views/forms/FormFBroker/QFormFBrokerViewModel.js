@@ -34,76 +34,76 @@ export default class ViewModel extends FormViewModelBase
 
 		// The view model metadata
 		_merge(this.modelInfo, {
-			name: 'F_AGENT',
-			area: 'AGENT',
+			name: 'F_BROKER',
+			area: 'BROKER',
 			actions: {
-				recalculateFormulas: 'RecalculateFormulas_F_agent',
-				updateFilesTickets: 'UpdateFilesTicketsF_agent',
-				setFile: 'SetFileF_agent'
+				recalculateFormulas: 'RecalculateFormulas_F_broker',
+				updateFilesTickets: 'UpdateFilesTicketsF_broker',
+				setFile: 'SetFileF_broker'
 			}
 		})
 
 		/** The primary key. */
-		this.ValCodagent = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodagent',
-			originId: 'ValCodagent',
-			area: 'AGENT',
-			field: 'CODAGENT',
+		this.ValCodbroker = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodbroker',
+			originId: 'ValCodbroker',
+			area: 'BROKER',
+			field: 'CODBROKER',
 			description: '',
-		}).cloneFrom(values?.ValCodagent))
-		this.stopWatchers.push(watch(() => this.ValCodagent.value, (newValue, oldValue) => this.onUpdate('agent.codagent', this.ValCodagent, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodbroker))
+		this.stopWatchers.push(watch(() => this.ValCodbroker.value, (newValue, oldValue) => this.onUpdate('broker.codbroker', this.ValCodbroker, newValue, oldValue)))
 
 		/** The remaining form fields. */
-		this.ValPhoto = reactive(new modelFieldType.Image({
-			id: 'ValPhoto',
-			originId: 'ValPhoto',
-			area: 'AGENT',
+		this.ValMain_photo = reactive(new modelFieldType.Image({
+			id: 'ValMain_photo',
+			originId: 'ValMain_photo',
+			area: 'BROKER',
 			field: 'PHOTO',
 			description: computed(() => this.Resources.PHOTO51874),
-		}).cloneFrom(values?.ValPhoto))
-		this.stopWatchers.push(watch(() => this.ValPhoto.value, (newValue, oldValue) => this.onUpdate('agent.photo', this.ValPhoto, newValue, oldValue)))
+		}).cloneFrom(values?.ValMain_photo))
+		this.stopWatchers.push(watch(() => this.ValMain_photo.value, (newValue, oldValue) => this.onUpdate('broker.main_photo', this.ValMain_photo, newValue, oldValue)))
 
 		this.ValName = reactive(new modelFieldType.String({
 			id: 'ValName',
 			originId: 'ValName',
-			area: 'AGENT',
+			area: 'BROKER',
 			field: 'NAME',
 			maxLength: 50,
 			description: computed(() => this.Resources.NAME31974),
 		}).cloneFrom(values?.ValName))
-		this.stopWatchers.push(watch(() => this.ValName.value, (newValue, oldValue) => this.onUpdate('agent.name', this.ValName, newValue, oldValue)))
+		this.stopWatchers.push(watch(() => this.ValName.value, (newValue, oldValue) => this.onUpdate('broker.name', this.ValName, newValue, oldValue)))
 
 		this.ValBirthdate = reactive(new modelFieldType.Date({
 			id: 'ValBirthdate',
 			originId: 'ValBirthdate',
-			area: 'AGENT',
+			area: 'BROKER',
 			field: 'BIRTHDATE',
 			description: computed(() => this.Resources.BIRTHDATE22743),
 		}).cloneFrom(values?.ValBirthdate))
-		this.stopWatchers.push(watch(() => this.ValBirthdate.value, (newValue, oldValue) => this.onUpdate('agent.birthdate', this.ValBirthdate, newValue, oldValue)))
+		this.stopWatchers.push(watch(() => this.ValBirthdate.value, (newValue, oldValue) => this.onUpdate('broker.birthdate', this.ValBirthdate, newValue, oldValue)))
 
 		this.ValEmail = reactive(new modelFieldType.String({
 			id: 'ValEmail',
 			originId: 'ValEmail',
-			area: 'AGENT',
+			area: 'BROKER',
 			field: 'EMAIL',
 			maxLength: 256,
 			description: computed(() => this.Resources.EMAIL25170),
 		}).cloneFrom(values?.ValEmail))
-		this.stopWatchers.push(watch(() => this.ValEmail.value, (newValue, oldValue) => this.onUpdate('agent.email', this.ValEmail, newValue, oldValue)))
+		this.stopWatchers.push(watch(() => this.ValEmail.value, (newValue, oldValue) => this.onUpdate('broker.email', this.ValEmail, newValue, oldValue)))
 	}
 
 	/**
-	 * Creates a clone of the current QFormFAgentViewModel instance.
-	 * @returns {QFormFAgentViewModel} A new instance of QFormFAgentViewModel
+	 * Creates a clone of the current QFormFBrokerViewModel instance.
+	 * @returns {QFormFBrokerViewModel} A new instance of QFormFBrokerViewModel
 	 */
 	clone()
 	{
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodagent'
+	static QPrimaryKeyName = 'ValCodbroker'
 
-	get QPrimaryKey() { return this.ValCodagent.value }
-	set QPrimaryKey(value) { this.ValCodagent.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodbroker.value }
+	set QPrimaryKey(value) { this.ValCodbroker.updateValue(value) }
 }

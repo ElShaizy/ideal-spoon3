@@ -93,77 +93,81 @@
 
 		<q-container
 			fluid
-			data-key="F_AGENT"
+			data-key="F_BROKER"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.F_AGENT_AGENTPHOTO___.isVisible || controls.F_AGENT_AGENTNAME____.isVisible || controls.F_AGENT__AGENT__BIRTHDATE.isVisible || controls.F_AGENT_AGENTEMAIL___.isVisible">
+				<q-row v-if="controls.F_BROKER__BROKER__PHOTO.isVisible">
 					<q-col
-						v-if="controls.F_AGENT_AGENTPHOTO___.isVisible"
+						v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.F_AGENT_AGENTPHOTO___.isVisible"
+							v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
 							class="q-image"
-							v-bind="controls.F_AGENT_AGENTPHOTO___"
-							v-on="controls.F_AGENT_AGENTPHOTO___.handlers"
-							:loading="controls.F_AGENT_AGENTPHOTO___.props.loading"
+							v-bind="controls.F_BROKER__BROKER__PHOTO"
+							v-on="controls.F_BROKER__BROKER__PHOTO.handlers"
+							:loading="controls.F_BROKER__BROKER__PHOTO.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
 							<q-image
-								v-if="controls.F_AGENT_AGENTPHOTO___.isVisible"
-								v-bind="controls.F_AGENT_AGENTPHOTO___.props"
-								v-on="controls.F_AGENT_AGENTPHOTO___.handlers" />
+								v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
+								v-bind="controls.F_BROKER__BROKER__PHOTO.props"
+								v-on="controls.F_BROKER__BROKER__PHOTO.handlers" />
 						</base-input-structure>
 					</q-col>
+				</q-row>
+				<q-row v-if="controls.F_BROKER__BROKER__NAME.isVisible || controls.F_BROKER__BROKER__BIRTHDATE.isVisible">
 					<q-col
-						v-if="controls.F_AGENT_AGENTNAME____.isVisible"
+						v-if="controls.F_BROKER__BROKER__NAME.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.F_AGENT_AGENTNAME____.isVisible"
+							v-if="controls.F_BROKER__BROKER__NAME.isVisible"
 							class="i-text"
-							v-bind="controls.F_AGENT_AGENTNAME____"
-							v-on="controls.F_AGENT_AGENTNAME____.handlers"
-							:loading="controls.F_AGENT_AGENTNAME____.props.loading"
+							v-bind="controls.F_BROKER__BROKER__NAME"
+							v-on="controls.F_BROKER__BROKER__NAME.handlers"
+							:loading="controls.F_BROKER__BROKER__NAME.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
 							<q-text-field
-								v-bind="controls.F_AGENT_AGENTNAME____.props"
-								@blur="onBlur(controls.F_AGENT_AGENTNAME____, model.ValName.value)"
+								v-bind="controls.F_BROKER__BROKER__NAME.props"
+								@blur="onBlur(controls.F_BROKER__BROKER__NAME, model.ValName.value)"
 								@change="model.ValName.fnUpdateValueOnChange" />
 						</base-input-structure>
 					</q-col>
 					<q-col
-						v-if="controls.F_AGENT__AGENT__BIRTHDATE.isVisible"
+						v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.F_AGENT__AGENT__BIRTHDATE.isVisible"
+							v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
 							class="i-text"
-							v-bind="controls.F_AGENT__AGENT__BIRTHDATE"
-							v-on="controls.F_AGENT__AGENT__BIRTHDATE.handlers"
-							:loading="controls.F_AGENT__AGENT__BIRTHDATE.props.loading"
+							v-bind="controls.F_BROKER__BROKER__BIRTHDATE"
+							v-on="controls.F_BROKER__BROKER__BIRTHDATE.handlers"
+							:loading="controls.F_BROKER__BROKER__BIRTHDATE.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
 							<q-date-time-picker
-								v-if="controls.F_AGENT__AGENT__BIRTHDATE.isVisible"
-								v-bind="controls.F_AGENT__AGENT__BIRTHDATE.props"
+								v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
+								v-bind="controls.F_BROKER__BROKER__BIRTHDATE.props"
 								:model-value="model.ValBirthdate.value"
 								@reset-icon-click="model.ValBirthdate.fnUpdateValue(model.ValBirthdate.originalValue ?? new Date())"
 								@update:model-value="model.ValBirthdate.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-col>
+				</q-row>
+				<q-row v-if="controls.F_BROKER__BROKER__EMAIL.isVisible">
 					<q-col
-						v-if="controls.F_AGENT_AGENTEMAIL___.isVisible"
+						v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.F_AGENT_AGENTEMAIL___.isVisible"
+							v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
 							class="i-text"
-							v-bind="controls.F_AGENT_AGENTEMAIL___"
-							v-on="controls.F_AGENT_AGENTEMAIL___.handlers"
-							:loading="controls.F_AGENT_AGENTEMAIL___.props.loading"
+							v-bind="controls.F_BROKER__BROKER__EMAIL"
+							v-on="controls.F_BROKER__BROKER__EMAIL.handlers"
+							:loading="controls.F_BROKER__BROKER__EMAIL.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
 							<q-text-field
-								v-bind="controls.F_AGENT_AGENTEMAIL___.props"
-								@blur="onBlur(controls.F_AGENT_AGENTEMAIL___, model.ValEmail.value)"
+								v-bind="controls.F_BROKER__BROKER__EMAIL.props"
+								@blur="onBlur(controls.F_BROKER__BROKER__EMAIL, model.ValEmail.value)"
 								@change="model.ValEmail.fnUpdateValueOnChange" />
 						</base-input-structure>
 					</q-col>
@@ -226,17 +230,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import FormViewModel from './QFormFAgentViewModel.js'
+	import FormViewModel from './QFormFBrokerViewModel.js'
 
-	const requiredTextResources = ['QFormFAgent', 'hardcoded', 'messages']
+	const requiredTextResources = ['QFormFBroker', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_INCLUDEJS F_AGENT]/
+// USE /[MANUAL TRA FORM_INCLUDEJS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QFormFAgent',
+		name: 'QFormFBroker',
 
 		components: {
 		},
@@ -252,8 +256,8 @@
 			nestedRouteParams: {
 				type: Object,
 				default: () => ({
-					name: 'F_AGENT',
-					location: 'form-F_AGENT',
+					name: 'F_BROKER',
+					location: 'form-F_BROKER',
 					params: {
 						isNested: true
 					}
@@ -286,20 +290,20 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QFormFAgent', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QFormFBroker', false),
 
 				interfaceMetadata: {
-					id: 'QFormFAgent', // Used for resources
+					id: 'QFormFBroker', // Used for resources
 					requiredTextResources
 				},
 
 				formInfo: {
 					type: 'normal',
-					name: 'F_AGENT',
-					route: 'form-F_AGENT',
-					area: 'AGENT',
-					primaryKey: 'ValCodagent',
-					designation: computed(() => this.Resources.AGENT00994),
+					name: 'F_BROKER',
+					route: 'form-F_BROKER',
+					area: 'BROKER',
+					primaryKey: 'ValCodbroker',
+					designation: computed(() => this.Resources.BROKER49181),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],
@@ -514,16 +518,16 @@
 				},
 
 				controls: {
-					F_AGENT_AGENTPHOTO___: new fieldControlClass.ImageControl({
-						modelField: 'ValPhoto',
-						valueChangeEvent: 'fieldChange:agent.photo',
-						id: 'F_AGENT_AGENTPHOTO___',
+					F_BROKER__BROKER__PHOTO: new fieldControlClass.ImageControl({
+						modelField: 'ValMain_photo',
+						valueChangeEvent: 'fieldChange:broker.main_photo',
+						id: 'F_BROKER__BROKER__PHOTO',
 						name: 'PHOTO',
 						size: 'mini',
 						label: computed(() => this.Resources.PHOTO51874),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: 0,
+						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
 						maxFileSize: 10485760, // In bytes.
@@ -531,24 +535,23 @@
 						controlLimits: [
 						],
 					}, this),
-					F_AGENT_AGENTNAME____: new fieldControlClass.StringControl({
+					F_BROKER__BROKER__NAME: new fieldControlClass.StringControl({
 						modelField: 'ValName',
-						valueChangeEvent: 'fieldChange:agent.name',
-						id: 'F_AGENT_AGENTNAME____',
+						valueChangeEvent: 'fieldChange:broker.name',
+						id: 'F_BROKER__BROKER__NAME',
 						name: 'NAME',
 						size: 'xxlarge',
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 50,
-						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
-					F_AGENT__AGENT__BIRTHDATE: new fieldControlClass.DateControl({
+					F_BROKER__BROKER__BIRTHDATE: new fieldControlClass.DateControl({
 						modelField: 'ValBirthdate',
-						valueChangeEvent: 'fieldChange:agent.birthdate',
-						id: 'F_AGENT__AGENT__BIRTHDATE',
+						valueChangeEvent: 'fieldChange:broker.birthdate',
+						id: 'F_BROKER__BROKER__BIRTHDATE',
 						name: 'BIRTHDATE',
 						size: 'small',
 						label: computed(() => this.Resources.BIRTHDATE22743),
@@ -558,17 +561,16 @@
 						controlLimits: [
 						],
 					}, this),
-					F_AGENT_AGENTEMAIL___: new fieldControlClass.StringControl({
+					F_BROKER__BROKER__EMAIL: new fieldControlClass.StringControl({
 						modelField: 'ValEmail',
-						valueChangeEvent: 'fieldChange:agent.email',
-						id: 'F_AGENT_AGENTEMAIL___',
+						valueChangeEvent: 'fieldChange:broker.email',
+						id: 'F_BROKER__BROKER__EMAIL',
 						name: 'EMAIL',
 						size: 'xxlarge',
 						label: computed(() => this.Resources.EMAIL25170),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 256,
-						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -594,19 +596,19 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
-					Agent: {
+					Broker: {
 						get ValBirthdate() { return vm.model.ValBirthdate.value },
 						set ValBirthdate(value) { vm.model.ValBirthdate.updateValue(value) },
 						get ValEmail() { return vm.model.ValEmail.value },
 						set ValEmail(value) { vm.model.ValEmail.updateValue(value) },
 						get ValName() { return vm.model.ValName.value },
 						set ValName(value) { vm.model.ValName.updateValue(value) },
-						get ValPhoto() { return vm.model.ValPhoto.value },
-						set ValPhoto(value) { vm.model.ValPhoto.updateValue(value) },
+						get ValMain_photo() { return vm.model.ValMain_photo.value },
+						set ValMain_photo(value) { vm.model.ValMain_photo.updateValue(value) },
 					},
 					keys: {
-						/** The primary key of the AGENT table */
-						get agent() { return vm.model.ValCodagent },
+						/** The primary key of the BROKER table */
+						get broker() { return vm.model.ValCodbroker },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},
@@ -646,7 +648,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_CODEJS F_AGENT]/
+// USE /[MANUAL TRA FORM_CODEJS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -654,7 +656,7 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT F_AGENT]/
+// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -673,7 +675,7 @@
 				this.emitEvent('before-load-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA BEFORE_LOAD_JS F_AGENT]/
+// USE /[MANUAL TRA BEFORE_LOAD_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -693,7 +695,7 @@
 				this.emitEvent('after-load-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_LOADED_JS F_AGENT]/
+// USE /[MANUAL TRA FORM_LOADED_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -740,7 +742,7 @@
 				this.emitEvent('before-apply-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA BEFORE_APPLY_JS F_AGENT]/
+// USE /[MANUAL TRA BEFORE_APPLY_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -760,7 +762,7 @@
 				this.emitEvent('after-apply-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA AFTER_APPLY_JS F_AGENT]/
+// USE /[MANUAL TRA AFTER_APPLY_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -807,7 +809,7 @@
 				this.emitEvent('before-save-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA BEFORE_SAVE_JS F_AGENT]/
+// USE /[MANUAL TRA BEFORE_SAVE_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -827,7 +829,7 @@
 				this.emitEvent('after-save-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA AFTER_SAVE_JS F_AGENT]/
+// USE /[MANUAL TRA AFTER_SAVE_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -842,7 +844,7 @@
 				this.emitEvent('before-delete-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA BEFORE_DEL_JS F_AGENT]/
+// USE /[MANUAL TRA BEFORE_DEL_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -857,7 +859,7 @@
 				this.emitEvent('after-delete-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA AFTER_DEL_JS F_AGENT]/
+// USE /[MANUAL TRA AFTER_DEL_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -877,7 +879,7 @@
 				this.emitEvent('before-exit-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA BEFORE_EXIT_JS F_AGENT]/
+// USE /[MANUAL TRA BEFORE_EXIT_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -897,7 +899,7 @@
 				this.emitEvent('after-exit-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA AFTER_EXIT_JS F_AGENT]/
+// USE /[MANUAL TRA AFTER_EXIT_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -913,7 +915,7 @@
 			onUpdate(fieldName, fieldObject, fieldValue, oldFieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA DLGUPDT F_AGENT]/
+// USE /[MANUAL TRA DLGUPDT F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -929,7 +931,7 @@
 			onBlur(fieldObject, fieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA CTRLBLR F_AGENT]/
+// USE /[MANUAL TRA CTRLBLR F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -946,14 +948,14 @@
 			onControlUpdate(controlField, control, fieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA CTRLUPD F_AGENT]/
+// USE /[MANUAL TRA CTRLUPD F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 				this.afterControlUpdate(controlField, fieldValue)
 			},
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FUNCTIONS_JS F_AGENT]/
+// USE /[MANUAL TRA FUNCTIONS_JS F_BROKER]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},

@@ -20,7 +20,6 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
-using GenioMVC.ViewModels.Agent;
 using GenioServer.business;
 using CSGenio.core.ai;
 
@@ -51,22 +50,6 @@ namespace GenioMVC.Controllers
 // USE /[MANUAL TRA MANUAL_CONTROLLER AGENT]/
 
 
-
-
-
-		/// <summary>
-		/// Recalculate formulas of the "F_agent" form. (++, CT, SR, CL and U1)
-		/// </summary>
-		/// <param name="formData">Current form data</param>
-		/// <returns></returns>
-		[HttpPost]
-		public JsonResult RecalculateFormulas_F_agent([FromBody]F_agent_ViewModel formData)
-		{
-			return GenericRecalculateFormulas(formData, "agent",
-				(primaryKey) => Models.Agent.Find(primaryKey, UserContext.Current, "FF_AGENT"),
-				(model) => formData.MapToModel(model as Models.Agent)
-			);
-		}
 
 		/// <summary>
 		/// Get "See more..." tree structure

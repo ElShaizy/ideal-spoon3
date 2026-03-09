@@ -4,13 +4,13 @@ export default function getFormsRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/:module/form/F_AGENT/:mode/:id?',
-			name: 'form-F_AGENT',
+			path: '/:culture/:system/:module/form/F_BROKER/:mode/:id?',
+			name: 'form-F_BROKER',
 			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormFAgent/QFormFAgent.vue'),
+			component: () => import('@/views/forms/FormFBroker/QFormFBroker.vue'),
 			meta: {
 				routeType: 'form',
-				baseArea: 'AGENT',
+				baseArea: 'BROKER',
 				humanKeyFields: ['ValName'],
 				isPopup: false
 			}

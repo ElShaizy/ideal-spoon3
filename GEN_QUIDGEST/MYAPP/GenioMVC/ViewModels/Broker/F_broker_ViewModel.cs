@@ -16,9 +16,9 @@ using System.Data;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
-namespace GenioMVC.ViewModels.Agent
+namespace GenioMVC.ViewModels.Broker
 {
-	public class F_agent_ViewModel : FormViewModel<Models.Agent>, IPreparableForSerialization
+	public class F_broker_ViewModel : FormViewModel<Models.Broker>, IPreparableForSerialization
 	{
 		[JsonIgnore]
 		public override bool HasWriteConditions { get => false; }
@@ -35,8 +35,8 @@ namespace GenioMVC.ViewModels.Agent
 		/// <summary>
 		/// Title: "Photo" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(30, 0)]
-		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
+		[ImageThumbnailJsonConverter(30, 50)]
+		public GenioMVC.Models.ImageModel ValMain_photo { get; set; }
 		/// <summary>
 		/// Title: "Name" | Type: "C"
 		/// </summary>
@@ -70,7 +70,7 @@ namespace GenioMVC.ViewModels.Agent
 
 		#endregion
 
-		public string ValCodagent { get; set; }
+		public string ValCodbroker { get; set; }
 
 
 		/// <summary>
@@ -78,16 +78,16 @@ namespace GenioMVC.ViewModels.Agent
 		/// A call to Init() needs to be manually invoked after this constructor
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public F_agent_ViewModel() : base(null!) { }
+		public F_broker_ViewModel() : base(null!) { }
 
-		public F_agent_ViewModel(UserContext userContext, bool nestedForm = false) : base(userContext, "FF_AGENT", nestedForm) { }
+		public F_broker_ViewModel(UserContext userContext, bool nestedForm = false) : base(userContext, "FF_BROKER", nestedForm) { }
 
-		public F_agent_ViewModel(UserContext userContext, Models.Agent row, bool nestedForm = false) : base(userContext, "FF_AGENT", row, nestedForm) { }
+		public F_broker_ViewModel(UserContext userContext, Models.Broker row, bool nestedForm = false) : base(userContext, "FF_BROKER", row, nestedForm) { }
 
-		public F_agent_ViewModel(UserContext userContext, string id, bool nestedForm = false, string[]? fieldsToLoad = null) : this(userContext, nestedForm)
+		public F_broker_ViewModel(UserContext userContext, string id, bool nestedForm = false, string[]? fieldsToLoad = null) : this(userContext, nestedForm)
 		{
-			this.Navigation.SetValue("agent", id);
-			Model = Models.Agent.Find(id, userContext, "FF_AGENT", fieldsToQuery: fieldsToLoad);
+			this.Navigation.SetValue("broker", id);
+			Model = Models.Broker.Find(id, userContext, "FF_BROKER", fieldsToQuery: fieldsToLoad);
 			if (Model == null)
 				throw new ModelNotFoundException("Model not found");
 			InitModel();
@@ -110,13 +110,13 @@ namespace GenioMVC.ViewModels.Agent
 		{
 			var m_userContext = userContext;
 			StatusMessage result = new StatusMessage(Status.OK, "");
-			Models.Agent model = new Models.Agent(userContext) { Identifier = "FF_AGENT" };
+			Models.Broker model = new Models.Broker(userContext) { Identifier = "FF_BROKER" };
 
 			var navigation = m_userContext.CurrentNavigation;
 			// The "LoadKeysFromHistory" must be after the "LoadEPH" because the PHE's in the tree mark Foreign Keys to null
 			// (since they cannot assign multiple values to a single field) and thus the value that comes from Navigation is lost.
 			// And this makes it more like the order of loading the model when opening the form.
-			model.LoadEPH("FF_AGENT");
+			model.LoadEPH("FF_BROKER");
 			if (navigation != null)
 				model.LoadKeysFromHistory(navigation, navigation.CurrentLevel.Level);
 
@@ -170,25 +170,25 @@ namespace GenioMVC.ViewModels.Agent
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Agent m)
+		public override void MapFromModel(Models.Broker m)
 		{
 			if (m == null)
 			{
-				CSGenio.framework.Log.Error("Map Model (Agent) to ViewModel (F_agent) - Model is a null reference");
+				CSGenio.framework.Log.Error("Map Model (Broker) to ViewModel (F_broker) - Model is a null reference");
 				throw new ModelNotFoundException("Model not found");
 			}
 
 			try
 			{
-				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
+				ValMain_photo = ViewModelConversion.ToImage(m.ValMain_photo);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValBirthdate = ViewModelConversion.ToDateTime(m.ValBirthdate);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
-				ValCodagent = ViewModelConversion.ToString(m.ValCodagent);
+				ValCodbroker = ViewModelConversion.ToString(m.ValCodbroker);
 			}
 			catch (Exception)
 			{
-				CSGenio.framework.Log.Error("Map Model (Agent) to ViewModel (F_agent) - Error during mapping");
+				CSGenio.framework.Log.Error("Map Model (Broker) to ViewModel (F_broker) - Error during mapping");
 				throw;
 			}
 		}
@@ -200,26 +200,26 @@ namespace GenioMVC.ViewModels.Agent
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Agent m)
+		public override void MapToModel(Models.Broker m)
 		{
 			if (m == null)
 			{
-				CSGenio.framework.Log.Error("Map ViewModel (F_agent) to Model (Agent) - Model is a null reference");
+				CSGenio.framework.Log.Error("Map ViewModel (F_broker) to Model (Broker) - Model is a null reference");
 				throw new ModelNotFoundException("Model not found");
 			}
 
 			try
 			{
-				if (ValPhoto == null || !ValPhoto.IsThumbnail)
-					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
+				if (ValMain_photo == null || !ValMain_photo.IsThumbnail)
+					m.ValMain_photo = ViewModelConversion.ToImage(ValMain_photo);
 				m.ValName = ViewModelConversion.ToString(ValName);
 				m.ValBirthdate = ViewModelConversion.ToDateTime(ValBirthdate);
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
-				m.ValCodagent = ViewModelConversion.ToString(ValCodagent);
+				m.ValCodbroker = ViewModelConversion.ToString(ValCodbroker);
 			}
 			catch (Exception)
 			{
-				CSGenio.framework.Log.Error($"Map ViewModel (F_agent) to Model (Agent) - Error during mapping. All user values: {HasDisabledUserValuesSecurity}");
+				CSGenio.framework.Log.Error($"Map ViewModel (F_broker) to Model (Broker) - Error during mapping. All user values: {HasDisabledUserValuesSecurity}");
 				throw;
 			}
 		}
@@ -240,29 +240,29 @@ namespace GenioMVC.ViewModels.Agent
 
 				switch (fullFieldName)
 				{
-					case "agent.photo":
-						this.ValPhoto = ViewModelConversion.ToImage(_value);
+					case "broker.main_photo":
+						this.ValMain_photo = ViewModelConversion.ToImage(_value);
 						break;
-					case "agent.name":
+					case "broker.name":
 						this.ValName = ViewModelConversion.ToString(_value);
 						break;
-					case "agent.birthdate":
+					case "broker.birthdate":
 						this.ValBirthdate = ViewModelConversion.ToDateTime(_value);
 						break;
-					case "agent.email":
+					case "broker.email":
 						this.ValEmail = ViewModelConversion.ToString(_value);
 						break;
-					case "agent.codagent":
-						this.ValCodagent = ViewModelConversion.ToString(_value);
+					case "broker.codbroker":
+						this.ValCodbroker = ViewModelConversion.ToString(_value);
 						break;
 					default:
-						Log.Error($"SetViewModelValue (F_agent) - Unexpected field identifier {fullFieldName}");
+						Log.Error($"SetViewModelValue (F_broker) - Unexpected field identifier {fullFieldName}");
 						break;
 				}
 			}
 			catch (Exception ex)
 			{
-				throw new FrameworkException(Resources.Resources.PEDIMOS_DESCULPA__OC63848, "SetViewModelValue (F_agent)", "Unexpected error", ex);
+				throw new FrameworkException(Resources.Resources.PEDIMOS_DESCULPA__OC63848, "SetViewModelValue (F_broker)", "Unexpected error", ex);
 			}
 		}
 
@@ -274,8 +274,8 @@ namespace GenioMVC.ViewModels.Agent
 		/// <param name="id">The primary key of the record that needs to be read from the database. Leave NULL to use the value from the History.</param>
 		public override void LoadModel(string id = null)
 		{
-			try { Model = Models.Agent.Find(id ?? Navigation.GetStrValue("agent"), m_userContext, "FF_AGENT"); }
-			finally { Model ??= new Models.Agent(m_userContext) { Identifier = "FF_AGENT" }; }
+			try { Model = Models.Broker.Find(id ?? Navigation.GetStrValue("broker"), m_userContext, "FF_BROKER"); }
+			finally { Model ??= new Models.Broker(m_userContext) { Identifier = "FF_BROKER" }; }
 
 			base.LoadModel();
 		}
@@ -288,7 +288,7 @@ namespace GenioMVC.ViewModels.Agent
 			// TODO: Deve ser substituido por search do CSGenioA
 			try
 			{
-				Model = Models.Agent.Find(Navigation.GetStrValue("agent"), m_userContext, "FF_AGENT");
+				Model = Models.Broker.Find(Navigation.GetStrValue("broker"), m_userContext, "FF_BROKER");
 			}
 			finally
 			{
@@ -301,7 +301,7 @@ namespace GenioMVC.ViewModels.Agent
 					oldvalues = Model.klass;
 			}
 
-			Model.Identifier = "FF_AGENT";
+			Model.Identifier = "FF_BROKER";
 			InitModel(qs, lazyLoad);
 
 			if (Navigation.CurrentLevel.FormMode == FormMode.New || Navigation.CurrentLevel.FormMode == FormMode.Edit || Navigation.CurrentLevel.FormMode == FormMode.Duplicate)
@@ -335,7 +335,7 @@ namespace GenioMVC.ViewModels.Agent
 		{
 		}
 		
-		protected override void LoadDocumentsProperties(Models.Agent row)
+		protected override void LoadDocumentsProperties(Models.Broker row)
 		{
 		}
 
@@ -350,11 +350,11 @@ namespace GenioMVC.ViewModels.Agent
 			{
 				// Precisamos fazer o Find to obter as chaves dos documentos que já foram anexados
 				// TODO: Conseguir passar estas chaves no POST to poder retirar o Find.
-				Model = Models.Agent.Find(Navigation.GetStrValue("agent"), m_userContext, "FF_AGENT");
+				Model = Models.Broker.Find(Navigation.GetStrValue("broker"), m_userContext, "FF_BROKER");
 				if (Model == null)
 				{
-					Model = new Models.Agent(m_userContext) { Identifier = "FF_AGENT" };
-					Model.klass.QPrimaryKey = Navigation.GetStrValue("agent");
+					Model = new Models.Broker(m_userContext) { Identifier = "FF_BROKER" };
+					Model.klass.QPrimaryKey = Navigation.GetStrValue("broker");
 				}
 				MapToModel(Model);
 				LoadDocumentsProperties(Model);
@@ -363,10 +363,10 @@ namespace GenioMVC.ViewModels.Agent
 			Characs = new List<string>();
 
 
-// USE /[MANUAL TRA VIEWMODEL_LOADPARTIAL F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_LOADPARTIAL F_BROKER]/
 		}
 
-// USE /[MANUAL TRA VIEWMODEL_NEW F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_NEW F_BROKER]/
 
 		// Preencher Qvalues default dos fields do form
 		protected override void LoadDefaultValues()
@@ -378,11 +378,7 @@ namespace GenioMVC.ViewModels.Agent
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 			validator.StringLength("ValName", Resources.Resources.NAME31974, ValName, 50);
-
-			validator.Required("ValName", Resources.Resources.NAME31974, ViewModelConversion.ToString(ValName), FieldType.TEXT.GetFormatting());
 			validator.StringLength("ValEmail", Resources.Resources.EMAIL25170, ValEmail, 256);
-
-			validator.Required("ValEmail", Resources.Resources.EMAIL25170, ViewModelConversion.ToString(ValEmail), FieldType.TEXT.GetFormatting());
 
 
 			return validator.GetResult();
@@ -392,7 +388,7 @@ namespace GenioMVC.ViewModels.Agent
 		{
 			base.Init(userContext);
 		}
-// USE /[MANUAL TRA VIEWMODEL_SAVE F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_SAVE F_BROKER]/
 		public override void Save()
 		{
 
@@ -400,14 +396,14 @@ namespace GenioMVC.ViewModels.Agent
 			base.Save();
 		}
 
-// USE /[MANUAL TRA VIEWMODEL_APPLY F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_APPLY F_BROKER]/
 
-// USE /[MANUAL TRA VIEWMODEL_DUPLICATE F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_DUPLICATE F_BROKER]/
 
-// USE /[MANUAL TRA VIEWMODEL_DESTROY F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_DESTROY F_BROKER]/
 		public override void Destroy(string id)
 		{
-			Model = Models.Agent.Find(id, m_userContext, "FF_AGENT");
+			Model = Models.Broker.Find(id, m_userContext, "FF_BROKER");
 			if (Model == null)
 				throw new ModelNotFoundException("Model not found");
 			this.flashMessage = Model.Destroy();
@@ -424,11 +420,11 @@ namespace GenioMVC.ViewModels.Agent
 		{
 			return identifier switch
 			{
-				"agent.photo" => ViewModelConversion.ToImage(modelValue),
-				"agent.name" => ViewModelConversion.ToString(modelValue),
-				"agent.birthdate" => ViewModelConversion.ToDateTime(modelValue),
-				"agent.email" => ViewModelConversion.ToString(modelValue),
-				"agent.codagent" => ViewModelConversion.ToString(modelValue),
+				"broker.main_photo" => ViewModelConversion.ToImage(modelValue),
+				"broker.name" => ViewModelConversion.ToString(modelValue),
+				"broker.birthdate" => ViewModelConversion.ToDateTime(modelValue),
+				"broker.email" => ViewModelConversion.ToString(modelValue),
+				"broker.codbroker" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}
@@ -436,8 +432,8 @@ namespace GenioMVC.ViewModels.Agent
 		/// <inheritdoc/>
 		protected override void SetTicketToImageFields()
 		{
-			if (ValPhoto != null)
-				ValPhoto.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaAGENT, CSGenioAagent.FldPhoto.Field, null, ValCodagent);
+			if (ValMain_photo != null)
+				ValMain_photo.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaBROKER, CSGenioAbroker.FldMain_photo.Field, null, ValCodbroker);
 		}
 
 		#region Charts
@@ -447,7 +443,7 @@ namespace GenioMVC.ViewModels.Agent
 
 		#region Custom code
 
-// USE /[MANUAL TRA VIEWMODEL_CUSTOM F_AGENT]/
+// USE /[MANUAL TRA VIEWMODEL_CUSTOM F_BROKER]/
 
 		#endregion
 	}

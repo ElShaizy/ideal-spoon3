@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '11',
 					isMenuList: true,
-					designation: computed(() => this.Resources.AGENTS29376),
+					designation: computed(() => this.Resources.BROKERS44855),
 					acronym: 'TRA_11',
-					name: 'AGENT',
+					name: 'BROKER',
 					route: 'menu-TRA_11',
 					order: '11',
-					controller: 'AGENT',
+					controller: 'BROKER',
 					action: 'TRA_Menu_11',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'TRA_Menu_11',
-						controller: 'AGENT',
+						controller: 'BROKER',
 						action: 'TRA_Menu_11',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -149,7 +149,7 @@
 							new listColumnTypes.TextColumn({
 								order: 1,
 								name: 'ValName',
-								area: 'AGENT',
+								area: 'BROKER',
 								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
 								dataLength: 50,
@@ -159,28 +159,28 @@
 							new listColumnTypes.TextColumn({
 								order: 2,
 								name: 'ValEmail',
-								area: 'AGENT',
+								area: 'BROKER',
 								field: 'EMAIL',
 								label: computed(() => this.Resources.EMAIL25170),
 								dataLength: 256,
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
+							new listColumnTypes.TextColumn({
 								order: 3,
-								name: 'ValBirthdate',
-								area: 'AGENT',
-								field: 'BIRTHDATE',
-								label: computed(() => this.Resources.BIRTHDATE22743),
-								scrollData: 8,
-								dateTimeType: 'date',
+								name: 'ValPhone_number',
+								area: 'BROKER',
+								field: 'PHONE_NUMBER',
+								label: computed(() => this.Resources.PHONE_NUMBER31368),
+								dataLength: 12,
+								scrollData: 12,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
 								order: 4,
-								name: 'ValPhoto',
-								area: 'AGENT',
-								field: 'PHOTO',
+								name: 'ValMain_photo',
+								area: 'BROKER',
+								field: 'MAIN_PHOTO',
 								label: computed(() => this.Resources.PHOTO51874),
 								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
 								scrollData: 3,
@@ -188,16 +188,26 @@
 								searchable: false,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 5,
+								name: 'ValBirthdate',
+								area: 'BROKER',
+								field: 'BIRTHDATE',
+								label: computed(() => this.Resources.BIRTHDATE22743),
+								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'TRA_Menu_11',
 							serverMode: true,
-							pkColumn: 'ValCodagent',
-							tableAlias: 'AGENT',
-							tableNamePlural: computed(() => this.Resources.AGENTS29376),
+							pkColumn: 'ValCodbroker',
+							tableAlias: 'BROKER',
+							tableNamePlural: computed(() => this.Resources.BROKERS44855),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.AGENTS29376),
+							tableTitle: computed(() => this.Resources.BROKERS44855),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -218,7 +228,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_AGENT',
+										formName: 'F_BROKER',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -234,7 +244,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_AGENT',
+										formName: 'F_BROKER',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -250,7 +260,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_AGENT',
+										formName: 'F_BROKER',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -266,7 +276,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_AGENT',
+										formName: 'F_BROKER',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -284,7 +294,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_AGENT',
+										formName: 'F_BROKER',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -301,23 +311,23 @@
 							],
 							rowClickAction: {
 								id: 'RCA_TRA_111',
-								name: 'form-F_AGENT',
+								name: 'form-F_BROKER',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodagent
+											fnValueSelector: (row) => row.ValCodbroker
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_AGENT'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_BROKER'
 								}
 							},
 							formsDefinition: {
-								'F_AGENT': {
-									fnKeySelector: (row) => row.Fields.ValCodagent,
+								'F_BROKER': {
+									fnKeySelector: (row) => row.Fields.ValCodbroker,
 									isPopup: false
 								},
 							},
@@ -328,8 +338,8 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-AGENT'],
-						uuid: '7553c33c-0487-4c07-914c-854d55be38d0',
+						globalEvents: ['changed-BROKER'],
+						uuid: '8ab24a51-c5cc-4ad5-99b2-9c37af83a5c8',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

@@ -26,7 +26,7 @@ export default function getMenusRoutes()
 				routeType: 'menu',
 				module: 'TRA',
 				order: '11',
-				baseArea: 'AGENT',
+				baseArea: 'BROKER',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
 				isPopup: false
