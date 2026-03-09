@@ -268,6 +268,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Broker Name"
+        /// </summary>
+        public static string BROKER_NAME33548 {
+            get {
+                return ResourceManager.GetString("BROKER_NAME33548", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Document"
         /// </summary>
         public static string DOCUMENT00695 {

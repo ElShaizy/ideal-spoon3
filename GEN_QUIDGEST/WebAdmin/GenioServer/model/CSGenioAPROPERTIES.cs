@@ -97,6 +97,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "broker name", FieldType.TEXT);
+			Qfield.FieldDescription = "Broker Name";
+			Qfield.FieldSize =  50;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "BROKER_NAME33548";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -300,6 +310,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldBroker_fk, value); }
 		}
 
+		/// <summary>Field : "Broker Name" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldBroker name { get { return m_fldBroker name; } }
+		private static FieldRef m_fldBroker name = new FieldRef("properties", "broker name");
+
+		/// <summary>Field : "Broker Name" Tipo: "C" Formula:  ""</summary>
+		public string ValBroker name
+		{
+			get { return (string)returnValueField(FldBroker name); }
+			set { insertNameValueField(FldBroker name, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("properties", "zzstate");
@@ -397,7 +418,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX PROPERTIES]/
 
  
-      
+       
 
 	}
 }

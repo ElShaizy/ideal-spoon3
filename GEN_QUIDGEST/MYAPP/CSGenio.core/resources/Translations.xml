@@ -69,6 +69,9 @@
   <msg id="Result" code="RESULT40974">
     <ENUS>Result</ENUS>
   </msg>
+  <msg id="Broker Name" code="BROKER_NAME33548">
+    <ENUS>Broker Name</ENUS>
+  </msg>
   <msg id="Document" code="DOCUMENT00695">
     <ENUS>Document</ENUS>
   </msg>
