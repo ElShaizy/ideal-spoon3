@@ -29,11 +29,11 @@ namespace GenioMVC.Models
 
 		[DisplayName("Main Photo")]
 		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValMain photo")]
+		[ShouldSerialize("Properties.ValMain_photo")]
 		[ImageThumbnailJsonConverter(75, 75)]
-		public ImageModel ValMain photo { get { return new ImageModel(klass.ValMain photo) { Ticket = ValMain photoQTicket }; } set { klass.ValMain photo = value; } }
+		public ImageModel ValMain_photo { get { return new ImageModel(klass.ValMain_photo) { Ticket = ValMain_photoQTicket }; } set { klass.ValMain_photo = value; } }
 		[JsonIgnore]
-		public string ValMain photoQTicket = null;
+		public string ValMain_photoQTicket = null;
 
 		[DisplayName("Title")]
 		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
@@ -68,8 +68,8 @@ namespace GenioMVC.Models
 
 		[DisplayName("Broker Name")]
 		/// <summary>Field : "Broker Name" Tipo: "C" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValBroker name")]
-		public string ValBroker name { get { return klass.ValBroker name; } set { klass.ValBroker name = value; } }
+		[ShouldSerialize("Properties.ValBroker_name")]
+		public string ValBroker_name { get { return klass.ValBroker_name; } set { klass.ValBroker_name = value; } }
 
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Properties.ValZzstate")]

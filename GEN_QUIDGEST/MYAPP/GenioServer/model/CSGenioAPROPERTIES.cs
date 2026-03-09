@@ -54,7 +54,7 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "main photo", FieldType.IMAGE);
+			Qfield = new Field(info.Alias, "main_photo", FieldType.IMAGE);
 			Qfield.FieldDescription = "Main Photo";
 			Qfield.FieldSize =  3;
 			Qfield.MQueue = false;
@@ -97,7 +97,7 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "broker name", FieldType.TEXT);
+			Qfield = new Field(info.Alias, "broker_name", FieldType.TEXT);
 			Qfield.FieldDescription = "Broker Name";
 			Qfield.FieldSize =  50;
 			Qfield.MQueue = false;
@@ -267,14 +267,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
-		public static FieldRef FldMain photo { get { return m_fldMain photo; } }
-		private static FieldRef m_fldMain photo = new FieldRef("properties", "main photo");
+		public static FieldRef FldMain_photo { get { return m_fldMain_photo; } }
+		private static FieldRef m_fldMain_photo = new FieldRef("properties", "main_photo");
 
 		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
-		public byte[] ValMain photo
+		public byte[] ValMain_photo
 		{
-			get { return (byte[])returnValueField(FldMain photo); }
-			set { insertNameValueField(FldMain photo, value); }
+			get { return (byte[])returnValueField(FldMain_photo); }
+			set { insertNameValueField(FldMain_photo, value); }
 		}
 
 		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
@@ -311,14 +311,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "Broker Name" Tipo: "C" Formula:  ""</summary>
-		public static FieldRef FldBroker name { get { return m_fldBroker name; } }
-		private static FieldRef m_fldBroker name = new FieldRef("properties", "broker name");
+		public static FieldRef FldBroker_name { get { return m_fldBroker_name; } }
+		private static FieldRef m_fldBroker_name = new FieldRef("properties", "broker_name");
 
 		/// <summary>Field : "Broker Name" Tipo: "C" Formula:  ""</summary>
-		public string ValBroker name
+		public string ValBroker_name
 		{
-			get { return (string)returnValueField(FldBroker name); }
-			set { insertNameValueField(FldBroker name, value); }
+			get { return (string)returnValueField(FldBroker_name); }
+			set { insertNameValueField(FldBroker_name, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
