@@ -54,7 +54,7 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "main photo", FieldType.IMAGE);
+			Qfield = new Field(info.Alias, "main_photo", FieldType.IMAGE);
 			Qfield.FieldDescription = "Photo";
 			Qfield.FieldSize =  3;
 			Qfield.MQueue = false;
@@ -271,14 +271,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
-		public static FieldRef FldMain photo { get { return m_fldMain photo; } }
-		private static FieldRef m_fldMain photo = new FieldRef("broker", "main photo");
+		public static FieldRef FldMain_photo { get { return m_fldMain_photo; } }
+		private static FieldRef m_fldMain_photo = new FieldRef("broker", "main_photo");
 
 		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
-		public byte[] ValMain photo
+		public byte[] ValMain_photo
 		{
-			get { return (byte[])returnValueField(FldMain photo); }
-			set { insertNameValueField(FldMain photo, value); }
+			get { return (byte[])returnValueField(FldMain_photo); }
+			set { insertNameValueField(FldMain_photo, value); }
 		}
 
 		/// <summary>Field : "Name" Tipo: "C" Formula:  ""</summary>

@@ -29,11 +29,11 @@ namespace GenioMVC.Models
 
 		[DisplayName("Photo")]
 		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
-		[ShouldSerialize("Broker.ValMain photo")]
+		[ShouldSerialize("Broker.ValMain_photo")]
 		[ImageThumbnailJsonConverter(75, 75)]
-		public ImageModel ValMain photo { get { return new ImageModel(klass.ValMain photo) { Ticket = ValMain photoQTicket }; } set { klass.ValMain photo = value; } }
+		public ImageModel ValMain_photo { get { return new ImageModel(klass.ValMain_photo) { Ticket = ValMain_photoQTicket }; } set { klass.ValMain_photo = value; } }
 		[JsonIgnore]
-		public string ValMain photoQTicket = null;
+		public string ValMain_photoQTicket = null;
 
 		[DisplayName("Name")]
 		/// <summary>Field : "Name" Tipo: "C" Formula:  ""</summary>
