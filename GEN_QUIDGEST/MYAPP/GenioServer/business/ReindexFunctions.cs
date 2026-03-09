@@ -107,32 +107,6 @@ namespace CSGenio.business
             }
                 
 
-            /* --- TRAproperties --- */
-            dm = sp.Execute(
-                new SelectQuery()
-                .Select(CSGenioAproperties.FldCodproperties)
-                .From(CSGenioAproperties.AreaPROPERTIES)
-                .Where(CriteriaSet.And().In(CSGenioAproperties.FldZzstate, zzstateToRemove))
-                );
-
-            for (int i = 0; i < dm.NumRows; i++)
-            {
-                CSGenioAproperties model = new CSGenioAproperties(user);
-                model.ValCodproperties = dm.GetKey(i, 0);
-
-                try
-                {
-                    model.delete(sp);
-                }
-                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
-                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
-                catch(BusinessException ex)
-                {
-                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
-                }
-            }
-                
-
             /* --- UserLogin --- */
             dm = sp.Execute(
                 new SelectQuery()
@@ -223,6 +197,32 @@ namespace CSGenio.business
             {
                 CSGenioAs_nm model = new CSGenioAs_nm(user);
                 model.ValCodmesgs = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- TRAproperties --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAproperties.FldCodproperties)
+                .From(CSGenioAproperties.AreaPROPERTIES)
+                .Where(CriteriaSet.And().In(CSGenioAproperties.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAproperties model = new CSGenioAproperties(user);
+                model.ValCodproperties = dm.GetKey(i, 0);
 
                 try
                 {

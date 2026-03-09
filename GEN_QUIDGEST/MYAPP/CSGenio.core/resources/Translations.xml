@@ -264,6 +264,9 @@
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
   </msg>
+  <msg id="Phone Number" code="PHONE_NUMBER31368">
+    <ENUS>Phone Number</ENUS>
+  </msg>
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
   </msg>

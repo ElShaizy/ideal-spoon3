@@ -46,6 +46,26 @@ namespace GenioMVC.Models
 		[CurrencyAttribute("EUR", 4)]
 		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 4)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
 
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValBroker_fk")]
+		public string ValBroker_fk { get { return klass.ValBroker_fk; } set { klass.ValBroker_fk = value; } }
+
+		private Broker _broker;
+		[DisplayName("Broker")]
+		[ShouldSerialize("Broker")]
+		public virtual Broker Broker
+		{
+			get
+			{
+				if (!isEmptyModel && (_broker == null || (!string.IsNullOrEmpty(ValBroker_fk) && (_broker.isEmptyModel || _broker.klass.QPrimaryKey != ValBroker_fk))))
+					_broker = Models.Broker.Find(ValBroker_fk, m_userContext, Identifier, _fieldsToSerialize);
+				_broker ??= new Models.Broker(m_userContext, true, _fieldsToSerialize);
+				return _broker;
+			}
+			set { _broker = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Properties.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -77,6 +97,10 @@ namespace GenioMVC.Models
 			{
 				switch (Qfield.Area)
 				{
+					case "broker":
+						_broker ??= new Broker(m_userContext, true, _fieldsToSerialize);
+						_broker.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
 					default:
 						break;
 				}

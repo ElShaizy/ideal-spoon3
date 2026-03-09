@@ -94,6 +94,23 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "phone number", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Phone Number";
+			Qfield.FieldSize =  15;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 15;
+			Qfield.CavDesignation = "PHONE_NUMBER31368";
+
+			Qfield.Dupmsg = "";
+			Qfield.FillingRule = (rule) =>
+			{
+				string mask = "00000 000000";
+				string validation = "00000 000000";
+				return Validation.validateMP(rule, mask, validation);
+			};
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -107,6 +124,8 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
+			info.ChildTable = new ChildRelation[1];
+			info.ChildTable[0]= new ChildRelation("properties", new String[] {"broker_fk"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------
@@ -295,6 +314,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldEmail, value); }
 		}
 
+		/// <summary>Field : "Phone Number" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldPhone number { get { return m_fldPhone number; } }
+		private static FieldRef m_fldPhone number = new FieldRef("broker", "phone number");
+
+		/// <summary>Field : "Phone Number" Tipo: "N" Formula:  ""</summary>
+		public decimal ValPhone number
+		{
+			get { return (decimal)returnValueField(FldPhone number); }
+			set { insertNameValueField(FldPhone number, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("broker", "zzstate");
@@ -392,7 +422,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX BROKER]/
 
  
-      
+       
 
 	}
 }

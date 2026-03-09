@@ -855,6 +855,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Phone Number"
+		/// </summary>
+		public static string PHONE_NUMBER31368 {
+			get {
+				return ResourceManager.GetString("PHONE_NUMBER31368", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Date"
 		/// </summary>
 		public static string DATE18475 {
