@@ -53,10 +53,9 @@ namespace GenioMVC.Models
 		public string ValEmail { get { return klass.ValEmail; } set { klass.ValEmail = value; } }
 
 		[DisplayName("Phone Number")]
-		/// <summary>Field : "Phone Number" Tipo: "N" Formula:  ""</summary>
-		[ShouldSerialize("Broker.ValPhone number")]
-		[NumericAttribute(0)]
-		public decimal? ValPhone number { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPhone number, 0)); } set { klass.ValPhone number = Convert.ToDecimal(value); } }
+		/// <summary>Field : "Phone Number" Tipo: "C" Formula:  ""</summary>
+		[ShouldSerialize("Broker.ValPhone_number")]
+		public string ValPhone_number { get { return klass.ValPhone_number; } set { klass.ValPhone_number = value; } }
 
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Broker.ValZzstate")]

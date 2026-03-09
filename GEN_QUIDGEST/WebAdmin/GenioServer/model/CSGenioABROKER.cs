@@ -94,11 +94,10 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "phone number", FieldType.NUMERIC);
+			Qfield = new Field(info.Alias, "phone_number", FieldType.TEXT);
 			Qfield.FieldDescription = "Phone Number";
-			Qfield.FieldSize =  15;
+			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 15;
 			Qfield.CavDesignation = "PHONE_NUMBER31368";
 
 			Qfield.Dupmsg = "";
@@ -314,15 +313,15 @@ namespace CSGenio.business
 			set { insertNameValueField(FldEmail, value); }
 		}
 
-		/// <summary>Field : "Phone Number" Tipo: "N" Formula:  ""</summary>
-		public static FieldRef FldPhone number { get { return m_fldPhone number; } }
-		private static FieldRef m_fldPhone number = new FieldRef("broker", "phone number");
+		/// <summary>Field : "Phone Number" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldPhone_number { get { return m_fldPhone_number; } }
+		private static FieldRef m_fldPhone_number = new FieldRef("broker", "phone_number");
 
-		/// <summary>Field : "Phone Number" Tipo: "N" Formula:  ""</summary>
-		public decimal ValPhone number
+		/// <summary>Field : "Phone Number" Tipo: "C" Formula:  ""</summary>
+		public string ValPhone_number
 		{
-			get { return (decimal)returnValueField(FldPhone number); }
-			set { insertNameValueField(FldPhone number, value); }
+			get { return (string)returnValueField(FldPhone_number); }
+			set { insertNameValueField(FldPhone_number, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
