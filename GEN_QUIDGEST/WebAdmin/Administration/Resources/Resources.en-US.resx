@@ -162,6 +162,9 @@
   <data name="BIRTHDATE22743" xml:space="preserve">
     <value>Birthdate</value>
   </data>
+  <data name="BROKERS44855" xml:space="preserve">
+    <value>Brokers</value>
+  </data>
   <data name="SALT05277" xml:space="preserve">
     <value>Salt</value>
   </data>
@@ -404,6 +407,9 @@
   </data>
   <data name="QUIDGEST26196" xml:space="preserve">
     <value>Quidgest</value>
+  </data>
+  <data name="BROKER49181" xml:space="preserve">
+    <value>Broker</value>
   </data>
   <data name="LAST_UPDATE11909" xml:space="preserve">
     <value>Last update</value>

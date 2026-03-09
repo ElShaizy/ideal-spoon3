@@ -196,6 +196,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Brokers"
+        /// </summary>
+        public static string BROKERS44855 {
+            get {
+                return ResourceManager.GetString("BROKERS44855", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Salt"
         /// </summary>
         public static string SALT05277 {
@@ -921,6 +930,15 @@ namespace Administration.Resources {
         public static string QUIDGEST26196 {
             get {
                 return ResourceManager.GetString("QUIDGEST26196", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Broker"
+        /// </summary>
+        public static string BROKER49181 {
+            get {
+                return ResourceManager.GetString("BROKER49181", resourceCulture);
             }
         }
 

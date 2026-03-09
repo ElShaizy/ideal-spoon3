@@ -45,6 +45,9 @@
   <msg id="Birthdate" code="BIRTHDATE22743">
     <ENUS>Birthdate</ENUS>
   </msg>
+  <msg id="Brokers" code="BROKERS44855">
+    <ENUS>Brokers</ENUS>
+  </msg>
   <msg id="Salt" code="SALT05277">
     <ENUS>Salt</ENUS>
   </msg>
@@ -287,6 +290,9 @@
   </msg>
   <msg id="Quidgest" code="QUIDGEST26196">
     <ENUS>Quidgest</ENUS>
+  </msg>
+  <msg id="Broker" code="BROKER49181">
+    <ENUS>Broker</ENUS>
   </msg>
   <msg id="Last update" code="LAST_UPDATE11909">
     <ENUS>Last update</ENUS>
