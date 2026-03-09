@@ -20,6 +20,7 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
+using GenioMVC.ViewModels.Properties;
 using GenioServer.business;
 using CSGenio.core.ai;
 
@@ -50,6 +51,22 @@ namespace GenioMVC.Controllers
 // USE /[MANUAL TRA MANUAL_CONTROLLER PROPERTIES]/
 
 
+
+
+
+		/// <summary>
+		/// Recalculate formulas of the "F_property" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_F_property([FromBody]F_property_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "properties",
+				(primaryKey) => Models.Properties.Find(primaryKey, UserContext.Current, "FF_PROPERTY"),
+				(model) => formData.MapToModel(model as Models.Properties)
+			);
+		}
 
 		/// <summary>
 		/// Get "See more..." tree structure

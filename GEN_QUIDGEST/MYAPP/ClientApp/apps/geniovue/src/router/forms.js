@@ -15,5 +15,17 @@ export default function getFormsRoutes()
 				isPopup: false
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/F_PROPERTY/:mode/:id?',
+			name: 'form-F_PROPERTY',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFProperty/QFormFProperty.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'PROPERTIES',
+				humanKeyFields: ['ValTitle', 'ValPrice'],
+				isPopup: false
+			}
+		},
 	]
 }

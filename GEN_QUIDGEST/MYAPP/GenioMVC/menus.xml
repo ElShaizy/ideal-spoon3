@@ -7,5 +7,11 @@
         <MENU TYPE="ITEM" ID="111" PRTID="11" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111" />
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="PROPERTIES34868" SIGLA="" ID="2" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="2" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" DESC="PROPERTIES34868" ID="21" PRTID="2" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="TRA_Menu_21" ACTVUE="menu-TRA_21" CONT="PROPERTIES" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="21">
+        <MENU TYPE="ITEM" ID="211" PRTID="21" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="211" />
+      </MENU>
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>
