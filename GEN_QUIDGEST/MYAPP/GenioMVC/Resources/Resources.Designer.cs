@@ -63,6 +63,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "brokers name"
+		/// </summary>
+		public static string BROKERS_NAME50728 {
+			get {
+				return ResourceManager.GetString("BROKERS_NAME50728", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Process info"
 		/// </summary>
 		public static string PROCESS_INFO62044 {

@@ -66,11 +66,6 @@ namespace GenioMVC.Models
 			set { _broker = value; }
 		}
 
-		[DisplayName("Broker Name")]
-		/// <summary>Field : "Broker Name" Tipo: "C" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValBroker_name")]
-		public string ValBroker_name { get { return klass.ValBroker_name; } set { klass.ValBroker_name = value; } }
-
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Properties.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

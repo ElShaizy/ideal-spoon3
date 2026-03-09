@@ -31,16 +31,15 @@ namespace GenioMVC.ViewModels.Properties
 
 		#region Foreign keys
 		/// <summary>
-		/// Title: "" | Type: "CE"
+		/// Title: "brokers name" | Type: "CE"
 		/// </summary>
-		[ValidateSetAccess]
 		public string ValBroker_fk { get; set; }
 
 		#endregion
 		/// <summary>
 		/// Title: "Main Photo" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValMain_photo { get; set; }
 		/// <summary>
 		/// Title: "Title" | Type: "C"
@@ -51,9 +50,10 @@ namespace GenioMVC.ViewModels.Properties
 		/// </summary>
 		public decimal? ValPrice { get; set; }
 		/// <summary>
-		/// Title: "Broker Name" | Type: "C"
+		/// Title: "brokers name" | Type: "C"
 		/// </summary>
-		public string ValBroker_name { get; set; }
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.Broker> TableBrokerName { get; set; }
 
 		#region Navigations
 		#endregion
@@ -189,7 +189,6 @@ namespace GenioMVC.ViewModels.Properties
 				ValMain_photo = ViewModelConversion.ToImage(m.ValMain_photo);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
-				ValBroker_name = ViewModelConversion.ToString(m.ValBroker_name);
 				ValCodproperties = ViewModelConversion.ToString(m.ValCodproperties);
 			}
 			catch (Exception)
@@ -216,21 +215,12 @@ namespace GenioMVC.ViewModels.Properties
 
 			try
 			{
+				m.ValBroker_fk = ViewModelConversion.ToString(ValBroker_fk);
 				if (ValMain_photo == null || !ValMain_photo.IsThumbnail)
 					m.ValMain_photo = ViewModelConversion.ToImage(ValMain_photo);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
-				m.ValBroker_name = ViewModelConversion.ToString(ValBroker_name);
 				m.ValCodproperties = ViewModelConversion.ToString(ValCodproperties);
-
-				/*
-					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
-						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
-				*/
-				if (!HasDisabledUserValuesSecurity)
-					return;
-
-				m.ValBroker_fk = ViewModelConversion.ToString(ValBroker_fk);
 			}
 			catch (Exception)
 			{
@@ -255,6 +245,9 @@ namespace GenioMVC.ViewModels.Properties
 
 				switch (fullFieldName)
 				{
+					case "properties.broker_fk":
+						this.ValBroker_fk = ViewModelConversion.ToString(_value);
+						break;
 					case "properties.main_photo":
 						this.ValMain_photo = ViewModelConversion.ToImage(_value);
 						break;
@@ -263,9 +256,6 @@ namespace GenioMVC.ViewModels.Properties
 						break;
 					case "properties.price":
 						this.ValPrice = ViewModelConversion.ToNumeric(_value);
-						break;
-					case "properties.broker_name":
-						this.ValBroker_name = ViewModelConversion.ToString(_value);
 						break;
 					case "properties.codproperties":
 						this.ValCodproperties = ViewModelConversion.ToString(_value);
@@ -377,6 +367,7 @@ namespace GenioMVC.ViewModels.Properties
 			// Add characteristics
 			Characs = new List<string>();
 
+			Load_F_property__broker__name(qs, lazyLoad);
 
 // USE /[MANUAL TRA VIEWMODEL_LOADPARTIAL F_PROPERTY]/
 		}
@@ -395,7 +386,6 @@ namespace GenioMVC.ViewModels.Properties
 
 			validator.Required("ValMain_photo", Resources.Resources.MAIN_PHOTO18723, ViewModelConversion.ToImage(ValMain_photo), FieldType.IMAGE.GetFormatting());
 			validator.StringLength("ValTitle", Resources.Resources.TITLE21885, ValTitle, 50);
-			validator.StringLength("ValBroker_name", Resources.Resources.BROKER_NAME33548, ValBroker_name, 50);
 
 
 			return validator.GetResult();
@@ -433,6 +423,195 @@ namespace GenioMVC.ViewModels.Properties
 		{
 		}
 
+		/// <summary>
+		/// TableBrokerName -> (DB)
+		/// </summary>
+		/// <param name="qs"></param>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void Load_F_property__broker__name(NameValueCollection qs, bool lazyLoad = false)
+		{
+			bool f_property__broker__nameDoLoad = true;
+			CriteriaSet f_property__broker__nameConds = CriteriaSet.And();
+			{
+				object hValue = Navigation.GetValue("broker", true);
+				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
+				{
+					f_property__broker__nameConds.Equal(CSGenioAbroker.FldCodbroker, hValue);
+					this.ValBroker_fk = DBConversion.ToString(hValue);
+				}
+			}
+
+			TableBrokerName = new TableDBEdit<Models.Broker>
+			{
+				IsLazyLoad = lazyLoad
+			};
+
+			if (lazyLoad)
+			{
+				if (Navigation.CurrentLevel.GetEntry("RETURN_broker") != null)
+				{
+					this.ValBroker_fk = Navigation.GetStrValue("RETURN_broker");
+					Navigation.CurrentLevel.SetEntry("RETURN_broker", null);
+				}
+				FillDependant_F_propertyTableBrokerName(lazyLoad);
+				return;
+			}
+
+			if (f_property__broker__nameDoLoad)
+			{
+				List<ColumnSort> sorts = [];
+				ColumnSort requestedSort = GetRequestSort(TableBrokerName, "sTableBrokerName", "dTableBrokerName", qs, "broker");
+				if (requestedSort != null)
+					sorts.Add(requestedSort);
+
+				string query = "";
+				if (!string.IsNullOrEmpty(qs["TableBrokerName_tableFilters"]))
+					TableBrokerName.TableFilters = bool.Parse(qs["TableBrokerName_tableFilters"]);
+				else
+					TableBrokerName.TableFilters = false;
+
+				query = qs["qTableBrokerName"];
+
+				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
+				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
+				//  tornando confuso to o user porque determinada row foi devolvida quando o Qresult não mostra como o matching foi feito
+				CriteriaSet search_filters = CriteriaSet.And();
+				if (!string.IsNullOrEmpty(query))
+				{
+					search_filters.Like(CSGenioAbroker.FldName, query + "%");
+				}
+				f_property__broker__nameConds.SubSet(search_filters);
+
+				string tryParsePage = qs["pTableBrokerName"] != null ? qs["pTableBrokerName"].ToString() : "1";
+				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
+				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
+				int offset = (page - 1) * numberItems;
+
+				FieldRef[] fields = [CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAbroker.FldZzstate];
+
+// USE /[MANUAL TRA OVERRQ F_PROPERTY_BROKERNAME]/
+
+				// Limitation by Zzstate
+				/*
+					Records that are currently being inserted or duplicated will also be included.
+					Client-side persistence will try to fill the "text" value of that option.
+				*/
+				if (Navigation.checkFormMode("broker", FormMode.New) || Navigation.checkFormMode("broker", FormMode.Duplicate))
+					f_property__broker__nameConds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioAbroker.FldZzstate, 0)
+						.Equal(CSGenioAbroker.FldCodbroker, Navigation.GetStrValue("broker")));
+				else
+					f_property__broker__nameConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAbroker.FldZzstate), CriteriaOperator.Equal, 0));
+
+				FieldRef firstVisibleColumn = new FieldRef("broker", "name");
+				ListingMVC<CSGenioAbroker> listing = Models.ModelBase.Where<CSGenioAbroker>(m_userContext, false, f_property__broker__nameConds, fields, offset, numberItems, sorts, "LED_F_PROPERTY__BROKER__NAME", true, false, firstVisibleColumn: firstVisibleColumn);
+
+				TableBrokerName.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TableBrokerName.Query = query;
+				TableBrokerName.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.Broker(m_userContext, r, true, _fieldsToSerialize_F_PROPERTY__BROKER__NAME));
+
+				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
+				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
+				if (Navigation.CurrentLevel.GetEntry("RETURN_broker") != null)
+				{
+					this.ValBroker_fk = Navigation.GetStrValue("RETURN_broker");
+					Navigation.CurrentLevel.SetEntry("RETURN_broker", null);
+				}
+
+				TableBrokerName.List = new SelectList(TableBrokerName.Elements.ToSelectList(x => x.ValName, x => x.ValCodbroker,  x => x.ValCodbroker == this.ValBroker_fk), "Value", "Text", this.ValBroker_fk);
+				FillDependant_F_propertyTableBrokerName();
+			}
+		}
+
+		/// <summary>
+		/// Get Dependant fields values -> TableBrokerName (DB)
+		/// </summary>
+		/// <param name="PKey">Primary Key of Broker</param>
+		public ConcurrentDictionary<string, object> GetDependant_F_propertyTableBrokerName(string PKey)
+		{
+			FieldRef[] refDependantFields = [CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName];
+
+			var returnEmptyDependants = false;
+			CriteriaSet wherecodition = CriteriaSet.And();
+
+			// Return default values
+			if (GenFunctions.emptyG(PKey) == 1)
+				returnEmptyDependants = true;
+
+			// Check if the limit(s) is filled if exists
+			// - - - - - - - - - - - - - - - - - - - - -
+
+			if (returnEmptyDependants)
+				return GetViewModelFieldValues(refDependantFields);
+
+			PersistentSupport sp = m_userContext.PersistentSupport;
+			User u = m_userContext.User;
+
+			CSGenioAbroker tempArea = new(u);
+
+			// Fields to select
+			SelectQuery querySelect = new();
+			querySelect.PageSize(1);
+			foreach (FieldRef field in refDependantFields)
+				querySelect.Select(field);
+
+			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
+				.Where(wherecodition.Equal(CSGenioAbroker.FldCodbroker, PKey));
+
+			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
+			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
+
+			ArrayList values = sp.executeReaderOneRow(querySelect);
+			bool useDefaults = values.Count == 0;
+
+			if (useDefaults)
+				return GetViewModelFieldValues(refDependantFields);
+			return GetViewModelFieldValues(refDependantFields, values);
+		}
+
+		/// <summary>
+		/// Fill Dependant fields values -> TableBrokerName (DB)
+		/// </summary>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void FillDependant_F_propertyTableBrokerName(bool lazyLoad = false)
+		{
+			var row = GetDependant_F_propertyTableBrokerName(this.ValBroker_fk);
+			try
+			{
+
+				// Fill List fields
+				this.ValBroker_fk = ViewModelConversion.ToString(row["broker.codbroker"]);
+				TableBrokerName.Value = (string)row["broker.name"];
+				if (GenFunctions.emptyG(this.ValBroker_fk) == 1)
+				{
+					this.ValBroker_fk = "";
+					TableBrokerName.Value = "";
+					Navigation.ClearValue("broker");
+				}
+				else if (lazyLoad)
+				{
+					TableBrokerName.SetPagination(1, 0, false, false, 1);
+					TableBrokerName.List = new SelectList(new List<SelectListItem>()
+					{
+						new SelectListItem
+						{
+							Value = Convert.ToString(this.ValBroker_fk),
+							Text = Convert.ToString(TableBrokerName.Value),
+							Selected = true
+						}
+					}, "Value", "Text", this.ValBroker_fk);
+				}
+
+				TableBrokerName.Selected = this.ValBroker_fk;
+			}
+			catch (Exception ex)
+			{
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableBrokerName): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+			}
+		}
+
+		private readonly string[] _fieldsToSerialize_F_PROPERTY__BROKER__NAME = ["Broker", "Broker.ValCodbroker", "Broker.ValZzstate", "Broker.ValName"];
+
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
 			return identifier switch
@@ -441,8 +620,9 @@ namespace GenioMVC.ViewModels.Properties
 				"properties.main_photo" => ViewModelConversion.ToImage(modelValue),
 				"properties.title" => ViewModelConversion.ToString(modelValue),
 				"properties.price" => ViewModelConversion.ToNumeric(modelValue),
-				"properties.broker_name" => ViewModelConversion.ToString(modelValue),
 				"properties.codproperties" => ViewModelConversion.ToString(modelValue),
+				"broker.codbroker" => ViewModelConversion.ToString(modelValue),
+				"broker.name" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BROKERS_NAME50728" xml:space="preserve">
+    <value>brokers name</value>
+  </data>
   <data name="PROCESS_INFO62044" xml:space="preserve">
     <value>Process info</value>
   </data>

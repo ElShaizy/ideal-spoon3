@@ -392,6 +392,51 @@ namespace GenioMVC.Controllers
 		#endregion
 
 
+		public class F_property_BrokerValNameModel : RequestLookupModel
+		{
+			public F_property_ViewModel Model { get; set; }
+		}
+
+		//
+		// GET: /Properties/F_property_BrokerValName
+		// POST: /Properties/F_property_BrokerValName
+		[ActionName("F_property_BrokerValName")]
+		public ActionResult F_property_BrokerValName([FromBody] F_property_BrokerValNameModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
+			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_broker")))
+				UserContext.Current.SetPersistenceReadOnly(true);
+			else
+			{
+				Navigation.DestroyEntry("ForcePrimaryRead_broker");
+				UserContext.Current.SetPersistenceReadOnly(false);
+			}
+
+			NameValueCollection requestValues = [];
+			if (queryParams != null)
+			{
+				// Add to request values
+				foreach (var kv in queryParams)
+					requestValues.Add(kv.Key, kv.Value);
+			}
+
+			IsStateReadonly = true;
+
+			Models.Properties parentCtx = requestModel.Model == null ? null : new(m_userContext);
+			requestModel.Model?.Init(m_userContext);
+			requestModel.Model?.MapToModel(parentCtx);
+			F_property_BrokerValName_ViewModel model = new(m_userContext, parentCtx);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(requestModel.TableConfiguration);
+
+			model.setModes(Request.Query["m"].ToString());
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
 		// POST: /Properties/F_property_SaveEdit
 		[HttpPost]
 		public ActionResult F_property_SaveEdit([FromBody] F_property_ViewModel model)

@@ -169,16 +169,6 @@
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 3,
-								name: 'ValBroker_name',
-								area: 'PROPERTIES',
-								field: 'BROKER_NAME',
-								label: computed(() => this.Resources.BROKER_NAME33548),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
 								name: 'Broker.ValName',
 								area: 'BROKER',
 								field: 'NAME',
@@ -189,7 +179,7 @@
 								pkColumn: 'ValCodbroker',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 5,
+								order: 4,
 								name: 'ValMain_photo',
 								area: 'PROPERTIES',
 								field: 'MAIN_PHOTO',

@@ -53,14 +53,13 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodproperties))
 		this.stopWatchers.push(watch(() => this.ValCodproperties.value, (newValue, oldValue) => this.onUpdate('properties.codproperties', this.ValCodproperties, newValue, oldValue)))
 
-		/** The hidden foreign keys. */
+		/** The used foreign keys. */
 		this.ValBroker_fk = reactive(new modelFieldType.ForeignKey({
 			id: 'ValBroker_fk',
 			originId: 'ValBroker_fk',
 			area: 'PROPERTIES',
 			field: 'BROKER_FK',
 			relatedArea: 'BROKER',
-			isFixed: true,
 			description: '',
 		}).cloneFrom(values?.ValBroker_fk))
 		this.stopWatchers.push(watch(() => this.ValBroker_fk.value, (newValue, oldValue) => this.onUpdate('properties.broker_fk', this.ValBroker_fk, newValue, oldValue)))
@@ -96,15 +95,17 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValPrice))
 		this.stopWatchers.push(watch(() => this.ValPrice.value, (newValue, oldValue) => this.onUpdate('properties.price', this.ValPrice, newValue, oldValue)))
 
-		this.ValBroker_name = reactive(new modelFieldType.String({
-			id: 'ValBroker_name',
-			originId: 'ValBroker_name',
-			area: 'PROPERTIES',
-			field: 'BROKER_NAME',
+		this.TableBrokerName = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableBrokerName',
+			originId: 'ValName',
+			area: 'BROKER',
+			field: 'NAME',
 			maxLength: 50,
-			description: computed(() => this.Resources.BROKER_NAME33548),
-		}).cloneFrom(values?.ValBroker_name))
-		this.stopWatchers.push(watch(() => this.ValBroker_name.value, (newValue, oldValue) => this.onUpdate('properties.broker_name', this.ValBroker_name, newValue, oldValue)))
+			description: computed(() => this.Resources.NAME31974),
+			ignoreFldSubmit: true,
+		}).cloneFrom(values?.TableBrokerName))
+		this.stopWatchers.push(watch(() => this.TableBrokerName.value, (newValue, oldValue) => this.onUpdate('broker.name', this.TableBrokerName, newValue, oldValue)))
 	}
 
 	/**

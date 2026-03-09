@@ -153,22 +153,26 @@
 						</base-input-structure>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__PROPERTIES__BROKER_NAME.isVisible">
+				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible">
 					<q-col
-						v-if="controls.F_PROPERTY__PROPERTIES__BROKER_NAME.isVisible"
+						v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.F_PROPERTY__PROPERTIES__BROKER_NAME.isVisible"
+							v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
 							class="i-text"
-							v-bind="controls.F_PROPERTY__PROPERTIES__BROKER_NAME"
-							v-on="controls.F_PROPERTY__PROPERTIES__BROKER_NAME.handlers"
-							:loading="controls.F_PROPERTY__PROPERTIES__BROKER_NAME.props.loading"
+							v-bind="controls.F_PROPERTY__BROKER__NAME"
+							v-on="controls.F_PROPERTY__BROKER__NAME.handlers"
+							:loading="controls.F_PROPERTY__BROKER__NAME.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_PROPERTY__PROPERTIES__BROKER_NAME.props"
-								@blur="onBlur(controls.F_PROPERTY__PROPERTIES__BROKER_NAME, model.ValBroker_name.value)"
-								@change="model.ValBroker_name.fnUpdateValueOnChange" />
+							<q-lookup
+								v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+								v-bind="controls.F_PROPERTY__BROKER__NAME.props"
+								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
+							<q-see-more-f-property-broker-name
+								v-if="controls.F_PROPERTY__BROKER__NAME.seeMoreIsVisible"
+								v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
+								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
@@ -243,6 +247,7 @@
 		name: 'QFormFProperty',
 
 		components: {
+			QSeeMoreFPropertyBrokerName: defineAsyncComponent(() => import('@/views/forms/FormFProperty/dbedits/FPropertyBrokerNameSeeMore.vue')),
 		},
 
 		mixins: [
@@ -528,7 +533,7 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.MAIN_PHOTO18723)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
@@ -563,16 +568,31 @@
 						controlLimits: [
 						],
 					}, this),
-					F_PROPERTY__PROPERTIES__BROKER_NAME: new fieldControlClass.StringControl({
-						modelField: 'ValBroker_name',
-						valueChangeEvent: 'fieldChange:properties.broker_name',
-						id: 'F_PROPERTY__PROPERTIES__BROKER_NAME',
-						name: 'BROKER_NAME',
+					F_PROPERTY__BROKER__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableBrokerName',
+						valueChangeEvent: 'fieldChange:broker.name',
+						id: 'F_PROPERTY__BROKER__NAME',
+						name: 'NAME',
 						size: 'xxlarge',
-						label: computed(() => this.Resources.BROKER_NAME33548),
+						label: computed(() => this.Resources.BROKERS_NAME50728),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 50,
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValBroker_fk',
+							dependencyEvent: 'fieldChange:properties.broker_fk'
+						},
+						dependentFields: () => ({
+							set 'broker.codbroker'(value) { vm.model.ValBroker_fk.updateValue(value) },
+							set 'broker.name'(value) { vm.model.TableBrokerName.updateValue(value) },
+						}),
 						controlLimits: [
 						],
 					}, this),
@@ -598,11 +618,13 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
+					Broker: {
+						get ValName() { return vm.model.TableBrokerName.value },
+						set ValName(value) { vm.model.TableBrokerName.updateValue(value) },
+					},
 					Properties: {
 						get ValBroker_fk() { return vm.model.ValBroker_fk.value },
 						set ValBroker_fk(value) { vm.model.ValBroker_fk.updateValue(value) },
-						get ValBroker_name() { return vm.model.ValBroker_name.value },
-						set ValBroker_name(value) { vm.model.ValBroker_name.updateValue(value) },
 						get ValMain_photo() { return vm.model.ValMain_photo.value },
 						set ValMain_photo(value) { vm.model.ValMain_photo.updateValue(value) },
 						get ValPrice() { return vm.model.ValPrice.value },

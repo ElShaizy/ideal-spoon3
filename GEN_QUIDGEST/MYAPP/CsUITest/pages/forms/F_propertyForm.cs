@@ -23,9 +23,10 @@ public class F_propertyForm : Form
 	public BaseInputControl PropertiesPrice => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__PRICE", "#F_PROPERTY__PROPERTIES__PRICE");
 
 	/// <summary>
-	/// Broker Name
+	/// brokers name
 	/// </summary>
-	public BaseInputControl PropertiesBroker_name => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BROKER_NAME", "#F_PROPERTY__PROPERTIES__BROKER_NAME");
+	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
+	public SeeMorePage BrokerNameSeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__BROKER__NAME");
 
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }

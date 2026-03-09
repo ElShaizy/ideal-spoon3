@@ -6,16 +6,16 @@ using GenioMVC.Models.Navigation;
 
 namespace GenioMVC.ViewModels.Properties;
 
-public class TRA_Menu_21_RowViewModel : Models.Properties
+public class F_property_BrokerValName_RowViewModel : Models.Broker
 {
 	#region Constructors
 
-	public TRA_Menu_21_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public F_property_BrokerValName_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public TRA_Menu_21_RowViewModel(UserContext userContext, CSGenioAproperties val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public F_property_BrokerValName_RowViewModel(UserContext userContext, CSGenioAbroker val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,8 @@ public class TRA_Menu_21_RowViewModel : Models.Properties
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "PROPERTIES",
-				Field = "TITLE",
-			},
-			new ListColumn()
-			{
-				Order = 2,
-				Area = "PROPERTIES",
-				Field = "PRICE",
-			},
-			new ListColumn()
-			{
-				Order = 3,
 				Area = "BROKER",
 				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "PROPERTIES",
-				Field = "MAIN_PHOTO",
 			},
 		];
 	}
@@ -70,10 +52,6 @@ public class TRA_Menu_21_RowViewModel : Models.Properties
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
-
-		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
-		{
-		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{
