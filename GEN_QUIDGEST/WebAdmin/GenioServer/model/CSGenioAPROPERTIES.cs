@@ -153,7 +153,7 @@ namespace CSGenio.business
 			info.ShadowTabKeyName="";
 
 			info.PrimaryKeyName="codproperties";
-			info.HumanKeyName="";
+			info.HumanKeyName="title,".TrimEnd(',');
 			info.Alias="properties";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
