@@ -42,13 +42,13 @@ namespace GenioMVC.ViewModels.Agent
 		/// </summary>
 		public string ValName { get; set; }
 		/// <summary>
-		/// Title: "Email" | Type: "C"
-		/// </summary>
-		public string ValEmail { get; set; }
-		/// <summary>
 		/// Title: "Birthdate" | Type: "D"
 		/// </summary>
 		public DateTime? ValBirthdate { get; set; }
+		/// <summary>
+		/// Title: "Email" | Type: "C"
+		/// </summary>
+		public string ValEmail { get; set; }
 
 		#region Navigations
 		#endregion
@@ -182,8 +182,8 @@ namespace GenioMVC.ViewModels.Agent
 			{
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
-				ValEmail = ViewModelConversion.ToString(m.ValEmail);
 				ValBirthdate = ViewModelConversion.ToDateTime(m.ValBirthdate);
+				ValEmail = ViewModelConversion.ToString(m.ValEmail);
 				ValCodagent = ViewModelConversion.ToString(m.ValCodagent);
 			}
 			catch (Exception)
@@ -213,8 +213,8 @@ namespace GenioMVC.ViewModels.Agent
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValName = ViewModelConversion.ToString(ValName);
-				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValBirthdate = ViewModelConversion.ToDateTime(ValBirthdate);
+				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValCodagent = ViewModelConversion.ToString(ValCodagent);
 			}
 			catch (Exception)
@@ -246,11 +246,11 @@ namespace GenioMVC.ViewModels.Agent
 					case "agent.name":
 						this.ValName = ViewModelConversion.ToString(_value);
 						break;
-					case "agent.email":
-						this.ValEmail = ViewModelConversion.ToString(_value);
-						break;
 					case "agent.birthdate":
 						this.ValBirthdate = ViewModelConversion.ToDateTime(_value);
+						break;
+					case "agent.email":
+						this.ValEmail = ViewModelConversion.ToString(_value);
 						break;
 					case "agent.codagent":
 						this.ValCodagent = ViewModelConversion.ToString(_value);
@@ -378,7 +378,11 @@ namespace GenioMVC.ViewModels.Agent
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 			validator.StringLength("ValName", Resources.Resources.NAME31974, ValName, 50);
+
+			validator.Required("ValName", Resources.Resources.NAME31974, ViewModelConversion.ToString(ValName), FieldType.TEXT.GetFormatting());
 			validator.StringLength("ValEmail", Resources.Resources.EMAIL25170, ValEmail, 256);
+
+			validator.Required("ValEmail", Resources.Resources.EMAIL25170, ViewModelConversion.ToString(ValEmail), FieldType.TEXT.GetFormatting());
 
 
 			return validator.GetResult();
@@ -422,8 +426,8 @@ namespace GenioMVC.ViewModels.Agent
 			{
 				"agent.photo" => ViewModelConversion.ToImage(modelValue),
 				"agent.name" => ViewModelConversion.ToString(modelValue),
-				"agent.email" => ViewModelConversion.ToString(modelValue),
 				"agent.birthdate" => ViewModelConversion.ToDateTime(modelValue),
+				"agent.email" => ViewModelConversion.ToString(modelValue),
 				"agent.codagent" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

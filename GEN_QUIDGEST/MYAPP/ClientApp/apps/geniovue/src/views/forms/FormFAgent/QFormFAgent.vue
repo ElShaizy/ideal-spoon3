@@ -96,7 +96,7 @@
 			data-key="F_AGENT"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.F_AGENT_AGENTPHOTO___.isVisible || controls.F_AGENT_AGENTNAME____.isVisible || controls.F_AGENT__AGENT__BIRTHDATE.isVisible">
+				<q-row v-if="controls.F_AGENT_AGENTPHOTO___.isVisible || controls.F_AGENT_AGENTNAME____.isVisible || controls.F_AGENT__AGENT__BIRTHDATE.isVisible || controls.F_AGENT_AGENTEMAIL___.isVisible">
 					<q-col
 						v-if="controls.F_AGENT_AGENTPHOTO___.isVisible"
 						cols="auto">
@@ -148,6 +148,23 @@
 								:model-value="model.ValBirthdate.value"
 								@reset-icon-click="model.ValBirthdate.fnUpdateValue(model.ValBirthdate.originalValue ?? new Date())"
 								@update:model-value="model.ValBirthdate.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_AGENT_AGENTEMAIL___.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_AGENT_AGENTEMAIL___.isVisible"
+							class="i-text"
+							v-bind="controls.F_AGENT_AGENTEMAIL___"
+							v-on="controls.F_AGENT_AGENTEMAIL___.handlers"
+							:loading="controls.F_AGENT_AGENTEMAIL___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_AGENT_AGENTEMAIL___.props"
+								@blur="onBlur(controls.F_AGENT_AGENTEMAIL___, model.ValEmail.value)"
+								@change="model.ValEmail.fnUpdateValueOnChange" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
@@ -524,6 +541,7 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						maxLength: 50,
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -537,6 +555,20 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
+					F_AGENT_AGENTEMAIL___: new fieldControlClass.StringControl({
+						modelField: 'ValEmail',
+						valueChangeEvent: 'fieldChange:agent.email',
+						id: 'F_AGENT_AGENTEMAIL___',
+						name: 'EMAIL',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.EMAIL25170),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 256,
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),

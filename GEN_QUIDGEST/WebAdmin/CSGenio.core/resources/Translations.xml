@@ -18,6 +18,9 @@
   <msg id="Level" code="LEVEL06184">
     <ENUS>Level</ENUS>
   </msg>
+  <msg id="Title" code="TITLE21885">
+    <ENUS>Title</ENUS>
+  </msg>
   <msg id="Motive" code="MOTIVE13407">
     <ENUS>Motive</ENUS>
   </msg>
@@ -92,6 +95,12 @@
   </msg>
   <msg id="Executed by external app" code="EXECUTED_BY_EXTERNAL36156">
     <ENUS>Executed by external app</ENUS>
+  </msg>
+  <msg id="Telephone" code="TELEPHONE28697">
+    <ENUS>Telephone</ENUS>
+  </msg>
+  <msg id="Price" code="PRICE06900">
+    <ENUS>Price</ENUS>
   </msg>
   <msg id="Cancelado" code="CANCELADO05982">
     <ENUS>Cancelado</ENUS>
@@ -207,6 +216,12 @@
   <msg id="Estados do processo" code="ESTADOS_DO_PROCESSO59118">
     <ENUS>Estados do processo</ENUS>
   </msg>
+  <msg id="Property" code="PROPERTY43977">
+    <ENUS>Property</ENUS>
+  </msg>
+  <msg id="Properties" code="PROPERTIES34868">
+    <ENUS>Properties</ENUS>
+  </msg>
   <msg id="Username" code="USERNAME51409">
     <ENUS>Username</ENUS>
   </msg>
@@ -266,6 +281,9 @@
   </msg>
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
+  </msg>
+  <msg id="Main Photo" code="MAIN_PHOTO18723">
+    <ENUS>Main Photo</ENUS>
   </msg>
   <msg id="Quidgest" code="QUIDGEST26196">
     <ENUS>Quidgest</ENUS>
@@ -7343,9 +7361,6 @@
   </msg>
   <msg id="More Properties" code="MORE_PROPERTIES36834">
     <ENUS>More Properties</ENUS>
-  </msg>
-  <msg id="Property" code="PROPERTY43977">
-    <ENUS>Property</ENUS>
   </msg>
   <msg id="Key" code="KEY01046">
     <ENUS>Key</ENUS>

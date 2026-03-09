@@ -73,6 +73,15 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValName))
 		this.stopWatchers.push(watch(() => this.ValName.value, (newValue, oldValue) => this.onUpdate('agent.name', this.ValName, newValue, oldValue)))
 
+		this.ValBirthdate = reactive(new modelFieldType.Date({
+			id: 'ValBirthdate',
+			originId: 'ValBirthdate',
+			area: 'AGENT',
+			field: 'BIRTHDATE',
+			description: computed(() => this.Resources.BIRTHDATE22743),
+		}).cloneFrom(values?.ValBirthdate))
+		this.stopWatchers.push(watch(() => this.ValBirthdate.value, (newValue, oldValue) => this.onUpdate('agent.birthdate', this.ValBirthdate, newValue, oldValue)))
+
 		this.ValEmail = reactive(new modelFieldType.String({
 			id: 'ValEmail',
 			originId: 'ValEmail',
@@ -82,15 +91,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.EMAIL25170),
 		}).cloneFrom(values?.ValEmail))
 		this.stopWatchers.push(watch(() => this.ValEmail.value, (newValue, oldValue) => this.onUpdate('agent.email', this.ValEmail, newValue, oldValue)))
-
-		this.ValBirthdate = reactive(new modelFieldType.Date({
-			id: 'ValBirthdate',
-			originId: 'ValBirthdate',
-			area: 'AGENT',
-			field: 'BIRTHDATE',
-			description: computed(() => this.Resources.BIRTHDATE22743),
-		}).cloneFrom(values?.ValBirthdate))
-		this.stopWatchers.push(watch(() => this.ValBirthdate.value, (newValue, oldValue) => this.onUpdate('agent.birthdate', this.ValBirthdate, newValue, oldValue)))
 	}
 
 	/**

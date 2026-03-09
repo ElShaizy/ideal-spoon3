@@ -52,6 +52,12 @@ namespace GenioMVC.Models
 		[ShouldSerialize("Agent.ValEmail")]
 		public string ValEmail { get { return klass.ValEmail; } set { klass.ValEmail = value; } }
 
+		[DisplayName("Telephone")]
+		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Agent.ValTelephone")]
+		[NumericAttribute(0)]
+		public decimal? ValTelephone { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTelephone, 0)); } set { klass.ValTelephone = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Agent.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

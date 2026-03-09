@@ -24,6 +24,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_PAX = new AreaRef("TRA", "asyncprocessattachments", "s_pax");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
         private static AreaRef m_AreaS_ARG = new AreaRef("TRA", "asyncprocessargument", "s_arg");
+        public static AreaRef AreaPROPERTIES { get { return m_AreaPROPERTIES; } }
+        private static AreaRef m_AreaPROPERTIES = new AreaRef("TRA", "traproperties", "properties");
         public static AreaRef AreaAGENT { get { return m_AreaAGENT; } }
         private static AreaRef m_AreaAGENT = new AreaRef("TRA", "traagent", "agent");
         public static AreaRef AreaS_NM { get { return m_AreaS_NM; } }
@@ -71,6 +73,7 @@ namespace CSGenio.business
             new List<string>() {
             "s_pax",
             "s_arg",
+            "properties",
             "agent",
             "s_nm",
             "mem",

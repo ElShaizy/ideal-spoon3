@@ -18,14 +18,14 @@ public class F_agentForm : Form
 	public BaseInputControl AgentName => new BaseInputControl(driver, ContainerLocator, "container-F_AGENT_AGENTNAME____", "#F_AGENT_AGENTNAME____");
 
 	/// <summary>
-	/// Email
-	/// </summary>
-	public BaseInputControl AgentEmail => new BaseInputControl(driver, ContainerLocator, "container-F_AGENT_AGENTEMAIL___", "#F_AGENT_AGENTEMAIL___");
-
-	/// <summary>
 	/// Birthdate
 	/// </summary>
 	public DateInputControl AgentBirthdate => new DateInputControl(driver, ContainerLocator, "#F_AGENT__AGENT__BIRTHDATE");
+
+	/// <summary>
+	/// Email
+	/// </summary>
+	public BaseInputControl AgentEmail => new BaseInputControl(driver, ContainerLocator, "container-F_AGENT_AGENTEMAIL___", "#F_AGENT_AGENTEMAIL___");
 
 	public F_agentForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_AGENT", containerLocator: containerLocator) { }

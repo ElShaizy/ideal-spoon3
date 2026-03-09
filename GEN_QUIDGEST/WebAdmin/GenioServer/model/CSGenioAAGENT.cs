@@ -70,6 +70,7 @@ namespace CSGenio.business
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "NAME31974";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
@@ -89,6 +90,19 @@ namespace CSGenio.business
 			Qfield.FieldSize =  256;
 			Qfield.MQueue = false;
 			Qfield.CavDesignation = "EMAIL25170";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+            Qfield.NotDup = true;
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "telephone", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Telephone";
+			Qfield.FieldSize =  11;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 11;
+			Qfield.CavDesignation = "TELEPHONE28697";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -295,6 +309,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldEmail, value); }
 		}
 
+		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldTelephone { get { return m_fldTelephone; } }
+		private static FieldRef m_fldTelephone = new FieldRef("agent", "telephone");
+
+		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
+		public decimal ValTelephone
+		{
+			get { return (decimal)returnValueField(FldTelephone); }
+			set { insertNameValueField(FldTelephone, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("agent", "zzstate");
@@ -392,7 +417,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX AGENT]/
 
  
-      
+       
 
 	}
 }

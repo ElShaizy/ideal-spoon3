@@ -115,6 +115,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Title"
+        /// </summary>
+        public static string TITLE21885 {
+            get {
+                return ResourceManager.GetString("TITLE21885", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Motive"
         /// </summary>
         public static string MOTIVE13407 {
@@ -336,6 +345,24 @@ namespace Administration.Resources {
         public static string EXECUTED_BY_EXTERNAL36156 {
             get {
                 return ResourceManager.GetString("EXECUTED_BY_EXTERNAL36156", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Telephone"
+        /// </summary>
+        public static string TELEPHONE28697 {
+            get {
+                return ResourceManager.GetString("TELEPHONE28697", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Price"
+        /// </summary>
+        public static string PRICE06900 {
+            get {
+                return ResourceManager.GetString("PRICE06900", resourceCulture);
             }
         }
 
@@ -682,6 +709,24 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Property"
+        /// </summary>
+        public static string PROPERTY43977 {
+            get {
+                return ResourceManager.GetString("PROPERTY43977", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Properties"
+        /// </summary>
+        public static string PROPERTIES34868 {
+            get {
+                return ResourceManager.GetString("PROPERTIES34868", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Username"
         /// </summary>
         public static string USERNAME51409 {
@@ -858,6 +903,15 @@ namespace Administration.Resources {
         public static string AVISO03237 {
             get {
                 return ResourceManager.GetString("AVISO03237", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Main Photo"
+        /// </summary>
+        public static string MAIN_PHOTO18723 {
+            get {
+                return ResourceManager.GetString("MAIN_PHOTO18723", resourceCulture);
             }
         }
 
@@ -22089,15 +22143,6 @@ namespace Administration.Resources {
         public static string MORE_PROPERTIES36834 {
             get {
                 return ResourceManager.GetString("MORE_PROPERTIES36834", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Property"
-        /// </summary>
-        public static string PROPERTY43977 {
-            get {
-                return ResourceManager.GetString("PROPERTY43977", resourceCulture);
             }
         }
 

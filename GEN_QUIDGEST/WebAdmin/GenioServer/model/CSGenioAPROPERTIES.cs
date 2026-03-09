@@ -14,23 +14,23 @@ using System.Linq;
 namespace CSGenio.business
 {
 	/// <summary>
-	/// Agent
+	/// Property
 	/// </summary>
-	public class CSGenioAagent : DbArea
+	public class CSGenioAproperties : DbArea
 	{
 		/// <summary>
 		/// Meta-information on this area
 		/// </summary>
 		protected readonly static AreaInfo informacao = InicializaAreaInfo();
 
-		public CSGenioAagent(User user, string module)
+		public CSGenioAproperties(User user, string module)
 		{
             this.user = user;
             this.module = module;
-			// USE /[MANUAL TRA CONSTRUTOR AGENT]/
+			// USE /[MANUAL TRA CONSTRUTOR PROPERTIES]/
 		}
 
-		public CSGenioAagent(User user) : this(user, user.CurrentModule)
+		public CSGenioAproperties(User user) : this(user, user.CurrentModule)
 		{
 		}
 
@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codagent", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codproperties", FieldType.KEY_INT);
 			Qfield.FieldDescription = "";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -54,56 +54,36 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "photo", FieldType.IMAGE);
-			Qfield.FieldDescription = "Photo";
+			Qfield = new Field(info.Alias, "main photo", FieldType.IMAGE);
+			Qfield.FieldDescription = "Main Photo";
 			Qfield.FieldSize =  3;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "PHOTO51874";
+			Qfield.CavDesignation = "MAIN_PHOTO18723";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "name", FieldType.TEXT);
-			Qfield.FieldDescription = "Name";
+			Qfield = new Field(info.Alias, "title", FieldType.TEXT);
+			Qfield.FieldDescription = "Title";
 			Qfield.FieldSize =  50;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "NAME31974";
+			Qfield.CavDesignation = "TITLE21885";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "price", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Price";
+			Qfield.FieldSize =  15;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 10;
+			Qfield.Decimals = 4;
+			Qfield.CavDesignation = "PRICE06900";
 
             Qfield.NotNull = true;
-			Qfield.Dupmsg = "";
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "birthdate", FieldType.DATE);
-			Qfield.FieldDescription = "Birthdate";
-			Qfield.FieldSize =  8;
-			Qfield.MQueue = false;
-			Qfield.CavDesignation = "BIRTHDATE22743";
-
-			Qfield.Dupmsg = "";
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "email", FieldType.TEXT);
-			Qfield.FieldDescription = "Email";
-			Qfield.FieldSize =  256;
-			Qfield.MQueue = false;
-			Qfield.CavDesignation = "EMAIL25170";
-
-            Qfield.NotNull = true;
-			Qfield.Dupmsg = "";
-            Qfield.NotDup = true;
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "telephone", FieldType.NUMERIC);
-			Qfield.FieldDescription = "Telephone";
-			Qfield.FieldSize =  11;
-			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 11;
-			Qfield.CavDesignation = "TELEPHONE28697";
-
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
@@ -160,7 +140,7 @@ namespace CSGenio.business
 		}
 
 		/// <summary>
-		/// static CSGenioAagent()
+		/// static CSGenioAproperties()
 		/// </summary>
 		private static AreaInfo InicializaAreaInfo()
 		{
@@ -168,18 +148,18 @@ namespace CSGenio.business
 
 			// Area meta-information
 			info.QSystem="TRA";
-			info.TableName="traagent";
+			info.TableName="traproperties";
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codagent";
-			info.HumanKeyName="name,".TrimEnd(',');
-			info.Alias="agent";
+			info.PrimaryKeyName="codproperties";
+			info.HumanKeyName="";
+			info.Alias="properties";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
-			info.AreaDesignation="Agent";
-			info.AreaPluralDesignation="Agents";
-			info.DescriptionCav="AGENT00994";
+			info.AreaDesignation="Property";
+			info.AreaPluralDesignation="Properties";
+			info.DescriptionCav="PROPERTY43977";
 
 			//sincronização
 			info.SyncIncrementalDateStart = TimeSpan.FromHours(8);
@@ -255,74 +235,52 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodagent { get { return m_fldCodagent; } }
-		private static FieldRef m_fldCodagent = new FieldRef("agent", "codagent");
+		public static FieldRef FldCodproperties { get { return m_fldCodproperties; } }
+		private static FieldRef m_fldCodproperties = new FieldRef("properties", "codproperties");
 
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		public string ValCodagent
+		public string ValCodproperties
 		{
-			get { return (string)returnValueField(FldCodagent); }
-			set { insertNameValueField(FldCodagent, value); }
+			get { return (string)returnValueField(FldCodproperties); }
+			set { insertNameValueField(FldCodproperties, value); }
 		}
 
-		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
-		public static FieldRef FldPhoto { get { return m_fldPhoto; } }
-		private static FieldRef m_fldPhoto = new FieldRef("agent", "photo");
+		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
+		public static FieldRef FldMain photo { get { return m_fldMain photo; } }
+		private static FieldRef m_fldMain photo = new FieldRef("properties", "main photo");
 
-		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>
-		public byte[] ValPhoto
+		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
+		public byte[] ValMain photo
 		{
-			get { return (byte[])returnValueField(FldPhoto); }
-			set { insertNameValueField(FldPhoto, value); }
+			get { return (byte[])returnValueField(FldMain photo); }
+			set { insertNameValueField(FldMain photo, value); }
 		}
 
-		/// <summary>Field : "Name" Tipo: "C" Formula:  ""</summary>
-		public static FieldRef FldName { get { return m_fldName; } }
-		private static FieldRef m_fldName = new FieldRef("agent", "name");
+		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldTitle { get { return m_fldTitle; } }
+		private static FieldRef m_fldTitle = new FieldRef("properties", "title");
 
-		/// <summary>Field : "Name" Tipo: "C" Formula:  ""</summary>
-		public string ValName
+		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
+		public string ValTitle
 		{
-			get { return (string)returnValueField(FldName); }
-			set { insertNameValueField(FldName, value); }
+			get { return (string)returnValueField(FldTitle); }
+			set { insertNameValueField(FldTitle, value); }
 		}
 
-		/// <summary>Field : "Birthdate" Tipo: "D" Formula:  ""</summary>
-		public static FieldRef FldBirthdate { get { return m_fldBirthdate; } }
-		private static FieldRef m_fldBirthdate = new FieldRef("agent", "birthdate");
+		/// <summary>Field : "Price" Tipo: "$" Formula:  ""</summary>
+		public static FieldRef FldPrice { get { return m_fldPrice; } }
+		private static FieldRef m_fldPrice = new FieldRef("properties", "price");
 
-		/// <summary>Field : "Birthdate" Tipo: "D" Formula:  ""</summary>
-		public DateTime ValBirthdate
+		/// <summary>Field : "Price" Tipo: "$" Formula:  ""</summary>
+		public decimal ValPrice
 		{
-			get { return (DateTime)returnValueField(FldBirthdate); }
-			set { insertNameValueField(FldBirthdate, value); }
-		}
-
-		/// <summary>Field : "Email" Tipo: "C" Formula:  ""</summary>
-		public static FieldRef FldEmail { get { return m_fldEmail; } }
-		private static FieldRef m_fldEmail = new FieldRef("agent", "email");
-
-		/// <summary>Field : "Email" Tipo: "C" Formula:  ""</summary>
-		public string ValEmail
-		{
-			get { return (string)returnValueField(FldEmail); }
-			set { insertNameValueField(FldEmail, value); }
-		}
-
-		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
-		public static FieldRef FldTelephone { get { return m_fldTelephone; } }
-		private static FieldRef m_fldTelephone = new FieldRef("agent", "telephone");
-
-		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
-		public decimal ValTelephone
-		{
-			get { return (decimal)returnValueField(FldTelephone); }
-			set { insertNameValueField(FldTelephone, value); }
+			get { return (decimal)returnValueField(FldPrice); }
+			set { insertNameValueField(FldPrice, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
-		private static FieldRef m_fldZzstate = new FieldRef("agent", "zzstate");
+		private static FieldRef m_fldZzstate = new FieldRef("properties", "zzstate");
 
 
 
@@ -343,12 +301,12 @@ namespace CSGenio.business
 		/// <param name="forUpdate">True if you are preparing to update this record, false otherwise</param>
         /// <returns>An area with the fields requests of the record read or null if the key does not exist</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static CSGenioAagent search(PersistentSupport sp, string key, User user, string[] fields = null, bool forUpdate = false)
+        public static CSGenioAproperties search(PersistentSupport sp, string key, User user, string[] fields = null, bool forUpdate = false)
         {
 			if (string.IsNullOrEmpty(key))
 				return null;
 
-		    CSGenioAagent area = new CSGenioAagent(user, user.CurrentModule);
+		    CSGenioAproperties area = new CSGenioAproperties(user, user.CurrentModule);
 
             if (sp.getRecord(area, key, fields, forUpdate))
                 return area;
@@ -375,9 +333,9 @@ namespace CSGenio.business
         /// <param name="noLock">NOLOCK</param>
         /// <returns>A list of area records with all fields populated</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static List<CSGenioAagent> searchList(PersistentSupport sp, User user, CriteriaSet where, string[] fields = null, bool distinct = false, bool noLock = false)
+        public static List<CSGenioAproperties> searchList(PersistentSupport sp, User user, CriteriaSet where, string[] fields = null, bool distinct = false, bool noLock = false)
         {
-				return sp.searchListWhere<CSGenioAagent>(where, user, fields, distinct, noLock);
+				return sp.searchListWhere<CSGenioAproperties>(where, user, fields, distinct, noLock);
         }
 
 
@@ -391,9 +349,9 @@ namespace CSGenio.business
         /// <param name="listing">List configuration</param>
         /// <returns>A list of area records with all fields populated</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static void searchListAdvancedWhere(PersistentSupport sp, User user, CriteriaSet where, ListingMVC<CSGenioAagent> listing)
+        public static void searchListAdvancedWhere(PersistentSupport sp, User user, CriteriaSet where, ListingMVC<CSGenioAproperties> listing)
         {
-			sp.searchListAdvancedWhere<CSGenioAagent>(where, listing);
+			sp.searchListAdvancedWhere<CSGenioAproperties>(where, listing);
         }
 
 
@@ -414,10 +372,10 @@ namespace CSGenio.business
 
 
 
-		// USE /[MANUAL TRA TABAUX AGENT]/
+		// USE /[MANUAL TRA TABAUX PROPERTIES]/
 
  
-       
+     
 
 	}
 }
