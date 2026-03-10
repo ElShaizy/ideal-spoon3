@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Contact
 		/// The primary key field.
 		/// </summary>
 		[JsonIgnore]
-		public string ValCodcontact_pk { get; set; }
+		public string ValCodcontact { get; set; }
 
 		/// <summary>
 		/// The context of the parent.
@@ -110,7 +110,7 @@ namespace GenioMVC.ViewModels.Contact
 		/// <param name="userContext">The current user request context</param>
 		public F_contact_PropertiesValTitle_ViewModel(UserContext userContext) : base(userContext)
 		{
-			ValCodcontact_pk = userContext.CurrentNavigation.CurrentLevel.GetEntry("contact")?.ToString();
+			ValCodcontact = userContext.CurrentNavigation.CurrentLevel.GetEntry("contact")?.ToString();
 		}
 
 		/// <summary>
@@ -305,7 +305,7 @@ namespace GenioMVC.ViewModels.Contact
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "properties", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice };
+			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice };
 
 
 			// Totalizers
@@ -500,7 +500,7 @@ namespace GenioMVC.ViewModels.Contact
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Properties", "Properties.ValCodproperties_pk", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice", "Properties.ValBroker_fk", "Properties.ValCodcity_fk"
+			"Properties", "Properties.ValCodproperties", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice", "Properties.ValBroker_fk", "Properties.ValCodcity_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

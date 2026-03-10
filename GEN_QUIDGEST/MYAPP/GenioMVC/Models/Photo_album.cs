@@ -24,8 +24,8 @@ namespace GenioMVC.Models
 
 		[Key]
 		/// <summary>Field : "photo album" Tipo: "+" Formula:  ""</summary>
-		[ShouldSerialize("Photo_album.ValCodphoto_album_pk")]
-		public string ValCodphoto_album_pk { get { return klass.ValCodphoto_album_pk; } set { klass.ValCodphoto_album_pk = value; } }
+		[ShouldSerialize("Photo_album.ValCodphoto_album")]
+		public string ValCodphoto_album { get { return klass.ValCodphoto_album; } set { klass.ValCodphoto_album = value; } }
 
 		[DisplayName("Photo")]
 		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>

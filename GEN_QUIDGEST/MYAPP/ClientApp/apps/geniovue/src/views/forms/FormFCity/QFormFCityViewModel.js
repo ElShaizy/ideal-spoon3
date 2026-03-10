@@ -44,14 +44,14 @@ export default class ViewModel extends FormViewModelBase
 		})
 
 		/** The primary key. */
-		this.ValCodcity_pk = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodcity_pk',
-			originId: 'ValCodcity_pk',
+		this.ValCodcity = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodcity',
+			originId: 'ValCodcity',
 			area: 'CITY',
-			field: 'CODCITY_PK',
+			field: 'CODCITY',
 			description: computed(() => this.Resources.CITY35974),
-		}).cloneFrom(values?.ValCodcity_pk))
-		this.stopWatchers.push(watch(() => this.ValCodcity_pk.value, (newValue, oldValue) => this.onUpdate('city.codcity_pk', this.ValCodcity_pk, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodcity))
+		this.stopWatchers.push(watch(() => this.ValCodcity.value, (newValue, oldValue) => this.onUpdate('city.codcity', this.ValCodcity, newValue, oldValue)))
 
 		/** The used foreign keys. */
 		this.ValCodcountry_fk = reactive(new modelFieldType.ForeignKey({
@@ -97,8 +97,8 @@ export default class ViewModel extends FormViewModelBase
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodcity_pk'
+	static QPrimaryKeyName = 'ValCodcity'
 
-	get QPrimaryKey() { return this.ValCodcity_pk.value }
-	set QPrimaryKey(value) { this.ValCodcity_pk.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodcity.value }
+	set QPrimaryKey(value) { this.ValCodcity.updateValue(value) }
 }

@@ -337,7 +337,7 @@
 					name: 'F_CONTACT',
 					route: 'form-F_CONTACT',
 					area: 'CONTACT',
-					primaryKey: 'ValCodcontact_pk',
+					primaryKey: 'ValCodcontact',
 					designation: computed(() => this.Resources.CONTACT59247),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
@@ -628,7 +628,7 @@
 							dependencyEvent: 'fieldChange:contact.codproperties_fk'
 						},
 						dependentFields: () => ({
-							set 'properties.codproperties_pk'(value) { vm.model.ValCodproperties_fk.updateValue(value) },
+							set 'properties.codproperties'(value) { vm.model.ValCodproperties_fk.updateValue(value) },
 							set 'properties.title'(value) { vm.model.TablePropertiesTitle.updateValue(value) },
 						}),
 						controlLimits: [
@@ -690,7 +690,7 @@
 					},
 					keys: {
 						/** The primary key of the CONTACT table */
-						get contact() { return vm.model.ValCodcontact_pk },
+						get contact() { return vm.model.ValCodcontact },
 						/** The foreign key to the PROPERTIES table */
 						get properties() { return vm.model.ValCodproperties_fk },
 					},

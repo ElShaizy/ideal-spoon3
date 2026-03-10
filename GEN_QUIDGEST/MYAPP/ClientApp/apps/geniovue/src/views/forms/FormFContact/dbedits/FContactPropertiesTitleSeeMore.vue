@@ -244,7 +244,7 @@
 						config: {
 							name: 'F_contact_PropertiesValTitle',
 							serverMode: true,
-							pkColumn: 'ValCodproperties_pk',
+							pkColumn: 'ValCodproperties',
 							tableAlias: 'PROPERTIES',
 							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
 							viewManagement: '',

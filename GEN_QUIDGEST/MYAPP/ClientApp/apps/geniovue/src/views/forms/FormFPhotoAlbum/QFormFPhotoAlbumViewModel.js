@@ -44,14 +44,14 @@ export default class ViewModel extends FormViewModelBase
 		})
 
 		/** The primary key. */
-		this.ValCodphoto_album_pk = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodphoto_album_pk',
-			originId: 'ValCodphoto_album_pk',
+		this.ValCodphoto_album = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodphoto_album',
+			originId: 'ValCodphoto_album',
 			area: 'PHOTO_ALBUM',
-			field: 'CODPHOTO_ALBUM_PK',
+			field: 'CODPHOTO_ALBUM',
 			description: computed(() => this.Resources.PHOTO_ALBUM31847),
-		}).cloneFrom(values?.ValCodphoto_album_pk))
-		this.stopWatchers.push(watch(() => this.ValCodphoto_album_pk.value, (newValue, oldValue) => this.onUpdate('photo_album.codphoto_album_pk', this.ValCodphoto_album_pk, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodphoto_album))
+		this.stopWatchers.push(watch(() => this.ValCodphoto_album.value, (newValue, oldValue) => this.onUpdate('photo_album.codphoto_album', this.ValCodphoto_album, newValue, oldValue)))
 
 		/** The used foreign keys. */
 		this.ValCodproperties_fk = reactive(new modelFieldType.ForeignKey({
@@ -106,8 +106,8 @@ export default class ViewModel extends FormViewModelBase
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodphoto_album_pk'
+	static QPrimaryKeyName = 'ValCodphoto_album'
 
-	get QPrimaryKey() { return this.ValCodphoto_album_pk.value }
-	set QPrimaryKey(value) { this.ValCodphoto_album_pk.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodphoto_album.value }
+	set QPrimaryKey(value) { this.ValCodphoto_album.updateValue(value) }
 }

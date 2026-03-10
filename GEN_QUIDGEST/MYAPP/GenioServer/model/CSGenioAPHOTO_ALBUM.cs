@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codphoto_album_pk", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codphoto_album", FieldType.KEY_INT);
 			Qfield.FieldDescription = "photo album";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -101,7 +101,7 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
-			info.ParentTables.Add("properties", new Relation("TRA", "traphoto_album", "photo_album", "codphoto_album_pk", "codproperties_fk", "TRA", "traproperties", "properties", "codproperties_pk", "codproperties_pk"));
+			info.ParentTables.Add("properties", new Relation("TRA", "traphoto_album", "photo_album", "codphoto_album", "codproperties_fk", "TRA", "traproperties", "properties", "codproperties", "codproperties"));
 		}
 
 		/// <summary>
@@ -153,7 +153,7 @@ namespace CSGenio.business
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codphoto_album_pk";
+			info.PrimaryKeyName="codphoto_album";
 			info.HumanKeyName="";
 			info.Alias="photo_album";
 			info.IsDomain = true;
@@ -236,14 +236,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "photo album" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodphoto_album_pk { get { return m_fldCodphoto_album_pk; } }
-		private static FieldRef m_fldCodphoto_album_pk = new FieldRef("photo_album", "codphoto_album_pk");
+		public static FieldRef FldCodphoto_album { get { return m_fldCodphoto_album; } }
+		private static FieldRef m_fldCodphoto_album = new FieldRef("photo_album", "codphoto_album");
 
 		/// <summary>Field : "photo album" Tipo: "+" Formula:  ""</summary>
-		public string ValCodphoto_album_pk
+		public string ValCodphoto_album
 		{
-			get { return (string)returnValueField(FldCodphoto_album_pk); }
-			set { insertNameValueField(FldCodphoto_album_pk, value); }
+			get { return (string)returnValueField(FldCodphoto_album); }
+			set { insertNameValueField(FldCodphoto_album, value); }
 		}
 
 		/// <summary>Field : "Photo" Tipo: "IJ" Formula:  ""</summary>

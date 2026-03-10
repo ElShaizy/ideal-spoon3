@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.City
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity_pk, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
 
 			ListingMVC<CSGenioAcity> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -329,7 +329,7 @@ namespace GenioMVC.ViewModels.City
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity_pk, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
 
 
 			// Totalizers
@@ -526,7 +526,7 @@ namespace GenioMVC.ViewModels.City
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"City", "City.ValCodcity_pk", "City.ValZzstate", "City.ValCity", "City.ValCodcountry_fk"
+			"City", "City.ValCodcity", "City.ValZzstate", "City.ValCity", "City.ValCodcountry_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

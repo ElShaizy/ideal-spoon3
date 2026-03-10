@@ -24,8 +24,8 @@ namespace GenioMVC.Models
 
 		[Key]
 		/// <summary>Field : "Contact" Tipo: "+" Formula:  ""</summary>
-		[ShouldSerialize("Contact.ValCodcontact_pk")]
-		public string ValCodcontact_pk { get { return klass.ValCodcontact_pk; } set { klass.ValCodcontact_pk = value; } }
+		[ShouldSerialize("Contact.ValCodcontact")]
+		public string ValCodcontact { get { return klass.ValCodcontact; } set { klass.ValCodcontact = value; } }
 
 		[DisplayName("Date")]
 		/// <summary>Field : "Date" Tipo: "D" Formula:  ""</summary>

@@ -44,14 +44,14 @@ export default class ViewModel extends FormViewModelBase
 		})
 
 		/** The primary key. */
-		this.ValCodproperties_pk = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodproperties_pk',
-			originId: 'ValCodproperties_pk',
+		this.ValCodproperties = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodproperties',
+			originId: 'ValCodproperties',
 			area: 'PROPERTIES',
-			field: 'CODPROPERTIES_PK',
+			field: 'CODPROPERTIES',
 			description: computed(() => this.Resources.PROPERTIES32002),
-		}).cloneFrom(values?.ValCodproperties_pk))
-		this.stopWatchers.push(watch(() => this.ValCodproperties_pk.value, (newValue, oldValue) => this.onUpdate('properties.codproperties_pk', this.ValCodproperties_pk, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodproperties))
+		this.stopWatchers.push(watch(() => this.ValCodproperties.value, (newValue, oldValue) => this.onUpdate('properties.codproperties', this.ValCodproperties, newValue, oldValue)))
 
 		/** The used foreign keys. */
 		this.ValCodcity_fk = reactive(new modelFieldType.ForeignKey({
@@ -137,16 +137,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.CityCountryValCountry))
 		this.stopWatchers.push(watch(() => this.CityCountryValCountry.value, (newValue, oldValue) => this.onUpdate('country.country', this.CityCountryValCountry, newValue, oldValue)))
 
-		this.ValSizem2 = reactive(new modelFieldType.String({
-			id: 'ValSizem2',
-			originId: 'ValSizem2',
-			area: 'PROPERTIES',
-			field: 'SIZEM2',
-			maxLength: 50,
-			description: computed(() => this.Resources.SIZE_M254142),
-		}).cloneFrom(values?.ValSizem2))
-		this.stopWatchers.push(watch(() => this.ValSizem2.value, (newValue, oldValue) => this.onUpdate('properties.sizem2', this.ValSizem2, newValue, oldValue)))
-
 		this.ValBathroomsnumber = reactive(new modelFieldType.Number({
 			id: 'ValBathroomsnumber',
 			originId: 'ValBathroomsnumber',
@@ -158,6 +148,27 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValBathroomsnumber))
 		this.stopWatchers.push(watch(() => this.ValBathroomsnumber.value, (newValue, oldValue) => this.onUpdate('properties.bathroomsnumber', this.ValBathroomsnumber, newValue, oldValue)))
 
+		this.ValSizem2 = reactive(new modelFieldType.String({
+			id: 'ValSizem2',
+			originId: 'ValSizem2',
+			area: 'PROPERTIES',
+			field: 'SIZEM2',
+			maxLength: 50,
+			description: computed(() => this.Resources.SIZE_M254142),
+		}).cloneFrom(values?.ValSizem2))
+		this.stopWatchers.push(watch(() => this.ValSizem2.value, (newValue, oldValue) => this.onUpdate('properties.sizem2', this.ValSizem2, newValue, oldValue)))
+
+		this.ValBuildingtype = reactive(new modelFieldType.String({
+			id: 'ValBuildingtype',
+			originId: 'ValBuildingtype',
+			area: 'PROPERTIES',
+			field: 'BUILDINGTYPE',
+			maxLength: 1,
+			arrayOptions: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
+			description: computed(() => this.Resources.BUILDING_TYPE34158),
+		}).cloneFrom(values?.ValBuildingtype))
+		this.stopWatchers.push(watch(() => this.ValBuildingtype.value, (newValue, oldValue) => this.onUpdate('properties.buildingtype', this.ValBuildingtype, newValue, oldValue)))
+
 		this.ValDateconstruction = reactive(new modelFieldType.Date({
 			id: 'ValDateconstruction',
 			originId: 'ValDateconstruction',
@@ -166,6 +177,18 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.CONSTRUCTION_DATE18132),
 		}).cloneFrom(values?.ValDateconstruction))
 		this.stopWatchers.push(watch(() => this.ValDateconstruction.value, (newValue, oldValue) => this.onUpdate('properties.dateconstruction', this.ValDateconstruction, newValue, oldValue)))
+
+		this.ValTypology = reactive(new modelFieldType.Number({
+			id: 'ValTypology',
+			originId: 'ValTypology',
+			area: 'PROPERTIES',
+			field: 'TYPOLOGY',
+			maxDigits: 1,
+			decimalDigits: 0,
+			arrayOptions: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
+			description: computed(() => this.Resources.TYPOLOGY11991),
+		}).cloneFrom(values?.ValTypology))
+		this.stopWatchers.push(watch(() => this.ValTypology.value, (newValue, oldValue) => this.onUpdate('properties.typology', this.ValTypology, newValue, oldValue)))
 
 		this.TableBrokerName = reactive(new modelFieldType.String({
 			type: 'Lookup',
@@ -199,29 +222,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.EMAIL25170),
 		}).cloneFrom(values?.BrokerValEmail))
 		this.stopWatchers.push(watch(() => this.BrokerValEmail.value, (newValue, oldValue) => this.onUpdate('broker.email', this.BrokerValEmail, newValue, oldValue)))
-
-		this.ValBuildingtype = reactive(new modelFieldType.String({
-			id: 'ValBuildingtype',
-			originId: 'ValBuildingtype',
-			area: 'PROPERTIES',
-			field: 'BUILDINGTYPE',
-			maxLength: 1,
-			arrayOptions: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
-			description: computed(() => this.Resources.BUILDING_TYPE34158),
-		}).cloneFrom(values?.ValBuildingtype))
-		this.stopWatchers.push(watch(() => this.ValBuildingtype.value, (newValue, oldValue) => this.onUpdate('properties.buildingtype', this.ValBuildingtype, newValue, oldValue)))
-
-		this.ValTypology = reactive(new modelFieldType.Number({
-			id: 'ValTypology',
-			originId: 'ValTypology',
-			area: 'PROPERTIES',
-			field: 'TYPOLOGY',
-			maxDigits: 1,
-			decimalDigits: 0,
-			arrayOptions: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
-			description: computed(() => this.Resources.TYPOLOGY11991),
-		}).cloneFrom(values?.ValTypology))
-		this.stopWatchers.push(watch(() => this.ValTypology.value, (newValue, oldValue) => this.onUpdate('properties.typology', this.ValTypology, newValue, oldValue)))
 	}
 
 	/**
@@ -233,8 +233,8 @@ export default class ViewModel extends FormViewModelBase
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodproperties_pk'
+	static QPrimaryKeyName = 'ValCodproperties'
 
-	get QPrimaryKey() { return this.ValCodproperties_pk.value }
-	set QPrimaryKey(value) { this.ValCodproperties_pk.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodproperties.value }
+	set QPrimaryKey(value) { this.ValCodproperties.updateValue(value) }
 }

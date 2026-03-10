@@ -246,24 +246,7 @@
 							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP03"
 							v-on="controls.F_PROPERTY__PSEUD__NEWGRP03.handlers">
 							<!-- Start F_PROPERTY__PSEUD__NEWGRP03 -->
-							<q-row v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible || controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible">
-								<q-col
-									v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible"
-										class="i-text"
-										v-bind="controls.F_PROPERTY__PROPERTIES__SIZEM2"
-										v-on="controls.F_PROPERTY__PROPERTIES__SIZEM2.handlers"
-										:loading="controls.F_PROPERTY__PROPERTIES__SIZEM2.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.F_PROPERTY__PROPERTIES__SIZEM2.props"
-											@blur="onBlur(controls.F_PROPERTY__PROPERTIES__SIZEM2, model.ValSizem2.value)"
-											@change="model.ValSizem2.fnUpdateValueOnChange" />
-									</base-input-structure>
-								</q-col>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible || controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible">
 								<q-col
 									v-if="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible"
 									cols="auto">
@@ -281,8 +264,42 @@
 											@update:model-value="model.ValBathroomsnumber.fnUpdateValue" />
 									</base-input-structure>
 								</q-col>
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__SIZEM2"
+										v-on="controls.F_PROPERTY__PROPERTIES__SIZEM2.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__SIZEM2.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_PROPERTY__PROPERTIES__SIZEM2.props"
+											@blur="onBlur(controls.F_PROPERTY__PROPERTIES__SIZEM2, model.ValSizem2.value)"
+											@change="model.ValSizem2.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
 							</q-row>
-							<q-row v-if="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible">
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible || controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE"
+										v-on="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-select
+											v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.props"
+											@update:model-value="model.ValBuildingtype.fnUpdateValue" />
+									</base-input-structure>
+								</q-col>
 								<q-col
 									v-if="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible"
 									cols="auto">
@@ -300,6 +317,30 @@
 											:model-value="model.ValDateconstruction.value"
 											@reset-icon-click="model.ValDateconstruction.fnUpdateValue(model.ValDateconstruction.originalValue ?? new Date())"
 											@update:model-value="model.ValDateconstruction.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.isVisible">
+								<q-col v-if="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.isVisible">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.isVisible"
+										class="i-radio-container"
+										v-bind="controls.F_PROPERTY__PROPERTIES__TYPOLOGY"
+										v-on="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.handlers"
+										:label-position="labelAlignment.topleft"
+										:loading="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-radio-group
+											v-if="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.props"
+											v-on="controls.F_PROPERTY__PROPERTIES__TYPOLOGY.handlers">
+											<q-radio-button
+												v-for="radio in controls.F_PROPERTY__PROPERTIES__TYPOLOGY.items"
+												:key="radio.key"
+												:label="radio.value"
+												:value="radio.key" />
+										</q-radio-group>
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -378,23 +419,21 @@
 						</q-group-collapsible>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible">
+				<q-row v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible">
 					<q-col
-						v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+						v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible"
 						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
-							class="i-text"
-							v-bind="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE"
-							v-on="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.handlers"
-							:loading="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-select
-								v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
-								v-bind="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.props"
-								@update:model-value="model.ValBuildingtype.fnUpdateValue" />
-						</base-input-structure>
+						<q-table
+							v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible"
+							v-bind="controls.F_PROPERTY__PSEUD__PROPERTY_GRID"
+							v-on="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.handlers">
+							<template #header>
+								<q-table-config
+									:table-ctrl="controls.F_PROPERTY__PSEUD__PROPERTY_GRID"
+									v-on="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.handlers" />
+							</template>
+							<!-- USE /[MANUAL TRA CUSTOM_TABLE F_PROPERTY__PSEUD__PROPERTY_GRID]/ -->
+						</q-table>
 					</q-col>
 				</q-row>
 			</template>
@@ -529,7 +568,7 @@
 					name: 'F_PROPERTY',
 					route: 'form-F_PROPERTY',
 					area: 'PROPERTIES',
-					primaryKey: 'ValCodproperties_pk',
+					primaryKey: 'ValCodproperties',
 					designation: computed(() => this.Resources.PROPERTY43977),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
@@ -859,7 +898,7 @@
 							dependencyEvent: 'fieldChange:properties.codcity_fk'
 						},
 						dependentFields: () => ({
-							set 'city.codcity_pk'(value) { vm.model.ValCodcity_fk.updateValue(value) },
+							set 'city.codcity'(value) { vm.model.ValCodcity_fk.updateValue(value) },
 							set 'city.city'(value) { vm.model.TableCityCity.updateValue(value) },
 							set 'country.country'(value) { vm.model.CityCountryValCountry.updateValue(value) },
 						}),
@@ -892,21 +931,7 @@
 						startsExpanded: false,
 						isCollapsible: true,
 						anchored: false,
-						directChildren: ['F_PROPERTY__PROPERTIES__SIZEM2', 'F_PROPERTY__PROPERTIES__BATHROOMSNUMBER', 'F_PROPERTY__PROPERTIES__DATECONSTRUCTION'],
-						controlLimits: [
-						],
-					}, this),
-					F_PROPERTY__PROPERTIES__SIZEM2: new fieldControlClass.StringControl({
-						modelField: 'ValSizem2',
-						valueChangeEvent: 'fieldChange:properties.sizem2',
-						id: 'F_PROPERTY__PROPERTIES__SIZEM2',
-						name: 'SIZEM2',
-						size: 'medium',
-						label: computed(() => this.Resources.SIZE10299),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'F_PROPERTY__PSEUD__NEWGRP03',
-						maxLength: 50,
+						directChildren: ['F_PROPERTY__PROPERTIES__BATHROOMSNUMBER', 'F_PROPERTY__PROPERTIES__SIZEM2', 'F_PROPERTY__PROPERTIES__BUILDINGTYPE', 'F_PROPERTY__PROPERTIES__DATECONSTRUCTION', 'F_PROPERTY__PROPERTIES__TYPOLOGY'],
 						controlLimits: [
 						],
 					}, this),
@@ -925,6 +950,37 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__PROPERTIES__SIZEM2: new fieldControlClass.StringControl({
+						modelField: 'ValSizem2',
+						valueChangeEvent: 'fieldChange:properties.sizem2',
+						id: 'F_PROPERTY__PROPERTIES__SIZEM2',
+						name: 'SIZEM2',
+						size: 'medium',
+						label: computed(() => this.Resources.SIZE10299),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP03',
+						maxLength: 50,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__BUILDINGTYPE: new fieldControlClass.ArrayStringControl({
+						modelField: 'ValBuildingtype',
+						valueChangeEvent: 'fieldChange:properties.buildingtype',
+						id: 'F_PROPERTY__PROPERTIES__BUILDINGTYPE',
+						name: 'BUILDINGTYPE',
+						size: 'mini',
+						label: computed(() => this.Resources.BUILDING_TYPE34158),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP03',
+						maxLength: 1,
+						arrayName: 'building_type',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
+						controlLimits: [
+						],
+					}, this),
 					F_PROPERTY__PROPERTIES__DATECONSTRUCTION: new fieldControlClass.DateControl({
 						modelField: 'ValDateconstruction',
 						valueChangeEvent: 'fieldChange:properties.dateconstruction',
@@ -936,6 +992,22 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'F_PROPERTY__PSEUD__NEWGRP03',
 						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__TYPOLOGY: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValTypology',
+						valueChangeEvent: 'fieldChange:properties.typology',
+						id: 'F_PROPERTY__PROPERTIES__TYPOLOGY',
+						name: 'TYPOLOGY',
+						label: computed(() => this.Resources.TYPOLOGY11991),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP03',
+						maxIntegers: 1,
+						maxDecimals: 0,
+						arrayName: 'typology',
+						columns: 1,
 						controlLimits: [
 						],
 					}, this),
@@ -1020,35 +1092,177 @@
 						controlLimits: [
 						],
 					}, this),
-					F_PROPERTY__PROPERTIES__BUILDINGTYPE: new fieldControlClass.ArrayStringControl({
-						modelField: 'ValBuildingtype',
-						valueChangeEvent: 'fieldChange:properties.buildingtype',
-						id: 'F_PROPERTY__PROPERTIES__BUILDINGTYPE',
-						name: 'BUILDINGTYPE',
-						size: 'mini',
-						label: computed(() => this.Resources.BUILDING_TYPE34158),
+					F_PROPERTY__PSEUD__PROPERTY_GRID: new fieldControlClass.TableListControl({
+						id: 'F_PROPERTY__PSEUD__PROPERTY_GRID',
+						name: 'PROPERTY_GRID',
+						size: '',
+						label: computed(() => this.Resources.PROPERTIES34868),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 1,
-						arrayName: 'building_type',
-						helpShortItem: 'None',
-						helpDetailedItem: 'None',
+						controller: 'PROPERTIES',
+						action: 'F_property_ValProperty_grid',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.ImageColumn({
+								order: 1,
+								name: 'ValMain_photo',
+								area: 'PROPERTIES',
+								field: 'MAIN_PHOTO',
+								label: computed(() => this.Resources.MAIN_PHOTO18723),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.MAIN_PHOTO18723)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValTitle',
+								area: 'PROPERTIES',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValProperty_grid',
+							serverMode: true,
+							pkColumn: 'ValCodproperties',
+							tableAlias: 'PROPERTIES',
+							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.PROPERTIES34868),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+							},
+							formsDefinition: {
+							},
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTIES'],
+						uuid: 'F_property_ValProperty_grid',
+						allSelectedRows: 'false',
 						controlLimits: [
+							{
+								identifier: ['id', 'properties'],
+								dependencyEvents: ['fieldChange:properties.codproperties'],
+								dependencyField: 'PROPERTIES.CODPROPERTIES',
+								fnValueSelector: (model) => model.ValCodproperties.value
+							},
 						],
 					}, this),
-					F_PROPERTY__PROPERTIES__TYPOLOGY: new fieldControlClass.RadioGroupControl({
-						modelField: 'ValTypology',
-						valueChangeEvent: 'fieldChange:properties.typology',
-						id: 'F_PROPERTY__PROPERTIES__TYPOLOGY',
-						name: 'TYPOLOGY',
-						label: computed(() => this.Resources.TYPOLOGY11991),
+					F_PROPERTY__PSEUD__CONTACT_GRID: new fieldControlClass.TableListControl({
+						id: 'F_PROPERTY__PSEUD__CONTACT_GRID',
+						name: 'CONTACT_GRID',
+						size: '',
+						label: computed(() => this.Resources.CONTACTS55742),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxIntegers: 1,
-						maxDecimals: 0,
-						arrayName: 'typology',
-						columns: 1,
+						controller: 'PROPERTIES',
+						action: 'F_property_ValContact_grid',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.DateColumn({
+								order: 1,
+								name: 'ValDate',
+								area: 'CONTACT',
+								field: 'DATE',
+								label: computed(() => this.Resources.DATE18475),
+								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValClient_name',
+								area: 'CONTACT',
+								field: 'CLIENT_NAME',
+								label: computed(() => this.Resources.CLIENT_NAME39245),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValDescription',
+								area: 'CONTACT',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION03846),
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValContact_grid',
+							serverMode: true,
+							pkColumn: 'ValCodcontact',
+							tableAlias: 'CONTACT',
+							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.CONTACTS55742),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+							},
+							formsDefinition: {
+							},
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-PROPERTIES', 'changed-CONTACT'],
+						uuid: 'F_property_ValContact_grid',
+						allSelectedRows: 'false',
 						controlLimits: [
+							{
+								identifier: ['id', 'properties'],
+								dependencyEvents: ['fieldChange:properties.codproperties'],
+								dependencyField: 'PROPERTIES.CODPROPERTIES',
+								fnValueSelector: (model) => model.ValCodproperties.value
+							},
 						],
 					}, this),
 				},
@@ -1068,6 +1282,8 @@
 				]),
 
 				tableFields: readonly([
+					'F_PROPERTY__PSEUD__PROPERTY_GRID',
+					'F_PROPERTY__PSEUD__CONTACT_GRID',
 				]),
 
 				timelineFields: readonly([
@@ -1119,7 +1335,7 @@
 					},
 					keys: {
 						/** The primary key of the PROPERTIES table */
-						get properties() { return vm.model.ValCodproperties_pk },
+						get properties() { return vm.model.ValCodproperties },
 						/** The foreign key to the BROKER table */
 						get broker() { return vm.model.ValBroker_fk },
 						/** The foreign key to the CITY table */

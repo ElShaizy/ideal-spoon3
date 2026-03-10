@@ -71,7 +71,7 @@ namespace GenioMVC.ViewModels.Photo_album
 
 		#endregion
 
-		public string ValCodphoto_album_pk { get; set; }
+		public string ValCodphoto_album { get; set; }
 
 
 		/// <summary>
@@ -184,7 +184,7 @@ namespace GenioMVC.ViewModels.Photo_album
 				ValCodproperties_fk = ViewModelConversion.ToString(m.ValCodproperties_fk);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
-				ValCodphoto_album_pk = ViewModelConversion.ToString(m.ValCodphoto_album_pk);
+				ValCodphoto_album = ViewModelConversion.ToString(m.ValCodphoto_album);
 			}
 			catch (Exception)
 			{
@@ -214,7 +214,7 @@ namespace GenioMVC.ViewModels.Photo_album
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
-				m.ValCodphoto_album_pk = ViewModelConversion.ToString(ValCodphoto_album_pk);
+				m.ValCodphoto_album = ViewModelConversion.ToString(ValCodphoto_album);
 			}
 			catch (Exception)
 			{
@@ -248,8 +248,8 @@ namespace GenioMVC.ViewModels.Photo_album
 					case "photo_album.title":
 						this.ValTitle = ViewModelConversion.ToString(_value);
 						break;
-					case "photo_album.codphoto_album_pk":
-						this.ValCodphoto_album_pk = ViewModelConversion.ToString(_value);
+					case "photo_album.codphoto_album":
+						this.ValCodphoto_album = ViewModelConversion.ToString(_value);
 						break;
 					default:
 						Log.Error($"SetViewModelValue (F_photo_album) - Unexpected field identifier {fullFieldName}");
@@ -425,7 +425,7 @@ namespace GenioMVC.ViewModels.Photo_album
 				object hValue = Navigation.GetValue("properties", true);
 				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
 				{
-					f_photo_album__properties__titleConds.Equal(CSGenioAproperties.FldCodproperties_pk, hValue);
+					f_photo_album__properties__titleConds.Equal(CSGenioAproperties.FldCodproperties, hValue);
 					this.ValCodproperties_fk = DBConversion.ToString(hValue);
 				}
 			}
@@ -477,7 +477,7 @@ namespace GenioMVC.ViewModels.Photo_album
 				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
 				int offset = (page - 1) * numberItems;
 
-				FieldRef[] fields = [CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldZzstate];
+				FieldRef[] fields = [CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldZzstate];
 
 // USE /[MANUAL TRA OVERRQ F_PHOTO_ALBUM_PROPERTIESTITLE]/
 
@@ -489,7 +489,7 @@ namespace GenioMVC.ViewModels.Photo_album
 				if (Navigation.checkFormMode("properties", FormMode.New) || Navigation.checkFormMode("properties", FormMode.Duplicate))
 					f_photo_album__properties__titleConds.SubSet(CriteriaSet.Or()
 						.Equal(CSGenioAproperties.FldZzstate, 0)
-						.Equal(CSGenioAproperties.FldCodproperties_pk, Navigation.GetStrValue("properties")));
+						.Equal(CSGenioAproperties.FldCodproperties, Navigation.GetStrValue("properties")));
 				else
 					f_photo_album__properties__titleConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAproperties.FldZzstate), CriteriaOperator.Equal, 0));
 
@@ -508,7 +508,7 @@ namespace GenioMVC.ViewModels.Photo_album
 					Navigation.CurrentLevel.SetEntry("RETURN_properties", null);
 				}
 
-				TablePropertiesTitle.List = new SelectList(TablePropertiesTitle.Elements.ToSelectList(x => x.ValTitle, x => x.ValCodproperties_pk,  x => x.ValCodproperties_pk == this.ValCodproperties_fk), "Value", "Text", this.ValCodproperties_fk);
+				TablePropertiesTitle.List = new SelectList(TablePropertiesTitle.Elements.ToSelectList(x => x.ValTitle, x => x.ValCodproperties,  x => x.ValCodproperties == this.ValCodproperties_fk), "Value", "Text", this.ValCodproperties_fk);
 				FillDependant_F_photo_albumTablePropertiesTitle();
 			}
 		}
@@ -519,7 +519,7 @@ namespace GenioMVC.ViewModels.Photo_album
 		/// <param name="PKey">Primary Key of Properties</param>
 		public ConcurrentDictionary<string, object> GetDependant_F_photo_albumTablePropertiesTitle(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle];
+			FieldRef[] refDependantFields = [CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -546,7 +546,7 @@ namespace GenioMVC.ViewModels.Photo_album
 				querySelect.Select(field);
 
 			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
-				.Where(wherecodition.Equal(CSGenioAproperties.FldCodproperties_pk, PKey));
+				.Where(wherecodition.Equal(CSGenioAproperties.FldCodproperties, PKey));
 
 			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
 			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
@@ -570,7 +570,7 @@ namespace GenioMVC.ViewModels.Photo_album
 			{
 
 				// Fill List fields
-				this.ValCodproperties_fk = ViewModelConversion.ToString(row["properties.codproperties_pk"]);
+				this.ValCodproperties_fk = ViewModelConversion.ToString(row["properties.codproperties"]);
 				TablePropertiesTitle.Value = (string)row["properties.title"];
 				if (GenFunctions.emptyG(this.ValCodproperties_fk) == 1)
 				{
@@ -600,7 +600,7 @@ namespace GenioMVC.ViewModels.Photo_album
 			}
 		}
 
-		private readonly string[] _fieldsToSerialize_F_PHOTO_ALBUM__PROPERTIES__TITLE = ["Properties", "Properties.ValCodproperties_pk", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice"];
+		private readonly string[] _fieldsToSerialize_F_PHOTO_ALBUM__PROPERTIES__TITLE = ["Properties", "Properties.ValCodproperties", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice"];
 
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
@@ -609,8 +609,8 @@ namespace GenioMVC.ViewModels.Photo_album
 				"photo_album.codproperties_fk" => ViewModelConversion.ToString(modelValue),
 				"photo_album.photo" => ViewModelConversion.ToImage(modelValue),
 				"photo_album.title" => ViewModelConversion.ToString(modelValue),
-				"photo_album.codphoto_album_pk" => ViewModelConversion.ToString(modelValue),
-				"properties.codproperties_pk" => ViewModelConversion.ToString(modelValue),
+				"photo_album.codphoto_album" => ViewModelConversion.ToString(modelValue),
+				"properties.codproperties" => ViewModelConversion.ToString(modelValue),
 				"properties.title" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
@@ -620,7 +620,7 @@ namespace GenioMVC.ViewModels.Photo_album
 		protected override void SetTicketToImageFields()
 		{
 			if (ValPhoto != null)
-				ValPhoto.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPHOTO_ALBUM, CSGenioAphoto_album.FldPhoto.Field, null, ValCodphoto_album_pk);
+				ValPhoto.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPHOTO_ALBUM, CSGenioAphoto_album.FldPhoto.Field, null, ValCodphoto_album);
 		}
 
 		#region Charts

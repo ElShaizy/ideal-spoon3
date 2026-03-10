@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Contact
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcontact.FldCodcontact_pk, CSGenioAcontact.FldZzstate, CSGenioAcontact.FldClient_name, CSGenioAcontact.FldDescription, CSGenioAcontact.FldDate, CSGenioAcontact.FldCodproperties_fk, CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle, CSGenioAcontact.FldPhonecontact, CSGenioAcontact.FldEmailcontact };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcontact.FldCodcontact, CSGenioAcontact.FldZzstate, CSGenioAcontact.FldClient_name, CSGenioAcontact.FldDescription, CSGenioAcontact.FldDate, CSGenioAcontact.FldCodproperties_fk, CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle, CSGenioAcontact.FldPhonecontact, CSGenioAcontact.FldEmailcontact };
 
 			ListingMVC<CSGenioAcontact> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -334,7 +334,7 @@ namespace GenioMVC.ViewModels.Contact
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcontact.FldCodcontact_pk, CSGenioAcontact.FldZzstate, CSGenioAcontact.FldClient_name, CSGenioAcontact.FldDescription, CSGenioAcontact.FldDate, CSGenioAcontact.FldCodproperties_fk, CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle, CSGenioAcontact.FldPhonecontact, CSGenioAcontact.FldEmailcontact };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcontact.FldCodcontact, CSGenioAcontact.FldZzstate, CSGenioAcontact.FldClient_name, CSGenioAcontact.FldDescription, CSGenioAcontact.FldDate, CSGenioAcontact.FldCodproperties_fk, CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle, CSGenioAcontact.FldPhonecontact, CSGenioAcontact.FldEmailcontact };
 
 
 			// Totalizers
@@ -533,7 +533,7 @@ namespace GenioMVC.ViewModels.Contact
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Contact", "Contact.ValCodcontact_pk", "Contact.ValZzstate", "Contact.ValClient_name", "Contact.ValDescription", "Contact.ValDate", "Properties", "Properties.ValTitle", "Contact.ValPhonecontact", "Contact.ValEmailcontact", "Contact.ValCodproperties_fk"
+			"Contact", "Contact.ValCodcontact", "Contact.ValZzstate", "Contact.ValClient_name", "Contact.ValDescription", "Contact.ValDate", "Properties", "Properties.ValTitle", "Contact.ValPhonecontact", "Contact.ValEmailcontact", "Contact.ValCodproperties_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

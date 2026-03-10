@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codproperties_pk", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codproperties", FieldType.KEY_INT);
 			Qfield.FieldDescription = "properties";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -193,8 +193,8 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
-			info.ParentTables.Add("broker", new Relation("TRA", "traproperties", "properties", "codproperties_pk", "broker_fk", "TRA", "trabroker", "broker", "codbroker", "codbroker"));
-			info.ParentTables.Add("city", new Relation("TRA", "traproperties", "properties", "codproperties_pk", "codcity_fk", "TRA", "tracity", "city", "codcity_pk", "codcity_pk"));
+			info.ParentTables.Add("broker", new Relation("TRA", "traproperties", "properties", "codproperties", "broker_fk", "TRA", "trabroker", "broker", "codbroker", "codbroker"));
+			info.ParentTables.Add("city", new Relation("TRA", "traproperties", "properties", "codproperties", "codcity_fk", "TRA", "tracity", "city", "codcity", "codcity"));
 		}
 
 		/// <summary>
@@ -245,7 +245,7 @@ namespace CSGenio.business
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codproperties_pk";
+			info.PrimaryKeyName="codproperties";
 			info.HumanKeyName="title,price,".TrimEnd(',');
 			info.Alias="properties";
 			info.IsDomain = true;
@@ -328,14 +328,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "properties" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodproperties_pk { get { return m_fldCodproperties_pk; } }
-		private static FieldRef m_fldCodproperties_pk = new FieldRef("properties", "codproperties_pk");
+		public static FieldRef FldCodproperties { get { return m_fldCodproperties; } }
+		private static FieldRef m_fldCodproperties = new FieldRef("properties", "codproperties");
 
 		/// <summary>Field : "properties" Tipo: "+" Formula:  ""</summary>
-		public string ValCodproperties_pk
+		public string ValCodproperties
 		{
-			get { return (string)returnValueField(FldCodproperties_pk); }
-			set { insertNameValueField(FldCodproperties_pk, value); }
+			get { return (string)returnValueField(FldCodproperties); }
+			set { insertNameValueField(FldCodproperties, value); }
 		}
 
 		/// <summary>Field : "brokers" Tipo: "CE" Formula:  ""</summary>

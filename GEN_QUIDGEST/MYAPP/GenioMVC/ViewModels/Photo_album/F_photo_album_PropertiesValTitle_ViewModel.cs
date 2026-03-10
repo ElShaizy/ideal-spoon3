@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Photo_album
 		/// The primary key field.
 		/// </summary>
 		[JsonIgnore]
-		public string ValCodphoto_album_pk { get; set; }
+		public string ValCodphoto_album { get; set; }
 
 		/// <summary>
 		/// The context of the parent.
@@ -110,7 +110,7 @@ namespace GenioMVC.ViewModels.Photo_album
 		/// <param name="userContext">The current user request context</param>
 		public F_photo_album_PropertiesValTitle_ViewModel(UserContext userContext) : base(userContext)
 		{
-			ValCodphoto_album_pk = userContext.CurrentNavigation.CurrentLevel.GetEntry("photo_album")?.ToString();
+			ValCodphoto_album = userContext.CurrentNavigation.CurrentLevel.GetEntry("photo_album")?.ToString();
 		}
 
 		/// <summary>
@@ -313,7 +313,7 @@ namespace GenioMVC.ViewModels.Photo_album
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice };
+			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice };
 
 
 			// Totalizers
@@ -508,7 +508,7 @@ namespace GenioMVC.ViewModels.Photo_album
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Properties", "Properties.ValCodproperties_pk", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice", "Properties.ValBroker_fk", "Properties.ValCodcity_fk"
+			"Properties", "Properties.ValCodproperties", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice", "Properties.ValBroker_fk", "Properties.ValCodcity_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

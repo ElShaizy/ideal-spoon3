@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Photo_album
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAphoto_album.FldCodphoto_album_pk, CSGenioAphoto_album.FldZzstate, CSGenioAphoto_album.FldTitle, CSGenioAphoto_album.FldCodproperties_fk, CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle, CSGenioAphoto_album.FldPhoto };
+			FieldRef[] fields = new FieldRef[] { CSGenioAphoto_album.FldCodphoto_album, CSGenioAphoto_album.FldZzstate, CSGenioAphoto_album.FldTitle, CSGenioAphoto_album.FldCodproperties_fk, CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle, CSGenioAphoto_album.FldPhoto };
 
 			ListingMVC<CSGenioAphoto_album> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -330,7 +330,7 @@ namespace GenioMVC.ViewModels.Photo_album
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAphoto_album.FldCodphoto_album_pk, CSGenioAphoto_album.FldZzstate, CSGenioAphoto_album.FldTitle, CSGenioAphoto_album.FldCodproperties_fk, CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle, CSGenioAphoto_album.FldPhoto };
+			FieldRef[] fields = new FieldRef[] { CSGenioAphoto_album.FldCodphoto_album, CSGenioAphoto_album.FldZzstate, CSGenioAphoto_album.FldTitle, CSGenioAphoto_album.FldCodproperties_fk, CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle, CSGenioAphoto_album.FldPhoto };
 
 
 			// Totalizers
@@ -530,7 +530,7 @@ namespace GenioMVC.ViewModels.Photo_album
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Photo_album", "Photo_album.ValCodphoto_album_pk", "Photo_album.ValZzstate", "Photo_album.ValTitle", "Properties", "Properties.ValTitle", "Photo_album.ValPhoto", "Photo_album.ValCodproperties_fk"
+			"Photo_album", "Photo_album.ValCodphoto_album", "Photo_album.ValZzstate", "Photo_album.ValTitle", "Properties", "Properties.ValTitle", "Photo_album.ValPhoto", "Photo_album.ValCodproperties_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
@@ -543,7 +543,7 @@ namespace GenioMVC.ViewModels.Photo_album
 			if (row == null)
 				return;
 
-			row.ValPhotoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPHOTO_ALBUM, CSGenioAphoto_album.FldPhoto.Field, null, row.ValCodphoto_album_pk);
+			row.ValPhotoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPHOTO_ALBUM, CSGenioAphoto_album.FldPhoto.Field, null, row.ValCodphoto_album);
 		}
 	}
 }

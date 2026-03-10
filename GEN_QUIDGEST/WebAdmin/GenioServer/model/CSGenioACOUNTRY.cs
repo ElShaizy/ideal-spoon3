@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codcountry_pk", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codcountry", FieldType.KEY_INT);
 			Qfield.FieldDescription = "country";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -130,7 +130,7 @@ namespace CSGenio.business
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codcountry_pk";
+			info.PrimaryKeyName="codcountry";
 			info.HumanKeyName="";
 			info.Alias="country";
 			info.IsDomain = true;
@@ -213,14 +213,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "country" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodcountry_pk { get { return m_fldCodcountry_pk; } }
-		private static FieldRef m_fldCodcountry_pk = new FieldRef("country", "codcountry_pk");
+		public static FieldRef FldCodcountry { get { return m_fldCodcountry; } }
+		private static FieldRef m_fldCodcountry = new FieldRef("country", "codcountry");
 
 		/// <summary>Field : "country" Tipo: "+" Formula:  ""</summary>
-		public string ValCodcountry_pk
+		public string ValCodcountry
 		{
-			get { return (string)returnValueField(FldCodcountry_pk); }
-			set { insertNameValueField(FldCodcountry_pk, value); }
+			get { return (string)returnValueField(FldCodcountry); }
+			set { insertNameValueField(FldCodcountry, value); }
 		}
 
 		/// <summary>Field : "Country" Tipo: "C" Formula:  ""</summary>

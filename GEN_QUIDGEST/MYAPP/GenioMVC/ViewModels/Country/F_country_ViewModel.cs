@@ -57,7 +57,7 @@ namespace GenioMVC.ViewModels.Country
 
 		#endregion
 
-		public string ValCodcountry_pk { get; set; }
+		public string ValCodcountry { get; set; }
 
 
 		/// <summary>
@@ -168,7 +168,7 @@ namespace GenioMVC.ViewModels.Country
 			try
 			{
 				ValCountry = ViewModelConversion.ToString(m.ValCountry);
-				ValCodcountry_pk = ViewModelConversion.ToString(m.ValCodcountry_pk);
+				ValCodcountry = ViewModelConversion.ToString(m.ValCodcountry);
 			}
 			catch (Exception)
 			{
@@ -195,7 +195,7 @@ namespace GenioMVC.ViewModels.Country
 			try
 			{
 				m.ValCountry = ViewModelConversion.ToString(ValCountry);
-				m.ValCodcountry_pk = ViewModelConversion.ToString(ValCodcountry_pk);
+				m.ValCodcountry = ViewModelConversion.ToString(ValCodcountry);
 			}
 			catch (Exception)
 			{
@@ -223,8 +223,8 @@ namespace GenioMVC.ViewModels.Country
 					case "country.country":
 						this.ValCountry = ViewModelConversion.ToString(_value);
 						break;
-					case "country.codcountry_pk":
-						this.ValCodcountry_pk = ViewModelConversion.ToString(_value);
+					case "country.codcountry":
+						this.ValCodcountry = ViewModelConversion.ToString(_value);
 						break;
 					default:
 						Log.Error($"SetViewModelValue (F_country) - Unexpected field identifier {fullFieldName}");
@@ -391,7 +391,7 @@ namespace GenioMVC.ViewModels.Country
 			return identifier switch
 			{
 				"country.country" => ViewModelConversion.ToString(modelValue),
-				"country.codcountry_pk" => ViewModelConversion.ToString(modelValue),
+				"country.codcountry" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}

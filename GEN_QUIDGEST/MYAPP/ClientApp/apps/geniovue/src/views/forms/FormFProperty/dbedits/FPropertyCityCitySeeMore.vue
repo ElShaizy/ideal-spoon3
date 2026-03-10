@@ -233,7 +233,7 @@
 						config: {
 							name: 'F_property_CityValCity',
 							serverMode: true,
-							pkColumn: 'ValCodcity_pk',
+							pkColumn: 'ValCodcity',
 							tableAlias: 'CITY',
 							tableNamePlural: computed(() => this.Resources.CITIES41573),
 							viewManagement: '',

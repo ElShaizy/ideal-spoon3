@@ -84,7 +84,7 @@ namespace CSGenio.business
             /* --- TRACOUNTRY --- */
             dm = sp.Execute(
                 new SelectQuery()
-                .Select(CSGenioAcountry.FldCodcountry_pk)
+                .Select(CSGenioAcountry.FldCodcountry)
                 .From(CSGenioAcountry.AreaCOUNTRY)
                 .Where(CriteriaSet.And().In(CSGenioAcountry.FldZzstate, zzstateToRemove))
                 );
@@ -92,7 +92,7 @@ namespace CSGenio.business
             for (int i = 0; i < dm.NumRows; i++)
             {
                 CSGenioAcountry model = new CSGenioAcountry(user);
-                model.ValCodcountry_pk = dm.GetKey(i, 0);
+                model.ValCodcountry = dm.GetKey(i, 0);
 
                 try
                 {
@@ -240,7 +240,7 @@ namespace CSGenio.business
             /* --- TRACITY --- */
             dm = sp.Execute(
                 new SelectQuery()
-                .Select(CSGenioAcity.FldCodcity_pk)
+                .Select(CSGenioAcity.FldCodcity)
                 .From(CSGenioAcity.AreaCITY)
                 .Where(CriteriaSet.And().In(CSGenioAcity.FldZzstate, zzstateToRemove))
                 );
@@ -248,7 +248,7 @@ namespace CSGenio.business
             for (int i = 0; i < dm.NumRows; i++)
             {
                 CSGenioAcity model = new CSGenioAcity(user);
-                model.ValCodcity_pk = dm.GetKey(i, 0);
+                model.ValCodcity = dm.GetKey(i, 0);
 
                 try
                 {
@@ -344,7 +344,7 @@ namespace CSGenio.business
             /* --- TRAproperties --- */
             dm = sp.Execute(
                 new SelectQuery()
-                .Select(CSGenioAproperties.FldCodproperties_pk)
+                .Select(CSGenioAproperties.FldCodproperties)
                 .From(CSGenioAproperties.AreaPROPERTIES)
                 .Where(CriteriaSet.And().In(CSGenioAproperties.FldZzstate, zzstateToRemove))
                 );
@@ -352,7 +352,7 @@ namespace CSGenio.business
             for (int i = 0; i < dm.NumRows; i++)
             {
                 CSGenioAproperties model = new CSGenioAproperties(user);
-                model.ValCodproperties_pk = dm.GetKey(i, 0);
+                model.ValCodproperties = dm.GetKey(i, 0);
 
                 try
                 {
@@ -370,7 +370,7 @@ namespace CSGenio.business
             /* --- TRACONTACT --- */
             dm = sp.Execute(
                 new SelectQuery()
-                .Select(CSGenioAcontact.FldCodcontact_pk)
+                .Select(CSGenioAcontact.FldCodcontact)
                 .From(CSGenioAcontact.AreaCONTACT)
                 .Where(CriteriaSet.And().In(CSGenioAcontact.FldZzstate, zzstateToRemove))
                 );
@@ -378,7 +378,7 @@ namespace CSGenio.business
             for (int i = 0; i < dm.NumRows; i++)
             {
                 CSGenioAcontact model = new CSGenioAcontact(user);
-                model.ValCodcontact_pk = dm.GetKey(i, 0);
+                model.ValCodcontact = dm.GetKey(i, 0);
 
                 try
                 {
@@ -396,7 +396,7 @@ namespace CSGenio.business
             /* --- TRAPHOTO_ALBUM --- */
             dm = sp.Execute(
                 new SelectQuery()
-                .Select(CSGenioAphoto_album.FldCodphoto_album_pk)
+                .Select(CSGenioAphoto_album.FldCodphoto_album)
                 .From(CSGenioAphoto_album.AreaPHOTO_ALBUM)
                 .Where(CriteriaSet.And().In(CSGenioAphoto_album.FldZzstate, zzstateToRemove))
                 );
@@ -404,7 +404,7 @@ namespace CSGenio.business
             for (int i = 0; i < dm.NumRows; i++)
             {
                 CSGenioAphoto_album model = new CSGenioAphoto_album(user);
-                model.ValCodphoto_album_pk = dm.GetKey(i, 0);
+                model.ValCodphoto_album = dm.GetKey(i, 0);
 
                 try
                 {

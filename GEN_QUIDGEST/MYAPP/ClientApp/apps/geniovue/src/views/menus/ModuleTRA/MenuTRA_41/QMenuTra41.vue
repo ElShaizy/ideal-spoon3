@@ -165,7 +165,7 @@
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
-								pkColumn: 'ValCodproperties_pk',
+								pkColumn: 'ValCodproperties',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
 								order: 3,
@@ -183,7 +183,7 @@
 						config: {
 							name: 'TRA_Menu_41',
 							serverMode: true,
-							pkColumn: 'ValCodphoto_album_pk',
+							pkColumn: 'ValCodphoto_album',
 							tableAlias: 'PHOTO_ALBUM',
 							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUMS01668),
 							viewManagement: '',
@@ -299,7 +299,7 @@
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodphoto_album_pk
+											fnValueSelector: (row) => row.ValCodphoto_album
 										},
 									],
 									isControlled: true,
@@ -308,7 +308,7 @@
 							},
 							formsDefinition: {
 								'F_PHOTO_ALBUM': {
-									fnKeySelector: (row) => row.Fields.ValCodphoto_album_pk,
+									fnKeySelector: (row) => row.Fields.ValCodphoto_album,
 									isPopup: false
 								},
 							},

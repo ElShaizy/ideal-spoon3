@@ -44,14 +44,14 @@ export default class ViewModel extends FormViewModelBase
 		})
 
 		/** The primary key. */
-		this.ValCodcountry_pk = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodcountry_pk',
-			originId: 'ValCodcountry_pk',
+		this.ValCodcountry = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodcountry',
+			originId: 'ValCodcountry',
 			area: 'COUNTRY',
-			field: 'CODCOUNTRY_PK',
+			field: 'CODCOUNTRY',
 			description: computed(() => this.Resources.COUNTRY45120),
-		}).cloneFrom(values?.ValCodcountry_pk))
-		this.stopWatchers.push(watch(() => this.ValCodcountry_pk.value, (newValue, oldValue) => this.onUpdate('country.codcountry_pk', this.ValCodcountry_pk, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodcountry))
+		this.stopWatchers.push(watch(() => this.ValCodcountry.value, (newValue, oldValue) => this.onUpdate('country.codcountry', this.ValCodcountry, newValue, oldValue)))
 
 		/** The remaining form fields. */
 		this.ValCountry = reactive(new modelFieldType.String({
@@ -74,8 +74,8 @@ export default class ViewModel extends FormViewModelBase
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodcountry_pk'
+	static QPrimaryKeyName = 'ValCodcountry'
 
-	get QPrimaryKey() { return this.ValCodcountry_pk.value }
-	set QPrimaryKey(value) { this.ValCodcountry_pk.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodcountry.value }
+	set QPrimaryKey(value) { this.ValCodcountry.updateValue(value) }
 }

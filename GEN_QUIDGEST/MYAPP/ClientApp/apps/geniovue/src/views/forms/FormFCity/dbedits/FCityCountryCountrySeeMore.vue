@@ -233,7 +233,7 @@
 						config: {
 							name: 'F_city_CountryValCountry',
 							serverMode: true,
-							pkColumn: 'ValCodcountry_pk',
+							pkColumn: 'ValCodcountry',
 							tableAlias: 'COUNTRY',
 							tableNamePlural: computed(() => this.Resources.COUNTRIES64527),
 							viewManagement: '',

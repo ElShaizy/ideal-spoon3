@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codcity_pk", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codcity", FieldType.KEY_INT);
 			Qfield.FieldDescription = "city";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -93,7 +93,7 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
-			info.ParentTables.Add("country", new Relation("TRA", "tracity", "city", "codcity_pk", "codcountry_fk", "TRA", "tracountry", "country", "codcountry_pk", "codcountry_pk"));
+			info.ParentTables.Add("country", new Relation("TRA", "tracity", "city", "codcity", "codcountry_fk", "TRA", "tracountry", "country", "codcountry", "codcountry"));
 		}
 
 		/// <summary>
@@ -142,7 +142,7 @@ namespace CSGenio.business
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codcity_pk";
+			info.PrimaryKeyName="codcity";
 			info.HumanKeyName="";
 			info.Alias="city";
 			info.IsDomain = true;
@@ -225,14 +225,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "city" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodcity_pk { get { return m_fldCodcity_pk; } }
-		private static FieldRef m_fldCodcity_pk = new FieldRef("city", "codcity_pk");
+		public static FieldRef FldCodcity { get { return m_fldCodcity; } }
+		private static FieldRef m_fldCodcity = new FieldRef("city", "codcity");
 
 		/// <summary>Field : "city" Tipo: "+" Formula:  ""</summary>
-		public string ValCodcity_pk
+		public string ValCodcity
 		{
-			get { return (string)returnValueField(FldCodcity_pk); }
-			set { insertNameValueField(FldCodcity_pk, value); }
+			get { return (string)returnValueField(FldCodcity); }
+			set { insertNameValueField(FldCodcity, value); }
 		}
 
 		/// <summary>Field : "City" Tipo: "C" Formula:  ""</summary>

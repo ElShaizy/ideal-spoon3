@@ -245,7 +245,7 @@
 					name: 'F_COUNTRY',
 					route: 'form-F_COUNTRY',
 					area: 'COUNTRY',
-					primaryKey: 'ValCodcountry_pk',
+					primaryKey: 'ValCodcountry',
 					designation: computed(() => this.Resources.COUNTRY64133),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
@@ -502,7 +502,7 @@
 					},
 					keys: {
 						/** The primary key of the COUNTRY table */
-						get country() { return vm.model.ValCodcountry_pk },
+						get country() { return vm.model.ValCodcountry },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

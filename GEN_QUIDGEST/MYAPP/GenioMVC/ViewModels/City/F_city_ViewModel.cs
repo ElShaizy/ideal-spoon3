@@ -66,7 +66,7 @@ namespace GenioMVC.ViewModels.City
 
 		#endregion
 
-		public string ValCodcity_pk { get; set; }
+		public string ValCodcity { get; set; }
 
 
 		/// <summary>
@@ -178,7 +178,7 @@ namespace GenioMVC.ViewModels.City
 			{
 				ValCodcountry_fk = ViewModelConversion.ToString(m.ValCodcountry_fk);
 				ValCity = ViewModelConversion.ToString(m.ValCity);
-				ValCodcity_pk = ViewModelConversion.ToString(m.ValCodcity_pk);
+				ValCodcity = ViewModelConversion.ToString(m.ValCodcity);
 			}
 			catch (Exception)
 			{
@@ -206,7 +206,7 @@ namespace GenioMVC.ViewModels.City
 			{
 				m.ValCodcountry_fk = ViewModelConversion.ToString(ValCodcountry_fk);
 				m.ValCity = ViewModelConversion.ToString(ValCity);
-				m.ValCodcity_pk = ViewModelConversion.ToString(ValCodcity_pk);
+				m.ValCodcity = ViewModelConversion.ToString(ValCodcity);
 			}
 			catch (Exception)
 			{
@@ -237,8 +237,8 @@ namespace GenioMVC.ViewModels.City
 					case "city.city":
 						this.ValCity = ViewModelConversion.ToString(_value);
 						break;
-					case "city.codcity_pk":
-						this.ValCodcity_pk = ViewModelConversion.ToString(_value);
+					case "city.codcity":
+						this.ValCodcity = ViewModelConversion.ToString(_value);
 						break;
 					default:
 						Log.Error($"SetViewModelValue (F_city) - Unexpected field identifier {fullFieldName}");
@@ -414,7 +414,7 @@ namespace GenioMVC.ViewModels.City
 				object hValue = Navigation.GetValue("country", true);
 				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
 				{
-					f_city__country__countryConds.Equal(CSGenioAcountry.FldCodcountry_pk, hValue);
+					f_city__country__countryConds.Equal(CSGenioAcountry.FldCodcountry, hValue);
 					this.ValCodcountry_fk = DBConversion.ToString(hValue);
 				}
 			}
@@ -465,7 +465,7 @@ namespace GenioMVC.ViewModels.City
 				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
 				int offset = (page - 1) * numberItems;
 
-				FieldRef[] fields = [CSGenioAcountry.FldCodcountry_pk, CSGenioAcountry.FldCountry, CSGenioAcountry.FldZzstate];
+				FieldRef[] fields = [CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldCountry, CSGenioAcountry.FldZzstate];
 
 // USE /[MANUAL TRA OVERRQ F_CITY_COUNTRYCOUNTRY]/
 
@@ -477,7 +477,7 @@ namespace GenioMVC.ViewModels.City
 				if (Navigation.checkFormMode("country", FormMode.New) || Navigation.checkFormMode("country", FormMode.Duplicate))
 					f_city__country__countryConds.SubSet(CriteriaSet.Or()
 						.Equal(CSGenioAcountry.FldZzstate, 0)
-						.Equal(CSGenioAcountry.FldCodcountry_pk, Navigation.GetStrValue("country")));
+						.Equal(CSGenioAcountry.FldCodcountry, Navigation.GetStrValue("country")));
 				else
 					f_city__country__countryConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAcountry.FldZzstate), CriteriaOperator.Equal, 0));
 
@@ -496,7 +496,7 @@ namespace GenioMVC.ViewModels.City
 					Navigation.CurrentLevel.SetEntry("RETURN_country", null);
 				}
 
-				TableCountryCountry.List = new SelectList(TableCountryCountry.Elements.ToSelectList(x => x.ValCountry, x => x.ValCodcountry_pk,  x => x.ValCodcountry_pk == this.ValCodcountry_fk), "Value", "Text", this.ValCodcountry_fk);
+				TableCountryCountry.List = new SelectList(TableCountryCountry.Elements.ToSelectList(x => x.ValCountry, x => x.ValCodcountry,  x => x.ValCodcountry == this.ValCodcountry_fk), "Value", "Text", this.ValCodcountry_fk);
 				FillDependant_F_cityTableCountryCountry();
 			}
 		}
@@ -507,7 +507,7 @@ namespace GenioMVC.ViewModels.City
 		/// <param name="PKey">Primary Key of Country</param>
 		public ConcurrentDictionary<string, object> GetDependant_F_cityTableCountryCountry(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAcountry.FldCodcountry_pk, CSGenioAcountry.FldCountry];
+			FieldRef[] refDependantFields = [CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldCountry];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -534,7 +534,7 @@ namespace GenioMVC.ViewModels.City
 				querySelect.Select(field);
 
 			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
-				.Where(wherecodition.Equal(CSGenioAcountry.FldCodcountry_pk, PKey));
+				.Where(wherecodition.Equal(CSGenioAcountry.FldCodcountry, PKey));
 
 			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
 			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
@@ -558,7 +558,7 @@ namespace GenioMVC.ViewModels.City
 			{
 
 				// Fill List fields
-				this.ValCodcountry_fk = ViewModelConversion.ToString(row["country.codcountry_pk"]);
+				this.ValCodcountry_fk = ViewModelConversion.ToString(row["country.codcountry"]);
 				TableCountryCountry.Value = (string)row["country.country"];
 				if (GenFunctions.emptyG(this.ValCodcountry_fk) == 1)
 				{
@@ -588,7 +588,7 @@ namespace GenioMVC.ViewModels.City
 			}
 		}
 
-		private readonly string[] _fieldsToSerialize_F_CITY__COUNTRY__COUNTRY = ["Country", "Country.ValCodcountry_pk", "Country.ValZzstate", "Country.ValCountry"];
+		private readonly string[] _fieldsToSerialize_F_CITY__COUNTRY__COUNTRY = ["Country", "Country.ValCodcountry", "Country.ValZzstate", "Country.ValCountry"];
 
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
@@ -596,8 +596,8 @@ namespace GenioMVC.ViewModels.City
 			{
 				"city.codcountry_fk" => ViewModelConversion.ToString(modelValue),
 				"city.city" => ViewModelConversion.ToString(modelValue),
-				"city.codcity_pk" => ViewModelConversion.ToString(modelValue),
-				"country.codcountry_pk" => ViewModelConversion.ToString(modelValue),
+				"city.codcity" => ViewModelConversion.ToString(modelValue),
+				"country.codcountry" => ViewModelConversion.ToString(modelValue),
 				"country.country" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

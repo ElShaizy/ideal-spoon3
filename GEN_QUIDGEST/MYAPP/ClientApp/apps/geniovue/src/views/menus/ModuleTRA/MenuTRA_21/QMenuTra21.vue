@@ -194,7 +194,7 @@
 						config: {
 							name: 'TRA_Menu_21',
 							serverMode: true,
-							pkColumn: 'ValCodproperties_pk',
+							pkColumn: 'ValCodproperties',
 							tableAlias: 'PROPERTIES',
 							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
 							viewManagement: '',
@@ -310,7 +310,7 @@
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodproperties_pk
+											fnValueSelector: (row) => row.ValCodproperties
 										},
 									],
 									isControlled: true,
@@ -319,7 +319,7 @@
 							},
 							formsDefinition: {
 								'F_PROPERTY': {
-									fnKeySelector: (row) => row.Fields.ValCodproperties_pk,
+									fnKeySelector: (row) => row.Fields.ValCodproperties,
 									isPopup: false
 								},
 							},

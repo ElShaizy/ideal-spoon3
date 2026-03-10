@@ -160,7 +160,7 @@
 						config: {
 							name: 'TRA_Menu_31',
 							serverMode: true,
-							pkColumn: 'ValCodcity_pk',
+							pkColumn: 'ValCodcity',
 							tableAlias: 'CITY',
 							tableNamePlural: computed(() => this.Resources.CITIES41573),
 							viewManagement: '',
@@ -276,7 +276,7 @@
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcity_pk
+											fnValueSelector: (row) => row.ValCodcity
 										},
 									],
 									isControlled: true,
@@ -285,7 +285,7 @@
 							},
 							formsDefinition: {
 								'F_CITY': {
-									fnKeySelector: (row) => row.Fields.ValCodcity_pk,
+									fnKeySelector: (row) => row.Fields.ValCodcity,
 									isPopup: false
 								},
 							},

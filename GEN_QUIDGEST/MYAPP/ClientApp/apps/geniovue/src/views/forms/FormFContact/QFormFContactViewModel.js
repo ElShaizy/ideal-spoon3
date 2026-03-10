@@ -44,14 +44,14 @@ export default class ViewModel extends FormViewModelBase
 		})
 
 		/** The primary key. */
-		this.ValCodcontact_pk = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodcontact_pk',
-			originId: 'ValCodcontact_pk',
+		this.ValCodcontact = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodcontact',
+			originId: 'ValCodcontact',
 			area: 'CONTACT',
-			field: 'CODCONTACT_PK',
+			field: 'CODCONTACT',
 			description: computed(() => this.Resources.CONTACT59247),
-		}).cloneFrom(values?.ValCodcontact_pk))
-		this.stopWatchers.push(watch(() => this.ValCodcontact_pk.value, (newValue, oldValue) => this.onUpdate('contact.codcontact_pk', this.ValCodcontact_pk, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodcontact))
+		this.stopWatchers.push(watch(() => this.ValCodcontact.value, (newValue, oldValue) => this.onUpdate('contact.codcontact', this.ValCodcontact, newValue, oldValue)))
 
 		/** The used foreign keys. */
 		this.ValCodproperties_fk = reactive(new modelFieldType.ForeignKey({
@@ -136,8 +136,8 @@ export default class ViewModel extends FormViewModelBase
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodcontact_pk'
+	static QPrimaryKeyName = 'ValCodcontact'
 
-	get QPrimaryKey() { return this.ValCodcontact_pk.value }
-	set QPrimaryKey(value) { this.ValCodcontact_pk.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodcontact.value }
+	set QPrimaryKey(value) { this.ValCodcontact.updateValue(value) }
 }

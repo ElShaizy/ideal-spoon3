@@ -82,7 +82,7 @@ namespace GenioMVC.ViewModels.Contact
 
 		#endregion
 
-		public string ValCodcontact_pk { get; set; }
+		public string ValCodcontact { get; set; }
 
 
 		/// <summary>
@@ -198,7 +198,7 @@ namespace GenioMVC.ViewModels.Contact
 				ValEmailcontact = ViewModelConversion.ToString(m.ValEmailcontact);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
-				ValCodcontact_pk = ViewModelConversion.ToString(m.ValCodcontact_pk);
+				ValCodcontact = ViewModelConversion.ToString(m.ValCodcontact);
 			}
 			catch (Exception)
 			{
@@ -230,7 +230,7 @@ namespace GenioMVC.ViewModels.Contact
 				m.ValEmailcontact = ViewModelConversion.ToString(ValEmailcontact);
 				m.ValDate = ViewModelConversion.ToDateTime(ValDate);
 				m.ValDescription = ViewModelConversion.ToString(ValDescription);
-				m.ValCodcontact_pk = ViewModelConversion.ToString(ValCodcontact_pk);
+				m.ValCodcontact = ViewModelConversion.ToString(ValCodcontact);
 			}
 			catch (Exception)
 			{
@@ -273,8 +273,8 @@ namespace GenioMVC.ViewModels.Contact
 					case "contact.description":
 						this.ValDescription = ViewModelConversion.ToString(_value);
 						break;
-					case "contact.codcontact_pk":
-						this.ValCodcontact_pk = ViewModelConversion.ToString(_value);
+					case "contact.codcontact":
+						this.ValCodcontact = ViewModelConversion.ToString(_value);
 						break;
 					default:
 						Log.Error($"SetViewModelValue (F_contact) - Unexpected field identifier {fullFieldName}");
@@ -451,7 +451,7 @@ namespace GenioMVC.ViewModels.Contact
 				object hValue = Navigation.GetValue("properties", true);
 				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
 				{
-					f_contact__properties__titleConds.Equal(CSGenioAproperties.FldCodproperties_pk, hValue);
+					f_contact__properties__titleConds.Equal(CSGenioAproperties.FldCodproperties, hValue);
 					this.ValCodproperties_fk = DBConversion.ToString(hValue);
 				}
 			}
@@ -502,7 +502,7 @@ namespace GenioMVC.ViewModels.Contact
 				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
 				int offset = (page - 1) * numberItems;
 
-				FieldRef[] fields = [CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldZzstate];
+				FieldRef[] fields = [CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldZzstate];
 
 // USE /[MANUAL TRA OVERRQ F_CONTACT_PROPERTIESTITLE]/
 
@@ -514,7 +514,7 @@ namespace GenioMVC.ViewModels.Contact
 				if (Navigation.checkFormMode("properties", FormMode.New) || Navigation.checkFormMode("properties", FormMode.Duplicate))
 					f_contact__properties__titleConds.SubSet(CriteriaSet.Or()
 						.Equal(CSGenioAproperties.FldZzstate, 0)
-						.Equal(CSGenioAproperties.FldCodproperties_pk, Navigation.GetStrValue("properties")));
+						.Equal(CSGenioAproperties.FldCodproperties, Navigation.GetStrValue("properties")));
 				else
 					f_contact__properties__titleConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAproperties.FldZzstate), CriteriaOperator.Equal, 0));
 
@@ -533,7 +533,7 @@ namespace GenioMVC.ViewModels.Contact
 					Navigation.CurrentLevel.SetEntry("RETURN_properties", null);
 				}
 
-				TablePropertiesTitle.List = new SelectList(TablePropertiesTitle.Elements.ToSelectList(x => x.ValTitle, x => x.ValCodproperties_pk,  x => x.ValCodproperties_pk == this.ValCodproperties_fk), "Value", "Text", this.ValCodproperties_fk);
+				TablePropertiesTitle.List = new SelectList(TablePropertiesTitle.Elements.ToSelectList(x => x.ValTitle, x => x.ValCodproperties,  x => x.ValCodproperties == this.ValCodproperties_fk), "Value", "Text", this.ValCodproperties_fk);
 				FillDependant_F_contactTablePropertiesTitle();
 			}
 		}
@@ -544,7 +544,7 @@ namespace GenioMVC.ViewModels.Contact
 		/// <param name="PKey">Primary Key of Properties</param>
 		public ConcurrentDictionary<string, object> GetDependant_F_contactTablePropertiesTitle(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldTitle];
+			FieldRef[] refDependantFields = [CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldTitle];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -571,7 +571,7 @@ namespace GenioMVC.ViewModels.Contact
 				querySelect.Select(field);
 
 			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
-				.Where(wherecodition.Equal(CSGenioAproperties.FldCodproperties_pk, PKey));
+				.Where(wherecodition.Equal(CSGenioAproperties.FldCodproperties, PKey));
 
 			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
 			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
@@ -595,7 +595,7 @@ namespace GenioMVC.ViewModels.Contact
 			{
 
 				// Fill List fields
-				this.ValCodproperties_fk = ViewModelConversion.ToString(row["properties.codproperties_pk"]);
+				this.ValCodproperties_fk = ViewModelConversion.ToString(row["properties.codproperties"]);
 				TablePropertiesTitle.Value = (string)row["properties.title"];
 				if (GenFunctions.emptyG(this.ValCodproperties_fk) == 1)
 				{
@@ -625,7 +625,7 @@ namespace GenioMVC.ViewModels.Contact
 			}
 		}
 
-		private readonly string[] _fieldsToSerialize_F_CONTACT__PROPERTIES__TITLE = ["Properties", "Properties.ValCodproperties_pk", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice"];
+		private readonly string[] _fieldsToSerialize_F_CONTACT__PROPERTIES__TITLE = ["Properties", "Properties.ValCodproperties", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice"];
 
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
@@ -637,8 +637,8 @@ namespace GenioMVC.ViewModels.Contact
 				"contact.emailcontact" => ViewModelConversion.ToString(modelValue),
 				"contact.date" => ViewModelConversion.ToDateTime(modelValue),
 				"contact.description" => ViewModelConversion.ToString(modelValue),
-				"contact.codcontact_pk" => ViewModelConversion.ToString(modelValue),
-				"properties.codproperties_pk" => ViewModelConversion.ToString(modelValue),
+				"contact.codcontact" => ViewModelConversion.ToString(modelValue),
+				"properties.codproperties" => ViewModelConversion.ToString(modelValue),
 				"properties.title" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

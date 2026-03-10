@@ -160,7 +160,7 @@
 						config: {
 							name: 'TRA_Menu_51',
 							serverMode: true,
-							pkColumn: 'ValCodcountry_pk',
+							pkColumn: 'ValCodcountry',
 							tableAlias: 'COUNTRY',
 							tableNamePlural: computed(() => this.Resources.COUNTRIES64527),
 							viewManagement: '',
@@ -276,7 +276,7 @@
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcountry_pk
+											fnValueSelector: (row) => row.ValCodcountry
 										},
 									],
 									isControlled: true,
@@ -285,7 +285,7 @@
 							},
 							formsDefinition: {
 								'F_COUNTRY': {
-									fnKeySelector: (row) => row.Fields.ValCodcountry_pk,
+									fnKeySelector: (row) => row.Fields.ValCodcountry,
 									isPopup: false
 								},
 							},

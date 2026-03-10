@@ -267,7 +267,7 @@
 					name: 'F_CITY',
 					route: 'form-F_CITY',
 					area: 'CITY',
-					primaryKey: 'ValCodcity_pk',
+					primaryKey: 'ValCodcity',
 					designation: computed(() => this.Resources.CITY42505),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
@@ -518,7 +518,7 @@
 							dependencyEvent: 'fieldChange:city.codcountry_fk'
 						},
 						dependentFields: () => ({
-							set 'country.codcountry_pk'(value) { vm.model.ValCodcountry_fk.updateValue(value) },
+							set 'country.codcountry'(value) { vm.model.ValCodcountry_fk.updateValue(value) },
 							set 'country.country'(value) { vm.model.TableCountryCountry.updateValue(value) },
 						}),
 						controlLimits: [
@@ -558,7 +558,7 @@
 					},
 					keys: {
 						/** The primary key of the CITY table */
-						get city() { return vm.model.ValCodcity_pk },
+						get city() { return vm.model.ValCodcity },
 						/** The foreign key to the COUNTRY table */
 						get country() { return vm.model.ValCodcountry_fk },
 					},

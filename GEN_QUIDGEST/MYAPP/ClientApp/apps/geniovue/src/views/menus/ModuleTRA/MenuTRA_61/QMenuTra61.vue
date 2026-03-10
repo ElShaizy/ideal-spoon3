@@ -184,7 +184,7 @@
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
-								pkColumn: 'ValCodproperties_pk',
+								pkColumn: 'ValCodproperties',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.NumericColumn({
 								order: 5,
@@ -211,7 +211,7 @@
 						config: {
 							name: 'TRA_Menu_61',
 							serverMode: true,
-							pkColumn: 'ValCodcontact_pk',
+							pkColumn: 'ValCodcontact',
 							tableAlias: 'CONTACT',
 							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
 							viewManagement: '',
@@ -327,7 +327,7 @@
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcontact_pk
+											fnValueSelector: (row) => row.ValCodcontact
 										},
 									],
 									isControlled: true,
@@ -336,7 +336,7 @@
 							},
 							formsDefinition: {
 								'F_CONTACT': {
-									fnKeySelector: (row) => row.Fields.ValCodcontact_pk,
+									fnKeySelector: (row) => row.Fields.ValCodcontact,
 									isPopup: true
 								},
 							},

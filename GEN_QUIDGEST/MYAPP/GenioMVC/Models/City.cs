@@ -24,8 +24,8 @@ namespace GenioMVC.Models
 
 		[Key]
 		/// <summary>Field : "city" Tipo: "+" Formula:  ""</summary>
-		[ShouldSerialize("City.ValCodcity_pk")]
-		public string ValCodcity_pk { get { return klass.ValCodcity_pk; } set { klass.ValCodcity_pk = value; } }
+		[ShouldSerialize("City.ValCodcity")]
+		public string ValCodcity { get { return klass.ValCodcity; } set { klass.ValCodcity = value; } }
 
 		[DisplayName("City")]
 		/// <summary>Field : "City" Tipo: "C" Formula:  ""</summary>

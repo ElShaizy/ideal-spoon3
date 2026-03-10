@@ -24,8 +24,8 @@ namespace GenioMVC.Models
 
 		[Key]
 		/// <summary>Field : "properties" Tipo: "+" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValCodproperties_pk")]
-		public string ValCodproperties_pk { get { return klass.ValCodproperties_pk; } set { klass.ValCodproperties_pk = value; } }
+		[ShouldSerialize("Properties.ValCodproperties")]
+		public string ValCodproperties { get { return klass.ValCodproperties; } set { klass.ValCodproperties = value; } }
 
 		[DisplayName("brokers")]
 		/// <summary>Field : "brokers" Tipo: "CE" Formula:  ""</summary>

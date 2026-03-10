@@ -54,19 +54,29 @@ public class F_propertyForm : Form
 	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP03-container");
 
 	/// <summary>
-	/// Size
-	/// </summary>
-	public BaseInputControl PropertiesSizem2 => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__SIZEM2", "#F_PROPERTY__PROPERTIES__SIZEM2");
-
-	/// <summary>
 	/// Bathroom count
 	/// </summary>
 	public BaseInputControl PropertiesBathroomsnumber => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BATHROOMSNUMBER", "#F_PROPERTY__PROPERTIES__BATHROOMSNUMBER");
 
 	/// <summary>
+	/// Size
+	/// </summary>
+	public BaseInputControl PropertiesSizem2 => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__SIZEM2", "#F_PROPERTY__PROPERTIES__SIZEM2");
+
+	/// <summary>
+	/// building type
+	/// </summary>
+	public EnumControl PropertiesBuildingtype => new EnumControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BUILDINGTYPE");
+
+	/// <summary>
 	/// Construction date
 	/// </summary>
 	public DateInputControl PropertiesDateconstruction => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__DATECONSTRUCTION");
+
+	/// <summary>
+	/// Typology
+	/// </summary>
+	public RadiobuttonControl PropertiesTypology => new RadiobuttonControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__TYPOLOGY");
 
 	/// <summary>
 	/// brokers information
@@ -90,14 +100,14 @@ public class F_propertyForm : Form
 	public IWebElement BrokerEmail => throw new NotImplementedException();
 
 	/// <summary>
-	/// building type
+	/// Properties
 	/// </summary>
-	public EnumControl PropertiesBuildingtype => new EnumControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BUILDINGTYPE");
+	public ListControl PseudProperty_grid => new ListControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__PROPERTY_GRID");
 
 	/// <summary>
-	/// Typology
+	/// Contacts
 	/// </summary>
-	public RadiobuttonControl PropertiesTypology => new RadiobuttonControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__TYPOLOGY");
+	public ListControl PseudContact_grid => new ListControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__CONTACT_GRID");
 
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }

@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Country
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry_pk, CSGenioAcountry.FldZzstate, CSGenioAcountry.FldCountry };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate, CSGenioAcountry.FldCountry };
 
 			ListingMVC<CSGenioAcountry> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -329,7 +329,7 @@ namespace GenioMVC.ViewModels.Country
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry_pk, CSGenioAcountry.FldZzstate, CSGenioAcountry.FldCountry };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate, CSGenioAcountry.FldCountry };
 
 
 			// Totalizers
@@ -526,7 +526,7 @@ namespace GenioMVC.ViewModels.Country
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Country", "Country.ValCodcountry_pk", "Country.ValZzstate", "Country.ValCountry"
+			"Country", "Country.ValCodcountry", "Country.ValZzstate", "Country.ValCountry"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

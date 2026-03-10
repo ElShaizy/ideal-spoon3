@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codcontact_pk", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codcontact", FieldType.KEY_INT);
 			Qfield.FieldDescription = "Contact";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -132,7 +132,7 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
-			info.ParentTables.Add("properties", new Relation("TRA", "tracontact", "contact", "codcontact_pk", "codproperties_fk", "TRA", "traproperties", "properties", "codproperties_pk", "codproperties_pk"));
+			info.ParentTables.Add("properties", new Relation("TRA", "tracontact", "contact", "codcontact", "codproperties_fk", "TRA", "traproperties", "properties", "codproperties", "codproperties"));
 		}
 
 		/// <summary>
@@ -184,7 +184,7 @@ namespace CSGenio.business
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codcontact_pk";
+			info.PrimaryKeyName="codcontact";
 			info.HumanKeyName="";
 			info.Alias="contact";
 			info.IsDomain = true;
@@ -267,14 +267,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "Contact" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodcontact_pk { get { return m_fldCodcontact_pk; } }
-		private static FieldRef m_fldCodcontact_pk = new FieldRef("contact", "codcontact_pk");
+		public static FieldRef FldCodcontact { get { return m_fldCodcontact; } }
+		private static FieldRef m_fldCodcontact = new FieldRef("contact", "codcontact");
 
 		/// <summary>Field : "Contact" Tipo: "+" Formula:  ""</summary>
-		public string ValCodcontact_pk
+		public string ValCodcontact
 		{
-			get { return (string)returnValueField(FldCodcontact_pk); }
-			set { insertNameValueField(FldCodcontact_pk, value); }
+			get { return (string)returnValueField(FldCodcontact); }
+			set { insertNameValueField(FldCodcontact, value); }
 		}
 
 		/// <summary>Field : "Date" Tipo: "D" Formula:  ""</summary>

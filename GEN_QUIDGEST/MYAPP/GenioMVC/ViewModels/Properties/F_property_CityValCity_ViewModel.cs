@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Properties
 		/// The primary key field.
 		/// </summary>
 		[JsonIgnore]
-		public string ValCodproperties_pk { get; set; }
+		public string ValCodproperties { get; set; }
 
 		/// <summary>
 		/// The context of the parent.
@@ -110,7 +110,7 @@ namespace GenioMVC.ViewModels.Properties
 		/// <param name="userContext">The current user request context</param>
 		public F_property_CityValCity_ViewModel(UserContext userContext) : base(userContext)
 		{
-			ValCodproperties_pk = userContext.CurrentNavigation.CurrentLevel.GetEntry("properties")?.ToString();
+			ValCodproperties = userContext.CurrentNavigation.CurrentLevel.GetEntry("properties")?.ToString();
 		}
 
 		/// <summary>
@@ -304,7 +304,7 @@ namespace GenioMVC.ViewModels.Properties
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "city", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity_pk, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
 
 
 			// Totalizers
@@ -499,7 +499,7 @@ namespace GenioMVC.ViewModels.Properties
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"City", "City.ValCodcity_pk", "City.ValZzstate", "City.ValCity", "City.ValCodcountry_fk"
+			"City", "City.ValCodcity", "City.ValZzstate", "City.ValCity", "City.ValCodcountry_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

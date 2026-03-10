@@ -284,7 +284,7 @@
 					name: 'F_PHOTO_ALBUM',
 					route: 'form-F_PHOTO_ALBUM',
 					area: 'PHOTO_ALBUM',
-					primaryKey: 'ValCodphoto_album_pk',
+					primaryKey: 'ValCodphoto_album',
 					designation: computed(() => this.Resources.PHOTO_ALBUM31847),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
@@ -552,7 +552,7 @@
 							dependencyEvent: 'fieldChange:photo_album.codproperties_fk'
 						},
 						dependentFields: () => ({
-							set 'properties.codproperties_pk'(value) { vm.model.ValCodproperties_fk.updateValue(value) },
+							set 'properties.codproperties'(value) { vm.model.ValCodproperties_fk.updateValue(value) },
 							set 'properties.title'(value) { vm.model.TablePropertiesTitle.updateValue(value) },
 						}),
 						controlLimits: [
@@ -594,7 +594,7 @@
 					},
 					keys: {
 						/** The primary key of the PHOTO_ALBUM table */
-						get photo_album() { return vm.model.ValCodphoto_album_pk },
+						get photo_album() { return vm.model.ValCodphoto_album },
 						/** The foreign key to the PROPERTIES table */
 						get properties() { return vm.model.ValCodproperties_fk },
 					},
