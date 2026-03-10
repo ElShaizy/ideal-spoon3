@@ -275,7 +275,7 @@
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: 'ValTitle',
+								columnName: '',
 								sortOrder: 'asc'
 							}
 						},

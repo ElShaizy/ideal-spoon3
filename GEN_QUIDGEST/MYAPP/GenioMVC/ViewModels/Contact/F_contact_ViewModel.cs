@@ -478,7 +478,6 @@ namespace GenioMVC.ViewModels.Contact
 				ColumnSort requestedSort = GetRequestSort(TablePropertiesTitle, "sTablePropertiesTitle", "dTablePropertiesTitle", qs, "properties");
 				if (requestedSort != null)
 					sorts.Add(requestedSort);
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAproperties.FldTitle), SortOrder.Ascending));
 
 				string query = "";
 				if (!string.IsNullOrEmpty(qs["TablePropertiesTitle_tableFilters"]))

@@ -293,8 +293,6 @@ namespace GenioMVC.ViewModels.Contact
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("PROPERTIES.TITLE", new OrderedDictionary());
-			allSortOrders["PROPERTIES.TITLE"].Add("PROPERTIES.TITLE", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -306,12 +304,6 @@ namespace GenioMVC.ViewModels.Contact
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "properties", allSortOrders);
 
-			if (sorts == null || sorts.Count == 0)
-			{
-				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAproperties.FldTitle), SortOrder.Ascending));
-
-			}
 
 			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice };
 

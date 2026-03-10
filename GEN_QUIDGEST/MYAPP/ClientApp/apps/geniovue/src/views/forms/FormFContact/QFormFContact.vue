@@ -96,6 +96,116 @@
 			data-key="F_CONTACT"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row v-if="controls.F_CONTACT__CONTACT__CLIENT_NAME.isVisible || controls.F_CONTACT__CONTACT__PHONECONTACT.isVisible || controls.F_CONTACT__CONTACT__EMAILCONTACT.isVisible || controls.F_CONTACT__CONTACT__DATE.isVisible || controls.F_CONTACT__PROPERTIES__TITLE.isVisible || controls.F_CONTACT__CONTACT__DESCRIPTION.isVisible">
+					<q-col
+						v-if="controls.F_CONTACT__CONTACT__CLIENT_NAME.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_CONTACT__CONTACT__CLIENT_NAME.isVisible"
+							class="i-text"
+							v-bind="controls.F_CONTACT__CONTACT__CLIENT_NAME"
+							v-on="controls.F_CONTACT__CONTACT__CLIENT_NAME.handlers"
+							:loading="controls.F_CONTACT__CONTACT__CLIENT_NAME.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_CONTACT__CONTACT__CLIENT_NAME.props"
+								@blur="onBlur(controls.F_CONTACT__CONTACT__CLIENT_NAME, model.ValClient_name.value)"
+								@change="model.ValClient_name.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_CONTACT__CONTACT__PHONECONTACT.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_CONTACT__CONTACT__PHONECONTACT.isVisible"
+							class="i-text"
+							v-bind="controls.F_CONTACT__CONTACT__PHONECONTACT"
+							v-on="controls.F_CONTACT__CONTACT__PHONECONTACT.handlers"
+							:loading="controls.F_CONTACT__CONTACT__PHONECONTACT.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_CONTACT__CONTACT__PHONECONTACT.isVisible"
+								v-bind="controls.F_CONTACT__CONTACT__PHONECONTACT.props"
+								@update:model-value="model.ValPhonecontact.fnUpdateValue" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_CONTACT__CONTACT__EMAILCONTACT.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_CONTACT__CONTACT__EMAILCONTACT.isVisible"
+							class="i-text"
+							v-bind="controls.F_CONTACT__CONTACT__EMAILCONTACT"
+							v-on="controls.F_CONTACT__CONTACT__EMAILCONTACT.handlers"
+							:loading="controls.F_CONTACT__CONTACT__EMAILCONTACT.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_CONTACT__CONTACT__EMAILCONTACT.props"
+								@blur="onBlur(controls.F_CONTACT__CONTACT__EMAILCONTACT, model.ValEmailcontact.value)"
+								@change="model.ValEmailcontact.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_CONTACT__CONTACT__DATE.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_CONTACT__CONTACT__DATE.isVisible"
+							class="i-text"
+							v-bind="controls.F_CONTACT__CONTACT__DATE"
+							v-on="controls.F_CONTACT__CONTACT__DATE.handlers"
+							:loading="controls.F_CONTACT__CONTACT__DATE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_CONTACT__CONTACT__DATE.isVisible"
+								v-bind="controls.F_CONTACT__CONTACT__DATE.props"
+								:model-value="model.ValDate.value"
+								@reset-icon-click="model.ValDate.fnUpdateValue(model.ValDate.originalValue ?? new Date())"
+								@update:model-value="model.ValDate.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_CONTACT__PROPERTIES__TITLE.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_CONTACT__PROPERTIES__TITLE.isVisible"
+							class="i-text"
+							v-bind="controls.F_CONTACT__PROPERTIES__TITLE"
+							v-on="controls.F_CONTACT__PROPERTIES__TITLE.handlers"
+							:loading="controls.F_CONTACT__PROPERTIES__TITLE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.F_CONTACT__PROPERTIES__TITLE.isVisible"
+								v-bind="controls.F_CONTACT__PROPERTIES__TITLE.props"
+								v-on="controls.F_CONTACT__PROPERTIES__TITLE.handlers" />
+							<q-see-more-f-contact-properties-title
+								v-if="controls.F_CONTACT__PROPERTIES__TITLE.seeMoreIsVisible"
+								v-bind="controls.F_CONTACT__PROPERTIES__TITLE.seeMoreParams"
+								v-on="controls.F_CONTACT__PROPERTIES__TITLE.handlers" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_CONTACT__CONTACT__DESCRIPTION.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_CONTACT__CONTACT__DESCRIPTION.isVisible"
+							class="i-textarea"
+							v-bind="controls.F_CONTACT__CONTACT__DESCRIPTION"
+							v-on="controls.F_CONTACT__CONTACT__DESCRIPTION.handlers"
+							:loading="controls.F_CONTACT__CONTACT__DESCRIPTION.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-area
+								v-if="controls.F_CONTACT__CONTACT__DESCRIPTION.isVisible"
+								v-bind="controls.F_CONTACT__CONTACT__DESCRIPTION.props"
+								v-on="controls.F_CONTACT__CONTACT__DESCRIPTION.handlers" />
+						</base-input-structure>
+					</q-col>
+				</q-row>
 			</template>
 		</q-container>
 	</teleport>
