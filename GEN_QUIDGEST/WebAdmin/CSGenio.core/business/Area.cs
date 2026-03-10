@@ -20,6 +20,10 @@ namespace CSGenio.business
     /// </summary>
     public abstract class Area : IArea
     {
+        public static AreaRef AreaCONTACT { get { return m_AreaCONTACT; } }
+        private static AreaRef m_AreaCONTACT = new AreaRef("TRA", "tracontact", "contact");
+        public static AreaRef AreaCITY { get { return m_AreaCITY; } }
+        private static AreaRef m_AreaCITY = new AreaRef("TRA", "tracity", "city");
         public static AreaRef AreaS_PAX { get { return m_AreaS_PAX; } }
         private static AreaRef m_AreaS_PAX = new AreaRef("TRA", "asyncprocessattachments", "s_pax");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
@@ -34,10 +38,14 @@ namespace CSGenio.business
         private static AreaRef m_AreaMEM = new AreaRef("TRA", "tramem", "mem");
         public static AreaRef AreaBROKER { get { return m_AreaBROKER; } }
         private static AreaRef m_AreaBROKER = new AreaRef("TRA", "trabroker", "broker");
+        public static AreaRef AreaPHOTO_ALBUM { get { return m_AreaPHOTO_ALBUM; } }
+        private static AreaRef m_AreaPHOTO_ALBUM = new AreaRef("TRA", "traphoto_album", "photo_album");
         public static AreaRef AreaS_NES { get { return m_AreaS_NES; } }
         private static AreaRef m_AreaS_NES = new AreaRef("TRA", "notificationemailsignature", "s_nes");
         public static AreaRef AreaPSW { get { return m_AreaPSW; } }
         private static AreaRef m_AreaPSW = new AreaRef("TRA", "userlogin", "psw");
+        public static AreaRef AreaCOUNTRY { get { return m_AreaCOUNTRY; } }
+        private static AreaRef m_AreaCOUNTRY = new AreaRef("TRA", "tracountry", "country");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("TRA", "asyncprocess", "s_apr");
         public static AreaRef AreaS_UA { get { return m_AreaS_UA; } }
@@ -73,6 +81,8 @@ namespace CSGenio.business
         /// </summary>
         public static readonly System.Collections.ObjectModel.ReadOnlyCollection<string> ListaAreas = new System.Collections.ObjectModel.ReadOnlyCollection<string>(
             new List<string>() {
+            "contact",
+            "city",
             "s_pax",
             "s_arg",
             "properties",
@@ -80,8 +90,10 @@ namespace CSGenio.business
             "s_nm",
             "mem",
             "broker",
+            "photo_album",
             "s_nes",
             "psw",
+            "country",
             "s_apr",
             "s_ua",
         });

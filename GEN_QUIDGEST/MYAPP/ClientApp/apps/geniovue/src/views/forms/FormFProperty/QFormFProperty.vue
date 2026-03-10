@@ -307,7 +307,7 @@
 					name: 'F_PROPERTY',
 					route: 'form-F_PROPERTY',
 					area: 'PROPERTIES',
-					primaryKey: 'ValCodproperties',
+					primaryKey: 'ValCodproperties_pk',
 					designation: computed(() => this.Resources.PROPERTY43977),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
@@ -625,6 +625,8 @@
 					Properties: {
 						get ValBroker_fk() { return vm.model.ValBroker_fk.value },
 						set ValBroker_fk(value) { vm.model.ValBroker_fk.updateValue(value) },
+						get ValCodcity_fk() { return vm.model.ValCodcity_fk.value },
+						set ValCodcity_fk(value) { vm.model.ValCodcity_fk.updateValue(value) },
 						get ValMain_photo() { return vm.model.ValMain_photo.value },
 						set ValMain_photo(value) { vm.model.ValMain_photo.updateValue(value) },
 						get ValPrice() { return vm.model.ValPrice.value },
@@ -634,9 +636,11 @@
 					},
 					keys: {
 						/** The primary key of the PROPERTIES table */
-						get properties() { return vm.model.ValCodproperties },
+						get properties() { return vm.model.ValCodproperties_pk },
 						/** The foreign key to the BROKER table */
 						get broker() { return vm.model.ValBroker_fk },
+						/** The foreign key to the CITY table */
+						get city() { return vm.model.ValCodcity_fk },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

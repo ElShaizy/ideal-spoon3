@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Properties
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldBroker_fk, CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAproperties.FldMain_photo };
+			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldBroker_fk, CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAproperties.FldMain_photo };
 
 			ListingMVC<CSGenioAproperties> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -331,7 +331,7 @@ namespace GenioMVC.ViewModels.Properties
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldBroker_fk, CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAproperties.FldMain_photo };
+			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties_pk, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldTitle, CSGenioAproperties.FldPrice, CSGenioAproperties.FldBroker_fk, CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAproperties.FldMain_photo };
 
 
 			// Totalizers
@@ -531,7 +531,7 @@ namespace GenioMVC.ViewModels.Properties
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Properties", "Properties.ValCodproperties", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice", "Broker", "Broker.ValName", "Properties.ValMain_photo", "Properties.ValBroker_fk"
+			"Properties", "Properties.ValCodproperties_pk", "Properties.ValZzstate", "Properties.ValTitle", "Properties.ValPrice", "Broker", "Broker.ValName", "Properties.ValMain_photo", "Properties.ValBroker_fk", "Properties.ValCodcity_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
@@ -545,7 +545,7 @@ namespace GenioMVC.ViewModels.Properties
 			if (row == null)
 				return;
 
-			row.ValMain_photoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTIES, CSGenioAproperties.FldMain_photo.Field, null, row.ValCodproperties);
+			row.ValMain_photoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTIES, CSGenioAproperties.FldMain_photo.Field, null, row.ValCodproperties_pk);
 		}
 	}
 }

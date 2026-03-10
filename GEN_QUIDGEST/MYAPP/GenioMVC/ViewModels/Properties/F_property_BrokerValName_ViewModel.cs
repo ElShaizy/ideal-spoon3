@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Properties
 		/// The primary key field.
 		/// </summary>
 		[JsonIgnore]
-		public string ValCodproperties { get; set; }
+		public string ValCodproperties_pk { get; set; }
 
 		/// <summary>
 		/// The context of the parent.
@@ -110,7 +110,7 @@ namespace GenioMVC.ViewModels.Properties
 		/// <param name="userContext">The current user request context</param>
 		public F_property_BrokerValName_ViewModel(UserContext userContext) : base(userContext)
 		{
-			ValCodproperties = userContext.CurrentNavigation.CurrentLevel.GetEntry("properties")?.ToString();
+			ValCodproperties_pk = userContext.CurrentNavigation.CurrentLevel.GetEntry("properties")?.ToString();
 		}
 
 		/// <summary>

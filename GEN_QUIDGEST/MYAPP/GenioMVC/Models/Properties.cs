@@ -24,27 +24,8 @@ namespace GenioMVC.Models
 
 		[Key]
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValCodproperties")]
-		public string ValCodproperties { get { return klass.ValCodproperties; } set { klass.ValCodproperties = value; } }
-
-		[DisplayName("Main Photo")]
-		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValMain_photo")]
-		[ImageThumbnailJsonConverter(75, 75)]
-		public ImageModel ValMain_photo { get { return new ImageModel(klass.ValMain_photo) { Ticket = ValMain_photoQTicket }; } set { klass.ValMain_photo = value; } }
-		[JsonIgnore]
-		public string ValMain_photoQTicket = null;
-
-		[DisplayName("Title")]
-		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValTitle")]
-		public string ValTitle { get { return klass.ValTitle; } set { klass.ValTitle = value; } }
-
-		[DisplayName("Price")]
-		/// <summary>Field : "Price" Tipo: "$" Formula:  ""</summary>
-		[ShouldSerialize("Properties.ValPrice")]
-		[CurrencyAttribute("EUR", 4)]
-		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 4)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
+		[ShouldSerialize("Properties.ValCodproperties_pk")]
+		public string ValCodproperties_pk { get { return klass.ValCodproperties_pk; } set { klass.ValCodproperties_pk = value; } }
 
 		[DisplayName("")]
 		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
@@ -65,6 +46,70 @@ namespace GenioMVC.Models
 			}
 			set { _broker = value; }
 		}
+
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValCodcity_fk")]
+		public string ValCodcity_fk { get { return klass.ValCodcity_fk; } set { klass.ValCodcity_fk = value; } }
+
+		private City _city;
+		[DisplayName("City")]
+		[ShouldSerialize("City")]
+		public virtual City City
+		{
+			get
+			{
+				if (!isEmptyModel && (_city == null || (!string.IsNullOrEmpty(ValCodcity_fk) && (_city.isEmptyModel || _city.klass.QPrimaryKey != ValCodcity_fk))))
+					_city = Models.City.Find(ValCodcity_fk, m_userContext, Identifier, _fieldsToSerialize);
+				_city ??= new Models.City(m_userContext, true, _fieldsToSerialize);
+				return _city;
+			}
+			set { _city = value; }
+		}
+
+		[DisplayName("Main Photo")]
+		/// <summary>Field : "Main Photo" Tipo: "IJ" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValMain_photo")]
+		[ImageThumbnailJsonConverter(75, 75)]
+		public ImageModel ValMain_photo { get { return new ImageModel(klass.ValMain_photo) { Ticket = ValMain_photoQTicket }; } set { klass.ValMain_photo = value; } }
+		[JsonIgnore]
+		public string ValMain_photoQTicket = null;
+
+		[DisplayName("Title")]
+		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValTitle")]
+		public string ValTitle { get { return klass.ValTitle; } set { klass.ValTitle = value; } }
+
+		[DisplayName("Price")]
+		/// <summary>Field : "Price" Tipo: "$" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValPrice")]
+		[CurrencyAttribute("EUR", 4)]
+		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 4)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
+
+		[DisplayName("size m2")]
+		/// <summary>Field : "size m2" Tipo: "ND" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValSizem2")]
+		[NumericAttribute(2)]
+		public decimal? ValSizem2 { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSizem2, 2)); } set { klass.ValSizem2 = Convert.ToDecimal(value); } }
+
+		[DisplayName("Bathroom count")]
+		/// <summary>Field : "Bathroom count" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValBathroomsnumber")]
+		[NumericAttribute(0)]
+		public decimal? ValBathroomsnumber { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBathroomsnumber, 0)); } set { klass.ValBathroomsnumber = Convert.ToDecimal(value); } }
+
+		[DisplayName("Construction date")]
+		/// <summary>Field : "Construction date" Tipo: "D" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValDateconstruction")]
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValDateconstruction { get { return klass.ValDateconstruction; } set { klass.ValDateconstruction = value ?? DateTime.MinValue; } }
+
+		[DisplayName("Description")]
+		/// <summary>Field : "Description" Tipo: "MO" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValDescription")]
+		[DataType(DataType.MultilineText)]
+		public string ValDescription { get { return klass.ValDescription; } set { klass.ValDescription = value; } }
 
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Properties.ValZzstate")]
@@ -100,6 +145,10 @@ namespace GenioMVC.Models
 					case "broker":
 						_broker ??= new Broker(m_userContext, true, _fieldsToSerialize);
 						_broker.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "city":
+						_city ??= new City(m_userContext, true, _fieldsToSerialize);
+						_city.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
 						break;
 					default:
 						break;

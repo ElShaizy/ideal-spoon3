@@ -34,6 +34,11 @@ namespace GenioMVC.ViewModels.Properties
 		/// Title: "brokers name" | Type: "CE"
 		/// </summary>
 		public string ValBroker_fk { get; set; }
+		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		[ValidateSetAccess]
+		public string ValCodcity_fk { get; set; }
 
 		#endregion
 		/// <summary>
@@ -75,7 +80,7 @@ namespace GenioMVC.ViewModels.Properties
 
 		#endregion
 
-		public string ValCodproperties { get; set; }
+		public string ValCodproperties_pk { get; set; }
 
 
 		/// <summary>
@@ -186,10 +191,11 @@ namespace GenioMVC.ViewModels.Properties
 			try
 			{
 				ValBroker_fk = ViewModelConversion.ToString(m.ValBroker_fk);
+				ValCodcity_fk = ViewModelConversion.ToString(m.ValCodcity_fk);
 				ValMain_photo = ViewModelConversion.ToImage(m.ValMain_photo);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
-				ValCodproperties = ViewModelConversion.ToString(m.ValCodproperties);
+				ValCodproperties_pk = ViewModelConversion.ToString(m.ValCodproperties_pk);
 			}
 			catch (Exception)
 			{
@@ -220,7 +226,16 @@ namespace GenioMVC.ViewModels.Properties
 					m.ValMain_photo = ViewModelConversion.ToImage(ValMain_photo);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
-				m.ValCodproperties = ViewModelConversion.ToString(ValCodproperties);
+				m.ValCodproperties_pk = ViewModelConversion.ToString(ValCodproperties_pk);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
+				m.ValCodcity_fk = ViewModelConversion.ToString(ValCodcity_fk);
 			}
 			catch (Exception)
 			{
@@ -257,8 +272,8 @@ namespace GenioMVC.ViewModels.Properties
 					case "properties.price":
 						this.ValPrice = ViewModelConversion.ToNumeric(_value);
 						break;
-					case "properties.codproperties":
-						this.ValCodproperties = ViewModelConversion.ToString(_value);
+					case "properties.codproperties_pk":
+						this.ValCodproperties_pk = ViewModelConversion.ToString(_value);
 						break;
 					default:
 						Log.Error($"SetViewModelValue (F_property) - Unexpected field identifier {fullFieldName}");
@@ -617,10 +632,11 @@ namespace GenioMVC.ViewModels.Properties
 			return identifier switch
 			{
 				"properties.broker_fk" => ViewModelConversion.ToString(modelValue),
+				"properties.codcity_fk" => ViewModelConversion.ToString(modelValue),
 				"properties.main_photo" => ViewModelConversion.ToImage(modelValue),
 				"properties.title" => ViewModelConversion.ToString(modelValue),
 				"properties.price" => ViewModelConversion.ToNumeric(modelValue),
-				"properties.codproperties" => ViewModelConversion.ToString(modelValue),
+				"properties.codproperties_pk" => ViewModelConversion.ToString(modelValue),
 				"broker.codbroker" => ViewModelConversion.ToString(modelValue),
 				"broker.name" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
@@ -631,7 +647,7 @@ namespace GenioMVC.ViewModels.Properties
 		protected override void SetTicketToImageFields()
 		{
 			if (ValMain_photo != null)
-				ValMain_photo.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTIES, CSGenioAproperties.FldMain_photo.Field, null, ValCodproperties);
+				ValMain_photo.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTIES, CSGenioAproperties.FldMain_photo.Field, null, ValCodproperties_pk);
 		}
 
 		#region Charts

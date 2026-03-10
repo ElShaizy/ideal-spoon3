@@ -194,7 +194,7 @@
 						config: {
 							name: 'TRA_Menu_21',
 							serverMode: true,
-							pkColumn: 'ValCodproperties',
+							pkColumn: 'ValCodproperties_pk',
 							tableAlias: 'PROPERTIES',
 							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
 							viewManagement: '',
@@ -310,7 +310,7 @@
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodproperties
+											fnValueSelector: (row) => row.ValCodproperties_pk
 										},
 									],
 									isControlled: true,
@@ -319,7 +319,7 @@
 							},
 							formsDefinition: {
 								'F_PROPERTY': {
-									fnKeySelector: (row) => row.Fields.ValCodproperties,
+									fnKeySelector: (row) => row.Fields.ValCodproperties_pk,
 									isPopup: false
 								},
 							},
@@ -330,7 +330,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-BROKER', 'changed-PROPERTIES'],
+						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTIES'],
 						uuid: 'ed291a68-ea9f-4bd8-9caf-5bf4f4206635',
 						allSelectedRows: 'false',
 						headerLevel: 1,

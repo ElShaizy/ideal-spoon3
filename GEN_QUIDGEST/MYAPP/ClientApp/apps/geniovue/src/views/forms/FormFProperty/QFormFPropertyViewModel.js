@@ -44,14 +44,26 @@ export default class ViewModel extends FormViewModelBase
 		})
 
 		/** The primary key. */
-		this.ValCodproperties = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodproperties',
-			originId: 'ValCodproperties',
+		this.ValCodproperties_pk = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodproperties_pk',
+			originId: 'ValCodproperties_pk',
 			area: 'PROPERTIES',
-			field: 'CODPROPERTIES',
+			field: 'CODPROPERTIES_PK',
 			description: '',
-		}).cloneFrom(values?.ValCodproperties))
-		this.stopWatchers.push(watch(() => this.ValCodproperties.value, (newValue, oldValue) => this.onUpdate('properties.codproperties', this.ValCodproperties, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodproperties_pk))
+		this.stopWatchers.push(watch(() => this.ValCodproperties_pk.value, (newValue, oldValue) => this.onUpdate('properties.codproperties_pk', this.ValCodproperties_pk, newValue, oldValue)))
+
+		/** The hidden foreign keys. */
+		this.ValCodcity_fk = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCodcity_fk',
+			originId: 'ValCodcity_fk',
+			area: 'PROPERTIES',
+			field: 'CODCITY_FK',
+			relatedArea: 'CITY',
+			isFixed: true,
+			description: '',
+		}).cloneFrom(values?.ValCodcity_fk))
+		this.stopWatchers.push(watch(() => this.ValCodcity_fk.value, (newValue, oldValue) => this.onUpdate('properties.codcity_fk', this.ValCodcity_fk, newValue, oldValue)))
 
 		/** The used foreign keys. */
 		this.ValBroker_fk = reactive(new modelFieldType.ForeignKey({
@@ -117,8 +129,8 @@ export default class ViewModel extends FormViewModelBase
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodproperties'
+	static QPrimaryKeyName = 'ValCodproperties_pk'
 
-	get QPrimaryKey() { return this.ValCodproperties.value }
-	set QPrimaryKey(value) { this.ValCodproperties.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodproperties_pk.value }
+	set QPrimaryKey(value) { this.ValCodproperties_pk.updateValue(value) }
 }

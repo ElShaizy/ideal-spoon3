@@ -15,6 +15,9 @@
   <msg id="A cancelar" code="A_CANCELAR43988">
     <ENUS>A cancelar</ENUS>
   </msg>
+  <msg id="Bathroom count" code="BATHROOM_COUNT05757">
+    <ENUS>Bathroom count</ENUS>
+  </msg>
   <msg id="Phone number" code="PHONE_NUMBER20774">
     <ENUS>Phone number</ENUS>
   </msg>
@@ -33,6 +36,9 @@
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
   </msg>
+  <msg id="Country" code="COUNTRY64133">
+    <ENUS>Country</ENUS>
+  </msg>
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
   </msg>
@@ -47,6 +53,9 @@
   </msg>
   <msg id="Birthdate" code="BIRTHDATE22743">
     <ENUS>Birthdate</ENUS>
+  </msg>
+  <msg id="Client name" code="CLIENT_NAME39245">
+    <ENUS>Client name</ENUS>
   </msg>
   <msg id="Brokers" code="BROKERS44855">
     <ENUS>Brokers</ENUS>
@@ -123,6 +132,9 @@
   <msg id="HTML format?" code="HTML_FORMAT_60293">
     <ENUS>HTML format?</ENUS>
   </msg>
+  <msg id="photo albums" code="PHOTO_ALBUMS01668">
+    <ENUS>photo albums</ENUS>
+  </msg>
   <msg id="Image" code="IMAGE65174">
     <ENUS>Image</ENUS>
   </msg>
@@ -141,6 +153,9 @@
   <msg id="Notification Email Signature" code="NOTIFICATION_EMAIL_S62518">
     <ENUS>Notification Email Signature</ENUS>
   </msg>
+  <msg id="size m2" code="SIZE_M254142">
+    <ENUS>size m2</ENUS>
+  </msg>
   <msg id="Id" code="ID36840">
     <ENUS>Id</ENUS>
   </msg>
@@ -155,6 +170,9 @@
   </msg>
   <msg id="Individual" code="INDIVIDUAL42893">
     <ENUS>Individual</ENUS>
+  </msg>
+  <msg id="photo album" code="PHOTO_ALBUM31847">
+    <ENUS>photo album</ENUS>
   </msg>
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
@@ -210,11 +228,17 @@
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
   </msg>
+  <msg id="email" code="EMAIL55616">
+    <ENUS>email</ENUS>
+  </msg>
   <msg id="Changed on" code="CHANGED_ON19727">
     <ENUS>Changed on</ENUS>
   </msg>
   <msg id="Text after signature" code="TEXT_AFTER_SIGNATURE11837">
     <ENUS>Text after signature</ENUS>
+  </msg>
+  <msg id="description" code="DESCRIPTION03846">
+    <ENUS>description</ENUS>
   </msg>
   <msg id="Cancelar" code="CANCELAR49513">
     <ENUS>Cancelar</ENUS>
@@ -236,6 +260,9 @@
   </msg>
   <msg id="Request date" code="REQUEST_DATE25771">
     <ENUS>Request date</ENUS>
+  </msg>
+  <msg id="Cities" code="CITIES41573">
+    <ENUS>Cities</ENUS>
   </msg>
   <msg id="Process ID" code="PROCESS_ID11161">
     <ENUS>Process ID</ENUS>
@@ -261,11 +288,17 @@
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
   </msg>
+  <msg id="Contacts" code="CONTACTS55742">
+    <ENUS>Contacts</ENUS>
+  </msg>
   <msg id="Process type" code="PROCESS_TYPE25967">
     <ENUS>Process type</ENUS>
   </msg>
   <msg id="Start time" code="START_TIME30037">
     <ENUS>Start time</ENUS>
+  </msg>
+  <msg id="phone number" code="PHONE_NUMBER05968">
+    <ENUS>phone number</ENUS>
   </msg>
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
@@ -312,6 +345,9 @@
   <msg id="Notification ID" code="NOTIFICATION_ID25507">
     <ENUS>Notification ID</ENUS>
   </msg>
+  <msg id="Contact" code="CONTACT59247">
+    <ENUS>Contact</ENUS>
+  </msg>
   <msg id="Message" code="MESSAGE30602">
     <ENUS>Message</ENUS>
   </msg>
@@ -323,6 +359,9 @@
   </msg>
   <msg id="Expiration date" code="EXPIRATION_DATE34293">
     <ENUS>Expiration date</ENUS>
+  </msg>
+  <msg id="Countries" code="COUNTRIES64527">
+    <ENUS>Countries</ENUS>
   </msg>
   <msg id="Async process argument" code="ASYNC_PROCESS_ARGUME19111">
     <ENUS>Async process argument</ENUS>
@@ -347,6 +386,9 @@
   </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
+  </msg>
+  <msg id="City" code="CITY42505">
+    <ENUS>City</ENUS>
   </msg>
   <msg id="Subject" code="SUBJECT33942">
     <ENUS>Subject</ENUS>
@@ -377,6 +419,9 @@
   </msg>
   <msg id="Agents" code="AGENTS29376">
     <ENUS>Agents</ENUS>
+  </msg>
+  <msg id="Construction date" code="CONSTRUCTION_DATE18132">
+    <ENUS>Construction date</ENUS>
   </msg>
   <msg id="a:" code="A_47238">
     <ENUS>to:</ENUS>

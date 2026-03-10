@@ -132,6 +132,9 @@
   <data name="A_CANCELAR43988" xml:space="preserve">
     <value>A cancelar</value>
   </data>
+  <data name="BATHROOM_COUNT05757" xml:space="preserve">
+    <value>Bathroom count</value>
+  </data>
   <data name="PHONE_NUMBER20774" xml:space="preserve">
     <value>Phone number</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="SUCESSO65230" xml:space="preserve">
     <value>Sucesso</value>
   </data>
+  <data name="COUNTRY64133" xml:space="preserve">
+    <value>Country</value>
+  </data>
   <data name="SENDS_EMAIL_12942" xml:space="preserve">
     <value>Sends email?</value>
   </data>
@@ -164,6 +170,9 @@
   </data>
   <data name="BIRTHDATE22743" xml:space="preserve">
     <value>Birthdate</value>
+  </data>
+  <data name="CLIENT_NAME39245" xml:space="preserve">
+    <value>Client name</value>
   </data>
   <data name="BROKERS44855" xml:space="preserve">
     <value>Brokers</value>
@@ -240,6 +249,9 @@
   <data name="HTML_FORMAT_60293" xml:space="preserve">
     <value>HTML format?</value>
   </data>
+  <data name="PHOTO_ALBUMS01668" xml:space="preserve">
+    <value>photo albums</value>
+  </data>
   <data name="IMAGE65174" xml:space="preserve">
     <value>Image</value>
   </data>
@@ -258,6 +270,9 @@
   <data name="NOTIFICATION_EMAIL_S62518" xml:space="preserve">
     <value>Notification Email Signature</value>
   </data>
+  <data name="SIZE_M254142" xml:space="preserve">
+    <value>size m2</value>
+  </data>
   <data name="ID36840" xml:space="preserve">
     <value>Id</value>
   </data>
@@ -272,6 +287,9 @@
   </data>
   <data name="INDIVIDUAL42893" xml:space="preserve">
     <value>Individual</value>
+  </data>
+  <data name="PHOTO_ALBUM31847" xml:space="preserve">
+    <value>photo album</value>
   </data>
   <data name="HORARIO56549" xml:space="preserve">
     <value>Horário</value>
@@ -327,11 +345,17 @@
   <data name="USER_AUTHORIZATION53599" xml:space="preserve">
     <value>User Authorization</value>
   </data>
+  <data name="EMAIL55616" xml:space="preserve">
+    <value>email</value>
+  </data>
   <data name="CHANGED_ON19727" xml:space="preserve">
     <value>Changed on</value>
   </data>
   <data name="TEXT_AFTER_SIGNATURE11837" xml:space="preserve">
     <value>Text after signature</value>
+  </data>
+  <data name="DESCRIPTION03846" xml:space="preserve">
+    <value>description</value>
   </data>
   <data name="CANCELAR49513" xml:space="preserve">
     <value>Cancelar</value>
@@ -353,6 +377,9 @@
   </data>
   <data name="REQUEST_DATE25771" xml:space="preserve">
     <value>Request date</value>
+  </data>
+  <data name="CITIES41573" xml:space="preserve">
+    <value>Cities</value>
   </data>
   <data name="PROCESS_ID11161" xml:space="preserve">
     <value>Process ID</value>
@@ -378,11 +405,17 @@
   <data name="CONSULTA40695" xml:space="preserve">
     <value>Consulta</value>
   </data>
+  <data name="CONTACTS55742" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
   <data name="PROCESS_TYPE25967" xml:space="preserve">
     <value>Process type</value>
   </data>
   <data name="START_TIME30037" xml:space="preserve">
     <value>Start time</value>
+  </data>
+  <data name="PHONE_NUMBER05968" xml:space="preserve">
+    <value>phone number</value>
   </data>
   <data name="ASYNC_PROCESS_ATTACH04785" xml:space="preserve">
     <value>Async process attachments</value>
@@ -429,6 +462,9 @@
   <data name="NOTIFICATION_ID25507" xml:space="preserve">
     <value>Notification ID</value>
   </data>
+  <data name="CONTACT59247" xml:space="preserve">
+    <value>Contact</value>
+  </data>
   <data name="MESSAGE30602" xml:space="preserve">
     <value>Message</value>
   </data>
@@ -440,6 +476,9 @@
   </data>
   <data name="EXPIRATION_DATE34293" xml:space="preserve">
     <value>Expiration date</value>
+  </data>
+  <data name="COUNTRIES64527" xml:space="preserve">
+    <value>Countries</value>
   </data>
   <data name="ASYNC_PROCESS_ARGUME19111" xml:space="preserve">
     <value>Async process argument</value>
@@ -464,6 +503,9 @@
   </data>
   <data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
     <value>Notification Messages</value>
+  </data>
+  <data name="CITY42505" xml:space="preserve">
+    <value>City</value>
   </data>
   <data name="SUBJECT33942" xml:space="preserve">
     <value>Subject</value>
@@ -494,6 +536,9 @@
   </data>
   <data name="AGENTS29376" xml:space="preserve">
     <value>Agents</value>
+  </data>
+  <data name="CONSTRUCTION_DATE18132" xml:space="preserve">
+    <value>Construction date</value>
   </data>
   <data name="A_47238" xml:space="preserve">
     <value>to:</value>
