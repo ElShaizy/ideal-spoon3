@@ -89,6 +89,16 @@ public class F_propertyForm : Form
 	/// </summary>
 	public IWebElement BrokerEmail => throw new NotImplementedException();
 
+	/// <summary>
+	/// building type
+	/// </summary>
+	public EnumControl PropertiesBuildingtype => new EnumControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BUILDINGTYPE");
+
+	/// <summary>
+	/// Typology
+	/// </summary>
+	public RadiobuttonControl PropertiesTypology => new RadiobuttonControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__TYPOLOGY");
+
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }
 }

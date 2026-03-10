@@ -131,6 +131,14 @@ namespace GenioMVC.ViewModels.Properties
 		public Func<string> funcBrokerValEmail { get; set; }
 
 		private string _auxBrokerValEmail { get; set; }
+		/// <summary>
+		/// Title: "building type" | Type: "AC"
+		/// </summary>
+		public string ValBuildingtype { get; set; }
+		/// <summary>
+		/// Title: "Typology" | Type: "AN"
+		/// </summary>
+		public decimal ValTypology { get; set; }
 
 		#region Navigations
 		#endregion
@@ -273,6 +281,8 @@ namespace GenioMVC.ViewModels.Properties
 				ValDateconstruction = ViewModelConversion.ToDateTime(m.ValDateconstruction);
 				funcBrokerValMain_photo = () => ViewModelConversion.ToImage(m.Broker.ValMain_photo);
 				funcBrokerValEmail = () => ViewModelConversion.ToString(m.Broker.ValEmail);
+				ValBuildingtype = ViewModelConversion.ToString(m.ValBuildingtype);
+				ValTypology = ViewModelConversion.ToNumeric(m.ValTypology);
 				ValCodproperties_pk = ViewModelConversion.ToString(m.ValCodproperties_pk);
 			}
 			catch (Exception)
@@ -309,6 +319,8 @@ namespace GenioMVC.ViewModels.Properties
 				m.ValSizem2 = ViewModelConversion.ToString(ValSizem2);
 				m.ValBathroomsnumber = ViewModelConversion.ToNumeric(ValBathroomsnumber);
 				m.ValDateconstruction = ViewModelConversion.ToDateTime(ValDateconstruction);
+				m.ValBuildingtype = ViewModelConversion.ToString(ValBuildingtype);
+				m.ValTypology = ViewModelConversion.ToNumeric(ValTypology);
 				m.ValCodproperties_pk = ViewModelConversion.ToString(ValCodproperties_pk);
 
 				/*
@@ -368,6 +380,12 @@ namespace GenioMVC.ViewModels.Properties
 						break;
 					case "properties.dateconstruction":
 						this.ValDateconstruction = ViewModelConversion.ToDateTime(_value);
+						break;
+					case "properties.buildingtype":
+						this.ValBuildingtype = ViewModelConversion.ToString(_value);
+						break;
+					case "properties.typology":
+						this.ValTypology = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "properties.codproperties_pk":
 						this.ValCodproperties_pk = ViewModelConversion.ToString(_value);
@@ -936,6 +954,8 @@ namespace GenioMVC.ViewModels.Properties
 				"properties.dateconstruction" => ViewModelConversion.ToDateTime(modelValue),
 				"broker.main_photo" => ViewModelConversion.ToImage(modelValue),
 				"broker.email" => ViewModelConversion.ToString(modelValue),
+				"properties.buildingtype" => ViewModelConversion.ToString(modelValue),
+				"properties.typology" => ViewModelConversion.ToNumeric(modelValue),
 				"properties.codproperties_pk" => ViewModelConversion.ToString(modelValue),
 				"city.codcity_pk" => ViewModelConversion.ToString(modelValue),
 				"city.city" => ViewModelConversion.ToString(modelValue),

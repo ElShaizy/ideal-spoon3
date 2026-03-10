@@ -378,6 +378,25 @@
 						</q-group-collapsible>
 					</q-col>
 				</q-row>
+				<q-row v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible">
+					<q-col
+						v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE"
+							v-on="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.handlers"
+							:loading="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-select
+								v-if="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.isVisible"
+								v-bind="controls.F_PROPERTY__PROPERTIES__BUILDINGTYPE.props"
+								@update:model-value="model.ValBuildingtype.fnUpdateValue" />
+						</base-input-structure>
+					</q-col>
+				</q-row>
 			</template>
 		</q-container>
 	</teleport>
@@ -1001,6 +1020,37 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__PROPERTIES__BUILDINGTYPE: new fieldControlClass.ArrayStringControl({
+						modelField: 'ValBuildingtype',
+						valueChangeEvent: 'fieldChange:properties.buildingtype',
+						id: 'F_PROPERTY__PROPERTIES__BUILDINGTYPE',
+						name: 'BUILDINGTYPE',
+						size: 'mini',
+						label: computed(() => this.Resources.BUILDING_TYPE34158),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 1,
+						arrayName: 'building_type',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__TYPOLOGY: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValTypology',
+						valueChangeEvent: 'fieldChange:properties.typology',
+						id: 'F_PROPERTY__PROPERTIES__TYPOLOGY',
+						name: 'TYPOLOGY',
+						label: computed(() => this.Resources.TYPOLOGY11991),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 1,
+						maxDecimals: 0,
+						arrayName: 'typology',
+						columns: 1,
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -1048,6 +1098,8 @@
 						set ValBathroomsnumber(value) { vm.model.ValBathroomsnumber.updateValue(value) },
 						get ValBroker_fk() { return vm.model.ValBroker_fk.value },
 						set ValBroker_fk(value) { vm.model.ValBroker_fk.updateValue(value) },
+						get ValBuildingtype() { return vm.model.ValBuildingtype.value },
+						set ValBuildingtype(value) { vm.model.ValBuildingtype.updateValue(value) },
 						get ValCodcity_fk() { return vm.model.ValCodcity_fk.value },
 						set ValCodcity_fk(value) { vm.model.ValCodcity_fk.updateValue(value) },
 						get ValDateconstruction() { return vm.model.ValDateconstruction.value },
@@ -1062,6 +1114,8 @@
 						set ValSizem2(value) { vm.model.ValSizem2.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
+						get ValTypology() { return vm.model.ValTypology.value },
+						set ValTypology(value) { vm.model.ValTypology.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the PROPERTIES table */

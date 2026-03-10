@@ -199,6 +199,29 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.EMAIL25170),
 		}).cloneFrom(values?.BrokerValEmail))
 		this.stopWatchers.push(watch(() => this.BrokerValEmail.value, (newValue, oldValue) => this.onUpdate('broker.email', this.BrokerValEmail, newValue, oldValue)))
+
+		this.ValBuildingtype = reactive(new modelFieldType.String({
+			id: 'ValBuildingtype',
+			originId: 'ValBuildingtype',
+			area: 'PROPERTIES',
+			field: 'BUILDINGTYPE',
+			maxLength: 1,
+			arrayOptions: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
+			description: computed(() => this.Resources.BUILDING_TYPE34158),
+		}).cloneFrom(values?.ValBuildingtype))
+		this.stopWatchers.push(watch(() => this.ValBuildingtype.value, (newValue, oldValue) => this.onUpdate('properties.buildingtype', this.ValBuildingtype, newValue, oldValue)))
+
+		this.ValTypology = reactive(new modelFieldType.Number({
+			id: 'ValTypology',
+			originId: 'ValTypology',
+			area: 'PROPERTIES',
+			field: 'TYPOLOGY',
+			maxDigits: 1,
+			decimalDigits: 0,
+			arrayOptions: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
+			description: computed(() => this.Resources.TYPOLOGY11991),
+		}).cloneFrom(values?.ValTypology))
+		this.stopWatchers.push(watch(() => this.ValTypology.value, (newValue, oldValue) => this.onUpdate('properties.typology', this.ValTypology, newValue, oldValue)))
 	}
 
 	/**
