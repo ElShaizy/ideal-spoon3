@@ -104,6 +104,11 @@ public class F_propertyForm : Form
 	/// </summary>
 	public ListControl PseudProperty_grid => new ListControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__PROPERTY_GRID");
 
+	/// <summary>
+	/// Contacts
+	/// </summary>
+	public ListControl PseudContact_grid => new ListControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__CONTACT_GRID");
+
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }
 }
