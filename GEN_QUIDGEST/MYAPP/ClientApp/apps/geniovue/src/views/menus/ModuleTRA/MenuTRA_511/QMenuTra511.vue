@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '511',
 					isMenuList: true,
-					designation: computed(() => this.Resources.COUNTRIES64527),
+					designation: computed(() => this.Resources.PROPERTIES34868),
 					acronym: 'TRA_511',
-					name: 'COUNTRY',
+					name: 'PROPERTIES',
 					route: 'menu-TRA_511',
 					order: '511',
-					controller: 'COUNTRY',
+					controller: 'PROPERTIES',
 					action: 'TRA_Menu_511',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'TRA_Menu_511',
-						controller: 'COUNTRY',
+						controller: 'PROPERTIES',
 						action: 'TRA_Menu_511',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,117 +148,138 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValCodcountry',
-								area: 'COUNTRY',
-								field: 'CODCOUNTRY',
-								label: computed(() => this.Resources.COUNTRY45120),
-								dataLength: 8,
+								name: 'ValDescription',
+								area: 'PROPERTIES',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07383),
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValTitle',
+								area: 'PROPERTIES',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 3,
+								name: 'ValTypology',
+								area: 'PROPERTIES',
+								field: 'TYPOLOGY',
+								label: computed(() => this.Resources.TYPOLOGY11991),
+								scrollData: 1,
+								maxDigits: 1,
+								decimalPlaces: 0,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayTypology.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.CurrencyColumn({
+								order: 4,
+								name: 'ValPrice',
+								area: 'PROPERTIES',
+								field: 'PRICE',
+								label: computed(() => this.Resources.PRICE06900),
+								scrollData: 15,
+								maxDigits: 10,
+								decimalPlaces: 4,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 5,
+								name: 'ValDateconstruction',
+								area: 'PROPERTIES',
+								field: 'DATECONSTRUCTION',
+								label: computed(() => this.Resources.CONSTRUCTION_DATE18132),
 								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 6,
+								name: 'Broker.ValName',
+								area: 'BROKER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+								pkColumn: 'ValCodbroker',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 7,
+								name: 'ValBuildingtype',
+								area: 'PROPERTIES',
+								field: 'BUILDINGTYPE',
+								label: computed(() => this.Resources.BUILDING_TYPE34158),
+								dataLength: 1,
+								scrollData: 1,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayBuilding_type.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 8,
+								name: 'ValBathroomsnumber',
+								area: 'PROPERTIES',
+								field: 'BATHROOMSNUMBER',
+								label: computed(() => this.Resources.BATHROOM_COUNT05757),
+								scrollData: 15,
+								maxDigits: 15,
+								decimalPlaces: 0,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 9,
+								name: 'ValSizem2',
+								area: 'PROPERTIES',
+								field: 'SIZEM2',
+								label: computed(() => this.Resources.SIZE_M254142),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 10,
+								name: 'ValMain_photo',
+								area: 'PROPERTIES',
+								field: 'MAIN_PHOTO',
+								label: computed(() => this.Resources.MAIN_PHOTO18723),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.MAIN_PHOTO18723)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'TRA_Menu_511',
 							serverMode: true,
-							pkColumn: 'ValCodcountry',
-							tableAlias: 'COUNTRY',
-							tableNamePlural: computed(() => this.Resources.COUNTRIES64527),
+							pkColumn: 'ValCodproperties',
+							tableAlias: 'PROPERTIES',
+							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.COUNTRIES64527),
+							tableTitle: computed(() => this.Resources.PROPERTIES34868),
 							showAlternatePagination: true,
 							permissions: {
+								canView: false,
+								canEdit: false,
+								canDuplicate: false,
+								canDelete: false,
+								canInsert: false
 							},
 							searchBarConfig: {
 								visibility: true
 							},
 							allowColumnFilters: true,
 							allowColumnSort: true,
-							crudActions: [
-								{
-									id: 'show',
-									name: 'show',
-									title: computed(() => this.Resources.CONSULTAR57388),
-									icon: {
-										icon: 'view'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COUNTRY',
-										mode: 'SHOW',
-										isControlled: true
-									}
-								},
-								{
-									id: 'edit',
-									name: 'edit',
-									title: computed(() => this.Resources.EDITAR11616),
-									icon: {
-										icon: 'pencil'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COUNTRY',
-										mode: 'EDIT',
-										isControlled: true
-									}
-								},
-								{
-									id: 'duplicate',
-									name: 'duplicate',
-									title: computed(() => this.Resources.DUPLICAR09748),
-									icon: {
-										icon: 'duplicate'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COUNTRY',
-										mode: 'DUPLICATE',
-										isControlled: true
-									}
-								},
-								{
-									id: 'delete',
-									name: 'delete',
-									title: computed(() => this.Resources.ELIMINAR21155),
-									icon: {
-										icon: 'delete'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COUNTRY',
-										mode: 'DELETE',
-										isControlled: true
-									}
-								}
-							],
-							generalActions: [
-								{
-									id: 'insert',
-									name: 'insert',
-									title: computed(() => this.Resources.INSERIR43365),
-									icon: {
-										icon: 'add'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'F_COUNTRY',
-										mode: 'NEW',
-										repeatInsertion: false,
-										isControlled: true
-									}
-								},
-							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -268,38 +289,32 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_TRA_5111',
-								name: 'form-F_COUNTRY',
-								isVisible: true,
-								params: {
-									isRoute: true,
-									limits: [
-										{
-											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcountry
-										},
-									],
-									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COUNTRY'
-								}
 							},
 							formsDefinition: {
-								'F_COUNTRY': {
-									fnKeySelector: (row) => row.Fields.ValCodcountry,
-									isPopup: false
-								},
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							allowFileExport: true,
+							allowFileImport: true,
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: '',
+								columnName: 'ValTitle',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-COUNTRY'],
-						uuid: '4e439f88-bb19-42ef-b411-4ca1fcd99f00',
+						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTIES'],
+						uuid: 'ab453661-ded4-4cfe-a870-e0c582b41ba6',
 						allSelectedRows: 'false',
 						headerLevel: 1,
+						/** Menu limits */
+						controlLimits: [
+							/** DB */
+							{
+								identifier: 'broker',
+								dependencyEvents: [],
+								dependencyField: '',
+								fnValueSelector: () => vm.$route.params['broker'],
+							},
+						],
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),
 				}

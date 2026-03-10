@@ -15,9 +15,9 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.Country
+namespace GenioMVC.ViewModels.Properties
 {
-	public class TRA_Menu_511_ViewModel : MenuListViewModel<Models.Country>
+	public class TRA_Menu_511_ViewModel : MenuListViewModel<Models.Properties>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
@@ -27,11 +27,11 @@ namespace GenioMVC.ViewModels.Country
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "country";
+		public override string TableAlias => "properties";
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "4e439f88-bb19-42ef-b411-4ca1fcd99f00";
+		public override string Uuid => "ab453661-ded4-4cfe-a870-e0c582b41ba6";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -52,6 +52,7 @@ namespace GenioMVC.ViewModels.Country
 			get
 			{
 				CriteriaSet conditions = CriteriaSet.And();
+				// Limitations
 
 				return conditions;
 			}
@@ -64,6 +65,7 @@ namespace GenioMVC.ViewModels.Country
 			get
 			{
 				CriteriaSet conds = CriteriaSet.And();
+				conds.Equal(CSGenioAproperties.FldBroker_fk, Navigation.GetValue("broker"));
 
 				return conds;
 			}
@@ -90,25 +92,27 @@ namespace GenioMVC.ViewModels.Country
 		public override int GetCount(User user)
 		{
 			CSGenio.persistence.PersistentSupport sp = m_userContext.PersistentSupport;
-			var areaBase = CSGenio.business.Area.createArea("country", user, "TRA");
+			var areaBase = CSGenio.business.Area.createArea("properties", user, "TRA");
 
 			//gets eph conditions to be applied in listing
 			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML511");
-			conditions.Equal(CSGenioAcountry.FldZzstate, 0); //valid zzstate only
+			conditions.Equal(CSGenioAproperties.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate };
+			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldDescription, CSGenioAproperties.FldTitle, CSGenioAproperties.FldTypology, CSGenioAproperties.FldPrice, CSGenioAproperties.FldDateconstruction, CSGenioAproperties.FldBroker_fk, CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAproperties.FldBuildingtype, CSGenioAproperties.FldBathroomsnumber, CSGenioAproperties.FldSizem2, CSGenioAproperties.FldMain_photo };
 
-			ListingMVC<CSGenioAcountry> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAproperties> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
 			if (qs.FromTable == null)
 				qs.From(areaBase.QSystem, areaBase.TableName, areaBase.Alias);
 
+			if (!qs.Joins.Select(x => x.Table).Select(y => y.TableAlias).Contains(CSGenio.business.Area.AreaBROKER.Alias))
+				qs.Join(CSGenio.business.Area.AreaBROKER, TableJoinType.Inner).On(CriteriaSet.And().Equal(CSGenioAbroker.FldCodbroker, CSGenioAproperties.FldBroker_fk));
 
 
 
@@ -146,17 +150,25 @@ namespace GenioMVC.ViewModels.Country
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAcountry.FldCodcountry, FieldType.KEY_INT, Resources.Resources.COUNTRY45120, 8, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldDescription, FieldType.MEMO, Resources.Resources.DESCRIPTION07383, 30, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldTypology, FieldType.ARRAY_NUMERIC, Resources.Resources.TYPOLOGY11991, 1, 0, true, "typology"),
+				new Exports.QColumn(CSGenioAproperties.FldPrice, FieldType.CURRENCY, Resources.Resources.PRICE06900, 15, 2, true),
+				new Exports.QColumn(CSGenioAproperties.FldDateconstruction, FieldType.DATE, Resources.Resources.CONSTRUCTION_DATE18132, 8, 0, true),
+				new Exports.QColumn(CSGenioAbroker.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldBuildingtype, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE34158, 1, 0, true, "building_type"),
+				new Exports.QColumn(CSGenioAproperties.FldBathroomsnumber, FieldType.NUMERIC, Resources.Resources.BATHROOM_COUNT05757, 15, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldSizem2, FieldType.TEXT, Resources.Resources.SIZE_M254142, 30, 2, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAcountry> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAproperties> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAcountry> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAproperties> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -170,6 +182,27 @@ namespace GenioMVC.ViewModels.Country
 
 			// Reset number of records to original value
 			tableConfig.RowsPerPage = rowsPerPage;
+		}
+
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAproperties.FldMain_photo, FieldType.IMAGE, Resources.Resources.MAIN_PHOTO18723, 3, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 50, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldPrice, FieldType.CURRENCY, Resources.Resources.PRICE06900, 14, 4, true),
+				new Exports.QColumn(CSGenioAproperties.FldSizem2, FieldType.TEXT, Resources.Resources.SIZE_M254142, 50, 2, true),
+				new Exports.QColumn(CSGenioAproperties.FldBathroomsnumber, FieldType.NUMERIC, Resources.Resources.BATHROOM_COUNT05757, 15, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldDateconstruction, FieldType.DATE, Resources.Resources.CONSTRUCTION_DATE18132, 8, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldDescription, FieldType.MEMO, Resources.Resources.DESCRIPTION07383, 500, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldBuildingtype, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE34158, 1, 0, true, "building_type"),
+				new Exports.QColumn(CSGenioAproperties.FldTypology, FieldType.ARRAY_NUMERIC, Resources.Resources.TYPOLOGY11991, 1, 0, true, "typology"),
+				new Exports.QColumn(CSGenioAbroker.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+			};
 		}
 
 		/// <inheritdoc/>
@@ -207,28 +240,31 @@ namespace GenioMVC.ViewModels.Country
 
 			crs.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
+			// Limitations
+			// Limit "DB"
+			crs.Equal(CSGenioAproperties.FldBroker_fk, Navigation.GetValue("broker"));
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Country.AddEPH<CSGenioAcountry>(ref u, crs, "ML511");
+				crs = Models.Properties.AddEPH<CSGenioAproperties>(ref u, crs, "ML511");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAcountry.FldZzstate, 0);
+				crs.Equal(CSGenioAproperties.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("COUNTRY", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAcountry.FldZzstate, null);
+			if (!Navigation.checkFormMode("PROPERTIES", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAproperties.FldZzstate, null);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_country");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_country");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_properties");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_properties");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Country.AddEPH<CSGenioAcountry>(ref u, null, "ML511"));
+					crs.Equals(Models.Properties.AddEPH<CSGenioAproperties>(ref u, null, "ML511"));
 			}
 
 			return crs;
@@ -253,7 +289,7 @@ namespace GenioMVC.ViewModels.Country
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAcountry> listing = null;
+			ListingMVC<CSGenioAproperties> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -267,7 +303,7 @@ namespace GenioMVC.ViewModels.Country
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcountry> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAproperties> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 
@@ -286,7 +322,7 @@ namespace GenioMVC.ViewModels.Country
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAcountry> listing = null;
+			ListingMVC<CSGenioAproperties> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -300,7 +336,7 @@ namespace GenioMVC.ViewModels.Country
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcountry> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAproperties> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
 			Menu = new TablePartial<TRA_Menu_511_RowViewModel>();
@@ -310,6 +346,8 @@ namespace GenioMVC.ViewModels.Country
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
+			allSortOrders.Add("PROPERTIES.TITLE", new OrderedDictionary());
+			allSortOrders["PROPERTIES.TITLE"].Add("PROPERTIES.TITLE", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -319,10 +357,16 @@ namespace GenioMVC.ViewModels.Country
 			if (pageNumber < 1)
 				pageNumber = 1;
 
-			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "country", allSortOrders);
+			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "properties", allSortOrders);
 
+			if (sorts == null || sorts.Count == 0)
+			{
+				sorts = new List<ColumnSort>();
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAproperties.FldTitle), SortOrder.Ascending));
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate };
+			}
+
+			FieldRef[] fields = new FieldRef[] { CSGenioAproperties.FldCodproperties, CSGenioAproperties.FldZzstate, CSGenioAproperties.FldDescription, CSGenioAproperties.FldTitle, CSGenioAproperties.FldTypology, CSGenioAproperties.FldPrice, CSGenioAproperties.FldDateconstruction, CSGenioAproperties.FldBroker_fk, CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldName, CSGenioAproperties.FldBuildingtype, CSGenioAproperties.FldBathroomsnumber, CSGenioAproperties.FldSizem2, CSGenioAproperties.FldMain_photo };
 
 
 			// Totalizers
@@ -334,7 +378,7 @@ namespace GenioMVC.ViewModels.Country
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("country", "codcountry");
+				firstVisibleColumn ??= new FieldRef("properties", "description");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -345,12 +389,31 @@ namespace GenioMVC.ViewModels.Country
 			{
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
-				CSGenioAcountry model_limit_area = new CSGenioAcountry(m_userContext.User);
+				CSGenioAproperties model_limit_area = new CSGenioAproperties(m_userContext.User);
 				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML511");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
 
+			// Tooltips: Making a tooltip for each valid limitation: 1 Limit(s) detected.
+			// Limit origin: menu 
+
+			//Limit type: "DB"
+			//Current Area = "PROPERTIES"
+			//1st Area Limit: "BROKER"
+			//1st Area Field: "CODBROKER"
+			//1st Area Value: ""
+			{
+				Limit limit = new Limit();
+				limit.TipoLimite = LimitType.DB;
+				limit.NaoAplicaSeNulo = false;
+				CSGenioAbroker model_limit_area = new CSGenioAbroker(m_userContext.User);
+				string limit_field = "codbroker", limit_field_value = "";
+				object this_limit_field = Navigation.GetStrValue(limit_field_value);
+				Limit_Filler(ref limit, model_limit_area, limit_field, limit_field_value, this_limit_field, LimitAreaType.AreaLimita);
+				if (!this.TableLimits.Contains(limit, limitComparer)) //to avoid repetitions (i.e: DB and EPH applying same limit)
+					this.TableLimits.Add(limit);
+			}
 
 			if (conditions == null)
 				conditions = CriteriaSet.And();
@@ -371,7 +434,7 @@ namespace GenioMVC.ViewModels.Country
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAcountry>(m_userContext, false, ref tra_menu_511Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAproperties>(m_userContext, false, ref tra_menu_511Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, firstVisibleColumn: firstVisibleColumn);
 
 // USE /[MANUAL TRA OVERRQLSTEXP 511]/
 
@@ -382,18 +445,18 @@ namespace GenioMVC.ViewModels.Country
 			{
 // USE /[MANUAL TRA OVERRQLIST 511]/
 
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_country");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_country");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_properties");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_properties");
 				CriteriaSet m_PagingPosEPHs = null;
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAcountry.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_511Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAproperties.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_511Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAcountry> listing = Models.ModelBase.Where<CSGenioAcountry>(m_userContext, distinct, tra_menu_511Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAproperties> listing = Models.ModelBase.Where<CSGenioAproperties>(m_userContext, distinct, tra_menu_511Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -432,7 +495,7 @@ namespace GenioMVC.ViewModels.Country
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<TRA_Menu_511_RowViewModel> MapTRA_Menu_511(ListingMVC<CSGenioAcountry> Qlisting)
+		private List<TRA_Menu_511_RowViewModel> MapTRA_Menu_511(ListingMVC<CSGenioAproperties> Qlisting)
 		{
 			List<TRA_Menu_511_RowViewModel> Elements = [];
 			int i = 0;
@@ -452,11 +515,11 @@ namespace GenioMVC.ViewModels.Country
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAcountry row
+		/// Maps a single CSGenioAproperties row
 		/// to a TRA_Menu_511_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private TRA_Menu_511_RowViewModel MapTRA_Menu_511(CSGenioAcountry row)
+		private TRA_Menu_511_RowViewModel MapTRA_Menu_511(CSGenioAproperties row)
 		{
 			var model = new TRA_Menu_511_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
@@ -466,8 +529,10 @@ namespace GenioMVC.ViewModels.Country
 			{
 				switch (Qfield.Area)
 				{
-					case "country":
+					case "properties":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "broker":
+						model.Broker.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -475,6 +540,7 @@ namespace GenioMVC.ViewModels.Country
 
 			model.InitRowData();
 
+			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -493,19 +559,19 @@ namespace GenioMVC.ViewModels.Country
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAcountry> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAproperties> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Country m)
+		public override void MapFromModel(Models.Properties m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Country m)
+		public override void MapToModel(Models.Properties m)
 		{
 		}
 
@@ -519,12 +585,27 @@ namespace GenioMVC.ViewModels.Country
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Country", "Country.ValCodcountry", "Country.ValZzstate"
+			"Properties", "Properties.ValCodproperties", "Properties.ValZzstate", "Properties.ValDescription", "Properties.ValTitle", "Properties.ValTypology", "Properties.ValPrice", "Properties.ValDateconstruction", "Broker", "Broker.ValName", "Properties.ValBuildingtype", "Properties.ValBathroomsnumber", "Properties.ValSizem2", "Properties.ValMain_photo", "Properties.ValBroker_fk", "Properties.ValCodcity_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValCodcountry", CSGenioAcountry.FldCodcountry, typeof(string)),
+			new TableSearchColumn("ValDescription", CSGenioAproperties.FldDescription, typeof(string)),
+			new TableSearchColumn("ValTitle", CSGenioAproperties.FldTitle, typeof(string), defaultSearch : true),
+			new TableSearchColumn("ValTypology", CSGenioAproperties.FldTypology, typeof(decimal), array : "typology"),
+			new TableSearchColumn("ValPrice", CSGenioAproperties.FldPrice, typeof(decimal?)),
+			new TableSearchColumn("ValDateconstruction", CSGenioAproperties.FldDateconstruction, typeof(DateTime?)),
+			new TableSearchColumn("Broker_ValName", CSGenioAbroker.FldName, typeof(string)),
+			new TableSearchColumn("ValBuildingtype", CSGenioAproperties.FldBuildingtype, typeof(string), array : "building_type"),
+			new TableSearchColumn("ValBathroomsnumber", CSGenioAproperties.FldBathroomsnumber, typeof(decimal?)),
+			new TableSearchColumn("ValSizem2", CSGenioAproperties.FldSizem2, typeof(string)),
 		];
+		protected void SetTicketToImageFields(Models.Properties row)
+		{
+			if (row == null)
+				return;
+
+			row.ValMain_photoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTIES, CSGenioAproperties.FldMain_photo.Field, null, row.ValCodproperties);
+		}
 	}
 }

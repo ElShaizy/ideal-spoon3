@@ -15,23 +15,23 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.City
+namespace GenioMVC.ViewModels.Broker
 {
-	public class TRA_Menu_521_ViewModel : MenuListViewModel<Models.City>
+	public class TRA_Menu_51_ViewModel : MenuListViewModel<Models.Broker>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<TRA_Menu_521_RowViewModel> Menu { get; set; }
+		public TablePartial<TRA_Menu_51_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "city";
+		public override string TableAlias => "broker";
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "01161263-52ee-46cd-a7d4-21a6ba63ef7c";
+		public override string Uuid => "a65c4627-eb29-43b3-bab4-895c4191b550";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -82,7 +82,7 @@ namespace GenioMVC.ViewModels.City
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL TRA LIST_LIMITS 521]/
+// USE /[MANUAL TRA LIST_LIMITS 51]/
 
 			return crs;
 		}
@@ -90,25 +90,24 @@ namespace GenioMVC.ViewModels.City
 		public override int GetCount(User user)
 		{
 			CSGenio.persistence.PersistentSupport sp = m_userContext.PersistentSupport;
-			var areaBase = CSGenio.business.Area.createArea("city", user, "TRA");
+			var areaBase = CSGenio.business.Area.createArea("broker", user, "TRA");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML521");
-			conditions.Equal(CSGenioAcity.FldZzstate, 0); //valid zzstate only
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML51");
+			conditions.Equal(CSGenioAbroker.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
+			FieldRef[] fields = new FieldRef[] { CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldZzstate, CSGenioAbroker.FldName, CSGenioAbroker.FldEmail, CSGenioAbroker.FldPhone_number, CSGenioAbroker.FldMain_photo, CSGenioAbroker.FldBirthdate };
 
-			ListingMVC<CSGenioAcity> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAbroker> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
 			if (qs.FromTable == null)
 				qs.From(areaBase.QSystem, areaBase.TableName, areaBase.Alias);
-
 
 
 
@@ -120,23 +119,23 @@ namespace GenioMVC.ViewModels.City
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public TRA_Menu_521_ViewModel() : base(null!) { }
+		public TRA_Menu_51_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_521_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_51_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public TRA_Menu_521_ViewModel(UserContext userContext) : base(userContext)
+		public TRA_Menu_51_ViewModel(UserContext userContext) : base(userContext)
 		{
 			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_521_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_51_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public TRA_Menu_521_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public TRA_Menu_51_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -146,17 +145,20 @@ namespace GenioMVC.ViewModels.City
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAcity.FldCity, FieldType.TEXT, Resources.Resources.CITY42505, 30, 0, true),
+				new Exports.QColumn(CSGenioAbroker.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAbroker.FldEmail, FieldType.TEXT, Resources.Resources.EMAIL25170, 30, 0, true),
+				new Exports.QColumn(CSGenioAbroker.FldPhone_number, FieldType.TEXT, Resources.Resources.PHONE_NUMBER31368, 12, 0, true),
+				new Exports.QColumn(CSGenioAbroker.FldBirthdate, FieldType.DATE, Resources.Resources.BIRTHDATE22743, 8, 0, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAcity> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAbroker> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAcity> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAbroker> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -187,7 +189,7 @@ namespace GenioMVC.ViewModels.City
 
 			crs ??= CriteriaSet.And();
 
-			Menu ??= new TablePartial<TRA_Menu_521_RowViewModel>();
+			Menu ??= new TablePartial<TRA_Menu_51_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -210,25 +212,25 @@ namespace GenioMVC.ViewModels.City
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.City.AddEPH<CSGenioAcity>(ref u, crs, "ML521");
+				crs = Models.Broker.AddEPH<CSGenioAbroker>(ref u, crs, "ML51");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAcity.FldZzstate, 0);
+				crs.Equal(CSGenioAbroker.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("CITY", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAcity.FldZzstate, null);
+			if (!Navigation.checkFormMode("BROKER", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAbroker.FldZzstate, null);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_city");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_city");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_broker");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_broker");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.City.AddEPH<CSGenioAcity>(ref u, null, "ML521"));
+					crs.Equals(Models.Broker.AddEPH<CSGenioAbroker>(ref u, null, "ML51"));
 			}
 
 			return crs;
@@ -253,7 +255,7 @@ namespace GenioMVC.ViewModels.City
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAcity> listing = null;
+			ListingMVC<CSGenioAbroker> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -267,7 +269,7 @@ namespace GenioMVC.ViewModels.City
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcity> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAbroker> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 
@@ -286,7 +288,7 @@ namespace GenioMVC.ViewModels.City
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAcity> listing = null;
+			ListingMVC<CSGenioAbroker> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -300,18 +302,18 @@ namespace GenioMVC.ViewModels.City
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcity> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAbroker> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<TRA_Menu_521_RowViewModel>();
+			Menu = new TablePartial<TRA_Menu_51_RowViewModel>();
 
-			CriteriaSet tra_menu_521Conds = CriteriaSet.And();
+			CriteriaSet tra_menu_51Conds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("CITY.CITY", new OrderedDictionary());
-			allSortOrders["CITY.CITY"].Add("CITY.CITY", "A");
+			allSortOrders.Add("BROKER.NAME", new OrderedDictionary());
+			allSortOrders["BROKER.NAME"].Add("BROKER.NAME", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -321,16 +323,16 @@ namespace GenioMVC.ViewModels.City
 			if (pageNumber < 1)
 				pageNumber = 1;
 
-			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "city", allSortOrders);
+			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "broker", allSortOrders);
 
 			if (sorts == null || sorts.Count == 0)
 			{
 				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAcity.FldCity), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAbroker.FldName), SortOrder.Ascending));
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcity.FldCodcity, CSGenioAcity.FldZzstate, CSGenioAcity.FldCity };
+			FieldRef[] fields = new FieldRef[] { CSGenioAbroker.FldCodbroker, CSGenioAbroker.FldZzstate, CSGenioAbroker.FldName, CSGenioAbroker.FldEmail, CSGenioAbroker.FldPhone_number, CSGenioAbroker.FldMain_photo, CSGenioAbroker.FldBirthdate };
 
 
 			// Totalizers
@@ -342,7 +344,7 @@ namespace GenioMVC.ViewModels.City
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("city", "city");
+				firstVisibleColumn ??= new FieldRef("broker", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -353,8 +355,8 @@ namespace GenioMVC.ViewModels.City
 			{
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
-				CSGenioAcity model_limit_area = new CSGenioAcity(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML521");
+				CSGenioAbroker model_limit_area = new CSGenioAbroker(m_userContext.User);
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML51");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -363,11 +365,11 @@ namespace GenioMVC.ViewModels.City
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(tra_menu_521Conds);
-			tra_menu_521Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(tra_menu_51Conds);
+			tra_menu_51Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL TRA OVERRQ 521]/
+// USE /[MANUAL TRA OVERRQ 51]/
 
 			bool distinct = false;
 
@@ -379,29 +381,29 @@ namespace GenioMVC.ViewModels.City
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAcity>(m_userContext, false, ref tra_menu_521Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML521", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAbroker>(m_userContext, false, ref tra_menu_51Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML51", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL TRA OVERRQLSTEXP 521]/
+// USE /[MANUAL TRA OVERRQLSTEXP 51]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL TRA OVERRQLIST 521]/
+// USE /[MANUAL TRA OVERRQLIST 51]/
 
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_city");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_city");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_broker");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_broker");
 				CriteriaSet m_PagingPosEPHs = null;
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAcity.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_521Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAbroker.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_51Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAcity> listing = Models.ModelBase.Where<CSGenioAcity>(m_userContext, distinct, tra_menu_521Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML521", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAbroker> listing = Models.ModelBase.Where<CSGenioAbroker>(m_userContext, distinct, tra_menu_51Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML51", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -413,15 +415,15 @@ namespace GenioMVC.ViewModels.City
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapTRA_Menu_521(listing);
+				Menu.Elements = MapTRA_Menu_51(listing);
 
-				Menu.Identifier = "ML521";
+				Menu.Identifier = "ML51";
 				Menu.Slots = new Dictionary<string, List<object>>();
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "ML521";
+					element.Identifier = "ML51";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -440,9 +442,9 @@ namespace GenioMVC.ViewModels.City
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<TRA_Menu_521_RowViewModel> MapTRA_Menu_521(ListingMVC<CSGenioAcity> Qlisting)
+		private List<TRA_Menu_51_RowViewModel> MapTRA_Menu_51(ListingMVC<CSGenioAbroker> Qlisting)
 		{
-			List<TRA_Menu_521_RowViewModel> Elements = [];
+			List<TRA_Menu_51_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -451,7 +453,7 @@ namespace GenioMVC.ViewModels.City
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapTRA_Menu_521(row));
+					Elements.Add(MapTRA_Menu_51(row));
 					i++;
 				}
 			}
@@ -460,13 +462,13 @@ namespace GenioMVC.ViewModels.City
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAcity row
-		/// to a TRA_Menu_521_RowViewModel object.
+		/// Maps a single CSGenioAbroker row
+		/// to a TRA_Menu_51_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private TRA_Menu_521_RowViewModel MapTRA_Menu_521(CSGenioAcity row)
+		private TRA_Menu_51_RowViewModel MapTRA_Menu_51(CSGenioAbroker row)
 		{
-			var model = new TRA_Menu_521_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new TRA_Menu_51_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -474,7 +476,7 @@ namespace GenioMVC.ViewModels.City
 			{
 				switch (Qfield.Area)
 				{
-					case "city":
+					case "broker":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
@@ -483,6 +485,7 @@ namespace GenioMVC.ViewModels.City
 
 			model.InitRowData();
 
+			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -501,19 +504,19 @@ namespace GenioMVC.ViewModels.City
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAcity> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAbroker> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.City m)
+		public override void MapFromModel(Models.Broker m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.City m)
+		public override void MapToModel(Models.Broker m)
 		{
 		}
 
@@ -521,18 +524,28 @@ namespace GenioMVC.ViewModels.City
 
 		#region Custom code
 
-// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_521]/
+// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_51]/
 
 		#endregion
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"City", "City.ValCodcity", "City.ValZzstate", "City.ValCity", "City.ValCodcountry_fk"
+			"Broker", "Broker.ValCodbroker", "Broker.ValZzstate", "Broker.ValName", "Broker.ValEmail", "Broker.ValPhone_number", "Broker.ValMain_photo", "Broker.ValBirthdate"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValCity", CSGenioAcity.FldCity, typeof(string)),
+			new TableSearchColumn("ValName", CSGenioAbroker.FldName, typeof(string), defaultSearch : true),
+			new TableSearchColumn("ValEmail", CSGenioAbroker.FldEmail, typeof(string)),
+			new TableSearchColumn("ValPhone_number", CSGenioAbroker.FldPhone_number, typeof(string)),
+			new TableSearchColumn("ValBirthdate", CSGenioAbroker.FldBirthdate, typeof(DateTime?)),
 		];
+		protected void SetTicketToImageFields(Models.Broker row)
+		{
+			if (row == null)
+				return;
+
+			row.ValMain_photoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaBROKER, CSGenioAbroker.FldMain_photo.Field, null, row.ValCodbroker);
+		}
 	}
 }

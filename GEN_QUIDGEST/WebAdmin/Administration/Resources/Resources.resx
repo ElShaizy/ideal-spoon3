@@ -381,6 +381,9 @@
   <data name="EMAIL25170" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="PROPERTIES_BY_AGENTS24097" xml:space="preserve">
+    <value>Properties by agents</value>
+  </data>
   <data name="SENDER07671" xml:space="preserve">
     <value>Sender</value>
   </data>

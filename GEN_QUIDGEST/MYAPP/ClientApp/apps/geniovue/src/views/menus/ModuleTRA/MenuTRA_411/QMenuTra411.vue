@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_41]/ -->
+					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_411]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuTRA_41ViewModel.js'
+	import MenuViewModel from './QMenuTRA_411ViewModel.js'
 
-	const requiredTextResources = ['QMenuTRA_41', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuTRA_411', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_41]/
+// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuTra41',
+		name: 'QMenuTra411',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_41', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_411', false),
 
 				interfaceMetadata: {
-					id: 'QMenuTRA_41', // Used for resources
+					id: 'QMenuTRA_411', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '41',
+					id: '411',
 					isMenuList: true,
 					designation: computed(() => this.Resources.COUNTRIES64527),
-					acronym: 'TRA_41',
+					acronym: 'TRA_411',
 					name: 'COUNTRY',
-					route: 'menu-TRA_41',
-					order: '41',
+					route: 'menu-TRA_411',
+					order: '411',
 					controller: 'COUNTRY',
-					action: 'TRA_Menu_41',
+					action: 'TRA_Menu_411',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'TRA_Menu_41',
+						id: 'TRA_Menu_411',
 						controller: 'COUNTRY',
-						action: 'TRA_Menu_41',
+						action: 'TRA_Menu_411',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -148,17 +148,17 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValCountry',
+								name: 'ValCodcountry',
 								area: 'COUNTRY',
-								field: 'COUNTRY',
-								label: computed(() => this.Resources.COUNTRY64133),
-								dataLength: 50,
-								scrollData: 30,
+								field: 'CODCOUNTRY',
+								label: computed(() => this.Resources.COUNTRY45120),
+								dataLength: 8,
+								scrollData: 8,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'TRA_Menu_41',
+							name: 'TRA_Menu_411',
 							serverMode: true,
 							pkColumn: 'ValCodcountry',
 							tableAlias: 'COUNTRY',
@@ -268,7 +268,7 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_TRA_411',
+								id: 'RCA_TRA_4111',
 								name: 'form-F_COUNTRY',
 								isVisible: true,
 								params: {
@@ -292,12 +292,12 @@
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValCountry',
+								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
 						globalEvents: ['changed-COUNTRY'],
-						uuid: '5cdcbf9d-12b5-43fe-92ec-dd4ddb0f1313',
+						uuid: '4e439f88-bb19-42ef-b411-4ca1fcd99f00',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)
@@ -323,7 +323,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_41]/
+// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -331,18 +331,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_41]/
+// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FUNCTIONS_JS TRA_41]/
+// USE /[MANUAL TRA FUNCTIONS_JS TRA_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_41]/
+// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

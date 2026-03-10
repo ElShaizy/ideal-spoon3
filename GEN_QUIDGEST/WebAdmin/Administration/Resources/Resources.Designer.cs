@@ -853,6 +853,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Properties by agents"
+        /// </summary>
+        public static string PROPERTIES_BY_AGENTS24097 {
+            get {
+                return ResourceManager.GetString("PROPERTIES_BY_AGENTS24097", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Sender"
         /// </summary>
         public static string SENDER07671 {

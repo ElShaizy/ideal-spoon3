@@ -264,6 +264,9 @@
   <msg id="Email" code="EMAIL25170">
     <ENUS>Email</ENUS>
   </msg>
+  <msg id="Properties by agents" code="PROPERTIES_BY_AGENTS24097">
+    <ENUS>Properties by agents</ENUS>
+  </msg>
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
   </msg>
