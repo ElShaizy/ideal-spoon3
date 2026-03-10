@@ -1528,6 +1528,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "officer"
+        /// </summary>
+        public static string OFFICER63190 {
+            get {
+                return ResourceManager.GetString("OFFICER63190", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Bcc"
         /// </summary>
         public static string BCC22049 {

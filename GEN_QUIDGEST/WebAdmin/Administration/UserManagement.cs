@@ -32,6 +32,8 @@ namespace Administration
         {
             List<ModulesLevel> perm = new List<ModulesLevel>();
             perm.Add(new ModulesLevel("TRA", Resources.Resources.MY_APPLICATION56216, "1", Resources.Resources.CONSULTA40695));
+            perm.Add(new ModulesLevel("TRA", Resources.Resources.MY_APPLICATION56216, "5", Resources.Resources.OFFICER63190));
+            perm.Add(new ModulesLevel("TRA", Resources.Resources.MY_APPLICATION56216, "12", Resources.Resources.AGENT48705));
             perm.Add(new ModulesLevel("TRA", Resources.Resources.MY_APPLICATION56216, "99", Resources.Resources.ADMINISTRADOR57294));
 	
             return perm;

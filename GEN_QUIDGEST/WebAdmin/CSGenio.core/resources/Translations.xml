@@ -489,6 +489,9 @@
   <msg id="Enabled?" code="ENABLED_33995">
     <ENUS>Enabled?</ENUS>
   </msg>
+  <msg id="officer" code="OFFICER63190">
+    <ENUS>officer</ENUS>
+  </msg>
   <msg id="Bcc" code="BCC22049">
     <ENUS>Bcc</ENUS>
   </msg>
