@@ -180,6 +180,9 @@
 	<data name="CLIENT_NAME39245" xml:space="preserve">
 		<value>Client name</value>
 	</data>
+	<data name="TYPOLOGY11991" xml:space="preserve">
+		<value>Typology</value>
+	</data>
 	<data name="BROKERS44855" xml:space="preserve">
 		<value>Brokers</value>
 	</data>
@@ -209,6 +212,9 @@
 	</data>
 	<data name="BROKER_NAME33548" xml:space="preserve">
 		<value>Broker Name</value>
+	</data>
+	<data name="THREE_BEDROOM_HOUSE32899" xml:space="preserve">
+		<value>three bedroom house</value>
 	</data>
 	<data name="DOCUMENT00695" xml:space="preserve">
 		<value>Document</value>
@@ -294,8 +300,14 @@
 	<data name="ESTADO_DO_PROCESSO07540" xml:space="preserve">
 		<value>Estado do processo</value>
 	</data>
+	<data name="TWO_BEDROOM_HOUSE28362" xml:space="preserve">
+		<value>two bedroom house</value>
+	</data>
 	<data name="PHOTO51874" xml:space="preserve">
 		<value>Photo</value>
+	</data>
+	<data name="OTHER37293" xml:space="preserve">
+		<value>Other</value>
 	</data>
 	<data name="SENDS_ATTACHMENT_64661" xml:space="preserve">
 		<value>Sends attachment?</value>
@@ -344,6 +356,12 @@
 	</data>
 	<data name="SIZE10299" xml:space="preserve">
 		<value>Size</value>
+	</data>
+	<data name="BUILDING_TYPE34158" xml:space="preserve">
+		<value>building type</value>
+	</data>
+	<data name="TYPOLOGY07256" xml:space="preserve">
+		<value>typology</value>
 	</data>
 	<data name="MY_APPLICATION56216" xml:space="preserve">
 		<value>My application</value>
@@ -432,6 +450,9 @@
 	<data name="PROCESS_TYPE50593" xml:space="preserve">
 		<value>Process Type</value>
 	</data>
+	<data name="_3__BEDROOMS_HOUSE62907" xml:space="preserve">
+		<value>3+ bedrooms house</value>
+	</data>
 	<data name="DESCRIPTION07383" xml:space="preserve">
 		<value>Description</value>
 	</data>
@@ -495,6 +516,9 @@
 	<data name="ROLE60946" xml:space="preserve">
 		<value>Role</value>
 	</data>
+	<data name="HOUSE01993" xml:space="preserve">
+		<value>House</value>
+	</data>
 	<data name="NOTIFICATION_ID25507" xml:space="preserve">
 		<value>Notification ID</value>
 	</data>
@@ -506,6 +530,9 @@
 	</data>
 	<data name="CANCELED_BY01167" xml:space="preserve">
 		<value>Canceled by</value>
+	</data>
+	<data name="ONE_BEDROOM_HOUSE63269" xml:space="preserve">
+		<value>one bedroom house</value>
 	</data>
 	<data name="PROCESS_TYPES19050" xml:space="preserve">
 		<value>Process Types</value>
@@ -519,6 +546,9 @@
 	<data name="ASYNC_PROCESS_ARGUME19111" xml:space="preserve">
 		<value>Async process argument</value>
 	</data>
+	<data name="APARTMENT12665" xml:space="preserve">
+		<value>Apartment</value>
+	</data>
 	<data name="ENTID_KEY04396" xml:space="preserve">
 		<value>Entid key</value>
 	</data>
@@ -527,6 +557,9 @@
 	</data>
 	<data name="ROLES61449" xml:space="preserve">
 		<value>Roles</value>
+	</data>
+	<data name="NO_BEDROOMS37059" xml:space="preserve">
+		<value>no bedrooms</value>
 	</data>
 	<data name="SYSTEM02957" xml:space="preserve">
 		<value>System</value>

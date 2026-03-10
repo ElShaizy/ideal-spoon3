@@ -149,6 +149,30 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "buildingtype", FieldType.ARRAY_TEXT);
+			Qfield.FieldDescription = "building type";
+			Qfield.FieldSize =  1;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "BUILDING_TYPE34158";
+
+			Qfield.Dupmsg = "";
+            Qfield.ArrayName = "dbo.GetValArrayCbuilding_type";
+            Qfield.ArrayClassName = "Building_type";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "typology", FieldType.ARRAY_NUMERIC);
+			Qfield.FieldDescription = "Typology";
+			Qfield.FieldSize =  1;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "TYPOLOGY11991";
+
+			Qfield.Dupmsg = "";
+			Qfield.ArrayName = "dbo.GetValArrayNtypology";
+            Qfield.ArrayClassName = "Typology";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -413,6 +437,28 @@ namespace CSGenio.business
 			set { insertNameValueField(FldDescription, value); }
 		}
 
+		/// <summary>Field : "building type" Tipo: "AC" Formula:  ""</summary>
+		public static FieldRef FldBuildingtype { get { return m_fldBuildingtype; } }
+		private static FieldRef m_fldBuildingtype = new FieldRef("properties", "buildingtype");
+
+		/// <summary>Field : "building type" Tipo: "AC" Formula:  ""</summary>
+		public string ValBuildingtype
+		{
+			get { return (string)returnValueField(FldBuildingtype); }
+			set { insertNameValueField(FldBuildingtype, value); }
+		}
+
+		/// <summary>Field : "Typology" Tipo: "AN" Formula:  ""</summary>
+		public static FieldRef FldTypology { get { return m_fldTypology; } }
+		private static FieldRef m_fldTypology = new FieldRef("properties", "typology");
+
+		/// <summary>Field : "Typology" Tipo: "AN" Formula:  ""</summary>
+		public decimal ValTypology
+		{
+			get { return (decimal)returnValueField(FldTypology); }
+			set { insertNameValueField(FldTypology, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("properties", "zzstate");
@@ -510,7 +556,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX PROPERTIES]/
 
  
-           
+             
 
 	}
 }

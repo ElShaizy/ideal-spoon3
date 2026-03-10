@@ -250,6 +250,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Typology"
+        /// </summary>
+        public static string TYPOLOGY11991 {
+            get {
+                return ResourceManager.GetString("TYPOLOGY11991", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Brokers"
         /// </summary>
         public static string BROKERS44855 {
@@ -336,6 +345,15 @@ namespace Administration.Resources {
         public static string BROKER_NAME33548 {
             get {
                 return ResourceManager.GetString("BROKER_NAME33548", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "three bedroom house"
+        /// </summary>
+        public static string THREE_BEDROOM_HOUSE32899 {
+            get {
+                return ResourceManager.GetString("THREE_BEDROOM_HOUSE32899", resourceCulture);
             }
         }
 
@@ -592,11 +610,29 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "two bedroom house"
+        /// </summary>
+        public static string TWO_BEDROOM_HOUSE28362 {
+            get {
+                return ResourceManager.GetString("TWO_BEDROOM_HOUSE28362", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Photo"
         /// </summary>
         public static string PHOTO51874 {
             get {
                 return ResourceManager.GetString("PHOTO51874", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Other"
+        /// </summary>
+        public static string OTHER37293 {
+            get {
+                return ResourceManager.GetString("OTHER37293", resourceCulture);
             }
         }
 
@@ -741,6 +777,24 @@ namespace Administration.Resources {
         public static string SIZE10299 {
             get {
                 return ResourceManager.GetString("SIZE10299", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "building type"
+        /// </summary>
+        public static string BUILDING_TYPE34158 {
+            get {
+                return ResourceManager.GetString("BUILDING_TYPE34158", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "typology"
+        /// </summary>
+        public static string TYPOLOGY07256 {
+            get {
+                return ResourceManager.GetString("TYPOLOGY07256", resourceCulture);
             }
         }
 
@@ -1006,6 +1060,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "3+ bedrooms house"
+        /// </summary>
+        public static string _3__BEDROOMS_HOUSE62907 {
+            get {
+                return ResourceManager.GetString("_3__BEDROOMS_HOUSE62907", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Description"
         /// </summary>
         public static string DESCRIPTION07383 {
@@ -1195,6 +1258,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "House"
+        /// </summary>
+        public static string HOUSE01993 {
+            get {
+                return ResourceManager.GetString("HOUSE01993", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Notification ID"
         /// </summary>
         public static string NOTIFICATION_ID25507 {
@@ -1227,6 +1299,15 @@ namespace Administration.Resources {
         public static string CANCELED_BY01167 {
             get {
                 return ResourceManager.GetString("CANCELED_BY01167", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "one bedroom house"
+        /// </summary>
+        public static string ONE_BEDROOM_HOUSE63269 {
+            get {
+                return ResourceManager.GetString("ONE_BEDROOM_HOUSE63269", resourceCulture);
             }
         }
 
@@ -1267,6 +1348,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Apartment"
+        /// </summary>
+        public static string APARTMENT12665 {
+            get {
+                return ResourceManager.GetString("APARTMENT12665", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Entid key"
         /// </summary>
         public static string ENTID_KEY04396 {
@@ -1290,6 +1380,15 @@ namespace Administration.Resources {
         public static string ROLES61449 {
             get {
                 return ResourceManager.GetString("ROLES61449", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "no bedrooms"
+        /// </summary>
+        public static string NO_BEDROOMS37059 {
+            get {
+                return ResourceManager.GetString("NO_BEDROOMS37059", resourceCulture);
             }
         }
 
