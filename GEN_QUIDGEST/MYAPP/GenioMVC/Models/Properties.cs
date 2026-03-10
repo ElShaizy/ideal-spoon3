@@ -23,12 +23,12 @@ namespace GenioMVC.Models
 		public CSGenioAproperties klass { get { return baseklass as CSGenioAproperties; } set { baseklass = value; } }
 
 		[Key]
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "+" Formula:  ""</summary>
 		[ShouldSerialize("Properties.ValCodproperties_pk")]
 		public string ValCodproperties_pk { get { return klass.ValCodproperties_pk; } set { klass.ValCodproperties_pk = value; } }
 
-		[DisplayName("")]
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[DisplayName("brokers")]
+		/// <summary>Field : "brokers" Tipo: "CE" Formula:  ""</summary>
 		[ShouldSerialize("Properties.ValBroker_fk")]
 		public string ValBroker_fk { get { return klass.ValBroker_fk; } set { klass.ValBroker_fk = value; } }
 
@@ -47,8 +47,8 @@ namespace GenioMVC.Models
 			set { _broker = value; }
 		}
 
-		[DisplayName("")]
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[DisplayName("city")]
+		/// <summary>Field : "city" Tipo: "CE" Formula:  ""</summary>
 		[ShouldSerialize("Properties.ValCodcity_fk")]
 		public string ValCodcity_fk { get { return klass.ValCodcity_fk; } set { klass.ValCodcity_fk = value; } }
 

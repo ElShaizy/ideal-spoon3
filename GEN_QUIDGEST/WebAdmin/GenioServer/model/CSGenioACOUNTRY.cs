@@ -45,10 +45,10 @@ namespace CSGenio.business
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codcountry_pk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "country";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "COUNTRY45120";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -212,11 +212,11 @@ namespace CSGenio.business
 			return informacao;
 		}
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "country" Tipo: "+" Formula:  ""</summary>
 		public static FieldRef FldCodcountry_pk { get { return m_fldCodcountry_pk; } }
 		private static FieldRef m_fldCodcountry_pk = new FieldRef("country", "codcountry_pk");
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "country" Tipo: "+" Formula:  ""</summary>
 		public string ValCodcountry_pk
 		{
 			get { return (string)returnValueField(FldCodcountry_pk); }

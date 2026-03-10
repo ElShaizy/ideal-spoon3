@@ -49,7 +49,7 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValCodproperties_pk',
 			area: 'PROPERTIES',
 			field: 'CODPROPERTIES_PK',
-			description: '',
+			description: computed(() => this.Resources.PROPERTIES32002),
 		}).cloneFrom(values?.ValCodproperties_pk))
 		this.stopWatchers.push(watch(() => this.ValCodproperties_pk.value, (newValue, oldValue) => this.onUpdate('properties.codproperties_pk', this.ValCodproperties_pk, newValue, oldValue)))
 
@@ -61,7 +61,7 @@ export default class ViewModel extends FormViewModelBase
 			field: 'CODCITY_FK',
 			relatedArea: 'CITY',
 			isFixed: true,
-			description: '',
+			description: computed(() => this.Resources.CITY35974),
 		}).cloneFrom(values?.ValCodcity_fk))
 		this.stopWatchers.push(watch(() => this.ValCodcity_fk.value, (newValue, oldValue) => this.onUpdate('properties.codcity_fk', this.ValCodcity_fk, newValue, oldValue)))
 
@@ -72,7 +72,7 @@ export default class ViewModel extends FormViewModelBase
 			area: 'PROPERTIES',
 			field: 'BROKER_FK',
 			relatedArea: 'BROKER',
-			description: '',
+			description: computed(() => this.Resources.BROKERS62836),
 		}).cloneFrom(values?.ValBroker_fk))
 		this.stopWatchers.push(watch(() => this.ValBroker_fk.value, (newValue, oldValue) => this.onUpdate('properties.broker_fk', this.ValBroker_fk, newValue, oldValue)))
 

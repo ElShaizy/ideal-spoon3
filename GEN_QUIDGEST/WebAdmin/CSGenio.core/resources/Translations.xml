@@ -24,6 +24,9 @@
   <msg id="Level" code="LEVEL06184">
     <ENUS>Level</ENUS>
   </msg>
+  <msg id="city" code="CITY35974">
+    <ENUS>city</ENUS>
+  </msg>
   <msg id="Title" code="TITLE21885">
     <ENUS>Title</ENUS>
   </msg>
@@ -74,6 +77,9 @@
   </msg>
   <msg id="Cc" code="CC35482">
     <ENUS>Cc</ENUS>
+  </msg>
+  <msg id="broker" code="BROKER37082">
+    <ENUS>broker</ENUS>
   </msg>
   <msg id="Não responde" code="NAO_RESPONDE33275">
     <ENUS>Não responde</ENUS>
@@ -138,6 +144,9 @@
   <msg id="Image" code="IMAGE65174">
     <ENUS>Image</ENUS>
   </msg>
+  <msg id="brokers" code="BROKERS62836">
+    <ENUS>brokers</ENUS>
+  </msg>
   <msg id="Abortado" code="ABORTADO52378">
     <ENUS>Abortado</ENUS>
   </msg>
@@ -149,6 +158,9 @@
   </msg>
   <msg id="Module" code="MODULE42049">
     <ENUS>Module</ENUS>
+  </msg>
+  <msg id="country" code="COUNTRY45120">
+    <ENUS>country</ENUS>
   </msg>
   <msg id="Notification Email Signature" code="NOTIFICATION_EMAIL_S62518">
     <ENUS>Notification Email Signature</ENUS>
@@ -287,6 +299,9 @@
   </msg>
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
+  </msg>
+  <msg id="properties" code="PROPERTIES32002">
+    <ENUS>properties</ENUS>
   </msg>
   <msg id="Contacts" code="CONTACTS55742">
     <ENUS>Contacts</ENUS>

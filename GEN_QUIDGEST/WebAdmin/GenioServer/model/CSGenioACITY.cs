@@ -45,10 +45,10 @@ namespace CSGenio.business
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codcity_pk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "city";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "CITY35974";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -65,10 +65,10 @@ namespace CSGenio.business
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codcountry_fk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "country";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "COUNTRY45120";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -224,11 +224,11 @@ namespace CSGenio.business
 			return informacao;
 		}
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "city" Tipo: "+" Formula:  ""</summary>
 		public static FieldRef FldCodcity_pk { get { return m_fldCodcity_pk; } }
 		private static FieldRef m_fldCodcity_pk = new FieldRef("city", "codcity_pk");
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "city" Tipo: "+" Formula:  ""</summary>
 		public string ValCodcity_pk
 		{
 			get { return (string)returnValueField(FldCodcity_pk); }
@@ -246,11 +246,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldCity, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "country" Tipo: "CE" Formula:  ""</summary>
 		public static FieldRef FldCodcountry_fk { get { return m_fldCodcountry_fk; } }
 		private static FieldRef m_fldCodcountry_fk = new FieldRef("city", "codcountry_fk");
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "country" Tipo: "CE" Formula:  ""</summary>
 		public string ValCodcountry_fk
 		{
 			get { return (string)returnValueField(FldCodcountry_fk); }

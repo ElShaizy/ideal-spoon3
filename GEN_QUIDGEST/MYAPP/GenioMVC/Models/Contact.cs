@@ -23,7 +23,7 @@ namespace GenioMVC.Models
 		public CSGenioAcontact klass { get { return baseklass as CSGenioAcontact; } set { baseklass = value; } }
 
 		[Key]
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "Contact" Tipo: "+" Formula:  ""</summary>
 		[ShouldSerialize("Contact.ValCodcontact_pk")]
 		public string ValCodcontact_pk { get { return klass.ValCodcontact_pk; } set { klass.ValCodcontact_pk = value; } }
 
@@ -34,8 +34,8 @@ namespace GenioMVC.Models
 		[DateAttribute("D")]
 		public DateTime? ValDate { get { return klass.ValDate; } set { klass.ValDate = value ?? DateTime.MinValue; } }
 
-		[DisplayName("")]
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[DisplayName("properties")]
+		/// <summary>Field : "properties" Tipo: "CE" Formula:  ""</summary>
 		[ShouldSerialize("Contact.ValCodproperties_fk")]
 		public string ValCodproperties_fk { get { return klass.ValCodproperties_fk; } set { klass.ValCodproperties_fk = value; } }
 

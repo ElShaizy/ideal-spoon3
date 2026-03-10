@@ -45,30 +45,30 @@ namespace CSGenio.business
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codproperties_pk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "properties";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "PROPERTIES32002";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "broker_fk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "brokers";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "BROKERS62836";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codcity_fk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "city";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "CITY35974";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -304,33 +304,33 @@ namespace CSGenio.business
 			return informacao;
 		}
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "+" Formula:  ""</summary>
 		public static FieldRef FldCodproperties_pk { get { return m_fldCodproperties_pk; } }
 		private static FieldRef m_fldCodproperties_pk = new FieldRef("properties", "codproperties_pk");
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "+" Formula:  ""</summary>
 		public string ValCodproperties_pk
 		{
 			get { return (string)returnValueField(FldCodproperties_pk); }
 			set { insertNameValueField(FldCodproperties_pk, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "brokers" Tipo: "CE" Formula:  ""</summary>
 		public static FieldRef FldBroker_fk { get { return m_fldBroker_fk; } }
 		private static FieldRef m_fldBroker_fk = new FieldRef("properties", "broker_fk");
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "brokers" Tipo: "CE" Formula:  ""</summary>
 		public string ValBroker_fk
 		{
 			get { return (string)returnValueField(FldBroker_fk); }
 			set { insertNameValueField(FldBroker_fk, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "city" Tipo: "CE" Formula:  ""</summary>
 		public static FieldRef FldCodcity_fk { get { return m_fldCodcity_fk; } }
 		private static FieldRef m_fldCodcity_fk = new FieldRef("properties", "codcity_fk");
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "city" Tipo: "CE" Formula:  ""</summary>
 		public string ValCodcity_fk
 		{
 			get { return (string)returnValueField(FldCodcity_fk); }

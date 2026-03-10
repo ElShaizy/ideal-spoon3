@@ -45,10 +45,10 @@ namespace CSGenio.business
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codcontact_pk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "Contact";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "CONTACT59247";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -65,10 +65,10 @@ namespace CSGenio.business
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codproperties_fk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "properties";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "PROPERTIES32002";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -266,11 +266,11 @@ namespace CSGenio.business
 			return informacao;
 		}
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "Contact" Tipo: "+" Formula:  ""</summary>
 		public static FieldRef FldCodcontact_pk { get { return m_fldCodcontact_pk; } }
 		private static FieldRef m_fldCodcontact_pk = new FieldRef("contact", "codcontact_pk");
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "Contact" Tipo: "+" Formula:  ""</summary>
 		public string ValCodcontact_pk
 		{
 			get { return (string)returnValueField(FldCodcontact_pk); }
@@ -288,11 +288,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldDate, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "CE" Formula:  ""</summary>
 		public static FieldRef FldCodproperties_fk { get { return m_fldCodproperties_fk; } }
 		private static FieldRef m_fldCodproperties_fk = new FieldRef("contact", "codproperties_fk");
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "CE" Formula:  ""</summary>
 		public string ValCodproperties_fk
 		{
 			get { return (string)returnValueField(FldCodproperties_fk); }

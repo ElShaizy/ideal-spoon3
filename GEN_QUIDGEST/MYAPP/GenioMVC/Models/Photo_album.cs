@@ -23,7 +23,7 @@ namespace GenioMVC.Models
 		public CSGenioAphoto_album klass { get { return baseklass as CSGenioAphoto_album; } set { baseklass = value; } }
 
 		[Key]
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "photo album" Tipo: "+" Formula:  ""</summary>
 		[ShouldSerialize("Photo_album.ValCodphoto_album_pk")]
 		public string ValCodphoto_album_pk { get { return klass.ValCodphoto_album_pk; } set { klass.ValCodphoto_album_pk = value; } }
 
@@ -40,8 +40,8 @@ namespace GenioMVC.Models
 		[ShouldSerialize("Photo_album.ValTitle")]
 		public string ValTitle { get { return klass.ValTitle; } set { klass.ValTitle = value; } }
 
-		[DisplayName("")]
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[DisplayName("properties")]
+		/// <summary>Field : "properties" Tipo: "CE" Formula:  ""</summary>
 		[ShouldSerialize("Photo_album.ValCodproperties_fk")]
 		public string ValCodproperties_fk { get { return klass.ValCodproperties_fk; } set { klass.ValCodproperties_fk = value; } }
 

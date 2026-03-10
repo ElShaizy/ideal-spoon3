@@ -133,6 +133,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "city"
+        /// </summary>
+        public static string CITY35974 {
+            get {
+                return ResourceManager.GetString("CITY35974", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Title"
         /// </summary>
         public static string TITLE21885 {
@@ -282,6 +291,15 @@ namespace Administration.Resources {
         public static string CC35482 {
             get {
                 return ResourceManager.GetString("CC35482", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "broker"
+        /// </summary>
+        public static string BROKER37082 {
+            get {
+                return ResourceManager.GetString("BROKER37082", resourceCulture);
             }
         }
 
@@ -475,6 +493,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "brokers"
+        /// </summary>
+        public static string BROKERS62836 {
+            get {
+                return ResourceManager.GetString("BROKERS62836", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Abortado"
         /// </summary>
         public static string ABORTADO52378 {
@@ -507,6 +534,15 @@ namespace Administration.Resources {
         public static string MODULE42049 {
             get {
                 return ResourceManager.GetString("MODULE42049", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "country"
+        /// </summary>
+        public static string COUNTRY45120 {
+            get {
+                return ResourceManager.GetString("COUNTRY45120", resourceCulture);
             }
         }
 
@@ -921,6 +957,15 @@ namespace Administration.Resources {
         public static string CONSULTA40695 {
             get {
                 return ResourceManager.GetString("CONSULTA40695", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "properties"
+        /// </summary>
+        public static string PROPERTIES32002 {
+            get {
+                return ResourceManager.GetString("PROPERTIES32002", resourceCulture);
             }
         }
 

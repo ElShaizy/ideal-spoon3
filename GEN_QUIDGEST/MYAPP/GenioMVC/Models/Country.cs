@@ -23,7 +23,7 @@ namespace GenioMVC.Models
 		public CSGenioAcountry klass { get { return baseklass as CSGenioAcountry; } set { baseklass = value; } }
 
 		[Key]
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "country" Tipo: "+" Formula:  ""</summary>
 		[ShouldSerialize("Country.ValCodcountry_pk")]
 		public string ValCodcountry_pk { get { return klass.ValCodcountry_pk; } set { klass.ValCodcountry_pk = value; } }
 

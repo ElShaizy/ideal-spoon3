@@ -141,6 +141,9 @@
   <data name="LEVEL06184" xml:space="preserve">
     <value>Level</value>
   </data>
+  <data name="CITY35974" xml:space="preserve">
+    <value>city</value>
+  </data>
   <data name="TITLE21885" xml:space="preserve">
     <value>Title</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="CC35482" xml:space="preserve">
     <value>Cc</value>
+  </data>
+  <data name="BROKER37082" xml:space="preserve">
+    <value>broker</value>
   </data>
   <data name="NAO_RESPONDE33275" xml:space="preserve">
     <value>Não responde</value>
@@ -255,6 +261,9 @@
   <data name="IMAGE65174" xml:space="preserve">
     <value>Image</value>
   </data>
+  <data name="BROKERS62836" xml:space="preserve">
+    <value>brokers</value>
+  </data>
   <data name="ABORTADO52378" xml:space="preserve">
     <value>Abortado</value>
   </data>
@@ -266,6 +275,9 @@
   </data>
   <data name="MODULE42049" xml:space="preserve">
     <value>Module</value>
+  </data>
+  <data name="COUNTRY45120" xml:space="preserve">
+    <value>country</value>
   </data>
   <data name="NOTIFICATION_EMAIL_S62518" xml:space="preserve">
     <value>Notification Email Signature</value>
@@ -404,6 +416,9 @@
   </data>
   <data name="CONSULTA40695" xml:space="preserve">
     <value>Consulta</value>
+  </data>
+  <data name="PROPERTIES32002" xml:space="preserve">
+    <value>properties</value>
   </data>
   <data name="CONTACTS55742" xml:space="preserve">
     <value>Contacts</value>

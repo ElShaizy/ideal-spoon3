@@ -23,7 +23,7 @@ namespace GenioMVC.Models
 		public CSGenioAcity klass { get { return baseklass as CSGenioAcity; } set { baseklass = value; } }
 
 		[Key]
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "city" Tipo: "+" Formula:  ""</summary>
 		[ShouldSerialize("City.ValCodcity_pk")]
 		public string ValCodcity_pk { get { return klass.ValCodcity_pk; } set { klass.ValCodcity_pk = value; } }
 
@@ -32,8 +32,8 @@ namespace GenioMVC.Models
 		[ShouldSerialize("City.ValCity")]
 		public string ValCity { get { return klass.ValCity; } set { klass.ValCity = value; } }
 
-		[DisplayName("")]
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[DisplayName("country")]
+		/// <summary>Field : "country" Tipo: "CE" Formula:  ""</summary>
 		[ShouldSerialize("City.ValCodcountry_fk")]
 		public string ValCodcountry_fk { get { return klass.ValCodcountry_fk; } set { klass.ValCodcountry_fk = value; } }
 

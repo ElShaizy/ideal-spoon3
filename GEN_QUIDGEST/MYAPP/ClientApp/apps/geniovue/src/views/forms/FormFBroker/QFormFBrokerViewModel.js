@@ -49,7 +49,7 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValCodbroker',
 			area: 'BROKER',
 			field: 'CODBROKER',
-			description: '',
+			description: computed(() => this.Resources.BROKER37082),
 		}).cloneFrom(values?.ValCodbroker))
 		this.stopWatchers.push(watch(() => this.ValCodbroker.value, (newValue, oldValue) => this.onUpdate('broker.codbroker', this.ValCodbroker, newValue, oldValue)))
 

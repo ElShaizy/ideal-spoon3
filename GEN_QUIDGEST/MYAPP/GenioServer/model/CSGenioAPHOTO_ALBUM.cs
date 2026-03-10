@@ -45,10 +45,10 @@ namespace CSGenio.business
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codphoto_album_pk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "photo album";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "PHOTO_ALBUM31847";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -75,10 +75,10 @@ namespace CSGenio.business
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codproperties_fk", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "properties";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "PROPERTIES32002";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -235,11 +235,11 @@ namespace CSGenio.business
 			return informacao;
 		}
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "photo album" Tipo: "+" Formula:  ""</summary>
 		public static FieldRef FldCodphoto_album_pk { get { return m_fldCodphoto_album_pk; } }
 		private static FieldRef m_fldCodphoto_album_pk = new FieldRef("photo_album", "codphoto_album_pk");
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "photo album" Tipo: "+" Formula:  ""</summary>
 		public string ValCodphoto_album_pk
 		{
 			get { return (string)returnValueField(FldCodphoto_album_pk); }
@@ -268,11 +268,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTitle, value); }
 		}
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "CE" Formula:  ""</summary>
 		public static FieldRef FldCodproperties_fk { get { return m_fldCodproperties_fk; } }
 		private static FieldRef m_fldCodproperties_fk = new FieldRef("photo_album", "codproperties_fk");
 
-		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "properties" Tipo: "CE" Formula:  ""</summary>
 		public string ValCodproperties_fk
 		{
 			get { return (string)returnValueField(FldCodproperties_fk); }
