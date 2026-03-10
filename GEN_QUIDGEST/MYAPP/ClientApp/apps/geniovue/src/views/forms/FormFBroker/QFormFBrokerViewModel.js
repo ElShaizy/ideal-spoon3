@@ -91,6 +91,19 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.EMAIL25170),
 		}).cloneFrom(values?.ValEmail))
 		this.stopWatchers.push(watch(() => this.ValEmail.value, (newValue, oldValue) => this.onUpdate('broker.email', this.ValEmail, newValue, oldValue)))
+
+		this.ValPhone_number = reactive(new modelFieldType.String({
+			id: 'ValPhone_number',
+			originId: 'ValPhone_number',
+			area: 'BROKER',
+			field: 'PHONE_NUMBER',
+			maxLength: 12,
+			maskType: 'MP',
+			maskFormat: '00000 000000',
+			maskRequired: '00000 000000',
+			description: computed(() => this.Resources.PHONE_NUMBER31368),
+		}).cloneFrom(values?.ValPhone_number))
+		this.stopWatchers.push(watch(() => this.ValPhone_number.value, (newValue, oldValue) => this.onUpdate('broker.phone_number', this.ValPhone_number, newValue, oldValue)))
 	}
 
 	/**

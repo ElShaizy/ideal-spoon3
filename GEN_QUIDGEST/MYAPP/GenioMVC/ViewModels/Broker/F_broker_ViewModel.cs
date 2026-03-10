@@ -49,6 +49,10 @@ namespace GenioMVC.ViewModels.Broker
 		/// Title: "Email" | Type: "C"
 		/// </summary>
 		public string ValEmail { get; set; }
+		/// <summary>
+		/// Title: "Phone Number" | Type: "C"
+		/// </summary>
+		public string ValPhone_number { get; set; }
 
 		#region Navigations
 		#endregion
@@ -184,6 +188,7 @@ namespace GenioMVC.ViewModels.Broker
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValBirthdate = ViewModelConversion.ToDateTime(m.ValBirthdate);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
+				ValPhone_number = ViewModelConversion.ToString(m.ValPhone_number);
 				ValCodbroker = ViewModelConversion.ToString(m.ValCodbroker);
 			}
 			catch (Exception)
@@ -215,6 +220,7 @@ namespace GenioMVC.ViewModels.Broker
 				m.ValName = ViewModelConversion.ToString(ValName);
 				m.ValBirthdate = ViewModelConversion.ToDateTime(ValBirthdate);
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
+				m.ValPhone_number = ViewModelConversion.ToString(ValPhone_number);
 				m.ValCodbroker = ViewModelConversion.ToString(ValCodbroker);
 			}
 			catch (Exception)
@@ -251,6 +257,9 @@ namespace GenioMVC.ViewModels.Broker
 						break;
 					case "broker.email":
 						this.ValEmail = ViewModelConversion.ToString(_value);
+						break;
+					case "broker.phone_number":
+						this.ValPhone_number = ViewModelConversion.ToString(_value);
 						break;
 					case "broker.codbroker":
 						this.ValCodbroker = ViewModelConversion.ToString(_value);
@@ -379,6 +388,7 @@ namespace GenioMVC.ViewModels.Broker
 
 			validator.StringLength("ValName", Resources.Resources.NAME31974, ValName, 50);
 			validator.StringLength("ValEmail", Resources.Resources.EMAIL25170, ValEmail, 256);
+			validator.StringLength("ValPhone_number", Resources.Resources.PHONE_NUMBER31368, ValPhone_number, 12);
 
 
 			return validator.GetResult();
@@ -424,6 +434,7 @@ namespace GenioMVC.ViewModels.Broker
 				"broker.name" => ViewModelConversion.ToString(modelValue),
 				"broker.birthdate" => ViewModelConversion.ToDateTime(modelValue),
 				"broker.email" => ViewModelConversion.ToString(modelValue),
+				"broker.phone_number" => ViewModelConversion.ToString(modelValue),
 				"broker.codbroker" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

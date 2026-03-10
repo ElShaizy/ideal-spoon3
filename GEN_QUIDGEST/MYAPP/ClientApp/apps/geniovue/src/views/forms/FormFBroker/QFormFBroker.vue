@@ -153,7 +153,7 @@
 						</base-input-structure>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_BROKER__BROKER__EMAIL.isVisible">
+				<q-row v-if="controls.F_BROKER__BROKER__EMAIL.isVisible || controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible">
 					<q-col
 						v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
 						cols="auto">
@@ -169,6 +169,24 @@
 								v-bind="controls.F_BROKER__BROKER__EMAIL.props"
 								@blur="onBlur(controls.F_BROKER__BROKER__EMAIL, model.ValEmail.value)"
 								@change="model.ValEmail.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
+							class="i-text"
+							v-bind="controls.F_BROKER__BROKER__PHONE_NUMBER"
+							v-on="controls.F_BROKER__BROKER__PHONE_NUMBER.handlers"
+							:loading="controls.F_BROKER__BROKER__PHONE_NUMBER.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-mask
+								v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
+								v-bind="controls.F_BROKER__BROKER__PHONE_NUMBER"
+								:model-value="model.ValPhone_number.value"
+								@change="model.ValPhone_number.fnUpdateValueOnChange" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
@@ -574,6 +592,19 @@
 						controlLimits: [
 						],
 					}, this),
+					F_BROKER__BROKER__PHONE_NUMBER: new fieldControlClass.MaskControl({
+						modelField: 'ValPhone_number',
+						valueChangeEvent: 'fieldChange:broker.phone_number',
+						id: 'F_BROKER__BROKER__PHONE_NUMBER',
+						name: 'PHONE_NUMBER',
+						size: 'medium',
+						label: computed(() => this.Resources.PHONE_NUMBER31368),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 12,
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -603,6 +634,8 @@
 						set ValEmail(value) { vm.model.ValEmail.updateValue(value) },
 						get ValName() { return vm.model.ValName.value },
 						set ValName(value) { vm.model.ValName.updateValue(value) },
+						get ValPhone_number() { return vm.model.ValPhone_number.value },
+						set ValPhone_number(value) { vm.model.ValPhone_number.updateValue(value) },
 						get ValMain_photo() { return vm.model.ValMain_photo.value },
 						set ValMain_photo(value) { vm.model.ValMain_photo.updateValue(value) },
 					},
