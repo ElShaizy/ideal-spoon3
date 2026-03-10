@@ -126,17 +126,16 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableCityCity))
 		this.stopWatchers.push(watch(() => this.TableCityCity.value, (newValue, oldValue) => this.onUpdate('city.city', this.TableCityCity, newValue, oldValue)))
 
-		this.TableBrokerName = reactive(new modelFieldType.String({
-			type: 'Lookup',
-			id: 'TableBrokerName',
-			originId: 'ValName',
-			area: 'BROKER',
-			field: 'NAME',
+		this.CityCountryValCountry = reactive(new modelFieldType.String({
+			id: 'CityCountryValCountry',
+			originId: 'ValCountry',
+			area: 'COUNTRY',
+			field: 'COUNTRY',
 			maxLength: 50,
-			description: computed(() => this.Resources.NAME31974),
-			ignoreFldSubmit: true,
-		}).cloneFrom(values?.TableBrokerName))
-		this.stopWatchers.push(watch(() => this.TableBrokerName.value, (newValue, oldValue) => this.onUpdate('broker.name', this.TableBrokerName, newValue, oldValue)))
+			isFixed: true,
+			description: computed(() => this.Resources.COUNTRY64133),
+		}).cloneFrom(values?.CityCountryValCountry))
+		this.stopWatchers.push(watch(() => this.CityCountryValCountry.value, (newValue, oldValue) => this.onUpdate('country.country', this.CityCountryValCountry, newValue, oldValue)))
 
 		this.ValSizem2 = reactive(new modelFieldType.String({
 			id: 'ValSizem2',
@@ -167,6 +166,39 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.CONSTRUCTION_DATE18132),
 		}).cloneFrom(values?.ValDateconstruction))
 		this.stopWatchers.push(watch(() => this.ValDateconstruction.value, (newValue, oldValue) => this.onUpdate('properties.dateconstruction', this.ValDateconstruction, newValue, oldValue)))
+
+		this.TableBrokerName = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableBrokerName',
+			originId: 'ValName',
+			area: 'BROKER',
+			field: 'NAME',
+			maxLength: 50,
+			description: computed(() => this.Resources.NAME31974),
+			ignoreFldSubmit: true,
+		}).cloneFrom(values?.TableBrokerName))
+		this.stopWatchers.push(watch(() => this.TableBrokerName.value, (newValue, oldValue) => this.onUpdate('broker.name', this.TableBrokerName, newValue, oldValue)))
+
+		this.BrokerValMain_photo = reactive(new modelFieldType.Image({
+			id: 'BrokerValMain_photo',
+			originId: 'ValMain_photo',
+			area: 'BROKER',
+			field: 'PHOTO',
+			isFixed: true,
+			description: computed(() => this.Resources.PHOTO51874),
+		}).cloneFrom(values?.BrokerValMain_photo))
+		this.stopWatchers.push(watch(() => this.BrokerValMain_photo.value, (newValue, oldValue) => this.onUpdate('broker.main_photo', this.BrokerValMain_photo, newValue, oldValue)))
+
+		this.BrokerValEmail = reactive(new modelFieldType.String({
+			id: 'BrokerValEmail',
+			originId: 'ValEmail',
+			area: 'BROKER',
+			field: 'EMAIL',
+			maxLength: 256,
+			isFixed: true,
+			description: computed(() => this.Resources.EMAIL25170),
+		}).cloneFrom(values?.BrokerValEmail))
+		this.stopWatchers.push(watch(() => this.BrokerValEmail.value, (newValue, oldValue) => this.onUpdate('broker.email', this.BrokerValEmail, newValue, oldValue)))
 	}
 
 	/**

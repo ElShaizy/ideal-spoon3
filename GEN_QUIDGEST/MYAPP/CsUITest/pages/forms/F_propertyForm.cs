@@ -44,10 +44,9 @@ public class F_propertyForm : Form
 	public SeeMorePage CityCitySeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__CITY__CITY");
 
 	/// <summary>
-	/// brokers name
+	/// Country
 	/// </summary>
-	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
-	public SeeMorePage BrokerNameSeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__BROKER__NAME");
+	public IWebElement CountryCountry => throw new NotImplementedException();
 
 	/// <summary>
 	/// details
@@ -68,6 +67,22 @@ public class F_propertyForm : Form
 	/// Construction date
 	/// </summary>
 	public DateInputControl PropertiesDateconstruction => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__DATECONSTRUCTION");
+
+	/// <summary>
+	/// brokers name
+	/// </summary>
+	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
+	public SeeMorePage BrokerNameSeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__BROKER__NAME");
+
+	/// <summary>
+	/// Photo
+	/// </summary>
+	public IWebElement BrokerPhoto => throw new NotImplementedException();
+
+	/// <summary>
+	/// Email
+	/// </summary>
+	public IWebElement BrokerEmail => throw new NotImplementedException();
 
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }

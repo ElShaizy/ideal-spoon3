@@ -215,31 +215,27 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
+							<q-row v-if="controls.F_PROPERTY__COUNTRY__COUNTRY.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__COUNTRY__COUNTRY.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__COUNTRY__COUNTRY.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__COUNTRY__COUNTRY"
+										v-on="controls.F_PROPERTY__COUNTRY__COUNTRY.handlers"
+										:loading="controls.F_PROPERTY__COUNTRY__COUNTRY.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_PROPERTY__COUNTRY__COUNTRY.props"
+											@blur="onBlur(controls.F_PROPERTY__COUNTRY__COUNTRY, model.CityCountryValCountry.value)"
+											@change="model.CityCountryValCountry.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
 							<!-- End F_PROPERTY__PSEUD__NEWGRP02 -->
 						</q-group-box-container>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible">
-					<q-col
-						v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
-							class="i-text"
-							v-bind="controls.F_PROPERTY__BROKER__NAME"
-							v-on="controls.F_PROPERTY__BROKER__NAME.handlers"
-							:loading="controls.F_PROPERTY__BROKER__NAME.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
-								v-bind="controls.F_PROPERTY__BROKER__NAME.props"
-								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
-							<q-see-more-f-property-broker-name
-								v-if="controls.F_PROPERTY__BROKER__NAME.seeMoreIsVisible"
-								v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
-								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
-						</base-input-structure>
 					</q-col>
 				</q-row>
 				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
@@ -309,6 +305,65 @@
 							</q-row>
 							<!-- End F_PROPERTY__PSEUD__NEWGRP03 -->
 						</q-group-box-container>
+					</q-col>
+				</q-row>
+				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible || controls.F_PROPERTY__BROKER__PHOTO.isVisible">
+					<q-col
+						v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__BROKER__NAME"
+							v-on="controls.F_PROPERTY__BROKER__NAME.handlers"
+							:loading="controls.F_PROPERTY__BROKER__NAME.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+								v-bind="controls.F_PROPERTY__BROKER__NAME.props"
+								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
+							<q-see-more-f-property-broker-name
+								v-if="controls.F_PROPERTY__BROKER__NAME.seeMoreIsVisible"
+								v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
+								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
+							class="q-image"
+							v-bind="controls.F_PROPERTY__BROKER__PHOTO"
+							v-on="controls.F_PROPERTY__BROKER__PHOTO.handlers"
+							:loading="controls.F_PROPERTY__BROKER__PHOTO.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
+								v-bind="controls.F_PROPERTY__BROKER__PHOTO.props"
+								v-on="controls.F_PROPERTY__BROKER__PHOTO.handlers" />
+						</base-input-structure>
+					</q-col>
+				</q-row>
+				<q-row v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible">
+					<q-col
+						v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__BROKER__EMAIL"
+							v-on="controls.F_PROPERTY__BROKER__EMAIL.handlers"
+							:loading="controls.F_PROPERTY__BROKER__EMAIL.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_PROPERTY__BROKER__EMAIL.props"
+								@blur="onBlur(controls.F_PROPERTY__BROKER__EMAIL, model.BrokerValEmail.value)"
+								@change="model.BrokerValEmail.fnUpdateValueOnChange" />
+						</base-input-structure>
 					</q-col>
 				</q-row>
 			</template>
@@ -745,7 +800,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['F_PROPERTY__CITY__CITY'],
+						directChildren: ['F_PROPERTY__CITY__CITY', 'F_PROPERTY__COUNTRY__COUNTRY'],
 						controlLimits: [
 						],
 					}, this),
@@ -774,35 +829,24 @@
 						dependentFields: () => ({
 							set 'city.codcity_pk'(value) { vm.model.ValCodcity_fk.updateValue(value) },
 							set 'city.city'(value) { vm.model.TableCityCity.updateValue(value) },
+							set 'country.country'(value) { vm.model.CityCountryValCountry.updateValue(value) },
 						}),
 						controlLimits: [
 						],
 					}, this),
-					F_PROPERTY__BROKER__NAME: new fieldControlClass.LookupControl({
-						modelField: 'TableBrokerName',
-						valueChangeEvent: 'fieldChange:broker.name',
-						id: 'F_PROPERTY__BROKER__NAME',
-						name: 'NAME',
+					F_PROPERTY__COUNTRY__COUNTRY: new fieldControlClass.StringControl({
+						modelField: 'CityCountryValCountry',
+						valueChangeEvent: 'fieldChange:country.country',
+						dependentModelField: 'ValCodcountry_fk',
+						dependentChangeEvent: 'fieldChange:city.codcountry_fk',
+						id: 'F_PROPERTY__COUNTRY__COUNTRY',
+						name: 'COUNTRY',
 						size: 'xxlarge',
-						label: computed(() => this.Resources.BROKERS_NAME50728),
+						label: computed(() => this.Resources.COUNTRY64133),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						externalCallbacks: {
-							getModelField: vm.getModelField,
-							getModelFieldValue: vm.getModelFieldValue,
-							setModelFieldValue: vm.setModelFieldValue
-						},
-						externalProperties: {
-							modelKeys: computed(() => vm.modelKeys)
-						},
-						lookupKeyModelField: {
-							name: 'ValBroker_fk',
-							dependencyEvent: 'fieldChange:properties.broker_fk'
-						},
-						dependentFields: () => ({
-							set 'broker.codbroker'(value) { vm.model.ValBroker_fk.updateValue(value) },
-							set 'broker.name'(value) { vm.model.TableBrokerName.updateValue(value) },
-						}),
+						container: 'F_PROPERTY__PSEUD__NEWGRP02',
+						maxLength: 50,
 						controlLimits: [
 						],
 					}, this),
@@ -862,6 +906,70 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__BROKER__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableBrokerName',
+						valueChangeEvent: 'fieldChange:broker.name',
+						id: 'F_PROPERTY__BROKER__NAME',
+						name: 'NAME',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.BROKERS_NAME50728),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValBroker_fk',
+							dependencyEvent: 'fieldChange:properties.broker_fk'
+						},
+						dependentFields: () => ({
+							set 'broker.codbroker'(value) { vm.model.ValBroker_fk.updateValue(value) },
+							set 'broker.name'(value) { vm.model.TableBrokerName.updateValue(value) },
+							set 'broker.main_photo'(value) { vm.model.BrokerValMain_photo.updateValue(value) },
+							set 'broker.email'(value) { vm.model.BrokerValEmail.updateValue(value) },
+						}),
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__BROKER__PHOTO: new fieldControlClass.ImageControl({
+						modelField: 'BrokerValMain_photo',
+						valueChangeEvent: 'fieldChange:broker.main_photo',
+						dependentModelField: 'ValBroker_fk',
+						dependentChangeEvent: 'fieldChange:properties.broker_fk',
+						id: 'F_PROPERTY__BROKER__PHOTO',
+						name: 'PHOTO',
+						size: 'mini',
+						label: computed(() => this.Resources.PHOTO51874),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 50,
+						width: 30,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__BROKER__EMAIL: new fieldControlClass.StringControl({
+						modelField: 'BrokerValEmail',
+						valueChangeEvent: 'fieldChange:broker.email',
+						dependentModelField: 'ValBroker_fk',
+						dependentChangeEvent: 'fieldChange:properties.broker_fk',
+						id: 'F_PROPERTY__BROKER__EMAIL',
+						name: 'EMAIL',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.EMAIL25170),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 256,
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -888,12 +996,20 @@
 				 */
 				dataApi: {
 					Broker: {
+						get ValEmail() { return vm.model.BrokerValEmail.value },
+						set ValEmail(value) { vm.model.BrokerValEmail.updateValue(value) },
 						get ValName() { return vm.model.TableBrokerName.value },
 						set ValName(value) { vm.model.TableBrokerName.updateValue(value) },
+						get ValMain_photo() { return vm.model.BrokerValMain_photo.value },
+						set ValMain_photo(value) { vm.model.BrokerValMain_photo.updateValue(value) },
 					},
 					City: {
 						get ValCity() { return vm.model.TableCityCity.value },
 						set ValCity(value) { vm.model.TableCityCity.updateValue(value) },
+					},
+					Country: {
+						get ValCountry() { return vm.model.CityCountryValCountry.value },
+						set ValCountry(value) { vm.model.CityCountryValCountry.updateValue(value) },
 					},
 					Properties: {
 						get ValBathroomsnumber() { return vm.model.ValBathroomsnumber.value },
