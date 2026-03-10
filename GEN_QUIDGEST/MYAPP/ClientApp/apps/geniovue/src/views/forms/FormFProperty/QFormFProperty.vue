@@ -419,7 +419,7 @@
 						</q-group-collapsible>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible || controls.F_PROPERTY__PSEUD__CONTACT_GRID.isVisible">
+				<q-row v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible">
 					<q-col
 						v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible"
 						cols="auto">
@@ -433,21 +433,6 @@
 									v-on="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.handlers" />
 							</template>
 							<!-- USE /[MANUAL TRA CUSTOM_TABLE F_PROPERTY__PSEUD__PROPERTY_GRID]/ -->
-						</q-table>
-					</q-col>
-					<q-col
-						v-if="controls.F_PROPERTY__PSEUD__CONTACT_GRID.isVisible"
-						cols="auto">
-						<q-table
-							v-if="controls.F_PROPERTY__PSEUD__CONTACT_GRID.isVisible"
-							v-bind="controls.F_PROPERTY__PSEUD__CONTACT_GRID"
-							v-on="controls.F_PROPERTY__PSEUD__CONTACT_GRID.handlers">
-							<template #header>
-								<q-table-config
-									:table-ctrl="controls.F_PROPERTY__PSEUD__CONTACT_GRID"
-									v-on="controls.F_PROPERTY__PSEUD__CONTACT_GRID.handlers" />
-							</template>
-							<!-- USE /[MANUAL TRA CUSTOM_TABLE F_PROPERTY__PSEUD__CONTACT_GRID]/ -->
 						</q-table>
 					</q-col>
 				</q-row>
@@ -1190,96 +1175,6 @@
 							},
 						],
 					}, this),
-					F_PROPERTY__PSEUD__CONTACT_GRID: new fieldControlClass.TableListControl({
-						id: 'F_PROPERTY__PSEUD__CONTACT_GRID',
-						name: 'CONTACT_GRID',
-						size: '',
-						label: computed(() => this.Resources.CONTACTS55742),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						controller: 'PROPERTIES',
-						action: 'F_property_ValContact_grid',
-						hasDependencies: false,
-						isInCollapsible: false,
-						columnsOriginal: [
-							new listColumnTypes.DateColumn({
-								order: 1,
-								name: 'ValDate',
-								area: 'CONTACT',
-								field: 'DATE',
-								label: computed(() => this.Resources.DATE18475),
-								scrollData: 8,
-								dateTimeType: 'date',
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'ValClient_name',
-								area: 'CONTACT',
-								field: 'CLIENT_NAME',
-								label: computed(() => this.Resources.CLIENT_NAME39245),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'ValDescription',
-								area: 'CONTACT',
-								field: 'DESCRIPTION',
-								label: computed(() => this.Resources.DESCRIPTION03846),
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-						],
-						config: {
-							name: 'ValContact_grid',
-							serverMode: true,
-							pkColumn: 'ValCodcontact',
-							tableAlias: 'CONTACT',
-							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
-							viewManagement: '',
-							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CONTACTS55742),
-							showAlternatePagination: true,
-							permissions: {
-							},
-							searchBarConfig: {
-								visibility: false
-							},
-							allowColumnFilters: false,
-							allowColumnSort: true,
-							generalCustomActions: [
-							],
-							groupActions: [
-							],
-							customActions: [
-							],
-							MCActions: [
-							],
-							rowClickAction: {
-							},
-							formsDefinition: {
-							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
-							defaultColumnSorting: {
-								columnName: '',
-								sortOrder: 'asc'
-							}
-						},
-						globalEvents: ['changed-PROPERTIES', 'changed-CONTACT'],
-						uuid: 'F_property_ValContact_grid',
-						allSelectedRows: 'false',
-						controlLimits: [
-							{
-								identifier: ['id', 'properties'],
-								dependencyEvents: ['fieldChange:properties.codproperties'],
-								dependencyField: 'PROPERTIES.CODPROPERTIES',
-								fnValueSelector: (model) => model.ValCodproperties.value
-							},
-						],
-					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -1298,7 +1193,6 @@
 
 				tableFields: readonly([
 					'F_PROPERTY__PSEUD__PROPERTY_GRID',
-					'F_PROPERTY__PSEUD__CONTACT_GRID',
 				]),
 
 				timelineFields: readonly([

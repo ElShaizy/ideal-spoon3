@@ -531,55 +531,6 @@ namespace GenioMVC.Controllers
 			return JsonOK(model);
 		}
 
-		public class F_property_ValContact_gridModel : RequestLookupModel
-		{
-			public F_property_ViewModel Model { get; set; }
-		}
-
-		//
-		// GET: /Properties/F_property_ValContact_grid
-		// POST: /Properties/F_property_ValContact_grid
-		[ActionName("F_property_ValContact_grid")]
-		public ActionResult F_property_ValContact_grid([FromBody] F_property_ValContact_gridModel requestModel)
-		{
-			var queryParams = requestModel.QueryParams;
-
-			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
-			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_contact")))
-				UserContext.Current.SetPersistenceReadOnly(true);
-			else
-			{
-				Navigation.DestroyEntry("ForcePrimaryRead_contact");
-				UserContext.Current.SetPersistenceReadOnly(false);
-			}
-
-			NameValueCollection requestValues = [];
-			if (queryParams != null)
-			{
-				// Add to request values
-				foreach (var kv in queryParams)
-					requestValues.Add(kv.Key, kv.Value);
-			}
-
-			Models.Properties parentCtx = requestModel.Model == null ? null : new(m_userContext);
-			requestModel.Model?.Init(m_userContext);
-			requestModel.Model?.MapToModel(parentCtx);
-			F_property_ValContact_grid_ViewModel model = new(m_userContext, parentCtx);
-
-			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
-				requestModel.TableConfiguration,
-				requestModel.UserTableConfigName,
-				requestModel.LoadDefaultView);
-
-			// Determine rows per page
-			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(CSGenio.framework.Configuration.NrRegDBedit, "");
-
-			model.setModes(Request.Query["m"].ToString());
-			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
-
-			return JsonOK(model);
-		}
-
 		// POST: /Properties/F_property_SaveEdit
 		[HttpPost]
 		public ActionResult F_property_SaveEdit([FromBody] F_property_ViewModel model)
