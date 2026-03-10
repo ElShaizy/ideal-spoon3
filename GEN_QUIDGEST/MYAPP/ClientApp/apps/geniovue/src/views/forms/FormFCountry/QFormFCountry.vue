@@ -96,6 +96,25 @@
 			data-key="F_COUNTRY"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row v-if="controls.F_COUNTRY__COUNTRY__COUNTRY.isVisible">
+					<q-col
+						v-if="controls.F_COUNTRY__COUNTRY__COUNTRY.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_COUNTRY__COUNTRY__COUNTRY.isVisible"
+							class="i-text"
+							v-bind="controls.F_COUNTRY__COUNTRY__COUNTRY"
+							v-on="controls.F_COUNTRY__COUNTRY__COUNTRY.handlers"
+							:loading="controls.F_COUNTRY__COUNTRY__COUNTRY.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_COUNTRY__COUNTRY__COUNTRY.props"
+								@blur="onBlur(controls.F_COUNTRY__COUNTRY__COUNTRY, model.ValCountry.value)"
+								@change="model.ValCountry.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-col>
+				</q-row>
 			</template>
 		</q-container>
 	</teleport>
