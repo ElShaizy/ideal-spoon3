@@ -87,10 +87,9 @@ namespace GenioMVC.Models
 		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 4)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
 
 		[DisplayName("size m2")]
-		/// <summary>Field : "size m2" Tipo: "ND" Formula:  ""</summary>
+		/// <summary>Field : "size m2" Tipo: "C" Formula:  ""</summary>
 		[ShouldSerialize("Properties.ValSizem2")]
-		[NumericAttribute(2)]
-		public decimal? ValSizem2 { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSizem2, 2)); } set { klass.ValSizem2 = Convert.ToDecimal(value); } }
+		public string ValSizem2 { get { return klass.ValSizem2; } set { klass.ValSizem2 = value; } }
 
 		[DisplayName("Bathroom count")]
 		/// <summary>Field : "Bathroom count" Tipo: "N" Formula:  ""</summary>

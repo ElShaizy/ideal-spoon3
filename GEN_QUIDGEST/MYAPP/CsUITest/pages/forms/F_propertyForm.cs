@@ -8,6 +8,11 @@ namespace quidgest.uitests.pages.forms;
 public class F_propertyForm : Form
 {
 	/// <summary>
+	/// main info
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP01-container");
+
+	/// <summary>
 	/// Main Photo
 	/// </summary>
 	public BaseInputControl PropertiesMain_photo => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__MAIN_PHOTO", "#F_PROPERTY__PROPERTIES__MAIN_PHOTO");
@@ -23,10 +28,46 @@ public class F_propertyForm : Form
 	public BaseInputControl PropertiesPrice => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__PRICE", "#F_PROPERTY__PROPERTIES__PRICE");
 
 	/// <summary>
+	/// Description
+	/// </summary>
+	public BaseInputControl PropertiesDescription => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__DESCRIPTION", "#F_PROPERTY__PROPERTIES__DESCRIPTION");
+
+	/// <summary>
+	/// area
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp02 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP02-container");
+
+	/// <summary>
+	/// City
+	/// </summary>
+	public LookupControl CityCity => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__CITY__CITY");
+	public SeeMorePage CityCitySeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__CITY__CITY");
+
+	/// <summary>
 	/// brokers name
 	/// </summary>
 	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
 	public SeeMorePage BrokerNameSeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__BROKER__NAME");
+
+	/// <summary>
+	/// details
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP03-container");
+
+	/// <summary>
+	/// Size
+	/// </summary>
+	public BaseInputControl PropertiesSizem2 => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__SIZEM2", "#F_PROPERTY__PROPERTIES__SIZEM2");
+
+	/// <summary>
+	/// Bathroom count
+	/// </summary>
+	public BaseInputControl PropertiesBathroomsnumber => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BATHROOMSNUMBER", "#F_PROPERTY__PROPERTIES__BATHROOMSNUMBER");
+
+	/// <summary>
+	/// Construction date
+	/// </summary>
+	public DateInputControl PropertiesDateconstruction => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__DATECONSTRUCTION");
 
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }

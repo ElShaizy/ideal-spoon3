@@ -45,6 +45,9 @@
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
   </msg>
+  <msg id="CITY" code="CITY52406">
+    <ENUS>CITY</ENUS>
+  </msg>
   <msg id="Unidade orgânica" code="UNIDADE_ORGANICA38383">
     <ENUS>Unidade orgânica</ENUS>
   </msg>
@@ -195,6 +198,9 @@
   <msg id="Async process" code="ASYNC_PROCESS56674">
     <ENUS>Async process</ENUS>
   </msg>
+  <msg id="details" code="DETAILS43714">
+    <ENUS>details</ENUS>
+  </msg>
   <msg id="Obs" code="OBS42026">
     <ENUS>Obs</ENUS>
   </msg>
@@ -219,8 +225,14 @@
   <msg id="Global" code="GLOBAL58588">
     <ENUS>Global</ENUS>
   </msg>
+  <msg id="Size" code="SIZE10299">
+    <ENUS>Size</ENUS>
+  </msg>
   <msg id="My application" code="MY_APPLICATION56216">
     <ENUS>My application</ENUS>
+  </msg>
+  <msg id="main info" code="MAIN_INFO34570">
+    <ENUS>main info</ENUS>
   </msg>
   <msg id="Resultados" code="RESULTADOS20000">
     <ENUS>Resultados</ENUS>
@@ -236,6 +248,9 @@
   </msg>
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
+  </msg>
+  <msg id="brokers information" code="BROKERS_INFORMATION64793">
+    <ENUS>brokers information</ENUS>
   </msg>
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
@@ -260,6 +275,9 @@
   </msg>
   <msg id="Estados do processo" code="ESTADOS_DO_PROCESSO59118">
     <ENUS>Estados do processo</ENUS>
+  </msg>
+  <msg id="area" code="AREA47691">
+    <ENUS>area</ENUS>
   </msg>
   <msg id="Property" code="PROPERTY43977">
     <ENUS>Property</ENUS>

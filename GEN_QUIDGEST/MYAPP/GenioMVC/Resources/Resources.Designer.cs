@@ -198,6 +198,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "CITY"
+		/// </summary>
+		public static string CITY52406 {
+			get {
+				return ResourceManager.GetString("CITY52406", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Unidade orgânica"
 		/// </summary>
 		public static string UNIDADE_ORGANICA38383 {
@@ -648,6 +657,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "details"
+		/// </summary>
+		public static string DETAILS43714 {
+			get {
+				return ResourceManager.GetString("DETAILS43714", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Obs"
 		/// </summary>
 		public static string OBS42026 {
@@ -720,11 +738,29 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Size"
+		/// </summary>
+		public static string SIZE10299 {
+			get {
+				return ResourceManager.GetString("SIZE10299", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "My application"
 		/// </summary>
 		public static string MY_APPLICATION56216 {
 			get {
 				return ResourceManager.GetString("MY_APPLICATION56216", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "main info"
+		/// </summary>
+		public static string MAIN_INFO34570 {
+			get {
+				return ResourceManager.GetString("MAIN_INFO34570", resourceCulture);
 			}
 		}
 
@@ -770,6 +806,15 @@ namespace GenioMVC.Resources
 		public static string SENDER07671 {
 			get {
 				return ResourceManager.GetString("SENDER07671", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "brokers information"
+		/// </summary>
+		public static string BROKERS_INFORMATION64793 {
+			get {
+				return ResourceManager.GetString("BROKERS_INFORMATION64793", resourceCulture);
 			}
 		}
 
@@ -842,6 +887,15 @@ namespace GenioMVC.Resources
 		public static string ESTADOS_DO_PROCESSO59118 {
 			get {
 				return ResourceManager.GetString("ESTADOS_DO_PROCESSO59118", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "area"
+		/// </summary>
+		public static string AREA47691 {
+			get {
+				return ResourceManager.GetString("AREA47691", resourceCulture);
 			}
 		}
 

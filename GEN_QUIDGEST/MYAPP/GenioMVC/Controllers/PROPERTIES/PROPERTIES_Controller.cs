@@ -80,6 +80,14 @@ namespace GenioMVC.Controllers
 			{
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "F_PROPERTY__CITY__CITY":	// Field (DB)
+						{
+							var model = new F_property_ViewModel(UserContext.Current) { editable = false };
+							model.MapFromModel(row);
+							model.Load_F_property__city__city(qs);
+							result = model.TableCityCity;
+						}
+						break;
 					case "F_PROPERTY__BROKER__NAME":	// Field (DB)
 						{
 							var model = new F_property_ViewModel(UserContext.Current) { editable = false };
@@ -121,6 +129,9 @@ namespace GenioMVC.Controllers
 				UserContext.Current.PersistentSupport.openConnection();
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "F_PROPERTY__CITY__CITY":	// Field (DB)
+						values = new F_property_ViewModel(UserContext.Current).GetDependant_F_propertyTableCityCity(Selected);
+						break;
 					case "F_PROPERTY__BROKER__NAME":	// Field (DB)
 						values = new F_property_ViewModel(UserContext.Current).GetDependant_F_propertyTableBrokerName(Selected);
 						break;

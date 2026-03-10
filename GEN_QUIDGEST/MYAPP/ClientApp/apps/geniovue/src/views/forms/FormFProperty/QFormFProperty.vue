@@ -96,61 +96,127 @@
 			data-key="F_PROPERTY"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible">
-					<q-col
-						v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible"
-							class="q-image"
-							v-bind="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO"
-							v-on="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.handlers"
-							:loading="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible"
-								v-bind="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.props"
-								v-on="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.handlers" />
-						</base-input-structure>
+				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP01.isVisible">
+					<q-col v-if="controls.F_PROPERTY__PSEUD__NEWGRP01.isVisible">
+						<q-group-box-container
+							v-if="controls.F_PROPERTY__PSEUD__NEWGRP01.isVisible"
+							id="F_PROPERTY__PSEUD__NEWGRP01"
+							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP01"
+							:is-visible="controls.F_PROPERTY__PSEUD__NEWGRP01.isVisible">
+							<!-- Start F_PROPERTY__PSEUD__NEWGRP01 -->
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible"
+										class="q-image"
+										v-bind="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO"
+										v-on="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.props"
+											v-on="controls.F_PROPERTY__PROPERTIES__MAIN_PHOTO.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__TITLE"
+										v-on="controls.F_PROPERTY__PROPERTIES__TITLE.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__TITLE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_PROPERTY__PROPERTIES__TITLE.props"
+											@blur="onBlur(controls.F_PROPERTY__PROPERTIES__TITLE, model.ValTitle.value)"
+											@change="model.ValTitle.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__PRICE"
+										v-on="controls.F_PROPERTY__PROPERTIES__PRICE.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__PRICE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__PRICE.props"
+											@update:model-value="model.ValPrice.fnUpdateValue" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.isVisible"
+										class="i-textarea"
+										v-bind="controls.F_PROPERTY__PROPERTIES__DESCRIPTION"
+										v-on="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-area
+											v-if="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.props"
+											v-on="controls.F_PROPERTY__PROPERTIES__DESCRIPTION.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<!-- End F_PROPERTY__PSEUD__NEWGRP01 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible">
-					<q-col
-						v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible"
-							class="i-text"
-							v-bind="controls.F_PROPERTY__PROPERTIES__TITLE"
-							v-on="controls.F_PROPERTY__PROPERTIES__TITLE.handlers"
-							:loading="controls.F_PROPERTY__PROPERTIES__TITLE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_PROPERTY__PROPERTIES__TITLE.props"
-								@blur="onBlur(controls.F_PROPERTY__PROPERTIES__TITLE, model.ValTitle.value)"
-								@change="model.ValTitle.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible">
-					<q-col
-						v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible"
-							class="i-text"
-							v-bind="controls.F_PROPERTY__PROPERTIES__PRICE"
-							v-on="controls.F_PROPERTY__PROPERTIES__PRICE.handlers"
-							:loading="controls.F_PROPERTY__PROPERTIES__PRICE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.F_PROPERTY__PROPERTIES__PRICE.isVisible"
-								v-bind="controls.F_PROPERTY__PROPERTIES__PRICE.props"
-								@update:model-value="model.ValPrice.fnUpdateValue" />
-						</base-input-structure>
+				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible">
+					<q-col v-if="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible">
+						<q-group-box-container
+							v-if="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible"
+							id="F_PROPERTY__PSEUD__NEWGRP02"
+							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP02"
+							:is-visible="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible">
+							<!-- Start F_PROPERTY__PSEUD__NEWGRP02 -->
+							<q-row v-if="controls.F_PROPERTY__CITY__CITY.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__CITY__CITY"
+										v-on="controls.F_PROPERTY__CITY__CITY.handlers"
+										:loading="controls.F_PROPERTY__CITY__CITY.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
+											v-bind="controls.F_PROPERTY__CITY__CITY.props"
+											v-on="controls.F_PROPERTY__CITY__CITY.handlers" />
+										<q-see-more-f-property-city-city
+											v-if="controls.F_PROPERTY__CITY__CITY.seeMoreIsVisible"
+											v-bind="controls.F_PROPERTY__CITY__CITY.seeMoreParams"
+											v-on="controls.F_PROPERTY__CITY__CITY.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<!-- End F_PROPERTY__PSEUD__NEWGRP02 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
 				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible">
@@ -174,6 +240,75 @@
 								v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
 								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
 						</base-input-structure>
+					</q-col>
+				</q-row>
+				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
+					<q-col v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
+						<q-group-box-container
+							v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible"
+							id="F_PROPERTY__PSEUD__NEWGRP03"
+							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP03"
+							:is-visible="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
+							<!-- Start F_PROPERTY__PSEUD__NEWGRP03 -->
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible || controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__SIZEM2"
+										v-on="controls.F_PROPERTY__PROPERTIES__SIZEM2.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__SIZEM2.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_PROPERTY__PROPERTIES__SIZEM2.props"
+											@blur="onBlur(controls.F_PROPERTY__PROPERTIES__SIZEM2, model.ValSizem2.value)"
+											@change="model.ValSizem2.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER"
+										v-on="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.props"
+											@update:model-value="model.ValBathroomsnumber.fnUpdateValue" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION"
+										v-on="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.isVisible"
+											v-bind="controls.F_PROPERTY__PROPERTIES__DATECONSTRUCTION.props"
+											:model-value="model.ValDateconstruction.value"
+											@reset-icon-click="model.ValDateconstruction.fnUpdateValue(model.ValDateconstruction.originalValue ?? new Date())"
+											@update:model-value="model.ValDateconstruction.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<!-- End F_PROPERTY__PSEUD__NEWGRP03 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
 			</template>
@@ -247,6 +382,7 @@
 		name: 'QFormFProperty',
 
 		components: {
+			QSeeMoreFPropertyCityCity: defineAsyncComponent(() => import('@/views/forms/FormFProperty/dbedits/FPropertyCityCitySeeMore.vue')),
 			QSeeMoreFPropertyBrokerName: defineAsyncComponent(() => import('@/views/forms/FormFProperty/dbedits/FPropertyBrokerNameSeeMore.vue')),
 		},
 
@@ -523,6 +659,20 @@
 				},
 
 				controls: {
+					F_PROPERTY__PSEUD__NEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_PROPERTY__PSEUD__NEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.MAIN_INFO34570),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_PROPERTY__PROPERTIES__MAIN_PHOTO', 'F_PROPERTY__PROPERTIES__TITLE', 'F_PROPERTY__PROPERTIES__PRICE', 'F_PROPERTY__PROPERTIES__DESCRIPTION'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
 					F_PROPERTY__PROPERTIES__MAIN_PHOTO: new fieldControlClass.ImageControl({
 						modelField: 'ValMain_photo',
 						valueChangeEvent: 'fieldChange:properties.main_photo',
@@ -532,6 +682,7 @@
 						label: computed(() => this.Resources.MAIN_PHOTO18723),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP01',
 						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.MAIN_PHOTO18723)),
@@ -550,6 +701,7 @@
 						label: computed(() => this.Resources.TITLE21885),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP01',
 						maxLength: 50,
 						controlLimits: [
 						],
@@ -563,8 +715,66 @@
 						label: computed(() => this.Resources.PRICE06900),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP01',
 						maxIntegers: 10,
 						maxDecimals: 4,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__DESCRIPTION: new fieldControlClass.MultilineStringControl({
+						modelField: 'ValDescription',
+						valueChangeEvent: 'fieldChange:properties.description',
+						id: 'F_PROPERTY__PROPERTIES__DESCRIPTION',
+						name: 'DESCRIPTION',
+						size: 'xlarge',
+						label: computed(() => this.Resources.DESCRIPTION07383),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP01',
+						rows: 0,
+						cols: 30,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PSEUD__NEWGRP02: new fieldControlClass.GroupControl({
+						id: 'F_PROPERTY__PSEUD__NEWGRP02',
+						name: 'NEWGRP02',
+						size: 'block',
+						label: computed(() => this.Resources.AREA47691),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_PROPERTY__CITY__CITY'],
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__CITY__CITY: new fieldControlClass.LookupControl({
+						modelField: 'TableCityCity',
+						valueChangeEvent: 'fieldChange:city.city',
+						id: 'F_PROPERTY__CITY__CITY',
+						name: 'CITY',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.CITY42505),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP02',
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValCodcity_fk',
+							dependencyEvent: 'fieldChange:properties.codcity_fk'
+						},
+						dependentFields: () => ({
+							set 'city.codcity_pk'(value) { vm.model.ValCodcity_fk.updateValue(value) },
+							set 'city.city'(value) { vm.model.TableCityCity.updateValue(value) },
+						}),
 						controlLimits: [
 						],
 					}, this),
@@ -596,6 +806,62 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__PSEUD__NEWGRP03: new fieldControlClass.GroupControl({
+						id: 'F_PROPERTY__PSEUD__NEWGRP03',
+						name: 'NEWGRP03',
+						size: 'block',
+						label: computed(() => this.Resources.DETAILS43714),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_PROPERTY__PROPERTIES__SIZEM2', 'F_PROPERTY__PROPERTIES__BATHROOMSNUMBER', 'F_PROPERTY__PROPERTIES__DATECONSTRUCTION'],
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__SIZEM2: new fieldControlClass.StringControl({
+						modelField: 'ValSizem2',
+						valueChangeEvent: 'fieldChange:properties.sizem2',
+						id: 'F_PROPERTY__PROPERTIES__SIZEM2',
+						name: 'SIZEM2',
+						size: 'medium',
+						label: computed(() => this.Resources.SIZE10299),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP03',
+						maxLength: 50,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__BATHROOMSNUMBER: new fieldControlClass.NumberControl({
+						modelField: 'ValBathroomsnumber',
+						valueChangeEvent: 'fieldChange:properties.bathroomsnumber',
+						id: 'F_PROPERTY__PROPERTIES__BATHROOMSNUMBER',
+						name: 'BATHROOMSNUMBER',
+						size: 'medium',
+						label: computed(() => this.Resources.BATHROOM_COUNT05757),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP03',
+						maxIntegers: 15,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__DATECONSTRUCTION: new fieldControlClass.DateControl({
+						modelField: 'ValDateconstruction',
+						valueChangeEvent: 'fieldChange:properties.dateconstruction',
+						id: 'F_PROPERTY__PROPERTIES__DATECONSTRUCTION',
+						name: 'DATECONSTRUCTION',
+						size: 'medium',
+						label: computed(() => this.Resources.CONSTRUCTION_DATE18132),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP03',
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -606,6 +872,9 @@
 				}),
 
 				groupFields: readonly([
+					'F_PROPERTY__PSEUD__NEWGRP01',
+					'F_PROPERTY__PSEUD__NEWGRP02',
+					'F_PROPERTY__PSEUD__NEWGRP03',
 				]),
 
 				tableFields: readonly([
@@ -622,15 +891,27 @@
 						get ValName() { return vm.model.TableBrokerName.value },
 						set ValName(value) { vm.model.TableBrokerName.updateValue(value) },
 					},
+					City: {
+						get ValCity() { return vm.model.TableCityCity.value },
+						set ValCity(value) { vm.model.TableCityCity.updateValue(value) },
+					},
 					Properties: {
+						get ValBathroomsnumber() { return vm.model.ValBathroomsnumber.value },
+						set ValBathroomsnumber(value) { vm.model.ValBathroomsnumber.updateValue(value) },
 						get ValBroker_fk() { return vm.model.ValBroker_fk.value },
 						set ValBroker_fk(value) { vm.model.ValBroker_fk.updateValue(value) },
 						get ValCodcity_fk() { return vm.model.ValCodcity_fk.value },
 						set ValCodcity_fk(value) { vm.model.ValCodcity_fk.updateValue(value) },
+						get ValDateconstruction() { return vm.model.ValDateconstruction.value },
+						set ValDateconstruction(value) { vm.model.ValDateconstruction.updateValue(value) },
+						get ValDescription() { return vm.model.ValDescription.value },
+						set ValDescription(value) { vm.model.ValDescription.updateValue(value) },
 						get ValMain_photo() { return vm.model.ValMain_photo.value },
 						set ValMain_photo(value) { vm.model.ValMain_photo.updateValue(value) },
 						get ValPrice() { return vm.model.ValPrice.value },
 						set ValPrice(value) { vm.model.ValPrice.updateValue(value) },
+						get ValSizem2() { return vm.model.ValSizem2.value },
+						set ValSizem2(value) { vm.model.ValSizem2.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
 					},

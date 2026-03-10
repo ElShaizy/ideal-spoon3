@@ -96,98 +96,110 @@
 			data-key="F_BROKER"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.F_BROKER__BROKER__PHOTO.isVisible">
-					<q-col
-						v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
-							class="q-image"
-							v-bind="controls.F_BROKER__BROKER__PHOTO"
-							v-on="controls.F_BROKER__BROKER__PHOTO.handlers"
-							:loading="controls.F_BROKER__BROKER__PHOTO.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
-								v-bind="controls.F_BROKER__BROKER__PHOTO.props"
-								v-on="controls.F_BROKER__BROKER__PHOTO.handlers" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.F_BROKER__BROKER__NAME.isVisible || controls.F_BROKER__BROKER__BIRTHDATE.isVisible">
-					<q-col
-						v-if="controls.F_BROKER__BROKER__NAME.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_BROKER__BROKER__NAME.isVisible"
-							class="i-text"
-							v-bind="controls.F_BROKER__BROKER__NAME"
-							v-on="controls.F_BROKER__BROKER__NAME.handlers"
-							:loading="controls.F_BROKER__BROKER__NAME.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_BROKER__BROKER__NAME.props"
-								@blur="onBlur(controls.F_BROKER__BROKER__NAME, model.ValName.value)"
-								@change="model.ValName.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-col>
-					<q-col
-						v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
-							class="i-text"
-							v-bind="controls.F_BROKER__BROKER__BIRTHDATE"
-							v-on="controls.F_BROKER__BROKER__BIRTHDATE.handlers"
-							:loading="controls.F_BROKER__BROKER__BIRTHDATE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
-								v-bind="controls.F_BROKER__BROKER__BIRTHDATE.props"
-								:model-value="model.ValBirthdate.value"
-								@reset-icon-click="model.ValBirthdate.fnUpdateValue(model.ValBirthdate.originalValue ?? new Date())"
-								@update:model-value="model.ValBirthdate.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.F_BROKER__BROKER__EMAIL.isVisible || controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible">
-					<q-col
-						v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
-							class="i-text"
-							v-bind="controls.F_BROKER__BROKER__EMAIL"
-							v-on="controls.F_BROKER__BROKER__EMAIL.handlers"
-							:loading="controls.F_BROKER__BROKER__EMAIL.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_BROKER__BROKER__EMAIL.props"
-								@blur="onBlur(controls.F_BROKER__BROKER__EMAIL, model.ValEmail.value)"
-								@change="model.ValEmail.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-col>
-					<q-col
-						v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
-							class="i-text"
-							v-bind="controls.F_BROKER__BROKER__PHONE_NUMBER"
-							v-on="controls.F_BROKER__BROKER__PHONE_NUMBER.handlers"
-							:loading="controls.F_BROKER__BROKER__PHONE_NUMBER.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-mask
-								v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
-								v-bind="controls.F_BROKER__BROKER__PHONE_NUMBER"
-								:model-value="model.ValPhone_number.value"
-								@change="model.ValPhone_number.fnUpdateValueOnChange" />
-						</base-input-structure>
+				<q-row v-if="controls.F_BROKERPSEUDNEWGRP01.isVisible">
+					<q-col v-if="controls.F_BROKERPSEUDNEWGRP01.isVisible">
+						<q-group-box-container
+							v-if="controls.F_BROKERPSEUDNEWGRP01.isVisible"
+							id="F_BROKERPSEUDNEWGRP01"
+							v-bind="controls.F_BROKERPSEUDNEWGRP01"
+							:is-visible="controls.F_BROKERPSEUDNEWGRP01.isVisible">
+							<!-- Start F_BROKERPSEUDNEWGRP01 -->
+							<q-row v-if="controls.F_BROKER__BROKER__PHOTO.isVisible">
+								<q-col
+									v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
+										class="q-image"
+										v-bind="controls.F_BROKER__BROKER__PHOTO"
+										v-on="controls.F_BROKER__BROKER__PHOTO.handlers"
+										:loading="controls.F_BROKER__BROKER__PHOTO.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_BROKER__BROKER__PHOTO.isVisible"
+											v-bind="controls.F_BROKER__BROKER__PHOTO.props"
+											v-on="controls.F_BROKER__BROKER__PHOTO.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_BROKER__BROKER__NAME.isVisible || controls.F_BROKER__BROKER__BIRTHDATE.isVisible">
+								<q-col
+									v-if="controls.F_BROKER__BROKER__NAME.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_BROKER__BROKER__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.F_BROKER__BROKER__NAME"
+										v-on="controls.F_BROKER__BROKER__NAME.handlers"
+										:loading="controls.F_BROKER__BROKER__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_BROKER__BROKER__NAME.props"
+											@blur="onBlur(controls.F_BROKER__BROKER__NAME, model.ValName.value)"
+											@change="model.ValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
+										class="i-text"
+										v-bind="controls.F_BROKER__BROKER__BIRTHDATE"
+										v-on="controls.F_BROKER__BROKER__BIRTHDATE.handlers"
+										:loading="controls.F_BROKER__BROKER__BIRTHDATE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.F_BROKER__BROKER__BIRTHDATE.isVisible"
+											v-bind="controls.F_BROKER__BROKER__BIRTHDATE.props"
+											:model-value="model.ValBirthdate.value"
+											@reset-icon-click="model.ValBirthdate.fnUpdateValue(model.ValBirthdate.originalValue ?? new Date())"
+											@update:model-value="model.ValBirthdate.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_BROKER__BROKER__EMAIL.isVisible || controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible">
+								<q-col
+									v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_BROKER__BROKER__EMAIL.isVisible"
+										class="i-text"
+										v-bind="controls.F_BROKER__BROKER__EMAIL"
+										v-on="controls.F_BROKER__BROKER__EMAIL.handlers"
+										:loading="controls.F_BROKER__BROKER__EMAIL.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_BROKER__BROKER__EMAIL.props"
+											@blur="onBlur(controls.F_BROKER__BROKER__EMAIL, model.ValEmail.value)"
+											@change="model.ValEmail.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
+										class="i-text"
+										v-bind="controls.F_BROKER__BROKER__PHONE_NUMBER"
+										v-on="controls.F_BROKER__BROKER__PHONE_NUMBER.handlers"
+										:loading="controls.F_BROKER__BROKER__PHONE_NUMBER.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-mask
+											v-if="controls.F_BROKER__BROKER__PHONE_NUMBER.isVisible"
+											v-bind="controls.F_BROKER__BROKER__PHONE_NUMBER"
+											:model-value="model.ValPhone_number.value"
+											@change="model.ValPhone_number.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<!-- End F_BROKERPSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
 			</template>
@@ -536,6 +548,19 @@
 				},
 
 				controls: {
+					F_BROKERPSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'F_BROKERPSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.BROKERS_INFORMATION64793),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['F_BROKER__BROKER__PHOTO', 'F_BROKER__BROKER__NAME', 'F_BROKER__BROKER__BIRTHDATE', 'F_BROKER__BROKER__EMAIL', 'F_BROKER__BROKER__PHONE_NUMBER'],
+						controlLimits: [
+						],
+					}, this),
 					F_BROKER__BROKER__PHOTO: new fieldControlClass.ImageControl({
 						modelField: 'ValMain_photo',
 						valueChangeEvent: 'fieldChange:broker.main_photo',
@@ -545,6 +570,7 @@
 						label: computed(() => this.Resources.PHOTO51874),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_BROKERPSEUDNEWGRP01',
 						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
@@ -562,6 +588,7 @@
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_BROKERPSEUDNEWGRP01',
 						maxLength: 50,
 						controlLimits: [
 						],
@@ -575,6 +602,7 @@
 						label: computed(() => this.Resources.BIRTHDATE22743),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_BROKERPSEUDNEWGRP01',
 						dateTimeType: 'date',
 						controlLimits: [
 						],
@@ -588,6 +616,7 @@
 						label: computed(() => this.Resources.EMAIL25170),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_BROKERPSEUDNEWGRP01',
 						maxLength: 256,
 						controlLimits: [
 						],
@@ -601,6 +630,7 @@
 						label: computed(() => this.Resources.PHONE_NUMBER31368),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_BROKERPSEUDNEWGRP01',
 						maxLength: 12,
 						controlLimits: [
 						],
@@ -615,6 +645,7 @@
 				}),
 
 				groupFields: readonly([
+					'F_BROKERPSEUDNEWGRP01',
 				]),
 
 				tableFields: readonly([

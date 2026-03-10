@@ -162,6 +162,9 @@
   <data name="SENDS_EMAIL_12942" xml:space="preserve">
     <value>Sends email?</value>
   </data>
+  <data name="CITY52406" xml:space="preserve">
+    <value>CITY</value>
+  </data>
   <data name="UNIDADE_ORGANICA38383" xml:space="preserve">
     <value>Unidade orgânica</value>
   </data>
@@ -312,6 +315,9 @@
   <data name="ASYNC_PROCESS56674" xml:space="preserve">
     <value>Async process</value>
   </data>
+  <data name="DETAILS43714" xml:space="preserve">
+    <value>details</value>
+  </data>
   <data name="OBS42026" xml:space="preserve">
     <value>Obs</value>
   </data>
@@ -336,8 +342,14 @@
   <data name="GLOBAL58588" xml:space="preserve">
     <value>Global</value>
   </data>
+  <data name="SIZE10299" xml:space="preserve">
+    <value>Size</value>
+  </data>
   <data name="MY_APPLICATION56216" xml:space="preserve">
     <value>My application</value>
+  </data>
+  <data name="MAIN_INFO34570" xml:space="preserve">
+    <value>main info</value>
   </data>
   <data name="RESULTADOS20000" xml:space="preserve">
     <value>Resultados</value>
@@ -353,6 +365,9 @@
   </data>
   <data name="SENDER07671" xml:space="preserve">
     <value>Sender</value>
+  </data>
+  <data name="BROKERS_INFORMATION64793" xml:space="preserve">
+    <value>brokers information</value>
   </data>
   <data name="USER_AUTHORIZATION53599" xml:space="preserve">
     <value>User Authorization</value>
@@ -377,6 +392,9 @@
   </data>
   <data name="ESTADOS_DO_PROCESSO59118" xml:space="preserve">
     <value>Estados do processo</value>
+  </data>
+  <data name="AREA47691" xml:space="preserve">
+    <value>area</value>
   </data>
   <data name="PROPERTY43977" xml:space="preserve">
     <value>Property</value>

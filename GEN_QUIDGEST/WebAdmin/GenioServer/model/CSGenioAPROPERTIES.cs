@@ -107,11 +107,10 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "sizem2", FieldType.NUMERIC);
+			Qfield = new Field(info.Alias, "sizem2", FieldType.TEXT);
 			Qfield.FieldDescription = "size m2";
-			Qfield.FieldSize =  15;
+			Qfield.FieldSize =  50;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 12;
 			Qfield.Decimals = 2;
 			Qfield.CavDesignation = "SIZE_M254142";
 
@@ -370,14 +369,14 @@ namespace CSGenio.business
 			set { insertNameValueField(FldPrice, value); }
 		}
 
-		/// <summary>Field : "size m2" Tipo: "ND" Formula:  ""</summary>
+		/// <summary>Field : "size m2" Tipo: "C" Formula:  ""</summary>
 		public static FieldRef FldSizem2 { get { return m_fldSizem2; } }
 		private static FieldRef m_fldSizem2 = new FieldRef("properties", "sizem2");
 
-		/// <summary>Field : "size m2" Tipo: "ND" Formula:  ""</summary>
-		public decimal ValSizem2
+		/// <summary>Field : "size m2" Tipo: "C" Formula:  ""</summary>
+		public string ValSizem2
 		{
-			get { return (decimal)returnValueField(FldSizem2); }
+			get { return (string)returnValueField(FldSizem2); }
 			set { insertNameValueField(FldSizem2, value); }
 		}
 

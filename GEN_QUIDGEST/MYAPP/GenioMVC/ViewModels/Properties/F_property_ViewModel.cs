@@ -35,9 +35,8 @@ namespace GenioMVC.ViewModels.Properties
 		/// </summary>
 		public string ValBroker_fk { get; set; }
 		/// <summary>
-		/// Title: "" | Type: "CE"
+		/// Title: "City" | Type: "CE"
 		/// </summary>
-		[ValidateSetAccess]
 		public string ValCodcity_fk { get; set; }
 
 		#endregion
@@ -55,10 +54,31 @@ namespace GenioMVC.ViewModels.Properties
 		/// </summary>
 		public decimal? ValPrice { get; set; }
 		/// <summary>
+		/// Title: "Description" | Type: "MO"
+		/// </summary>
+		public string ValDescription { get; set; }
+		/// <summary>
+		/// Title: "City" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.City> TableCityCity { get; set; }
+		/// <summary>
 		/// Title: "brokers name" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Broker> TableBrokerName { get; set; }
+		/// <summary>
+		/// Title: "Size" | Type: "C"
+		/// </summary>
+		public string ValSizem2 { get; set; }
+		/// <summary>
+		/// Title: "Bathroom count" | Type: "N"
+		/// </summary>
+		public decimal? ValBathroomsnumber { get; set; }
+		/// <summary>
+		/// Title: "Construction date" | Type: "D"
+		/// </summary>
+		public DateTime? ValDateconstruction { get; set; }
 
 		#region Navigations
 		#endregion
@@ -195,6 +215,10 @@ namespace GenioMVC.ViewModels.Properties
 				ValMain_photo = ViewModelConversion.ToImage(m.ValMain_photo);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
+				ValDescription = ViewModelConversion.ToString(m.ValDescription);
+				ValSizem2 = ViewModelConversion.ToString(m.ValSizem2);
+				ValBathroomsnumber = ViewModelConversion.ToNumeric(m.ValBathroomsnumber);
+				ValDateconstruction = ViewModelConversion.ToDateTime(m.ValDateconstruction);
 				ValCodproperties_pk = ViewModelConversion.ToString(m.ValCodproperties_pk);
 			}
 			catch (Exception)
@@ -222,20 +246,16 @@ namespace GenioMVC.ViewModels.Properties
 			try
 			{
 				m.ValBroker_fk = ViewModelConversion.ToString(ValBroker_fk);
+				m.ValCodcity_fk = ViewModelConversion.ToString(ValCodcity_fk);
 				if (ValMain_photo == null || !ValMain_photo.IsThumbnail)
 					m.ValMain_photo = ViewModelConversion.ToImage(ValMain_photo);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
+				m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				m.ValSizem2 = ViewModelConversion.ToString(ValSizem2);
+				m.ValBathroomsnumber = ViewModelConversion.ToNumeric(ValBathroomsnumber);
+				m.ValDateconstruction = ViewModelConversion.ToDateTime(ValDateconstruction);
 				m.ValCodproperties_pk = ViewModelConversion.ToString(ValCodproperties_pk);
-
-				/*
-					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
-						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
-				*/
-				if (!HasDisabledUserValuesSecurity)
-					return;
-
-				m.ValCodcity_fk = ViewModelConversion.ToString(ValCodcity_fk);
 			}
 			catch (Exception)
 			{
@@ -263,6 +283,9 @@ namespace GenioMVC.ViewModels.Properties
 					case "properties.broker_fk":
 						this.ValBroker_fk = ViewModelConversion.ToString(_value);
 						break;
+					case "properties.codcity_fk":
+						this.ValCodcity_fk = ViewModelConversion.ToString(_value);
+						break;
 					case "properties.main_photo":
 						this.ValMain_photo = ViewModelConversion.ToImage(_value);
 						break;
@@ -271,6 +294,18 @@ namespace GenioMVC.ViewModels.Properties
 						break;
 					case "properties.price":
 						this.ValPrice = ViewModelConversion.ToNumeric(_value);
+						break;
+					case "properties.description":
+						this.ValDescription = ViewModelConversion.ToString(_value);
+						break;
+					case "properties.sizem2":
+						this.ValSizem2 = ViewModelConversion.ToString(_value);
+						break;
+					case "properties.bathroomsnumber":
+						this.ValBathroomsnumber = ViewModelConversion.ToNumeric(_value);
+						break;
+					case "properties.dateconstruction":
+						this.ValDateconstruction = ViewModelConversion.ToDateTime(_value);
 						break;
 					case "properties.codproperties_pk":
 						this.ValCodproperties_pk = ViewModelConversion.ToString(_value);
@@ -382,6 +417,7 @@ namespace GenioMVC.ViewModels.Properties
 			// Add characteristics
 			Characs = new List<string>();
 
+			Load_F_property__city__city(qs, lazyLoad);
 			Load_F_property__broker__name(qs, lazyLoad);
 
 // USE /[MANUAL TRA VIEWMODEL_LOADPARTIAL F_PROPERTY]/
@@ -401,6 +437,7 @@ namespace GenioMVC.ViewModels.Properties
 
 			validator.Required("ValMain_photo", Resources.Resources.MAIN_PHOTO18723, ViewModelConversion.ToImage(ValMain_photo), FieldType.IMAGE.GetFormatting());
 			validator.StringLength("ValTitle", Resources.Resources.TITLE21885, ValTitle, 50);
+			validator.StringLength("ValSizem2", Resources.Resources.SIZE10299, ValSizem2, 50);
 
 
 			return validator.GetResult();
@@ -437,6 +474,195 @@ namespace GenioMVC.ViewModels.Properties
 		public void LoadChecklistsSelectedIDs()
 		{
 		}
+
+		/// <summary>
+		/// TableCityCity -> (DB)
+		/// </summary>
+		/// <param name="qs"></param>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void Load_F_property__city__city(NameValueCollection qs, bool lazyLoad = false)
+		{
+			bool f_property__city__cityDoLoad = true;
+			CriteriaSet f_property__city__cityConds = CriteriaSet.And();
+			{
+				object hValue = Navigation.GetValue("city", true);
+				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
+				{
+					f_property__city__cityConds.Equal(CSGenioAcity.FldCodcity_pk, hValue);
+					this.ValCodcity_fk = DBConversion.ToString(hValue);
+				}
+			}
+
+			TableCityCity = new TableDBEdit<Models.City>
+			{
+				IsLazyLoad = lazyLoad
+			};
+
+			if (lazyLoad)
+			{
+				if (Navigation.CurrentLevel.GetEntry("RETURN_city") != null)
+				{
+					this.ValCodcity_fk = Navigation.GetStrValue("RETURN_city");
+					Navigation.CurrentLevel.SetEntry("RETURN_city", null);
+				}
+				FillDependant_F_propertyTableCityCity(lazyLoad);
+				return;
+			}
+
+			if (f_property__city__cityDoLoad)
+			{
+				List<ColumnSort> sorts = [];
+				ColumnSort requestedSort = GetRequestSort(TableCityCity, "sTableCityCity", "dTableCityCity", qs, "city");
+				if (requestedSort != null)
+					sorts.Add(requestedSort);
+
+				string query = "";
+				if (!string.IsNullOrEmpty(qs["TableCityCity_tableFilters"]))
+					TableCityCity.TableFilters = bool.Parse(qs["TableCityCity_tableFilters"]);
+				else
+					TableCityCity.TableFilters = false;
+
+				query = qs["qTableCityCity"];
+
+				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
+				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
+				//  tornando confuso to o user porque determinada row foi devolvida quando o Qresult não mostra como o matching foi feito
+				CriteriaSet search_filters = CriteriaSet.And();
+				if (!string.IsNullOrEmpty(query))
+				{
+					search_filters.Like(CSGenioAcity.FldCity, query + "%");
+				}
+				f_property__city__cityConds.SubSet(search_filters);
+
+				string tryParsePage = qs["pTableCityCity"] != null ? qs["pTableCityCity"].ToString() : "1";
+				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
+				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
+				int offset = (page - 1) * numberItems;
+
+				FieldRef[] fields = [CSGenioAcity.FldCodcity_pk, CSGenioAcity.FldCity, CSGenioAcity.FldZzstate];
+
+// USE /[MANUAL TRA OVERRQ F_PROPERTY_CITYCITY]/
+
+				// Limitation by Zzstate
+				/*
+					Records that are currently being inserted or duplicated will also be included.
+					Client-side persistence will try to fill the "text" value of that option.
+				*/
+				if (Navigation.checkFormMode("city", FormMode.New) || Navigation.checkFormMode("city", FormMode.Duplicate))
+					f_property__city__cityConds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioAcity.FldZzstate, 0)
+						.Equal(CSGenioAcity.FldCodcity_pk, Navigation.GetStrValue("city")));
+				else
+					f_property__city__cityConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAcity.FldZzstate), CriteriaOperator.Equal, 0));
+
+				FieldRef firstVisibleColumn = new FieldRef("city", "city");
+				ListingMVC<CSGenioAcity> listing = Models.ModelBase.Where<CSGenioAcity>(m_userContext, false, f_property__city__cityConds, fields, offset, numberItems, sorts, "LED_F_PROPERTY__CITY__CITY", true, false, firstVisibleColumn: firstVisibleColumn);
+
+				TableCityCity.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TableCityCity.Query = query;
+				TableCityCity.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.City(m_userContext, r, true, _fieldsToSerialize_F_PROPERTY__CITY__CITY));
+
+				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
+				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
+				if (Navigation.CurrentLevel.GetEntry("RETURN_city") != null)
+				{
+					this.ValCodcity_fk = Navigation.GetStrValue("RETURN_city");
+					Navigation.CurrentLevel.SetEntry("RETURN_city", null);
+				}
+
+				TableCityCity.List = new SelectList(TableCityCity.Elements.ToSelectList(x => x.ValCity, x => x.ValCodcity_pk,  x => x.ValCodcity_pk == this.ValCodcity_fk), "Value", "Text", this.ValCodcity_fk);
+				FillDependant_F_propertyTableCityCity();
+			}
+		}
+
+		/// <summary>
+		/// Get Dependant fields values -> TableCityCity (DB)
+		/// </summary>
+		/// <param name="PKey">Primary Key of City</param>
+		public ConcurrentDictionary<string, object> GetDependant_F_propertyTableCityCity(string PKey)
+		{
+			FieldRef[] refDependantFields = [CSGenioAcity.FldCodcity_pk, CSGenioAcity.FldCity];
+
+			var returnEmptyDependants = false;
+			CriteriaSet wherecodition = CriteriaSet.And();
+
+			// Return default values
+			if (GenFunctions.emptyG(PKey) == 1)
+				returnEmptyDependants = true;
+
+			// Check if the limit(s) is filled if exists
+			// - - - - - - - - - - - - - - - - - - - - -
+
+			if (returnEmptyDependants)
+				return GetViewModelFieldValues(refDependantFields);
+
+			PersistentSupport sp = m_userContext.PersistentSupport;
+			User u = m_userContext.User;
+
+			CSGenioAcity tempArea = new(u);
+
+			// Fields to select
+			SelectQuery querySelect = new();
+			querySelect.PageSize(1);
+			foreach (FieldRef field in refDependantFields)
+				querySelect.Select(field);
+
+			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
+				.Where(wherecodition.Equal(CSGenioAcity.FldCodcity_pk, PKey));
+
+			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
+			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
+
+			ArrayList values = sp.executeReaderOneRow(querySelect);
+			bool useDefaults = values.Count == 0;
+
+			if (useDefaults)
+				return GetViewModelFieldValues(refDependantFields);
+			return GetViewModelFieldValues(refDependantFields, values);
+		}
+
+		/// <summary>
+		/// Fill Dependant fields values -> TableCityCity (DB)
+		/// </summary>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void FillDependant_F_propertyTableCityCity(bool lazyLoad = false)
+		{
+			var row = GetDependant_F_propertyTableCityCity(this.ValCodcity_fk);
+			try
+			{
+
+				// Fill List fields
+				this.ValCodcity_fk = ViewModelConversion.ToString(row["city.codcity_pk"]);
+				TableCityCity.Value = (string)row["city.city"];
+				if (GenFunctions.emptyG(this.ValCodcity_fk) == 1)
+				{
+					this.ValCodcity_fk = "";
+					TableCityCity.Value = "";
+					Navigation.ClearValue("city");
+				}
+				else if (lazyLoad)
+				{
+					TableCityCity.SetPagination(1, 0, false, false, 1);
+					TableCityCity.List = new SelectList(new List<SelectListItem>()
+					{
+						new SelectListItem
+						{
+							Value = Convert.ToString(this.ValCodcity_fk),
+							Text = Convert.ToString(TableCityCity.Value),
+							Selected = true
+						}
+					}, "Value", "Text", this.ValCodcity_fk);
+				}
+
+				TableCityCity.Selected = this.ValCodcity_fk;
+			}
+			catch (Exception ex)
+			{
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableCityCity): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+			}
+		}
+
+		private readonly string[] _fieldsToSerialize_F_PROPERTY__CITY__CITY = ["City", "City.ValCodcity_pk", "City.ValZzstate", "City.ValCity"];
 
 		/// <summary>
 		/// TableBrokerName -> (DB)
@@ -636,7 +862,13 @@ namespace GenioMVC.ViewModels.Properties
 				"properties.main_photo" => ViewModelConversion.ToImage(modelValue),
 				"properties.title" => ViewModelConversion.ToString(modelValue),
 				"properties.price" => ViewModelConversion.ToNumeric(modelValue),
+				"properties.description" => ViewModelConversion.ToString(modelValue),
+				"properties.sizem2" => ViewModelConversion.ToString(modelValue),
+				"properties.bathroomsnumber" => ViewModelConversion.ToNumeric(modelValue),
+				"properties.dateconstruction" => ViewModelConversion.ToDateTime(modelValue),
 				"properties.codproperties_pk" => ViewModelConversion.ToString(modelValue),
+				"city.codcity_pk" => ViewModelConversion.ToString(modelValue),
+				"city.city" => ViewModelConversion.ToString(modelValue),
 				"broker.codbroker" => ViewModelConversion.ToString(modelValue),
 				"broker.name" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
