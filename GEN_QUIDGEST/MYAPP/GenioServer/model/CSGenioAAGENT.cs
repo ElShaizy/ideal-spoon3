@@ -45,10 +45,10 @@ namespace CSGenio.business
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codagent", FieldType.KEY_INT);
-			Qfield.FieldDescription = "";
+			Qfield.FieldDescription = "agent";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "";
+			Qfield.CavDesignation = "AGENT48705";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -254,11 +254,11 @@ namespace CSGenio.business
 			return informacao;
 		}
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "agent" Tipo: "+" Formula:  ""</summary>
 		public static FieldRef FldCodagent { get { return m_fldCodagent; } }
 		private static FieldRef m_fldCodagent = new FieldRef("agent", "codagent");
 
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "agent" Tipo: "+" Formula:  ""</summary>
 		public string ValCodagent
 		{
 			get { return (string)returnValueField(FldCodagent); }

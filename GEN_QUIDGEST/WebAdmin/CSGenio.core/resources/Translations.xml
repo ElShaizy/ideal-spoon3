@@ -276,6 +276,9 @@
   <msg id="Cities" code="CITIES41573">
     <ENUS>Cities</ENUS>
   </msg>
+  <msg id="COUNTRY" code="COUNTRY59526">
+    <ENUS>COUNTRY</ENUS>
+  </msg>
   <msg id="Process ID" code="PROCESS_ID11161">
     <ENUS>Process ID</ENUS>
   </msg>
@@ -401,6 +404,9 @@
   </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
+  </msg>
+  <msg id="agent" code="AGENT48705">
+    <ENUS>agent</ENUS>
   </msg>
   <msg id="City" code="CITY42505">
     <ENUS>City</ENUS>

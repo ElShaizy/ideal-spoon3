@@ -23,7 +23,7 @@ namespace GenioMVC.Models
 		public CSGenioAagent klass { get { return baseklass as CSGenioAagent; } set { baseklass = value; } }
 
 		[Key]
-		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
+		/// <summary>Field : "agent" Tipo: "+" Formula:  ""</summary>
 		[ShouldSerialize("Agent.ValCodagent")]
 		public string ValCodagent { get { return klass.ValCodagent; } set { klass.ValCodagent = value; } }
 

@@ -393,6 +393,9 @@
 	<data name="CITIES41573" xml:space="preserve">
 		<value>Cities</value>
 	</data>
+	<data name="COUNTRY59526" xml:space="preserve">
+		<value>COUNTRY</value>
+	</data>
 	<data name="PROCESS_ID11161" xml:space="preserve">
 		<value>Process ID</value>
 	</data>
@@ -518,6 +521,9 @@
 	</data>
 	<data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
 		<value>Notification Messages</value>
+	</data>
+	<data name="AGENT48705" xml:space="preserve">
+		<value>agent</value>
 	</data>
 	<data name="CITY42505" xml:space="preserve">
 		<value>City</value>

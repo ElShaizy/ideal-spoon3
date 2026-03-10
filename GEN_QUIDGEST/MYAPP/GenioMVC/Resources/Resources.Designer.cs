@@ -891,6 +891,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "COUNTRY"
+		/// </summary>
+		public static string COUNTRY59526 {
+			get {
+				return ResourceManager.GetString("COUNTRY59526", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Process ID"
 		/// </summary>
 		public static string PROCESS_ID11161 {
@@ -1265,6 +1274,15 @@ namespace GenioMVC.Resources
 		public static string NOTIFICATION_MESSAGE60981 {
 			get {
 				return ResourceManager.GetString("NOTIFICATION_MESSAGE60981", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "agent"
+		/// </summary>
+		public static string AGENT48705 {
+			get {
+				return ResourceManager.GetString("AGENT48705", resourceCulture);
 			}
 		}
 
