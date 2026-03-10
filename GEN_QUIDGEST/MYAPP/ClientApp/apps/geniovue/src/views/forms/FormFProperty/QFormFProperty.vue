@@ -186,11 +186,11 @@
 				</q-row>
 				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible">
 					<q-col v-if="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible">
-						<q-group-box-container
+						<q-group-collapsible
 							v-if="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible"
 							id="F_PROPERTY__PSEUD__NEWGRP02"
 							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP02"
-							:is-visible="controls.F_PROPERTY__PSEUD__NEWGRP02.isVisible">
+							v-on="controls.F_PROPERTY__PSEUD__NEWGRP02.handlers">
 							<!-- Start F_PROPERTY__PSEUD__NEWGRP02 -->
 							<q-row v-if="controls.F_PROPERTY__CITY__CITY.isVisible">
 								<q-col
@@ -235,16 +235,16 @@
 								</q-col>
 							</q-row>
 							<!-- End F_PROPERTY__PSEUD__NEWGRP02 -->
-						</q-group-box-container>
+						</q-group-collapsible>
 					</q-col>
 				</q-row>
 				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
 					<q-col v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
-						<q-group-box-container
+						<q-group-collapsible
 							v-if="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible"
 							id="F_PROPERTY__PSEUD__NEWGRP03"
 							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP03"
-							:is-visible="controls.F_PROPERTY__PSEUD__NEWGRP03.isVisible">
+							v-on="controls.F_PROPERTY__PSEUD__NEWGRP03.handlers">
 							<!-- Start F_PROPERTY__PSEUD__NEWGRP03 -->
 							<q-row v-if="controls.F_PROPERTY__PROPERTIES__SIZEM2.isVisible || controls.F_PROPERTY__PROPERTIES__BATHROOMSNUMBER.isVisible">
 								<q-col
@@ -304,66 +304,78 @@
 								</q-col>
 							</q-row>
 							<!-- End F_PROPERTY__PSEUD__NEWGRP03 -->
-						</q-group-box-container>
+						</q-group-collapsible>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible || controls.F_PROPERTY__BROKER__PHOTO.isVisible">
-					<q-col
-						v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
-							class="i-text"
-							v-bind="controls.F_PROPERTY__BROKER__NAME"
-							v-on="controls.F_PROPERTY__BROKER__NAME.handlers"
-							:loading="controls.F_PROPERTY__BROKER__NAME.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
-								v-bind="controls.F_PROPERTY__BROKER__NAME.props"
-								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
-							<q-see-more-f-property-broker-name
-								v-if="controls.F_PROPERTY__BROKER__NAME.seeMoreIsVisible"
-								v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
-								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
-						</base-input-structure>
-					</q-col>
-					<q-col
-						v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
-							class="q-image"
-							v-bind="controls.F_PROPERTY__BROKER__PHOTO"
-							v-on="controls.F_PROPERTY__BROKER__PHOTO.handlers"
-							:loading="controls.F_PROPERTY__BROKER__PHOTO.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
-								v-bind="controls.F_PROPERTY__BROKER__PHOTO.props"
-								v-on="controls.F_PROPERTY__BROKER__PHOTO.handlers" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible">
-					<q-col
-						v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible"
-							class="i-text"
-							v-bind="controls.F_PROPERTY__BROKER__EMAIL"
-							v-on="controls.F_PROPERTY__BROKER__EMAIL.handlers"
-							:loading="controls.F_PROPERTY__BROKER__EMAIL.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.F_PROPERTY__BROKER__EMAIL.props"
-								@blur="onBlur(controls.F_PROPERTY__BROKER__EMAIL, model.BrokerValEmail.value)"
-								@change="model.BrokerValEmail.fnUpdateValueOnChange" />
-						</base-input-structure>
+				<q-row v-if="controls.F_PROPERTY__PSEUD__NEWGRP04.isVisible">
+					<q-col v-if="controls.F_PROPERTY__PSEUD__NEWGRP04.isVisible">
+						<q-group-collapsible
+							v-if="controls.F_PROPERTY__PSEUD__NEWGRP04.isVisible"
+							id="F_PROPERTY__PSEUD__NEWGRP04"
+							v-bind="controls.F_PROPERTY__PSEUD__NEWGRP04"
+							v-on="controls.F_PROPERTY__PSEUD__NEWGRP04.handlers">
+							<!-- Start F_PROPERTY__PSEUD__NEWGRP04 -->
+							<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible || controls.F_PROPERTY__BROKER__PHOTO.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__BROKER__NAME"
+										v-on="controls.F_PROPERTY__BROKER__NAME.handlers"
+										:loading="controls.F_PROPERTY__BROKER__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
+											v-bind="controls.F_PROPERTY__BROKER__NAME.props"
+											v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
+										<q-see-more-f-property-broker-name
+											v-if="controls.F_PROPERTY__BROKER__NAME.seeMoreIsVisible"
+											v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
+											v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
+										class="q-image"
+										v-bind="controls.F_PROPERTY__BROKER__PHOTO"
+										v-on="controls.F_PROPERTY__BROKER__PHOTO.handlers"
+										:loading="controls.F_PROPERTY__BROKER__PHOTO.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.F_PROPERTY__BROKER__PHOTO.isVisible"
+											v-bind="controls.F_PROPERTY__BROKER__PHOTO.props"
+											v-on="controls.F_PROPERTY__BROKER__PHOTO.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__BROKER__EMAIL.isVisible"
+										class="i-text"
+										v-bind="controls.F_PROPERTY__BROKER__EMAIL"
+										v-on="controls.F_PROPERTY__BROKER__EMAIL.handlers"
+										:loading="controls.F_PROPERTY__BROKER__EMAIL.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.F_PROPERTY__BROKER__EMAIL.props"
+											@blur="onBlur(controls.F_PROPERTY__BROKER__EMAIL, model.BrokerValEmail.value)"
+											@change="model.BrokerValEmail.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<!-- End F_PROPERTY__PSEUD__NEWGRP04 -->
+						</q-group-collapsible>
 					</q-col>
 				</q-row>
 			</template>
@@ -798,7 +810,8 @@
 						label: computed(() => this.Resources.AREA47691),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
+						startsExpanded: false,
+						isCollapsible: true,
 						anchored: false,
 						directChildren: ['F_PROPERTY__CITY__CITY', 'F_PROPERTY__COUNTRY__COUNTRY'],
 						controlLimits: [
@@ -857,7 +870,8 @@
 						label: computed(() => this.Resources.DETAILS43714),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
+						startsExpanded: false,
+						isCollapsible: true,
 						anchored: false,
 						directChildren: ['F_PROPERTY__PROPERTIES__SIZEM2', 'F_PROPERTY__PROPERTIES__BATHROOMSNUMBER', 'F_PROPERTY__PROPERTIES__DATECONSTRUCTION'],
 						controlLimits: [
@@ -906,6 +920,20 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__PSEUD__NEWGRP04: new fieldControlClass.GroupControl({
+						id: 'F_PROPERTY__PSEUD__NEWGRP04',
+						name: 'NEWGRP04',
+						size: 'block',
+						label: computed(() => this.Resources.BROKERS_INFORMATION64793),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						startsExpanded: false,
+						isCollapsible: true,
+						anchored: false,
+						directChildren: ['F_PROPERTY__BROKER__NAME', 'F_PROPERTY__BROKER__PHOTO', 'F_PROPERTY__BROKER__EMAIL'],
+						controlLimits: [
+						],
+					}, this),
 					F_PROPERTY__BROKER__NAME: new fieldControlClass.LookupControl({
 						modelField: 'TableBrokerName',
 						valueChangeEvent: 'fieldChange:broker.name',
@@ -915,6 +943,7 @@
 						label: computed(() => this.Resources.BROKERS_NAME50728),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP04',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -947,6 +976,7 @@
 						label: computed(() => this.Resources.PHOTO51874),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP04',
 						height: 50,
 						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
@@ -966,6 +996,7 @@
 						label: computed(() => this.Resources.EMAIL25170),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'F_PROPERTY__PSEUD__NEWGRP04',
 						maxLength: 256,
 						controlLimits: [
 						],
@@ -983,6 +1014,7 @@
 					'F_PROPERTY__PSEUD__NEWGRP01',
 					'F_PROPERTY__PSEUD__NEWGRP02',
 					'F_PROPERTY__PSEUD__NEWGRP03',
+					'F_PROPERTY__PSEUD__NEWGRP04',
 				]),
 
 				tableFields: readonly([

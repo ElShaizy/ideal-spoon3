@@ -217,7 +217,7 @@
 						controller: 'PROPERTIES',
 						action: 'F_property_BrokerValName',
 						hasDependencies: false,
-						isInCollapsible: false,
+						isInCollapsible: true,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,

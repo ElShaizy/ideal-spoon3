@@ -69,6 +69,11 @@ public class F_propertyForm : Form
 	public DateInputControl PropertiesDateconstruction => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__DATECONSTRUCTION");
 
 	/// <summary>
+	/// brokers information
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp04 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP04-container");
+
+	/// <summary>
 	/// brokers name
 	/// </summary>
 	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
