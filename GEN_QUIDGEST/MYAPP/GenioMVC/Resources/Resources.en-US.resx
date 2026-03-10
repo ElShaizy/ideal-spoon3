@@ -405,6 +405,9 @@
 	<data name="CANCELAR49513" xml:space="preserve">
 		<value>Cancelar</value>
 	</data>
+	<data name="LOCATION54790" xml:space="preserve">
+		<value>Location</value>
+	</data>
 	<data name="PASSWORD_TYPE03035" xml:space="preserve">
 		<value>Password type</value>
 	</data>

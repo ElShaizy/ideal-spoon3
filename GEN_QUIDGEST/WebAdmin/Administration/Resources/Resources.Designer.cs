@@ -925,6 +925,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Location"
+        /// </summary>
+        public static string LOCATION54790 {
+            get {
+                return ResourceManager.GetString("LOCATION54790", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Password type"
         /// </summary>
         public static string PASSWORD_TYPE03035 {

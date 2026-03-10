@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '41',
 					isMenuList: true,
-					designation: computed(() => this.Resources.PHOTO_ALBUMS01668),
+					designation: computed(() => this.Resources.COUNTRIES64527),
 					acronym: 'TRA_41',
-					name: 'PHOTO_ALBUM',
+					name: 'COUNTRY',
 					route: 'menu-TRA_41',
 					order: '41',
-					controller: 'PHOTO_ALBUM',
+					controller: 'COUNTRY',
 					action: 'TRA_Menu_41',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'TRA_Menu_41',
-						controller: 'PHOTO_ALBUM',
+						controller: 'COUNTRY',
 						action: 'TRA_Menu_41',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,47 +148,24 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValTitle',
-								area: 'PHOTO_ALBUM',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
+								name: 'ValCountry',
+								area: 'COUNTRY',
+								field: 'COUNTRY',
+								label: computed(() => this.Resources.COUNTRY64133),
 								dataLength: 50,
 								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'Properties.ValTitle',
-								area: 'PROPERTIES',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodproperties',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 3,
-								name: 'ValPhoto',
-								area: 'PHOTO_ALBUM',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO51874),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'TRA_Menu_41',
 							serverMode: true,
-							pkColumn: 'ValCodphoto_album',
-							tableAlias: 'PHOTO_ALBUM',
-							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUMS01668),
+							pkColumn: 'ValCodcountry',
+							tableAlias: 'COUNTRY',
+							tableNamePlural: computed(() => this.Resources.COUNTRIES64527),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.PHOTO_ALBUMS01668),
+							tableTitle: computed(() => this.Resources.COUNTRIES64527),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -209,7 +186,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_COUNTRY',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -225,7 +202,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_COUNTRY',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -241,7 +218,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_COUNTRY',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -257,7 +234,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_COUNTRY',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -275,7 +252,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_COUNTRY',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -292,35 +269,35 @@
 							],
 							rowClickAction: {
 								id: 'RCA_TRA_411',
-								name: 'form-F_PHOTO_ALBUM',
+								name: 'form-F_COUNTRY',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodphoto_album
+											fnValueSelector: (row) => row.ValCodcountry
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_PHOTO_ALBUM'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COUNTRY'
 								}
 							},
 							formsDefinition: {
-								'F_PHOTO_ALBUM': {
-									fnKeySelector: (row) => row.Fields.ValCodphoto_album,
+								'F_COUNTRY': {
+									fnKeySelector: (row) => row.Fields.ValCodcountry,
 									isPopup: false
 								},
 							},
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValTitle',
+								columnName: 'ValCountry',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PROPERTIES', 'changed-PHOTO_ALBUM'],
-						uuid: '30ce0abf-7f61-4c8f-95e0-16f28ee342ab',
+						globalEvents: ['changed-COUNTRY'],
+						uuid: '5cdcbf9d-12b5-43fe-92ec-dd4ddb0f1313',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

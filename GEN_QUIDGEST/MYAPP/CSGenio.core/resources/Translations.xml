@@ -288,6 +288,9 @@
   <msg id="Cancelar" code="CANCELAR49513">
     <ENUS>Cancelar</ENUS>
   </msg>
+  <msg id="Location" code="LOCATION54790">
+    <ENUS>Location</ENUS>
+  </msg>
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>
   </msg>

@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_61]/ -->
+					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_521]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuTRA_61ViewModel.js'
+	import MenuViewModel from './QMenuTRA_521ViewModel.js'
 
-	const requiredTextResources = ['QMenuTRA_61', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuTRA_521', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_61]/
+// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuTra61',
+		name: 'QMenuTra521',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_61', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_521', false),
 
 				interfaceMetadata: {
-					id: 'QMenuTRA_61', // Used for resources
+					id: 'QMenuTRA_521', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '61',
+					id: '521',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CONTACTS55742),
-					acronym: 'TRA_61',
-					name: 'CONTACT',
-					route: 'menu-TRA_61',
-					order: '61',
-					controller: 'CONTACT',
-					action: 'TRA_Menu_61',
+					designation: computed(() => this.Resources.CITIES41573),
+					acronym: 'TRA_521',
+					name: 'CITY',
+					route: 'menu-TRA_521',
+					order: '521',
+					controller: 'CITY',
+					action: 'TRA_Menu_521',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'TRA_Menu_61',
-						controller: 'CONTACT',
-						action: 'TRA_Menu_61',
+						id: 'TRA_Menu_521',
+						controller: 'CITY',
+						action: 'TRA_Menu_521',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -148,75 +148,24 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValClient_name',
-								area: 'CONTACT',
-								field: 'CLIENT_NAME',
-								label: computed(() => this.Resources.CLIENT_NAME39245),
+								name: 'ValCity',
+								area: 'CITY',
+								field: 'CITY',
+								label: computed(() => this.Resources.CITY42505),
 								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'ValDescription',
-								area: 'CONTACT',
-								field: 'DESCRIPTION',
-								label: computed(() => this.Resources.DESCRIPTION03846),
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValDate',
-								area: 'CONTACT',
-								field: 'DATE',
-								label: computed(() => this.Resources.DATE18475),
-								scrollData: 8,
-								dateTimeType: 'date',
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'Properties.ValTitle',
-								area: 'PROPERTIES',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodproperties',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
-								order: 5,
-								name: 'ValPhonecontact',
-								area: 'CONTACT',
-								field: 'PHONECONTACT',
-								label: computed(() => this.Resources.PHONE_NUMBER05968),
-								scrollData: 15,
-								maxDigits: 15,
-								decimalPlaces: 0,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 6,
-								name: 'ValEmailcontact',
-								area: 'CONTACT',
-								field: 'EMAILCONTACT',
-								label: computed(() => this.Resources.EMAIL55616),
-								dataLength: 256,
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'TRA_Menu_61',
+							name: 'TRA_Menu_521',
 							serverMode: true,
-							pkColumn: 'ValCodcontact',
-							tableAlias: 'CONTACT',
-							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
+							pkColumn: 'ValCodcity',
+							tableAlias: 'CITY',
+							tableNamePlural: computed(() => this.Resources.CITIES41573),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CONTACTS55742),
+							tableTitle: computed(() => this.Resources.CITIES41573),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -237,7 +186,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_CITY',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -253,7 +202,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_CITY',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -269,7 +218,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_CITY',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -285,7 +234,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_CITY',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -303,7 +252,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_CITY',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -319,36 +268,36 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_TRA_611',
-								name: 'form-F_CONTACT',
+								id: 'RCA_TRA_5211',
+								name: 'form-F_CITY',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcontact
+											fnValueSelector: (row) => row.ValCodcity
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CONTACT'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CITY'
 								}
 							},
 							formsDefinition: {
-								'F_CONTACT': {
-									fnKeySelector: (row) => row.Fields.ValCodcontact,
-									isPopup: true
+								'F_CITY': {
+									fnKeySelector: (row) => row.Fields.ValCodcity,
+									isPopup: false
 								},
 							},
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValClient_name',
+								columnName: 'ValCity',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PROPERTIES', 'changed-CONTACT'],
-						uuid: 'f2bb8805-ec00-4a7b-8153-1da6a82731cc',
+						globalEvents: ['changed-COUNTRY', 'changed-CITY'],
+						uuid: '01161263-52ee-46cd-a7d4-21a6ba63ef7c',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)
@@ -374,7 +323,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_61]/
+// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -382,18 +331,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_61]/
+// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FUNCTIONS_JS TRA_61]/
+// USE /[MANUAL TRA FUNCTIONS_JS TRA_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_61]/
+// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_521]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

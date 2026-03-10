@@ -5,27 +5,13 @@ export default function getMenusRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/TRA/menu/TRA_61',
-			name: 'menu-TRA_61',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_61/QMenuTra61.vue'),
+			path: '/:culture/:system/TRA/menu/TRA_521',
+			name: 'menu-TRA_521',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_521/QMenuTra521.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'TRA',
-				order: '61',
-				baseArea: 'CONTACT',
-				hasInitialPHE: false,
-				humanKeyFields: [],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/TRA/menu/TRA_31',
-			name: 'menu-TRA_31',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_31/QMenuTra31.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'TRA',
-				order: '31',
+				order: '521',
 				baseArea: 'CITY',
 				hasInitialPHE: false,
 				humanKeyFields: [],
@@ -61,13 +47,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/TRA/menu/TRA_41',
-			name: 'menu-TRA_41',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_41/QMenuTra41.vue'),
+			path: '/:culture/:system/TRA/menu/TRA_31',
+			name: 'menu-TRA_31',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_31/QMenuTra31.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'TRA',
-				order: '41',
+				order: '31',
 				baseArea: 'PHOTO_ALBUM',
 				hasInitialPHE: false,
 				humanKeyFields: [],
@@ -75,13 +61,27 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/TRA/menu/TRA_51',
-			name: 'menu-TRA_51',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_51/QMenuTra51.vue'),
+			path: '/:culture/:system/TRA/menu/TRA_41',
+			name: 'menu-TRA_41',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_41/QMenuTra41.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'TRA',
-				order: '51',
+				order: '41',
+				baseArea: 'COUNTRY',
+				hasInitialPHE: false,
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/TRA/menu/TRA_511',
+			name: 'menu-TRA_511',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_511/QMenuTra511.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'TRA',
+				order: '511',
 				baseArea: 'COUNTRY',
 				hasInitialPHE: false,
 				humanKeyFields: [],

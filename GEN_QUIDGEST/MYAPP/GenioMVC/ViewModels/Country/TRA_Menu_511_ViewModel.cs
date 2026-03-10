@@ -17,13 +17,13 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels.Country
 {
-	public class TRA_Menu_51_ViewModel : MenuListViewModel<Models.Country>
+	public class TRA_Menu_511_ViewModel : MenuListViewModel<Models.Country>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<TRA_Menu_51_RowViewModel> Menu { get; set; }
+		public TablePartial<TRA_Menu_511_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
@@ -31,7 +31,7 @@ namespace GenioMVC.ViewModels.Country
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "5cdcbf9d-12b5-43fe-92ec-dd4ddb0f1313";
+		public override string Uuid => "4e439f88-bb19-42ef-b411-4ca1fcd99f00";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -82,7 +82,7 @@ namespace GenioMVC.ViewModels.Country
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL TRA LIST_LIMITS 51]/
+// USE /[MANUAL TRA LIST_LIMITS 511]/
 
 			return crs;
 		}
@@ -93,14 +93,14 @@ namespace GenioMVC.ViewModels.Country
 			var areaBase = CSGenio.business.Area.createArea("country", user, "TRA");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML51");
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML511");
 			conditions.Equal(CSGenioAcountry.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate, CSGenioAcountry.FldCountry };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate };
 
 			ListingMVC<CSGenioAcountry> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -108,6 +108,7 @@ namespace GenioMVC.ViewModels.Country
 			// Menu relations:
 			if (qs.FromTable == null)
 				qs.From(areaBase.QSystem, areaBase.TableName, areaBase.Alias);
+
 
 
 
@@ -119,23 +120,23 @@ namespace GenioMVC.ViewModels.Country
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public TRA_Menu_51_ViewModel() : base(null!) { }
+		public TRA_Menu_511_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_51_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_511_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public TRA_Menu_51_ViewModel(UserContext userContext) : base(userContext)
+		public TRA_Menu_511_ViewModel(UserContext userContext) : base(userContext)
 		{
 			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_51_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_511_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public TRA_Menu_51_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public TRA_Menu_511_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -145,7 +146,7 @@ namespace GenioMVC.ViewModels.Country
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAcountry.FldCountry, FieldType.TEXT, Resources.Resources.COUNTRY64133, 30, 0, true),
+				new Exports.QColumn(CSGenioAcountry.FldCodcountry, FieldType.KEY_INT, Resources.Resources.COUNTRY45120, 8, 0, true),
 			];
 		}
 
@@ -186,7 +187,7 @@ namespace GenioMVC.ViewModels.Country
 
 			crs ??= CriteriaSet.And();
 
-			Menu ??= new TablePartial<TRA_Menu_51_RowViewModel>();
+			Menu ??= new TablePartial<TRA_Menu_511_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -209,7 +210,7 @@ namespace GenioMVC.ViewModels.Country
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Country.AddEPH<CSGenioAcountry>(ref u, crs, "ML51");
+				crs = Models.Country.AddEPH<CSGenioAcountry>(ref u, crs, "ML511");
 
 				// Export only records with ZZState == 0
 				crs.Equal(CSGenioAcountry.FldZzstate, 0);
@@ -227,7 +228,7 @@ namespace GenioMVC.ViewModels.Country
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_country");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_country");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Country.AddEPH<CSGenioAcountry>(ref u, null, "ML51"));
+					crs.Equals(Models.Country.AddEPH<CSGenioAcountry>(ref u, null, "ML511"));
 			}
 
 			return crs;
@@ -302,15 +303,13 @@ namespace GenioMVC.ViewModels.Country
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcountry> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<TRA_Menu_51_RowViewModel>();
+			Menu = new TablePartial<TRA_Menu_511_RowViewModel>();
 
-			CriteriaSet tra_menu_51Conds = CriteriaSet.And();
+			CriteriaSet tra_menu_511Conds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("COUNTRY.COUNTRY", new OrderedDictionary());
-			allSortOrders["COUNTRY.COUNTRY"].Add("COUNTRY.COUNTRY", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -322,14 +321,8 @@ namespace GenioMVC.ViewModels.Country
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "country", allSortOrders);
 
-			if (sorts == null || sorts.Count == 0)
-			{
-				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAcountry.FldCountry), SortOrder.Ascending));
 
-			}
-
-			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate, CSGenioAcountry.FldCountry };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcountry.FldCodcountry, CSGenioAcountry.FldZzstate };
 
 
 			// Totalizers
@@ -341,7 +334,7 @@ namespace GenioMVC.ViewModels.Country
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("country", "country");
+				firstVisibleColumn ??= new FieldRef("country", "codcountry");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -353,7 +346,7 @@ namespace GenioMVC.ViewModels.Country
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
 				CSGenioAcountry model_limit_area = new CSGenioAcountry(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML51");
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML511");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -362,11 +355,11 @@ namespace GenioMVC.ViewModels.Country
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(tra_menu_51Conds);
-			tra_menu_51Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(tra_menu_511Conds);
+			tra_menu_511Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL TRA OVERRQ 51]/
+// USE /[MANUAL TRA OVERRQ 511]/
 
 			bool distinct = false;
 
@@ -378,16 +371,16 @@ namespace GenioMVC.ViewModels.Country
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAcountry>(m_userContext, false, ref tra_menu_51Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML51", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAcountry>(m_userContext, false, ref tra_menu_511Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL TRA OVERRQLSTEXP 51]/
+// USE /[MANUAL TRA OVERRQLSTEXP 511]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL TRA OVERRQLIST 51]/
+// USE /[MANUAL TRA OVERRQLIST 511]/
 
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_country");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_country");
@@ -395,12 +388,12 @@ namespace GenioMVC.ViewModels.Country
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAcountry.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_51Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAcountry.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_511Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAcountry> listing = Models.ModelBase.Where<CSGenioAcountry>(m_userContext, distinct, tra_menu_51Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML51", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAcountry> listing = Models.ModelBase.Where<CSGenioAcountry>(m_userContext, distinct, tra_menu_511Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -412,15 +405,15 @@ namespace GenioMVC.ViewModels.Country
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapTRA_Menu_51(listing);
+				Menu.Elements = MapTRA_Menu_511(listing);
 
-				Menu.Identifier = "ML51";
+				Menu.Identifier = "ML511";
 				Menu.Slots = new Dictionary<string, List<object>>();
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "ML51";
+					element.Identifier = "ML511";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -439,9 +432,9 @@ namespace GenioMVC.ViewModels.Country
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<TRA_Menu_51_RowViewModel> MapTRA_Menu_51(ListingMVC<CSGenioAcountry> Qlisting)
+		private List<TRA_Menu_511_RowViewModel> MapTRA_Menu_511(ListingMVC<CSGenioAcountry> Qlisting)
 		{
-			List<TRA_Menu_51_RowViewModel> Elements = [];
+			List<TRA_Menu_511_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -450,7 +443,7 @@ namespace GenioMVC.ViewModels.Country
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapTRA_Menu_51(row));
+					Elements.Add(MapTRA_Menu_511(row));
 					i++;
 				}
 			}
@@ -460,12 +453,12 @@ namespace GenioMVC.ViewModels.Country
 
 		/// <summary>
 		/// Maps a single CSGenioAcountry row
-		/// to a TRA_Menu_51_RowViewModel object.
+		/// to a TRA_Menu_511_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private TRA_Menu_51_RowViewModel MapTRA_Menu_51(CSGenioAcountry row)
+		private TRA_Menu_511_RowViewModel MapTRA_Menu_511(CSGenioAcountry row)
 		{
-			var model = new TRA_Menu_51_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new TRA_Menu_511_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -520,18 +513,18 @@ namespace GenioMVC.ViewModels.Country
 
 		#region Custom code
 
-// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_51]/
+// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_511]/
 
 		#endregion
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Country", "Country.ValCodcountry", "Country.ValZzstate", "Country.ValCountry"
+			"Country", "Country.ValCodcountry", "Country.ValZzstate"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValCountry", CSGenioAcountry.FldCountry, typeof(string)),
+			new TableSearchColumn("ValCodcountry", CSGenioAcountry.FldCodcountry, typeof(string)),
 		];
 	}
 }
