@@ -17,13 +17,13 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels.Properties
 {
-	public class TRA_Menu_71_ViewModel : MenuListViewModel<Models.Properties>
+	public class TRA_Menu_51_ViewModel : MenuListViewModel<Models.Properties>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<TRA_Menu_71_RowViewModel> Menu { get; set; }
+		public TablePartial<TRA_Menu_51_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
@@ -82,7 +82,7 @@ namespace GenioMVC.ViewModels.Properties
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL TRA LIST_LIMITS 71]/
+// USE /[MANUAL TRA LIST_LIMITS 51]/
 
 			return crs;
 		}
@@ -93,7 +93,7 @@ namespace GenioMVC.ViewModels.Properties
 			var areaBase = CSGenio.business.Area.createArea("properties", user, "TRA");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML71");
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML51");
 			conditions.Equal(CSGenioAproperties.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
@@ -119,23 +119,23 @@ namespace GenioMVC.ViewModels.Properties
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public TRA_Menu_71_ViewModel() : base(null!) { }
+		public TRA_Menu_51_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_71_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_51_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public TRA_Menu_71_ViewModel(UserContext userContext) : base(userContext)
+		public TRA_Menu_51_ViewModel(UserContext userContext) : base(userContext)
 		{
 			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_71_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_51_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public TRA_Menu_71_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public TRA_Menu_51_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -192,7 +192,7 @@ namespace GenioMVC.ViewModels.Properties
 
 			crs ??= CriteriaSet.And();
 
-			Menu ??= new TablePartial<TRA_Menu_71_RowViewModel>();
+			Menu ??= new TablePartial<TRA_Menu_51_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -215,7 +215,7 @@ namespace GenioMVC.ViewModels.Properties
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Properties.AddEPH<CSGenioAproperties>(ref u, crs, "ML71");
+				crs = Models.Properties.AddEPH<CSGenioAproperties>(ref u, crs, "ML51");
 
 				// Export only records with ZZState == 0
 				crs.Equal(CSGenioAproperties.FldZzstate, 0);
@@ -233,7 +233,7 @@ namespace GenioMVC.ViewModels.Properties
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_properties");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_properties");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Properties.AddEPH<CSGenioAproperties>(ref u, null, "ML71"));
+					crs.Equals(Models.Properties.AddEPH<CSGenioAproperties>(ref u, null, "ML51"));
 			}
 
 			return crs;
@@ -308,9 +308,9 @@ namespace GenioMVC.ViewModels.Properties
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAproperties> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<TRA_Menu_71_RowViewModel>();
+			Menu = new TablePartial<TRA_Menu_51_RowViewModel>();
 
-			CriteriaSet tra_menu_71Conds = CriteriaSet.And();
+			CriteriaSet tra_menu_51Conds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
@@ -359,7 +359,7 @@ namespace GenioMVC.ViewModels.Properties
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
 				CSGenioAproperties model_limit_area = new CSGenioAproperties(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML71");
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML51");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -368,11 +368,11 @@ namespace GenioMVC.ViewModels.Properties
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(tra_menu_71Conds);
-			tra_menu_71Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(tra_menu_51Conds);
+			tra_menu_51Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL TRA OVERRQ 71]/
+// USE /[MANUAL TRA OVERRQ 51]/
 
 			bool distinct = false;
 
@@ -384,16 +384,16 @@ namespace GenioMVC.ViewModels.Properties
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAproperties>(m_userContext, false, ref tra_menu_71Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML71", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAproperties>(m_userContext, false, ref tra_menu_51Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML51", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL TRA OVERRQLSTEXP 71]/
+// USE /[MANUAL TRA OVERRQLSTEXP 51]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL TRA OVERRQLIST 71]/
+// USE /[MANUAL TRA OVERRQLIST 51]/
 
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_properties");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_properties");
@@ -401,12 +401,12 @@ namespace GenioMVC.ViewModels.Properties
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAproperties.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_71Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAproperties.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_51Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAproperties> listing = Models.ModelBase.Where<CSGenioAproperties>(m_userContext, distinct, tra_menu_71Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML71", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAproperties> listing = Models.ModelBase.Where<CSGenioAproperties>(m_userContext, distinct, tra_menu_51Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML51", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -418,15 +418,15 @@ namespace GenioMVC.ViewModels.Properties
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapTRA_Menu_71(listing);
+				Menu.Elements = MapTRA_Menu_51(listing);
 
-				Menu.Identifier = "ML71";
+				Menu.Identifier = "ML51";
 				Menu.Slots = new Dictionary<string, List<object>>();
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "ML71";
+					element.Identifier = "ML51";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -445,9 +445,9 @@ namespace GenioMVC.ViewModels.Properties
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<TRA_Menu_71_RowViewModel> MapTRA_Menu_71(ListingMVC<CSGenioAproperties> Qlisting)
+		private List<TRA_Menu_51_RowViewModel> MapTRA_Menu_51(ListingMVC<CSGenioAproperties> Qlisting)
 		{
-			List<TRA_Menu_71_RowViewModel> Elements = [];
+			List<TRA_Menu_51_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -456,7 +456,7 @@ namespace GenioMVC.ViewModels.Properties
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapTRA_Menu_71(row));
+					Elements.Add(MapTRA_Menu_51(row));
 					i++;
 				}
 			}
@@ -466,12 +466,12 @@ namespace GenioMVC.ViewModels.Properties
 
 		/// <summary>
 		/// Maps a single CSGenioAproperties row
-		/// to a TRA_Menu_71_RowViewModel object.
+		/// to a TRA_Menu_51_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private TRA_Menu_71_RowViewModel MapTRA_Menu_71(CSGenioAproperties row)
+		private TRA_Menu_51_RowViewModel MapTRA_Menu_51(CSGenioAproperties row)
 		{
-			var model = new TRA_Menu_71_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new TRA_Menu_51_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -529,7 +529,7 @@ namespace GenioMVC.ViewModels.Properties
 
 		#region Custom code
 
-// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_71]/
+// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_51]/
 
 		#endregion
 

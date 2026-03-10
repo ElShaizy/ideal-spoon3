@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '41',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CONTACTS55742),
+					designation: computed(() => this.Resources.PHOTO_ALBUMS01668),
 					acronym: 'TRA_41',
-					name: 'CONTACT',
+					name: 'PHOTO_ALBUM',
 					route: 'menu-TRA_41',
 					order: '41',
-					controller: 'CONTACT',
+					controller: 'PHOTO_ALBUM',
 					action: 'TRA_Menu_41',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'TRA_Menu_41',
-						controller: 'CONTACT',
+						controller: 'PHOTO_ALBUM',
 						action: 'TRA_Menu_41',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,35 +148,16 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValClient_name',
-								area: 'CONTACT',
-								field: 'CLIENT_NAME',
-								label: computed(() => this.Resources.CLIENT_NAME39245),
+								name: 'ValTitle',
+								area: 'PHOTO_ALBUM',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 2,
-								name: 'ValDescription',
-								area: 'CONTACT',
-								field: 'DESCRIPTION',
-								label: computed(() => this.Resources.DESCRIPTION03846),
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 3,
-								name: 'ValDate',
-								area: 'CONTACT',
-								field: 'DATE',
-								label: computed(() => this.Resources.DATE18475),
-								scrollData: 8,
-								dateTimeType: 'date',
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
 								name: 'Properties.ValTitle',
 								area: 'PROPERTIES',
 								field: 'TITLE',
@@ -186,37 +167,28 @@
 								export: 1,
 								pkColumn: 'ValCodproperties_pk',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
-								order: 5,
-								name: 'ValPhonecontact',
-								area: 'CONTACT',
-								field: 'PHONECONTACT',
-								label: computed(() => this.Resources.PHONE_NUMBER05968),
-								scrollData: 15,
-								maxDigits: 15,
-								decimalPlaces: 0,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 6,
-								name: 'ValEmailcontact',
-								area: 'CONTACT',
-								field: 'EMAILCONTACT',
-								label: computed(() => this.Resources.EMAIL55616),
-								dataLength: 256,
-								scrollData: 30,
+							new listColumnTypes.ImageColumn({
+								order: 3,
+								name: 'ValPhoto',
+								area: 'PHOTO_ALBUM',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO51874),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'TRA_Menu_41',
 							serverMode: true,
-							pkColumn: 'ValCodcontact_pk',
-							tableAlias: 'CONTACT',
-							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
+							pkColumn: 'ValCodphoto_album_pk',
+							tableAlias: 'PHOTO_ALBUM',
+							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUMS01668),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CONTACTS55742),
+							tableTitle: computed(() => this.Resources.PHOTO_ALBUMS01668),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -237,7 +209,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_PHOTO_ALBUM',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -253,7 +225,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_PHOTO_ALBUM',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -269,7 +241,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_PHOTO_ALBUM',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -285,7 +257,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_PHOTO_ALBUM',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -303,7 +275,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CONTACT',
+										formName: 'F_PHOTO_ALBUM',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -320,35 +292,35 @@
 							],
 							rowClickAction: {
 								id: 'RCA_TRA_411',
-								name: 'form-F_CONTACT',
+								name: 'form-F_PHOTO_ALBUM',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcontact_pk
+											fnValueSelector: (row) => row.ValCodphoto_album_pk
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CONTACT'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_PHOTO_ALBUM'
 								}
 							},
 							formsDefinition: {
-								'F_CONTACT': {
-									fnKeySelector: (row) => row.Fields.ValCodcontact_pk,
+								'F_PHOTO_ALBUM': {
+									fnKeySelector: (row) => row.Fields.ValCodphoto_album_pk,
 									isPopup: false
 								},
 							},
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValClient_name',
+								columnName: 'ValTitle',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PROPERTIES', 'changed-CONTACT'],
-						uuid: 'a16626d8-1948-4859-9a20-b0dcae437771',
+						globalEvents: ['changed-PROPERTIES', 'changed-PHOTO_ALBUM'],
+						uuid: '78f1c5ba-c507-44a4-8a0b-ed82f4f2e47c',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

@@ -16,30 +16,6 @@ export default function getFormsRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/:module/form/F_CITY/:mode/:id?',
-			name: 'form-F_CITY',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormFCity/QFormFCity.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'CITY',
-				humanKeyFields: [],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/:module/form/F_CONTACT/:mode/:id?',
-			name: 'form-F_CONTACT',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormFContact/QFormFContact.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'CONTACT',
-				humanKeyFields: [],
-				isPopup: false
-			}
-		},
-		{
 			path: '/:culture/:system/:module/form/F_COUNTRY/:mode/:id?',
 			name: 'form-F_COUNTRY',
 			props: route => propsConverter(route),

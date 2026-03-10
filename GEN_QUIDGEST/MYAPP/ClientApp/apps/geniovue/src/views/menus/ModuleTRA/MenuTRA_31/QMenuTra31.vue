@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '31',
 					isMenuList: true,
-					designation: computed(() => this.Resources.CITIES41573),
+					designation: computed(() => this.Resources.COUNTRIES64527),
 					acronym: 'TRA_31',
-					name: 'CITY',
+					name: 'COUNTRY',
 					route: 'menu-TRA_31',
 					order: '31',
-					controller: 'CITY',
+					controller: 'COUNTRY',
 					action: 'TRA_Menu_31',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'TRA_Menu_31',
-						controller: 'CITY',
+						controller: 'COUNTRY',
 						action: 'TRA_Menu_31',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,10 +148,10 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValCity',
-								area: 'CITY',
-								field: 'CITY',
-								label: computed(() => this.Resources.CITY42505),
+								name: 'ValCountry',
+								area: 'COUNTRY',
+								field: 'COUNTRY',
+								label: computed(() => this.Resources.COUNTRY64133),
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
@@ -160,12 +160,12 @@
 						config: {
 							name: 'TRA_Menu_31',
 							serverMode: true,
-							pkColumn: 'ValCodcity_pk',
-							tableAlias: 'CITY',
-							tableNamePlural: computed(() => this.Resources.CITIES41573),
+							pkColumn: 'ValCodcountry_pk',
+							tableAlias: 'COUNTRY',
+							tableNamePlural: computed(() => this.Resources.COUNTRIES64527),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.CITIES41573),
+							tableTitle: computed(() => this.Resources.COUNTRIES64527),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -186,7 +186,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CITY',
+										formName: 'F_COUNTRY',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -202,7 +202,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CITY',
+										formName: 'F_COUNTRY',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -218,7 +218,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CITY',
+										formName: 'F_COUNTRY',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -234,7 +234,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CITY',
+										formName: 'F_COUNTRY',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -252,7 +252,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_CITY',
+										formName: 'F_COUNTRY',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -269,35 +269,35 @@
 							],
 							rowClickAction: {
 								id: 'RCA_TRA_311',
-								name: 'form-F_CITY',
+								name: 'form-F_COUNTRY',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodcity_pk
+											fnValueSelector: (row) => row.ValCodcountry_pk
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_CITY'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_COUNTRY'
 								}
 							},
 							formsDefinition: {
-								'F_CITY': {
-									fnKeySelector: (row) => row.Fields.ValCodcity_pk,
+								'F_COUNTRY': {
+									fnKeySelector: (row) => row.Fields.ValCodcountry_pk,
 									isPopup: false
 								},
 							},
 							defaultSearchColumnName: '',
 							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
-								columnName: 'ValCity',
+								columnName: 'ValCountry',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-COUNTRY', 'changed-CITY'],
-						uuid: '79b26fa1-2053-418c-b5ff-83923f389bc7',
+						globalEvents: ['changed-COUNTRY'],
+						uuid: '21c5c072-70a6-4859-a07d-e1db91c4802f',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

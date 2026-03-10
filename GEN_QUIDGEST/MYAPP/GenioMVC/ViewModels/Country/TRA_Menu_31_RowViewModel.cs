@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Contact;
+namespace GenioMVC.ViewModels.Country;
 
-public class F_contact_PropertiesValTitle_RowViewModel : Models.Properties
+public class TRA_Menu_31_RowViewModel : Models.Country
 {
 	#region Constructors
 
-	public F_contact_PropertiesValTitle_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_31_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public F_contact_PropertiesValTitle_RowViewModel(UserContext userContext, CSGenioAproperties val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_31_RowViewModel(UserContext userContext, CSGenioAcountry val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,14 +36,8 @@ public class F_contact_PropertiesValTitle_RowViewModel : Models.Properties
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "PROPERTIES",
-				Field = "TITLE",
-			},
-			new ListColumn()
-			{
-				Order = 2,
-				Area = "PROPERTIES",
-				Field = "PRICE",
+				Area = "COUNTRY",
+				Field = "COUNTRY",
 			},
 		];
 	}
@@ -58,6 +52,10 @@ public class F_contact_PropertiesValTitle_RowViewModel : Models.Properties
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{
