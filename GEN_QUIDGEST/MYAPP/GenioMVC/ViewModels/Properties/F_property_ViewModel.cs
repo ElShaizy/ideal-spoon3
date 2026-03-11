@@ -96,17 +96,34 @@ namespace GenioMVC.ViewModels.Properties
 		/// </summary>
 		public string ValBuildingtype { get; set; }
 		/// <summary>
-		/// Title: "Construction date" | Type: "D"
-		/// </summary>
-		public DateTime? ValDateconstruction { get; set; }
-		/// <summary>
 		/// Title: "ID" | Type: "N"
 		/// </summary>
 		public decimal? ValOrder { get; set; }
 		/// <summary>
+		/// Title: "Construction date" | Type: "D"
+		/// </summary>
+		public DateTime? ValDateconstruction { get; set; }
+		/// <summary>
+		/// Title: "building age" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValBuildingage { get; set; }
+		/// <summary>
+		/// Title: "Date sold" | Type: "D"
+		/// </summary>
+		public DateTime? ValSolddate { get; set; }
+		/// <summary>
 		/// Title: "Typology" | Type: "AN"
 		/// </summary>
 		public decimal ValTypology { get; set; }
+		/// <summary>
+		/// Title: "floor number" | Type: "N"
+		/// </summary>
+		public decimal? ValFloornumber { get; set; }
+		/// <summary>
+		/// Title: "groundsize" | Type: "N"
+		/// </summary>
+		public decimal? ValGroundsize { get; set; }
 		/// <summary>
 		/// Title: "brokers name" | Type: "C"
 		/// </summary>
@@ -288,9 +305,13 @@ namespace GenioMVC.ViewModels.Properties
 				ValBathroomsnumber = ViewModelConversion.ToNumeric(m.ValBathroomsnumber);
 				ValSizem2 = ViewModelConversion.ToString(m.ValSizem2);
 				ValBuildingtype = ViewModelConversion.ToString(m.ValBuildingtype);
-				ValDateconstruction = ViewModelConversion.ToDateTime(m.ValDateconstruction);
 				ValOrder = ViewModelConversion.ToNumeric(m.ValOrder);
+				ValDateconstruction = ViewModelConversion.ToDateTime(m.ValDateconstruction);
+				ValBuildingage = ViewModelConversion.ToNumeric(m.ValBuildingage);
+				ValSolddate = ViewModelConversion.ToDateTime(m.ValSolddate);
 				ValTypology = ViewModelConversion.ToNumeric(m.ValTypology);
+				ValFloornumber = ViewModelConversion.ToNumeric(m.ValFloornumber);
+				ValGroundsize = ViewModelConversion.ToNumeric(m.ValGroundsize);
 				funcBrokerValMain_photo = () => ViewModelConversion.ToImage(m.Broker.ValMain_photo);
 				funcBrokerValEmail = () => ViewModelConversion.ToString(m.Broker.ValEmail);
 				ValCodproperties = ViewModelConversion.ToString(m.ValCodproperties);
@@ -330,9 +351,12 @@ namespace GenioMVC.ViewModels.Properties
 				m.ValBathroomsnumber = ViewModelConversion.ToNumeric(ValBathroomsnumber);
 				m.ValSizem2 = ViewModelConversion.ToString(ValSizem2);
 				m.ValBuildingtype = ViewModelConversion.ToString(ValBuildingtype);
-				m.ValDateconstruction = ViewModelConversion.ToDateTime(ValDateconstruction);
 				m.ValOrder = ViewModelConversion.ToNumeric(ValOrder);
+				m.ValDateconstruction = ViewModelConversion.ToDateTime(ValDateconstruction);
+				m.ValSolddate = ViewModelConversion.ToDateTime(ValSolddate);
 				m.ValTypology = ViewModelConversion.ToNumeric(ValTypology);
+				m.ValFloornumber = ViewModelConversion.ToNumeric(ValFloornumber);
+				m.ValGroundsize = ViewModelConversion.ToNumeric(ValGroundsize);
 				m.ValCodproperties = ViewModelConversion.ToString(ValCodproperties);
 
 				/*
@@ -342,6 +366,7 @@ namespace GenioMVC.ViewModels.Properties
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
+				m.ValBuildingage = ViewModelConversion.ToNumeric(ValBuildingage);
 			}
 			catch (Exception)
 			{
@@ -396,14 +421,23 @@ namespace GenioMVC.ViewModels.Properties
 					case "properties.buildingtype":
 						this.ValBuildingtype = ViewModelConversion.ToString(_value);
 						break;
-					case "properties.dateconstruction":
-						this.ValDateconstruction = ViewModelConversion.ToDateTime(_value);
-						break;
 					case "properties.order":
 						this.ValOrder = ViewModelConversion.ToNumeric(_value);
 						break;
+					case "properties.dateconstruction":
+						this.ValDateconstruction = ViewModelConversion.ToDateTime(_value);
+						break;
+					case "properties.solddate":
+						this.ValSolddate = ViewModelConversion.ToDateTime(_value);
+						break;
 					case "properties.typology":
 						this.ValTypology = ViewModelConversion.ToNumeric(_value);
+						break;
+					case "properties.floornumber":
+						this.ValFloornumber = ViewModelConversion.ToNumeric(_value);
+						break;
+					case "properties.groundsize":
+						this.ValGroundsize = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "properties.codproperties":
 						this.ValCodproperties = ViewModelConversion.ToString(_value);
@@ -971,9 +1005,13 @@ namespace GenioMVC.ViewModels.Properties
 				"properties.bathroomsnumber" => ViewModelConversion.ToNumeric(modelValue),
 				"properties.sizem2" => ViewModelConversion.ToString(modelValue),
 				"properties.buildingtype" => ViewModelConversion.ToString(modelValue),
-				"properties.dateconstruction" => ViewModelConversion.ToDateTime(modelValue),
 				"properties.order" => ViewModelConversion.ToNumeric(modelValue),
+				"properties.dateconstruction" => ViewModelConversion.ToDateTime(modelValue),
+				"properties.buildingage" => ViewModelConversion.ToNumeric(modelValue),
+				"properties.solddate" => ViewModelConversion.ToDateTime(modelValue),
 				"properties.typology" => ViewModelConversion.ToNumeric(modelValue),
+				"properties.floornumber" => ViewModelConversion.ToNumeric(modelValue),
+				"properties.groundsize" => ViewModelConversion.ToNumeric(modelValue),
 				"broker.main_photo" => ViewModelConversion.ToImage(modelValue),
 				"broker.email" => ViewModelConversion.ToString(modelValue),
 				"properties.codproperties" => ViewModelConversion.ToString(modelValue),

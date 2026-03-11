@@ -178,15 +178,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValBuildingtype))
 		this.stopWatchers.push(watch(() => this.ValBuildingtype.value, (newValue, oldValue) => this.onUpdate('properties.buildingtype', this.ValBuildingtype, newValue, oldValue)))
 
-		this.ValDateconstruction = reactive(new modelFieldType.Date({
-			id: 'ValDateconstruction',
-			originId: 'ValDateconstruction',
-			area: 'PROPERTIES',
-			field: 'DATECONSTRUCTION',
-			description: computed(() => this.Resources.CONSTRUCTION_DATE18132),
-		}).cloneFrom(values?.ValDateconstruction))
-		this.stopWatchers.push(watch(() => this.ValDateconstruction.value, (newValue, oldValue) => this.onUpdate('properties.dateconstruction', this.ValDateconstruction, newValue, oldValue)))
-
 		this.ValOrder = reactive(new modelFieldType.Number({
 			id: 'ValOrder',
 			originId: 'ValOrder',
@@ -197,6 +188,59 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.ID48520),
 		}).cloneFrom(values?.ValOrder))
 		this.stopWatchers.push(watch(() => this.ValOrder.value, (newValue, oldValue) => this.onUpdate('properties.order', this.ValOrder, newValue, oldValue)))
+
+		this.ValDateconstruction = reactive(new modelFieldType.Date({
+			id: 'ValDateconstruction',
+			originId: 'ValDateconstruction',
+			area: 'PROPERTIES',
+			field: 'DATECONSTRUCTION',
+			description: computed(() => this.Resources.CONSTRUCTION_DATE18132),
+		}).cloneFrom(values?.ValDateconstruction))
+		this.stopWatchers.push(watch(() => this.ValDateconstruction.value, (newValue, oldValue) => this.onUpdate('properties.dateconstruction', this.ValDateconstruction, newValue, oldValue)))
+
+		this.ValBuildingage = reactive(new modelFieldType.Number({
+			id: 'ValBuildingage',
+			originId: 'ValBuildingage',
+			area: 'PROPERTIES',
+			field: 'BUILDINGAGE',
+			maxDigits: 10,
+			decimalDigits: 0,
+			isFixed: true,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: Year([Today]) - Year([PROPERTIES->DATECONSTRUCTION])
+					return qApi.Year(qApi.Today())-qApi.Year(this.ValDateconstruction.value)
+				},
+				dependencyEvents: ['fieldChange:properties.dateconstruction'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.BUILDING_AGE37966),
+		}).cloneFrom(values?.ValBuildingage))
+		this.stopWatchers.push(watch(() => this.ValBuildingage.value, (newValue, oldValue) => this.onUpdate('properties.buildingage', this.ValBuildingage, newValue, oldValue)))
+
+		this.ValSolddate = reactive(new modelFieldType.Date({
+			id: 'ValSolddate',
+			originId: 'ValSolddate',
+			area: 'PROPERTIES',
+			field: 'SOLDDATE',
+			showWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [PROPERTIES->SOLD]== 1
+					return (this.ValSold.value ? 1 : 0)===1
+				},
+				dependencyEvents: ['fieldChange:properties.sold'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyD,
+			},
+			description: computed(() => this.Resources.DATE_SOLD35096),
+		}).cloneFrom(values?.ValSolddate))
+		this.stopWatchers.push(watch(() => this.ValSolddate.value, (newValue, oldValue) => this.onUpdate('properties.solddate', this.ValSolddate, newValue, oldValue)))
 
 		this.ValTypology = reactive(new modelFieldType.Number({
 			id: 'ValTypology',
@@ -209,6 +253,39 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.TYPOLOGY11991),
 		}).cloneFrom(values?.ValTypology))
 		this.stopWatchers.push(watch(() => this.ValTypology.value, (newValue, oldValue) => this.onUpdate('properties.typology', this.ValTypology, newValue, oldValue)))
+
+		this.ValFloornumber = reactive(new modelFieldType.Number({
+			id: 'ValFloornumber',
+			originId: 'ValFloornumber',
+			area: 'PROPERTIES',
+			field: 'FLOORNUMBER',
+			maxDigits: 3,
+			decimalDigits: 0,
+			description: computed(() => this.Resources.FLOOR_NUMBER35331),
+		}).cloneFrom(values?.ValFloornumber))
+		this.stopWatchers.push(watch(() => this.ValFloornumber.value, (newValue, oldValue) => this.onUpdate('properties.floornumber', this.ValFloornumber, newValue, oldValue)))
+
+		this.ValGroundsize = reactive(new modelFieldType.Number({
+			id: 'ValGroundsize',
+			originId: 'ValGroundsize',
+			area: 'PROPERTIES',
+			field: 'GROUNDSIZE',
+			maxDigits: 6,
+			decimalDigits: 0,
+			showWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [PROPERTIES->BUILDINGTYPE]=="H"
+					return this.ValBuildingtype.value==="H"
+				},
+				dependencyEvents: ['fieldChange:properties.buildingtype'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.GROUNDSIZE44655),
+		}).cloneFrom(values?.ValGroundsize))
+		this.stopWatchers.push(watch(() => this.ValGroundsize.value, (newValue, oldValue) => this.onUpdate('properties.groundsize', this.ValGroundsize, newValue, oldValue)))
 
 		this.TableBrokerName = reactive(new modelFieldType.String({
 			type: 'Lookup',

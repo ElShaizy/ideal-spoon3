@@ -84,6 +84,9 @@
   <msg id="Gravar" code="GRAVAR45301">
     <ENUS>Gravar</ENUS>
   </msg>
+  <msg id="Last sold" code="LAST_SOLD12635">
+    <ENUS>Last sold</ENUS>
+  </msg>
   <msg id="Cc" code="CC35482">
     <ENUS>Cc</ENUS>
   </msg>
@@ -326,6 +329,9 @@
   </msg>
   <msg id="Property" code="PROPERTY43977">
     <ENUS>Property</ENUS>
+  </msg>
+  <msg id="Date sold" code="DATE_SOLD35096">
+    <ENUS>Date sold</ENUS>
   </msg>
   <msg id="Properties" code="PROPERTIES34868">
     <ENUS>Properties</ENUS>

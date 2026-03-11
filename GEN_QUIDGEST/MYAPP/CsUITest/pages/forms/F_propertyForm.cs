@@ -74,19 +74,39 @@ public class F_propertyForm : Form
 	public EnumControl PropertiesBuildingtype => new EnumControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BUILDINGTYPE");
 
 	/// <summary>
-	/// Construction date
-	/// </summary>
-	public DateInputControl PropertiesDateconstruction => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__DATECONSTRUCTION");
-
-	/// <summary>
 	/// ID
 	/// </summary>
 	public BaseInputControl PropertiesOrder => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__ORDER", "#F_PROPERTY__PROPERTIES__ORDER");
 
 	/// <summary>
+	/// Construction date
+	/// </summary>
+	public DateInputControl PropertiesDateconstruction => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__DATECONSTRUCTION");
+
+	/// <summary>
+	/// building age
+	/// </summary>
+	public BaseInputControl PropertiesBuildingage => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__BUILDINGAGE", "#F_PROPERTY__PROPERTIES__BUILDINGAGE");
+
+	/// <summary>
+	/// Date sold
+	/// </summary>
+	public DateInputControl PropertiesSolddate => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTIES__SOLDDATE");
+
+	/// <summary>
 	/// Typology
 	/// </summary>
 	public RadiobuttonControl PropertiesTypology => new RadiobuttonControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__TYPOLOGY");
+
+	/// <summary>
+	/// floor number
+	/// </summary>
+	public BaseInputControl PropertiesFloornumber => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__FLOORNUMBER", "#F_PROPERTY__PROPERTIES__FLOORNUMBER");
+
+	/// <summary>
+	/// groundsize
+	/// </summary>
+	public BaseInputControl PropertiesGroundsize => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__GROUNDSIZE", "#F_PROPERTY__PROPERTIES__GROUNDSIZE");
 
 	/// <summary>
 	/// brokers information

@@ -201,6 +201,9 @@
 	<data name="GRAVAR45301" xml:space="preserve">
 		<value>Gravar</value>
 	</data>
+	<data name="LAST_SOLD12635" xml:space="preserve">
+		<value>Last sold</value>
+	</data>
 	<data name="CC35482" xml:space="preserve">
 		<value>Cc</value>
 	</data>
@@ -443,6 +446,9 @@
 	</data>
 	<data name="PROPERTY43977" xml:space="preserve">
 		<value>Property</value>
+	</data>
+	<data name="DATE_SOLD35096" xml:space="preserve">
+		<value>Date sold</value>
 	</data>
 	<data name="PROPERTIES34868" xml:space="preserve">
 		<value>Properties</value>

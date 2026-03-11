@@ -315,6 +315,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Last sold"
+		/// </summary>
+		public static string LAST_SOLD12635 {
+			get {
+				return ResourceManager.GetString("LAST_SOLD12635", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Cc"
 		/// </summary>
 		public static string CC35482 {
@@ -1040,6 +1049,15 @@ namespace GenioMVC.Resources
 		public static string PROPERTY43977 {
 			get {
 				return ResourceManager.GetString("PROPERTY43977", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Date sold"
+		/// </summary>
+		public static string DATE_SOLD35096 {
+			get {
+				return ResourceManager.GetString("DATE_SOLD35096", resourceCulture);
 			}
 		}
 
