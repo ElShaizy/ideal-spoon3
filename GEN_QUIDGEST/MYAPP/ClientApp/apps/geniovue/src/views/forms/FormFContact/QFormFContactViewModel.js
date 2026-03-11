@@ -122,6 +122,17 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValDescription',
 			area: 'CONTACT',
 			field: 'DESCRIPTION',
+			showWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: isEmptyC([CONTACT->PHONECONTACT])
+					return (this.ValPhonecontact.value === '')
+				},
+				dependencyEvents: ['fieldChange:contact.phonecontact'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyC,
+			},
 			description: computed(() => this.Resources.DESCRIPTION03846),
 		}).cloneFrom(values?.ValDescription))
 		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('contact.description', this.ValDescription, newValue, oldValue)))

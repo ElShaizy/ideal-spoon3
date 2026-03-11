@@ -396,6 +396,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "groundsize"
+		/// </summary>
+		public static string GROUNDSIZE44655 {
+			get {
+				return ResourceManager.GetString("GROUNDSIZE44655", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Name"
 		/// </summary>
 		public static string NAME31974 {
@@ -626,6 +635,15 @@ namespace GenioMVC.Resources
 		public static string TWO_BEDROOM_HOUSE28362 {
 			get {
 				return ResourceManager.GetString("TWO_BEDROOM_HOUSE28362", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "floor number"
+		/// </summary>
+		public static string FLOOR_NUMBER35331 {
+			get {
+				return ResourceManager.GetString("FLOOR_NUMBER35331", resourceCulture);
 			}
 		}
 

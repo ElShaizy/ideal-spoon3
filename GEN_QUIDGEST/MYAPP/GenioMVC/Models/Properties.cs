@@ -138,6 +138,18 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValBuildingage { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBuildingage, 0)); } set { klass.ValBuildingage = Convert.ToDecimal(value); } }
 
+		[DisplayName("groundsize")]
+		/// <summary>Field : "groundsize" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValGroundsize")]
+		[NumericAttribute(0)]
+		public decimal? ValGroundsize { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValGroundsize, 0)); } set { klass.ValGroundsize = Convert.ToDecimal(value); } }
+
+		[DisplayName("floor number")]
+		/// <summary>Field : "floor number" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Properties.ValFloornumber")]
+		[NumericAttribute(0)]
+		public decimal? ValFloornumber { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValFloornumber, 0)); } set { klass.ValFloornumber = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Properties.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

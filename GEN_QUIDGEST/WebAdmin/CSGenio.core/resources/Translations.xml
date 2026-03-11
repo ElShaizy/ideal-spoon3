@@ -111,6 +111,9 @@
   <msg id="Percentage" code="PERCENTAGE57728">
     <ENUS>Percentage</ENUS>
   </msg>
+  <msg id="groundsize" code="GROUNDSIZE44655">
+    <ENUS>groundsize</ENUS>
+  </msg>
   <msg id="Name" code="NAME31974">
     <ENUS>Name</ENUS>
   </msg>
@@ -188,6 +191,9 @@
   </msg>
   <msg id="two bedroom house" code="TWO_BEDROOM_HOUSE28362">
     <ENUS>two bedroom house</ENUS>
+  </msg>
+  <msg id="floor number" code="FLOOR_NUMBER35331">
+    <ENUS>floor number</ENUS>
   </msg>
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
