@@ -555,6 +555,9 @@
 	<data name="CONTACT59247" xml:space="preserve">
 		<value>Contact</value>
 	</data>
+	<data name="YOU_CANNOT_SAVE_A_PR14035" xml:space="preserve">
+		<value>you cannot save a property with no price</value>
+	</data>
 	<data name="MESSAGE30602" xml:space="preserve">
 		<value>Message</value>
 	</data>

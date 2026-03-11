@@ -295,6 +295,20 @@ namespace CSGenio.business
 
 			//Write conditions
 			List<ConditionFormula> conditions = new List<ConditionFormula>();
+
+			// [PROPERTIES->PRICE]>0
+			{
+			List<ByAreaArguments> argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea= new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"price"},new int[] {0},"properties","codproperties"));
+			ConditionFormula writeCondition = new ConditionFormula(argumentsListByArea, 1, delegate(object []args,User user,string module,PersistentSupport sp) {
+				return ((decimal)args[0])>0;
+			});
+			writeCondition.ErrorWarning = "you cannot save a property with no price";
+            writeCondition.Type =  ConditionType.ERROR;
+            writeCondition.Validate = true;
+			conditions.Add(writeCondition);
+			}
 			info.WriteConditions = conditions.Where(c=> c.IsWriteCondition()).ToList();
 			info.CrudConditions = conditions.Where(c=> c.IsCrudCondition()).ToList();
 

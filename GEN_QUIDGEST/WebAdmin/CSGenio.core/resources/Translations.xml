@@ -438,6 +438,9 @@
   <msg id="Contact" code="CONTACT59247">
     <ENUS>Contact</ENUS>
   </msg>
+  <msg id="you cannot save a property with no price" code="YOU_CANNOT_SAVE_A_PR14035">
+    <ENUS>you cannot save a property with no price</ENUS>
+  </msg>
   <msg id="Message" code="MESSAGE30602">
     <ENUS>Message</ENUS>
   </msg>

@@ -1375,6 +1375,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "you cannot save a property with no price"
+        /// </summary>
+        public static string YOU_CANNOT_SAVE_A_PR14035 {
+            get {
+                return ResourceManager.GetString("YOU_CANNOT_SAVE_A_PR14035", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Message"
         /// </summary>
         public static string MESSAGE30602 {
