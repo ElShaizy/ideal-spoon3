@@ -1456,6 +1456,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "ID"
+        /// </summary>
+        public static string ID48520 {
+            get {
+                return ResourceManager.GetString("ID48520", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Notification Messages"
         /// </summary>
         public static string NOTIFICATION_MESSAGE60981 {

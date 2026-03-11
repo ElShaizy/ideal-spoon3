@@ -582,6 +582,9 @@
 	<data name="EM_EXECUCAO53706" xml:space="preserve">
 		<value>Em execução</value>
 	</data>
+	<data name="ID48520" xml:space="preserve">
+		<value>ID</value>
+	</data>
 	<data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
 		<value>Notification Messages</value>
 	</data>

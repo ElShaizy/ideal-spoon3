@@ -201,8 +201,7 @@ namespace GenioMVC.ViewModels.Properties
 				new Exports.QColumn(CSGenioAproperties.FldDescription, FieldType.MEMO, Resources.Resources.DESCRIPTION07383, 500, 0, true),
 				new Exports.QColumn(CSGenioAproperties.FldBuildingtype, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE34158, 1, 0, true, "building_type"),
 				new Exports.QColumn(CSGenioAproperties.FldTypology, FieldType.ARRAY_NUMERIC, Resources.Resources.TYPOLOGY11991, 1, 0, true, "typology"),
-				new Exports.QColumn(CSGenioAproperties.FldOrder, FieldType.NUMERIC, Resources.Resources.ORDER39632, 8, 0, true),
-				new Exports.QColumn(CSGenioAproperties.FldBuildingage, FieldType.NUMERIC, Resources.Resources.BUILDING_AGE37966, 8, 0, true),
+				new Exports.QColumn(CSGenioAproperties.FldOrder, FieldType.NUMERIC, Resources.Resources.ID48520, 8, 0, true),
 				new Exports.QColumn(CSGenioAbroker.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
 			};
 		}

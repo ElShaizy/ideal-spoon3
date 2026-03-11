@@ -174,11 +174,11 @@ namespace CSGenio.business
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "order", FieldType.NUMERIC);
-			Qfield.FieldDescription = "Order";
+			Qfield.FieldDescription = "ID";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 8;
-			Qfield.CavDesignation = "ORDER39632";
+			Qfield.CavDesignation = "ID48520";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -186,12 +186,17 @@ namespace CSGenio.business
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "buildingage", FieldType.NUMERIC);
 			Qfield.FieldDescription = "building age";
-			Qfield.FieldSize =  8;
+			Qfield.FieldSize =  10;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 8;
+			Qfield.IntegerDigits = 10;
 			Qfield.CavDesignation = "BUILDING_AGE37966";
 
 			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"dateconstruction"}, new int[] {0}, "properties", "codproperties"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return GenFunctions.Year(DateTime.Today)-GenFunctions.Year(((DateTime)args[0]));
+			});
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -241,6 +246,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.InternalOperationFields = new string[] {
+			 "buildingage"
+			};
 
 
 
@@ -481,22 +490,22 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTypology, value); }
 		}
 
-		/// <summary>Field : "Order" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "ID" Tipo: "N" Formula:  ""</summary>
 		public static FieldRef FldOrder { get { return m_fldOrder; } }
 		private static FieldRef m_fldOrder = new FieldRef("properties", "order");
 
-		/// <summary>Field : "Order" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "ID" Tipo: "N" Formula:  ""</summary>
 		public decimal ValOrder
 		{
 			get { return (decimal)returnValueField(FldOrder); }
 			set { insertNameValueField(FldOrder, value); }
 		}
 
-		/// <summary>Field : "building age" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "building age" Tipo: "N" Formula: + "Year([Today]) - Year([PROPERTIES->DATECONSTRUCTION])"</summary>
 		public static FieldRef FldBuildingage { get { return m_fldBuildingage; } }
 		private static FieldRef m_fldBuildingage = new FieldRef("properties", "buildingage");
 
-		/// <summary>Field : "building age" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "building age" Tipo: "N" Formula: + "Year([Today]) - Year([PROPERTIES->DATECONSTRUCTION])"</summary>
 		public decimal ValBuildingage
 		{
 			get { return (decimal)returnValueField(FldBuildingage); }
