@@ -116,7 +116,7 @@ namespace CSGenio.business
 			argumentsListByArea = new List<ByAreaArguments>();
 			argumentsListByArea.Add(new ByAreaArguments(new string[] {"phonecontact"}, new int[] {0}, "contact", "codcontact"));
 			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return (((decimal)args[0]) == "");
+				return (((decimal)args[0]) == 0);
 			});
 			info.RegisterFieldDB(Qfield);
 
