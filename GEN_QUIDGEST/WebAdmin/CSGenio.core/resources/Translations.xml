@@ -183,6 +183,9 @@
   <msg id="country" code="COUNTRY45120">
     <ENUS>country</ENUS>
   </msg>
+  <msg id="sales profit" code="SALES_PROFIT14192">
+    <ENUS>sales profit</ENUS>
+  </msg>
   <msg id="Notification Email Signature" code="NOTIFICATION_EMAIL_S62518">
     <ENUS>Notification Email Signature</ENUS>
   </msg>
@@ -347,6 +350,9 @@
   </msg>
   <msg id="Async process arguments" code="ASYNC_PROCESS_ARGUME13794">
     <ENUS>Async process arguments</ENUS>
+  </msg>
+  <msg id="number of properties" code="NUMBER_OF_PROPERTIES52479">
+    <ENUS>number of properties</ENUS>
   </msg>
   <msg id="Async process attachment" code="ASYNC_PROCESS_ATTACH34417">
     <ENUS>Async process attachment</ENUS>

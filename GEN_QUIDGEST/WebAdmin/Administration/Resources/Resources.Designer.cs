@@ -610,6 +610,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "sales profit"
+        /// </summary>
+        public static string SALES_PROFIT14192 {
+            get {
+                return ResourceManager.GetString("SALES_PROFIT14192", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Notification Email Signature"
         /// </summary>
         public static string NOTIFICATION_EMAIL_S62518 {
@@ -1101,6 +1110,15 @@ namespace Administration.Resources {
         public static string ASYNC_PROCESS_ARGUME13794 {
             get {
                 return ResourceManager.GetString("ASYNC_PROCESS_ARGUME13794", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "number of properties"
+        /// </summary>
+        public static string NUMBER_OF_PROPERTIES52479 {
+            get {
+                return ResourceManager.GetString("NUMBER_OF_PROPERTIES52479", resourceCulture);
             }
         }
 

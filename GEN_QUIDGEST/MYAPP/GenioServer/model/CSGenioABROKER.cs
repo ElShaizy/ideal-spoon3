@@ -111,6 +111,29 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "noofproperties", FieldType.NUMERIC);
+			Qfield.FieldDescription = "number of properties";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 8;
+			Qfield.CavDesignation = "NUMBER_OF_PROPERTIES52479";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "salesprofit", FieldType.CURRENCY);
+			Qfield.FieldDescription = "sales profit";
+			Qfield.FieldSize =  10;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 7;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "SALES_PROFIT14192";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -156,6 +179,10 @@ namespace CSGenio.business
 			 "email"
 			};
 
+
+			info.RelatedSumFields = new string[] {
+			 "noofproperties","salesprofit"
+			};
 
 
 
@@ -329,6 +356,28 @@ namespace CSGenio.business
 			set { insertNameValueField(FldPhone_number, value); }
 		}
 
+		/// <summary>Field : "number of properties" Tipo: "N" Formula: SR "[PROPERTIES->1]"</summary>
+		public static FieldRef FldNoofproperties { get { return m_fldNoofproperties; } }
+		private static FieldRef m_fldNoofproperties = new FieldRef("broker", "noofproperties");
+
+		/// <summary>Field : "number of properties" Tipo: "N" Formula: SR "[PROPERTIES->1]"</summary>
+		public decimal ValNoofproperties
+		{
+			get { return (decimal)returnValueField(FldNoofproperties); }
+			set { insertNameValueField(FldNoofproperties, value); }
+		}
+
+		/// <summary>Field : "sales profit" Tipo: "$" Formula: SR "[PROPERTIES->PRICE]"</summary>
+		public static FieldRef FldSalesprofit { get { return m_fldSalesprofit; } }
+		private static FieldRef m_fldSalesprofit = new FieldRef("broker", "salesprofit");
+
+		/// <summary>Field : "sales profit" Tipo: "$" Formula: SR "[PROPERTIES->PRICE]"</summary>
+		public decimal ValSalesprofit
+		{
+			get { return (decimal)returnValueField(FldSalesprofit); }
+			set { insertNameValueField(FldSalesprofit, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("broker", "zzstate");
@@ -426,7 +475,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX BROKER]/
 
  
-       
+         
 
 	}
 }

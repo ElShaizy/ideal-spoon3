@@ -300,6 +300,9 @@
   <data name="COUNTRY45120" xml:space="preserve">
     <value>country</value>
   </data>
+  <data name="SALES_PROFIT14192" xml:space="preserve">
+    <value>sales profit</value>
+  </data>
   <data name="NOTIFICATION_EMAIL_S62518" xml:space="preserve">
     <value>Notification Email Signature</value>
   </data>
@@ -464,6 +467,9 @@
   </data>
   <data name="ASYNC_PROCESS_ARGUME13794" xml:space="preserve">
     <value>Async process arguments</value>
+  </data>
+  <data name="NUMBER_OF_PROPERTIES52479" xml:space="preserve">
+    <value>number of properties</value>
   </data>
   <data name="ASYNC_PROCESS_ATTACH34417" xml:space="preserve">
     <value>Async process attachment</value>
