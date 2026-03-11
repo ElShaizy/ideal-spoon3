@@ -123,6 +123,27 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
+							<q-row v-if="controls.F_PROPERTY__PROPERTIES__SOLD.isVisible">
+								<q-col
+									v-if="controls.F_PROPERTY__PROPERTIES__SOLD.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.F_PROPERTY__PROPERTIES__SOLD.isVisible"
+										class="i-checkbox"
+										v-bind="controls.F_PROPERTY__PROPERTIES__SOLD"
+										v-on="controls.F_PROPERTY__PROPERTIES__SOLD.handlers"
+										:loading="controls.F_PROPERTY__PROPERTIES__SOLD.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<template #label>
+											<q-checkbox
+												v-if="controls.F_PROPERTY__PROPERTIES__SOLD.isVisible"
+												v-bind="controls.F_PROPERTY__PROPERTIES__SOLD.props"
+												v-on="controls.F_PROPERTY__PROPERTIES__SOLD.handlers" />
+										</template>
+									</base-input-structure>
+								</q-col>
+							</q-row>
 							<q-row v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible">
 								<q-col
 									v-if="controls.F_PROPERTY__PROPERTIES__TITLE.isVisible"
@@ -823,7 +844,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['F_PROPERTY__PROPERTIES__MAIN_PHOTO', 'F_PROPERTY__PROPERTIES__TITLE', 'F_PROPERTY__PROPERTIES__PRICE', 'F_PROPERTY__PROPERTIES__DESCRIPTION'],
+						directChildren: ['F_PROPERTY__PROPERTIES__MAIN_PHOTO', 'F_PROPERTY__PROPERTIES__SOLD', 'F_PROPERTY__PROPERTIES__TITLE', 'F_PROPERTY__PROPERTIES__PRICE', 'F_PROPERTY__PROPERTIES__DESCRIPTION'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -844,6 +865,19 @@
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
 						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTIES__SOLD: new fieldControlClass.BooleanControl({
+						modelField: 'ValSold',
+						valueChangeEvent: 'fieldChange:properties.sold',
+						id: 'F_PROPERTY__PROPERTIES__SOLD',
+						name: 'SOLD',
+						size: 'mini',
+						label: computed(() => this.Resources.SOLD56700),
+						placeholder: '',
+						labelPosition: computed(() => this.$app.layout.CheckboxLabelAlignment),
+						container: 'F_PROPERTY__PSEUD__NEWGRP01',
 						controlLimits: [
 						],
 					}, this),
@@ -1476,6 +1510,8 @@
 						set ValPrice(value) { vm.model.ValPrice.updateValue(value) },
 						get ValSizem2() { return vm.model.ValSizem2.value },
 						set ValSizem2(value) { vm.model.ValSizem2.updateValue(value) },
+						get ValSold() { return vm.model.ValSold.value },
+						set ValSold(value) { vm.model.ValSold.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
 						get ValTypology() { return vm.model.ValTypology.value },

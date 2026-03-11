@@ -84,6 +84,15 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValMain_photo))
 		this.stopWatchers.push(watch(() => this.ValMain_photo.value, (newValue, oldValue) => this.onUpdate('properties.main_photo', this.ValMain_photo, newValue, oldValue)))
 
+		this.ValSold = reactive(new modelFieldType.Boolean({
+			id: 'ValSold',
+			originId: 'ValSold',
+			area: 'PROPERTIES',
+			field: 'SOLD',
+			description: computed(() => this.Resources.SOLD56700),
+		}).cloneFrom(values?.ValSold))
+		this.stopWatchers.push(watch(() => this.ValSold.value, (newValue, oldValue) => this.onUpdate('properties.sold', this.ValSold, newValue, oldValue)))
+
 		this.ValTitle = reactive(new modelFieldType.String({
 			id: 'ValTitle',
 			originId: 'ValTitle',

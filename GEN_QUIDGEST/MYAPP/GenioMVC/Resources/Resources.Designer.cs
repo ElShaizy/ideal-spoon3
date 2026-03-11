@@ -378,6 +378,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Sold properties"
+		/// </summary>
+		public static string SOLD_PROPERTIES32666 {
+			get {
+				return ResourceManager.GetString("SOLD_PROPERTIES32666", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Resultado"
 		/// </summary>
 		public static string RESULTADO50955 {
@@ -491,6 +500,15 @@ namespace GenioMVC.Resources
 		public static string CANCELADO05982 {
 			get {
 				return ResourceManager.GetString("CANCELADO05982", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "sold"
+		/// </summary>
+		public static string SOLD56700 {
+			get {
+				return ResourceManager.GetString("SOLD56700", resourceCulture);
 			}
 		}
 

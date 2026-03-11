@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Photo_album;
+namespace GenioMVC.ViewModels.Properties;
 
-public class F_photo_album_PropertiesValTitle_RowViewModel : Models.Properties
+public class TRA_Menu_21_RowViewModel : Models.Properties
 {
 	#region Constructors
 
-	public F_photo_album_PropertiesValTitle_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_21_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public F_photo_album_PropertiesValTitle_RowViewModel(UserContext userContext, CSGenioAproperties val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_21_RowViewModel(UserContext userContext, CSGenioAproperties val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -37,13 +37,73 @@ public class F_photo_album_PropertiesValTitle_RowViewModel : Models.Properties
 			{
 				Order = 1,
 				Area = "PROPERTIES",
-				Field = "TITLE",
+				Field = "DESCRIPTION",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "PROPERTIES",
+				Field = "BUILDINGAGE",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "PROPERTIES",
+				Field = "TITLE",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "PROPERTIES",
+				Field = "TYPOLOGY",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "PROPERTIES",
 				Field = "PRICE",
+			},
+			new ListColumn()
+			{
+				Order = 6,
+				Area = "PROPERTIES",
+				Field = "DATECONSTRUCTION",
+			},
+			new ListColumn()
+			{
+				Order = 7,
+				Area = "BROKER",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 8,
+				Area = "PROPERTIES",
+				Field = "BUILDINGTYPE",
+			},
+			new ListColumn()
+			{
+				Order = 9,
+				Area = "PROPERTIES",
+				Field = "ORDER",
+			},
+			new ListColumn()
+			{
+				Order = 10,
+				Area = "PROPERTIES",
+				Field = "BATHROOMSNUMBER",
+			},
+			new ListColumn()
+			{
+				Order = 11,
+				Area = "PROPERTIES",
+				Field = "SIZEM2",
+			},
+			new ListColumn()
+			{
+				Order = 12,
+				Area = "PROPERTIES",
+				Field = "MAIN_PHOTO",
 			},
 		];
 	}
@@ -58,6 +118,10 @@ public class F_photo_album_PropertiesValTitle_RowViewModel : Models.Properties
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

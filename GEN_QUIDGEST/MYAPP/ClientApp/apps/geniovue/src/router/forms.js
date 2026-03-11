@@ -52,18 +52,6 @@ export default function getFormsRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/:module/form/F_PHOTO_ALBUM/:mode/:id?',
-			name: 'form-F_PHOTO_ALBUM',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormFPhotoAlbum/QFormFPhotoAlbum.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'PHOTO_ALBUM',
-				humanKeyFields: [],
-				isPopup: false
-			}
-		},
-		{
 			path: '/:culture/:system/:module/form/F_PROPERTY/:mode/:id?',
 			name: 'form-F_PROPERTY',
 			props: route => propsConverter(route),

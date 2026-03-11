@@ -105,6 +105,9 @@
   <msg id="Document" code="DOCUMENT00695">
     <ENUS>Document</ENUS>
   </msg>
+  <msg id="Sold properties" code="SOLD_PROPERTIES32666">
+    <ENUS>Sold properties</ENUS>
+  </msg>
   <msg id="Resultado" code="RESULTADO50955">
     <ENUS>Resultado</ENUS>
   </msg>
@@ -143,6 +146,9 @@
   </msg>
   <msg id="Cancelado" code="CANCELADO05982">
     <ENUS>Cancelado</ENUS>
+  </msg>
+  <msg id="sold" code="SOLD56700">
+    <ENUS>sold</ENUS>
   </msg>
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>

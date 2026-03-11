@@ -18,6 +18,11 @@ public class F_propertyForm : Form
 	public BaseInputControl PropertiesMain_photo => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__MAIN_PHOTO", "#F_PROPERTY__PROPERTIES__MAIN_PHOTO");
 
 	/// <summary>
+	/// sold
+	/// </summary>
+	public CheckboxInputControl PropertiesSold => new CheckboxInputControl(driver, ContainerLocator, "#container-F_PROPERTY__PROPERTIES__SOLD");
+
+	/// <summary>
 	/// Title
 	/// </summary>
 	public BaseInputControl PropertiesTitle => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTIES__TITLE", "#F_PROPERTY__PROPERTIES__TITLE");

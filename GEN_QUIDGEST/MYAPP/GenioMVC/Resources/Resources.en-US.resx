@@ -222,6 +222,9 @@
 	<data name="DOCUMENT00695" xml:space="preserve">
 		<value>Document</value>
 	</data>
+	<data name="SOLD_PROPERTIES32666" xml:space="preserve">
+		<value>Sold properties</value>
+	</data>
 	<data name="RESULTADO50955" xml:space="preserve">
 		<value>Resultado</value>
 	</data>
@@ -260,6 +263,9 @@
 	</data>
 	<data name="CANCELADO05982" xml:space="preserve">
 		<value>Cancelado</value>
+	</data>
+	<data name="SOLD56700" xml:space="preserve">
+		<value>sold</value>
 	</data>
 	<data name="CREATE_A_WEBSITE_ALE02013" xml:space="preserve">
 		<value>Create a website alert</value>

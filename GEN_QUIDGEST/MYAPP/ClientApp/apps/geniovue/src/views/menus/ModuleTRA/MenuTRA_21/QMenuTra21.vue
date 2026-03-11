@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '21',
 					isMenuList: true,
-					designation: computed(() => this.Resources.PHOTO_ALBUMS01668),
+					designation: computed(() => this.Resources.PROPERTIES34868),
 					acronym: 'TRA_21',
-					name: 'PHOTO_ALBUM',
+					name: 'PROPERTIES',
 					route: 'menu-TRA_21',
 					order: '21',
-					controller: 'PHOTO_ALBUM',
+					controller: 'PROPERTIES',
 					action: 'TRA_Menu_21',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'TRA_Menu_21',
-						controller: 'PHOTO_ALBUM',
+						controller: 'PROPERTIES',
 						action: 'TRA_Menu_21',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,32 +148,132 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValTitle',
-								area: 'PHOTO_ALBUM',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE21885),
-								dataLength: 50,
+								name: 'ValDescription',
+								area: 'PROPERTIES',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07383),
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
+							new listColumnTypes.NumericColumn({
 								order: 2,
-								name: 'Properties.ValTitle',
+								name: 'ValBuildingage',
+								area: 'PROPERTIES',
+								field: 'BUILDINGAGE',
+								label: computed(() => this.Resources.BUILDING_AGE37966),
+								scrollData: 10,
+								maxDigits: 10,
+								decimalPlaces: 0,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValTitle',
 								area: 'PROPERTIES',
 								field: 'TITLE',
 								label: computed(() => this.Resources.TITLE21885),
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
-								pkColumn: 'ValCodproperties',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 4,
+								name: 'ValTypology',
+								area: 'PROPERTIES',
+								field: 'TYPOLOGY',
+								label: computed(() => this.Resources.TYPOLOGY11991),
+								scrollData: 1,
+								maxDigits: 1,
+								decimalPlaces: 0,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayTypology.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.CurrencyColumn({
+								order: 5,
+								name: 'ValPrice',
+								area: 'PROPERTIES',
+								field: 'PRICE',
+								label: computed(() => this.Resources.PRICE06900),
+								scrollData: 15,
+								maxDigits: 10,
+								decimalPlaces: 4,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 6,
+								name: 'ValDateconstruction',
+								area: 'PROPERTIES',
+								field: 'DATECONSTRUCTION',
+								label: computed(() => this.Resources.CONSTRUCTION_DATE18132),
+								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 7,
+								name: 'Broker.ValName',
+								area: 'BROKER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+								pkColumn: 'ValCodbroker',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 8,
+								name: 'ValBuildingtype',
+								area: 'PROPERTIES',
+								field: 'BUILDINGTYPE',
+								label: computed(() => this.Resources.BUILDING_TYPE34158),
+								dataLength: 1,
+								scrollData: 1,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayBuilding_type.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 9,
+								name: 'ValOrder',
+								area: 'PROPERTIES',
+								field: 'ORDER',
+								label: computed(() => this.Resources.ID48520),
+								scrollData: 8,
+								maxDigits: 8,
+								decimalPlaces: 0,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 10,
+								name: 'ValBathroomsnumber',
+								area: 'PROPERTIES',
+								field: 'BATHROOMSNUMBER',
+								label: computed(() => this.Resources.BATHROOM_COUNT05757),
+								scrollData: 15,
+								maxDigits: 15,
+								decimalPlaces: 0,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 11,
+								name: 'ValSizem2',
+								area: 'PROPERTIES',
+								field: 'SIZEM2',
+								label: computed(() => this.Resources.SIZE_M254142),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 3,
-								name: 'ValPhoto',
-								area: 'PHOTO_ALBUM',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO51874),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								order: 12,
+								name: 'ValMain_photo',
+								area: 'PROPERTIES',
+								field: 'MAIN_PHOTO',
+								label: computed(() => this.Resources.MAIN_PHOTO18723),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.MAIN_PHOTO18723)),
 								scrollData: 3,
 								sortable: false,
 								searchable: false,
@@ -183,12 +283,12 @@
 						config: {
 							name: 'TRA_Menu_21',
 							serverMode: true,
-							pkColumn: 'ValCodphoto_album',
-							tableAlias: 'PHOTO_ALBUM',
-							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUMS01668),
+							pkColumn: 'ValCodproperties',
+							tableAlias: 'PROPERTIES',
+							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.PHOTO_ALBUMS01668),
+							tableTitle: computed(() => this.Resources.PROPERTIES34868),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -209,7 +309,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_PROPERTY',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -225,7 +325,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_PROPERTY',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -241,7 +341,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_PROPERTY',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -257,7 +357,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_PROPERTY',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -275,7 +375,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'F_PHOTO_ALBUM',
+										formName: 'F_PROPERTY',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -292,35 +392,65 @@
 							],
 							rowClickAction: {
 								id: 'RCA_TRA_211',
-								name: 'form-F_PHOTO_ALBUM',
+								name: 'form-F_PROPERTY',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodphoto_album
+											fnValueSelector: (row) => row.ValCodproperties
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_PHOTO_ALBUM'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'F_PROPERTY'
 								}
 							},
 							formsDefinition: {
-								'F_PHOTO_ALBUM': {
-									fnKeySelector: (row) => row.Fields.ValCodphoto_album,
+								'F_PROPERTY': {
+									fnKeySelector: (row) => row.Fields.ValCodproperties,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
 								columnName: 'ValTitle',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PROPERTIES', 'changed-PHOTO_ALBUM'],
-						uuid: '30ce0abf-7f61-4c8f-95e0-16f28ee342ab',
+						groupFilters: [
+							{
+								id: 'filter_TRA_Menu_21_BUILDINGTY',
+								isMultiple: false,
+								items: [
+									{
+										id: 'filter_TRA_Menu_21_BUILDINGTY_1',
+										value: computed(() => this.Resources.APARTMENT12665),
+										key: '1'
+									},
+									{
+										id: 'filter_TRA_Menu_21_BUILDINGTY_2',
+										value: computed(() => this.Resources.HOUSE18848),
+										key: '2'
+									},
+									{
+										id: 'filter_TRA_Menu_21_BUILDINGTY_3',
+										value: computed(() => this.Resources.OTHER37293),
+										key: '3'
+									},
+									{
+										id: 'filter_TRA_Menu_21_BUILDINGTY_4',
+										value: computed(() => this.Resources.ALL22753),
+										key: '4'
+									},
+								],
+								selected: undefined,
+								default: undefined
+							},
+						],
+						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTIES'],
+						uuid: '0208c5d1-59f0-44a7-afd6-ceab834ec31c',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

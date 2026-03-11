@@ -6,16 +6,16 @@ using GenioMVC.Models.Navigation;
 
 namespace GenioMVC.ViewModels.Properties;
 
-public class TRA_Menu_51_RowViewModel : Models.Properties
+public class TRA_Menu_511_RowViewModel : Models.Properties
 {
 	#region Constructors
 
-	public TRA_Menu_51_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_511_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public TRA_Menu_51_RowViewModel(UserContext userContext, CSGenioAproperties val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_511_RowViewModel(UserContext userContext, CSGenioAproperties val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -43,65 +43,83 @@ public class TRA_Menu_51_RowViewModel : Models.Properties
 			{
 				Order = 2,
 				Area = "PROPERTIES",
-				Field = "BUILDINGAGE",
+				Field = "GROUNDSIZE",
 			},
 			new ListColumn()
 			{
 				Order = 3,
 				Area = "PROPERTIES",
-				Field = "TITLE",
+				Field = "BUILDINGAGE",
 			},
 			new ListColumn()
 			{
 				Order = 4,
 				Area = "PROPERTIES",
-				Field = "TYPOLOGY",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{
 				Order = 5,
 				Area = "PROPERTIES",
-				Field = "PRICE",
+				Field = "TYPOLOGY",
 			},
 			new ListColumn()
 			{
 				Order = 6,
 				Area = "PROPERTIES",
-				Field = "DATECONSTRUCTION",
+				Field = "PRICE",
 			},
 			new ListColumn()
 			{
 				Order = 7,
+				Area = "PROPERTIES",
+				Field = "DATECONSTRUCTION",
+			},
+			new ListColumn()
+			{
+				Order = 8,
 				Area = "BROKER",
 				Field = "NAME",
 			},
 			new ListColumn()
 			{
-				Order = 8,
+				Order = 9,
 				Area = "PROPERTIES",
 				Field = "BUILDINGTYPE",
 			},
 			new ListColumn()
 			{
-				Order = 9,
-				Area = "PROPERTIES",
-				Field = "ORDER",
-			},
-			new ListColumn()
-			{
 				Order = 10,
 				Area = "PROPERTIES",
-				Field = "BATHROOMSNUMBER",
+				Field = "SOLD",
 			},
 			new ListColumn()
 			{
 				Order = 11,
 				Area = "PROPERTIES",
-				Field = "SIZEM2",
+				Field = "FLOORNUMBER",
 			},
 			new ListColumn()
 			{
 				Order = 12,
+				Area = "PROPERTIES",
+				Field = "ORDER",
+			},
+			new ListColumn()
+			{
+				Order = 13,
+				Area = "PROPERTIES",
+				Field = "BATHROOMSNUMBER",
+			},
+			new ListColumn()
+			{
+				Order = 14,
+				Area = "PROPERTIES",
+				Field = "SIZEM2",
+			},
+			new ListColumn()
+			{
+				Order = 15,
 				Area = "PROPERTIES",
 				Field = "MAIN_PHOTO",
 			},
@@ -118,10 +136,6 @@ public class TRA_Menu_51_RowViewModel : Models.Properties
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
-
-		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
-		{
-		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

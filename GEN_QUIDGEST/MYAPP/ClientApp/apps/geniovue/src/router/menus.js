@@ -19,6 +19,20 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/TRA/menu/TRA_21',
+			name: 'menu-TRA_21',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_21/QMenuTra21.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'TRA',
+				order: '21',
+				baseArea: 'PROPERTIES',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle', 'ValPrice'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/TRA/menu/TRA_411',
 			name: 'menu-TRA_411',
 			component: () => import('@/views/menus/ModuleTRA/MenuTRA_411/QMenuTra411.vue'),
@@ -35,13 +49,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/TRA/menu/TRA_51',
-			name: 'menu-TRA_51',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_51/QMenuTra51.vue'),
+			path: '/:culture/:system/TRA/menu/TRA_511',
+			name: 'menu-TRA_511',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_511/QMenuTra511.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'TRA',
-				order: '51',
+				order: '511',
 				baseArea: 'PROPERTIES',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValTitle', 'ValPrice'],
@@ -73,20 +87,6 @@ export default function getMenusRoutes()
 				baseArea: 'BROKER',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/TRA/menu/TRA_21',
-			name: 'menu-TRA_21',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_21/QMenuTra21.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'TRA',
-				order: '21',
-				baseArea: 'PHOTO_ALBUM',
-				hasInitialPHE: false,
-				humanKeyFields: [],
 				isPopup: false
 			}
 		},

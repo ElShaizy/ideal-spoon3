@@ -46,6 +46,10 @@ namespace GenioMVC.ViewModels.Properties
 		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValMain_photo { get; set; }
 		/// <summary>
+		/// Title: "sold" | Type: "L"
+		/// </summary>
+		public bool ValSold { get; set; }
+		/// <summary>
 		/// Title: "Title" | Type: "C"
 		/// </summary>
 		public string ValTitle { get; set; }
@@ -277,6 +281,7 @@ namespace GenioMVC.ViewModels.Properties
 				ValBroker_fk = ViewModelConversion.ToString(m.ValBroker_fk);
 				ValCodcity_fk = ViewModelConversion.ToString(m.ValCodcity_fk);
 				ValMain_photo = ViewModelConversion.ToImage(m.ValMain_photo);
+				ValSold = ViewModelConversion.ToLogic(m.ValSold);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
@@ -318,6 +323,7 @@ namespace GenioMVC.ViewModels.Properties
 				m.ValCodcity_fk = ViewModelConversion.ToString(ValCodcity_fk);
 				if (ValMain_photo == null || !ValMain_photo.IsThumbnail)
 					m.ValMain_photo = ViewModelConversion.ToImage(ValMain_photo);
+				m.ValSold = ViewModelConversion.ToLogic(ValSold);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
 				m.ValDescription = ViewModelConversion.ToString(ValDescription);
@@ -368,6 +374,9 @@ namespace GenioMVC.ViewModels.Properties
 						break;
 					case "properties.main_photo":
 						this.ValMain_photo = ViewModelConversion.ToImage(_value);
+						break;
+					case "properties.sold":
+						this.ValSold = ViewModelConversion.ToLogic(_value);
 						break;
 					case "properties.title":
 						this.ValTitle = ViewModelConversion.ToString(_value);
@@ -954,6 +963,7 @@ namespace GenioMVC.ViewModels.Properties
 				"properties.broker_fk" => ViewModelConversion.ToString(modelValue),
 				"properties.codcity_fk" => ViewModelConversion.ToString(modelValue),
 				"properties.main_photo" => ViewModelConversion.ToImage(modelValue),
+				"properties.sold" => ViewModelConversion.ToLogic(modelValue),
 				"properties.title" => ViewModelConversion.ToString(modelValue),
 				"properties.price" => ViewModelConversion.ToNumeric(modelValue),
 				"properties.description" => ViewModelConversion.ToString(modelValue),
