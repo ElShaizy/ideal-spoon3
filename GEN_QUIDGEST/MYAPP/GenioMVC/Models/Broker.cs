@@ -70,11 +70,10 @@ namespace GenioMVC.Models
 		public decimal? ValSalesprofit { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSalesprofit, 2)); } set { klass.ValSalesprofit = Convert.ToDecimal(value); } }
 
 		[DisplayName("Last sold")]
-		/// <summary>Field : "Last sold" Tipo: "D" Formula: U1 "PROPERTIES[PROPERTIES->SOLDDATE][PROPERTIES->PRICE]"</summary>
+		/// <summary>Field : "Last sold" Tipo: "$" Formula: U1 "PROPERTIES[PROPERTIES->SOLDDATE][PROPERTIES->PRICE]"</summary>
 		[ShouldSerialize("Broker.ValLastsold")]
-		[DataType(DataType.Date)]
-		[DateAttribute("D")]
-		public DateTime? ValLastsold { get { return klass.ValLastsold; } set { klass.ValLastsold = value ?? DateTime.MinValue; } }
+		[CurrencyAttribute("EUR", 2)]
+		public decimal? ValLastsold { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValLastsold, 2)); } set { klass.ValLastsold = Convert.ToDecimal(value); } }
 
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Broker.ValZzstate")]

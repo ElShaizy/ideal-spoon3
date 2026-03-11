@@ -134,10 +134,12 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "lastsold", FieldType.DATE);
+			Qfield = new Field(info.Alias, "lastsold", FieldType.CURRENCY);
 			Qfield.FieldDescription = "Last sold";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 5;
+			Qfield.Decimals = 2;
 			Qfield.CavDesignation = "LAST_SOLD12635";
 
 			Qfield.Dupmsg = "";
@@ -391,14 +393,14 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSalesprofit, value); }
 		}
 
-		/// <summary>Field : "Last sold" Tipo: "D" Formula: U1 "PROPERTIES[PROPERTIES->SOLDDATE][PROPERTIES->PRICE]"</summary>
+		/// <summary>Field : "Last sold" Tipo: "$" Formula: U1 "PROPERTIES[PROPERTIES->SOLDDATE][PROPERTIES->PRICE]"</summary>
 		public static FieldRef FldLastsold { get { return m_fldLastsold; } }
 		private static FieldRef m_fldLastsold = new FieldRef("broker", "lastsold");
 
-		/// <summary>Field : "Last sold" Tipo: "D" Formula: U1 "PROPERTIES[PROPERTIES->SOLDDATE][PROPERTIES->PRICE]"</summary>
-		public DateTime ValLastsold
+		/// <summary>Field : "Last sold" Tipo: "$" Formula: U1 "PROPERTIES[PROPERTIES->SOLDDATE][PROPERTIES->PRICE]"</summary>
+		public decimal ValLastsold
 		{
-			get { return (DateTime)returnValueField(FldLastsold); }
+			get { return (decimal)returnValueField(FldLastsold); }
 			set { insertNameValueField(FldLastsold, value); }
 		}
 
