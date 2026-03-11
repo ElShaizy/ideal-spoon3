@@ -35,6 +35,20 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/TRA/menu/TRA_51',
+			name: 'menu-TRA_51',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_51/QMenuTra51.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'TRA',
+				order: '51',
+				baseArea: 'PROPERTIES',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle', 'ValPrice'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/TRA/menu/TRA_11',
 			name: 'menu-TRA_11',
 			component: () => import('@/views/menus/ModuleTRA/MenuTRA_11/QMenuTra11.vue'),

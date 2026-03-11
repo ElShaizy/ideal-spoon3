@@ -28,6 +28,18 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/F_CONTACT/:mode/:id?',
+			name: 'form-F_CONTACT',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFContact/QFormFContact.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'CONTACT',
+				humanKeyFields: [],
+				isPopup: true
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/F_COUNTRY/:mode/:id?',
 			name: 'form-F_COUNTRY',
 			props: route => propsConverter(route),
@@ -48,6 +60,18 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'PHOTO_ALBUM',
 				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/F_PROPERTY/:mode/:id?',
+			name: 'form-F_PROPERTY',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFProperty/QFormFProperty.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'PROPERTIES',
+				humanKeyFields: ['ValTitle', 'ValPrice'],
 				isPopup: false
 			}
 		},
