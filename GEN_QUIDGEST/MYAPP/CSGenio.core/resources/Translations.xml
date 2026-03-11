@@ -183,6 +183,9 @@
   <msg id="size m2" code="SIZE_M254142">
     <ENUS>size m2</ENUS>
   </msg>
+  <msg id="all" code="ALL22753">
+    <ENUS>all</ENUS>
+  </msg>
   <msg id="Id" code="ID36840">
     <ENUS>Id</ENUS>
   </msg>
@@ -401,6 +404,9 @@
   </msg>
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
+  </msg>
+  <msg id="house" code="HOUSE18848">
+    <ENUS>house</ENUS>
   </msg>
   <msg id="Main Photo" code="MAIN_PHOTO18723">
     <ENUS>Main Photo</ENUS>

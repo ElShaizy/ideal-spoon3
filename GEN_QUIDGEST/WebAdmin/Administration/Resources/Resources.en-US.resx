@@ -300,6 +300,9 @@
   <data name="SIZE_M254142" xml:space="preserve">
     <value>size m2</value>
   </data>
+  <data name="ALL22753" xml:space="preserve">
+    <value>all</value>
+  </data>
   <data name="ID36840" xml:space="preserve">
     <value>Id</value>
   </data>
@@ -518,6 +521,9 @@
   </data>
   <data name="AVISO03237" xml:space="preserve">
     <value>Aviso</value>
+  </data>
+  <data name="HOUSE18848" xml:space="preserve">
+    <value>house</value>
   </data>
   <data name="MAIN_PHOTO18723" xml:space="preserve">
     <value>Main Photo</value>

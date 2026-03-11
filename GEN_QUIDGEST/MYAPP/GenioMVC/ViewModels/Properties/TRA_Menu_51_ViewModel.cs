@@ -200,7 +200,7 @@ namespace GenioMVC.ViewModels.Properties
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
-			Menu.SetFilters(false, false);
+			Menu.SetFilters(false, true);
 
 			crs.SubSets.Add(ProcessSearchFilters(Menu, GetSearchColumns(tableConfig.ColumnConfigurations), tableConfig));
 
@@ -208,6 +208,51 @@ namespace GenioMVC.ViewModels.Properties
 			//Subfilters
 			CriteriaSet subfilters = CriteriaSet.And();
 
+			if (!tableConfig.GroupFilters.ContainsKey("filter_TRA_Menu_51_BUILDINGTY"))
+			{
+				string defaultValue = "";
+				tableConfig.Filters.Add(new GroupFilter { Key = "filter_TRA_Menu_51_BUILDINGTY", Value = defaultValue });
+			}
+
+			{
+				var groupFilters = CriteriaSet.Or();
+				bool filter_TRA_Menu_51_BUILDINGTY_1 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_TRA_Menu_51_BUILDINGTY"))
+					filter_TRA_Menu_51_BUILDINGTY_1 = tableConfig.GroupFilters["filter_TRA_Menu_51_BUILDINGTY"].Contains("1");
+				if (filter_TRA_Menu_51_BUILDINGTY_1)
+				{
+					groupFilters.Equal(CSGenioAproperties.FldBuildingtype, "A");
+
+				}
+
+				bool filter_TRA_Menu_51_BUILDINGTY_2 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_TRA_Menu_51_BUILDINGTY"))
+					filter_TRA_Menu_51_BUILDINGTY_2 = tableConfig.GroupFilters["filter_TRA_Menu_51_BUILDINGTY"].Contains("2");
+				if (filter_TRA_Menu_51_BUILDINGTY_2)
+				{
+					groupFilters.Equal(CSGenioAproperties.FldBuildingtype, "H");
+
+				}
+
+				bool filter_TRA_Menu_51_BUILDINGTY_3 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_TRA_Menu_51_BUILDINGTY"))
+					filter_TRA_Menu_51_BUILDINGTY_3 = tableConfig.GroupFilters["filter_TRA_Menu_51_BUILDINGTY"].Contains("3");
+				if (filter_TRA_Menu_51_BUILDINGTY_3)
+				{
+					groupFilters.Equal(CSGenioAproperties.FldBuildingtype, "O");
+
+				}
+
+				bool filter_TRA_Menu_51_BUILDINGTY_4 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_TRA_Menu_51_BUILDINGTY"))
+					filter_TRA_Menu_51_BUILDINGTY_4 = tableConfig.GroupFilters["filter_TRA_Menu_51_BUILDINGTY"].Contains("4");
+				if (filter_TRA_Menu_51_BUILDINGTY_4)
+				{
+
+				}
+
+				subfilters.SubSets.Add(groupFilters);
+			}
 
 			crs.SubSets.Add(subfilters);
 

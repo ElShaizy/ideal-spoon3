@@ -122,7 +122,7 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValDescription',
 			area: 'CONTACT',
 			field: 'DESCRIPTION',
-			showWhen: {
+			blockWhen: {
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{

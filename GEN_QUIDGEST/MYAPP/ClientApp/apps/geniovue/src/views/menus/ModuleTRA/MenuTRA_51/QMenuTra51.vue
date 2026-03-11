@@ -419,6 +419,36 @@
 								sortOrder: 'asc'
 							}
 						},
+						groupFilters: [
+							{
+								id: 'filter_TRA_Menu_51_BUILDINGTY',
+								isMultiple: false,
+								items: [
+									{
+										id: 'filter_TRA_Menu_51_BUILDINGTY_1',
+										value: computed(() => this.Resources.APARTMENT12665),
+										key: '1'
+									},
+									{
+										id: 'filter_TRA_Menu_51_BUILDINGTY_2',
+										value: computed(() => this.Resources.HOUSE18848),
+										key: '2'
+									},
+									{
+										id: 'filter_TRA_Menu_51_BUILDINGTY_3',
+										value: computed(() => this.Resources.OTHER37293),
+										key: '3'
+									},
+									{
+										id: 'filter_TRA_Menu_51_BUILDINGTY_4',
+										value: computed(() => this.Resources.ALL22753),
+										key: '4'
+									},
+								],
+								selected: undefined,
+								default: undefined
+							},
+						],
 						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTIES'],
 						uuid: '0208c5d1-59f0-44a7-afd6-ceab834ec31c',
 						allSelectedRows: 'false',
