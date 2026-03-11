@@ -61,6 +61,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "DATE18475";
 
 			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -158,6 +159,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.DefaultValues = new string[] {
+			 "date"
+			};
 
 
 
