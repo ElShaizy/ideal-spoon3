@@ -117,6 +117,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Order"
+		/// </summary>
+		public static string ORDER39632 {
+			get {
+				return ResourceManager.GetString("ORDER39632", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Phone number"
 		/// </summary>
 		public static string PHONE_NUMBER20774 {
@@ -1130,6 +1139,15 @@ namespace GenioMVC.Resources
 		public static string PROCESS_TYPE25967 {
 			get {
 				return ResourceManager.GetString("PROCESS_TYPE25967", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "building age"
+		/// </summary>
+		public static string BUILDING_AGE37966 {
+			get {
+				return ResourceManager.GetString("BUILDING_AGE37966", resourceCulture);
 			}
 		}
 

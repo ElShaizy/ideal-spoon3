@@ -18,6 +18,9 @@
   <msg id="Bathroom count" code="BATHROOM_COUNT05757">
     <ENUS>Bathroom count</ENUS>
   </msg>
+  <msg id="Order" code="ORDER39632">
+    <ENUS>Order</ENUS>
+  </msg>
   <msg id="Phone number" code="PHONE_NUMBER20774">
     <ENUS>Phone number</ENUS>
   </msg>
@@ -356,6 +359,9 @@
   </msg>
   <msg id="Process type" code="PROCESS_TYPE25967">
     <ENUS>Process type</ENUS>
+  </msg>
+  <msg id="building age" code="BUILDING_AGE37966">
+    <ENUS>building age</ENUS>
   </msg>
   <msg id="Start time" code="START_TIME30037">
     <ENUS>Start time</ENUS>
